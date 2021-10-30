@@ -1,0 +1,136 @@
+﻿<Window x:Class="ClothesShopManagement.View.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+        xmlns:local="clr-namespace:ClothesShopManagement.View"
+        mc:Ignorable="d"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        x:Name="LoginWd"
+        Icon="/Resource/Image/icon1.png"
+        DataContext="{StaticResource LoginVM}"
+        Height="500" Width="800">
+    <Border
+        CornerRadius="30,40,40,30"
+        Background="LightPink"
+        >
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <i:InvokeCommandAction Command="{Binding MoveLogin}"
+                                                       CommandParameter="{Binding ElementName=LoginWd}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="280"/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="150"/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <StackPanel Margin="25">
+                        <TextBlock FontSize="26" FontFamily="{StaticResource Custom}" Foreground="White">PHẦN MỀM</TextBlock>
+                        <TextBlock FontSize="26" FontFamily="{StaticResource Custom}" Foreground="White">QUẢN LÝ BÁN HÀNG</TextBlock>
+                    </StackPanel>
+                </Grid>
+                <Grid Grid.Row="1">
+                    <Image Source="/Resource/Image/Login1.png" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+                </Grid>
+            </Grid>
+            <Border Grid.Column="1" Background="#17181F"
+                    CornerRadius="0,30,30,0"
+                    BorderThickness="0"
+                    >
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="150"></RowDefinition>
+                        <RowDefinition></RowDefinition>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Row="0">
+                        <StackPanel HorizontalAlignment="Right" Margin="0,10,20,0" Orientation="Horizontal">
+                            <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="24" Width="24" Margin="0,0,8,0">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding MinimizeLogin}"
+                                                       CommandParameter="{Binding ElementName=LoginWd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </materialDesign:PackIcon>
+                            <materialDesign:PackIcon Kind="CloseThick" Foreground="White" Height="24" Width="24">
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="MouseLeftButtonDown">
+                                        <i:InvokeCommandAction Command="{Binding CloseLogin}"
+                                                       CommandParameter="{Binding ElementName=LoginWd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </materialDesign:PackIcon>
+                        </StackPanel>
+                        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,-10">
+                            <TextBlock FontSize="24" FontFamily="{StaticResource Custom}" Foreground="LightPink">CHÀO MỪNG</TextBlock>
+                            <TextBlock FontSize="24" FontFamily="{StaticResource Custom}" Foreground="LightPink"> TRỞ LẠI VỚI KATEE</TextBlock>
+                        </StackPanel>
+                    </Grid>
+                    <Grid Grid.Row="1">
+                        <StackPanel Margin="0,20,0,0">
+                            <TextBox
+                                Style="{StaticResource MaterialDesignFilledTextBox}"
+                                Background="White"
+                                Height="48"
+                                Width="250"
+                                FontSize="12"
+                                FontWeight="Bold"
+                                materialDesign:HintAssist.Foreground="LightPink"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Lightpink"
+                                VerticalAlignment="Top"
+                                AcceptsReturn="True"
+                                TextWrapping="Wrap"
+                                MaxWidth="400"
+                                Margin="0,0,0,10"
+                                x:Name="dangnhap"
+                                FontFamily="{StaticResource Custom}"
+                                materialDesign:HintAssist.Hint="TÊN ĐĂNG NHẬP"
+                                />
+                            <PasswordBox
+                                Style="{StaticResource MaterialDesignFilledPasswordBox}"
+                                VerticalAlignment="Top"
+                                Background="White"
+                                Margin="0,0,0,60"
+                                Height="48"
+                                Width="250"
+                                FontSize="12"
+                                FontWeight="Bold"
+                                FontFamily="{StaticResource Custom}"
+                                materialDesign:HintAssist.Foreground="LightPink"
+                                materialDesign:TextFieldAssist.UnderlineBrush="Lightpink"
+                                materialDesign:HintAssist.Hint="MẬT KHẨU" />
+                            <Button
+                                Content="ĐĂNG NHẬP"
+                                Height="47"
+                                Width="252"
+                                FontFamily="{StaticResource Custom}"
+                                Background="LightPink"
+                                Foreground="white"
+                                BorderBrush="Transparent"                
+                                >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction Command="{Binding Login}"
+                                                       CommandParameter="{Binding ElementName=LoginWd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
+                        </StackPanel>
+                    </Grid>
+                </Grid>
+            </Border>
+        </Grid>
+    </Border>
+</Window>

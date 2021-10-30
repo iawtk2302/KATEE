@@ -1,0 +1,67 @@
+﻿<Page x:Class="ClothesShopManagement.View.HomeView"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ClothesShopManagement.View"
+      mc:Ignorable="d" 
+      d:DesignHeight="550" d:DesignWidth="665"
+      >
+
+    <Border
+                    Height="550"
+                    Width="665"
+                    Background="#21222D"
+                    CornerRadius="40"
+                    >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100"/>
+                <RowDefinition Height="150"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <StackPanel>
+                    <TextBlock Text="Xin chào, Khôi!" FontSize="22" FontFamily="{StaticResource Custom}" Foreground="White" Padding="30,20,0,0"/>
+                    <TextBlock Text="Bắt đầu công việc nào !" FontSize="17" FontFamily="{StaticResource Custom}" Foreground="#808080" Padding="30,5,0,0"/>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Canvas>
+                    <Border
+                                    CornerRadius="20"
+                                    Background="#6C72CD"
+                                    Height="130"
+                                    Width="190"
+                        Margin="23.75,0,0,0"
+                                    />
+                    <Border
+                                    CornerRadius="20"
+                                    Background="#FFAC4D"
+                                    Height="130"
+                        Margin="237.5,0,0,0"
+                                    Width="190" 
+                                    
+                                    />
+                    <Border
+                                    CornerRadius="20"
+                                    Background="#CB68C3"
+                                    Height="130"
+                        Margin="451.25,0,0,0"
+                                    Width="190"  
+                                    />
+                </Canvas>
+            </Grid>
+            <Grid Grid.Row="2">
+                <Border
+                                Height="270"
+                                Width="617.5"
+                                Background="AliceBlue"
+                                CornerRadius="25"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center" 
+                                />
+            </Grid>
+        </Grid>
+    </Border>
+</Page>
