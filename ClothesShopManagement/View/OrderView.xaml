@@ -5,12 +5,12 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClothesShopManagement.View"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="550"
+      d:DesignHeight="550" d:DesignWidth="665"
       >
 
     <Border
                     Height="550"
-                    Width="550"
+                    Width="665"
                     Background="#21222D"
                     CornerRadius="40"
                     Padding="13.75,0,6.875,0"

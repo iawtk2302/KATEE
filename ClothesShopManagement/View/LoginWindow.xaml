@@ -14,7 +14,7 @@
         x:Name="LoginWd"
         Icon="/Resource/Image/icon1.png"
         DataContext="{StaticResource LoginVM}"
-        Height="500" Width="800">
+        Height="500" Width="800" WindowStartupLocation="CenterScreen">
     <Border
         CornerRadius="30,40,40,30"
         Background="LightPink"
