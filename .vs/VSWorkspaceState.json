@@ -2,8 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\ClothesShopManagement",
-    "\\ClothesShopManagement\\Resource"
+    "\\ClothesShopManagement\\ViewModel"
   ],
-  "SelectedNode": "\\ClothesShopManagement\\Resource\\MainResource.xaml",
+  "SelectedNode": "\\ClothesShopManagement\\ViewModel\\ProductsViewModel.cs",
   "PreviewInSolutionExplorer": false
 }
