@@ -41,6 +41,11 @@ namespace ClothesShopManagement.ViewModel
                         p.Main.NavigationService.Navigate(new OrderView());
                         break;
                     }
+                case 2:
+                    {
+                        p.Main.NavigationService.Navigate(new ProductsView());
+                        break;
+                    }
                 default:
                     {
                         break;

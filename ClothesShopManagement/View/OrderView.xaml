@@ -4,62 +4,66 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClothesShopManagement.View"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
-      d:DesignHeight="550" d:DesignWidth="550"
+      d:DesignHeight="550" d:DesignWidth="665"
       >
-
     <Border
                     Height="550"
-                    Width="550"
+                    Width="665"
                     Background="#21222D"
                     CornerRadius="40"
                     Padding="13.75,0,6.875,0"
                     >
         <Grid>
             <Grid.RowDefinitions>
-                <RowDefinition Height="100"/>
-                <RowDefinition Height="150"/>
+                <RowDefinition Height="65"/>
+                <RowDefinition Height="80"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <StackPanel>
-                    <TextBlock Text="Xin chào, Khôi!" FontSize="22" FontWeight="Bold" Foreground="White" Padding="30,20,0,0"/>
-                    <TextBlock Text="Bắt đầu công việc nào !" FontSize="17" FontWeight="Bold" Foreground="#808080" Padding="30,5,0,0"/>
-                </StackPanel>
+                <TextBlock VerticalAlignment="Center" 
+                           FontSize="30" Margin="20,0,0,0" 
+                           FontFamily="{StaticResource Custom}" Foreground="White" 
+                           >ĐƠN HÀNG</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                <Canvas>
-                    <Border
-                                    CornerRadius="20"
-                                    Background="GreenYellow"
-                                    Height="120"
-                                    Width="165"
-                                    />
-                    <Border
-                                    CornerRadius="20"
-                                    Background="Aquamarine"
-                                    Height="120"
-                                    Width="164" Canvas.Left="357" 
-                                    
-                                    />
-                    <Border
-                                    CornerRadius="20"
-                                    Background="LightYellow"
-                                    Height="120"
-                                    Width="164" Canvas.Left="180" 
-                                    />
-                </Canvas>
+                <StackPanel Orientation="Horizontal">
+                    <TextBox
+                                Width="350"
+                                Height="40"
+                                Margin="20,0,0,0"
+                                BorderBrush="White"
+                                Foreground="White"
+                                FontSize="16"
+                                FontWeight="SemiBold"
+                                materialDesign:HintAssist.Hint="Tìm Kiếm"
+                                materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                                materialDesign:HintAssist.Foreground="White"
+                                materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                materialDesign:TextFieldAssist.TextBoxViewMargin="10,3,0,0"
+                                BorderThickness="2"
+                                VerticalAlignment="Center" CaretBrush="White" />
+                    <Button
+                        Margin="60,0,0,0"
+                        Width="90"
+                        Height="40"
+                        Background="LightPink"
+                        BorderBrush="LightPink"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                        >THÊM</Button>
+                    <Button
+                        Margin="10,0,0,0"
+                        Width="90"
+                        Height="40"
+                        materialDesign:ButtonAssist.CornerRadius="6"
+                        Background="LightPink"
+                        BorderBrush="LightPink"
+                        >XÓA</Button>
+                </StackPanel>
             </Grid>
-            <Grid Grid.Row="2">
-                <Border
-                                Height="254"
-                                Width="525"
-                                Background="LightPink"
-                                CornerRadius="25"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center" Margin="-1.5,23,6.333,23"
-                                />
-            </Grid>
+            
         </Grid>
     </Border>
 </Page>
