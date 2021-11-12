@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\ClothesShopManagement",
+    "\\ClothesShopManagement\\Model",
     "\\ClothesShopManagement\\Resource"
   ],
-  "SelectedNode": "\\ClothesShopManagement\\Resource\\MainResource.xaml",
+  "SelectedNode": "\\ClothesShopManagement\\Model\\Model1.edmx",
   "PreviewInSolutionExplorer": false
 }
