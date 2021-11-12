@@ -68,7 +68,7 @@
                     Margin="30,0,0,0"
                     VerticalScrollBarVisibility="Hidden">
                     <StackPanel>
-                        <ItemsControl x:Name="ListViewProduct" ItemsSource="{Binding listproduct}">
+                        <ItemsControl x:Name="ListViewProduct" ItemsSource="{Binding listSP}">
                             <ItemsControl.ItemTemplate>
                                 <DataTemplate>
                                     <Border
@@ -79,7 +79,7 @@
                                         CornerRadius="15"
                                         >
                                         <StackPanel>
-                                            <Image  Source="{Binding image}" 
+                                            <Image  Source="{Binding HINHSP}" 
                                                     Height="132" 
                                                     Width="120"
                                                     />
@@ -87,13 +87,13 @@
                                                     FontFamily="{StaticResource Custom}"
                                                     FontSize="14"
                                                     HorizontalAlignment="Center"
-                                                    Text="{Binding name}"
+                                                    Text="{Binding TENSP}"
                                                     />
                                             <TextBlock
                                                     FontFamily="{StaticResource Custom}"
                                                     FontSize="14"
                                                     HorizontalAlignment="Center"
-                                                    Text="{Binding price}"
+                                                    Text="{Binding GIA}"
                                                     />
                                         </StackPanel>
                                     </Border>

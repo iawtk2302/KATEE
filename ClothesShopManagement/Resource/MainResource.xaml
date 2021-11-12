@@ -4,4 +4,5 @@
     <viewmodel:LoginViewModel x:Key="LoginVM"></viewmodel:LoginViewModel>
     <viewmodel:MainViewModel x:Key="MainVM"></viewmodel:MainViewModel>
     <viewmodel:ProductsViewModel x:Key="ProductsVM"></viewmodel:ProductsViewModel>
+    <viewmodel:Base64ImageConverter x:Key="Base64toimg"></viewmodel:Base64ImageConverter>
 </ResourceDictionary>

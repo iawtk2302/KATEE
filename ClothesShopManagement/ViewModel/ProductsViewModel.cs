@@ -1,46 +1,21 @@
-﻿using System;
+﻿using ClothesShopManagement.Model;
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ClothesShopManagement.ViewModel
 {
-    public class Product
-    {
-        public string image { get; set; }
-        public string name { get; set; }
-        public string price { get; set; }
-        public Product()
-        {
-            image = "/Resource/Image/ao.jpg";
-            name = "Sample";
-            price = "350.000VND";
-        }
-    }
     public class ProductsViewModel:BaseViewModel 
     {
-        public ObservableCollection<Product> listproduct { get; set; }
+        private ObservableCollection<SANPHAM> _listSP;
+        public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; OnPropertyChanged(); } }
         public ProductsViewModel()
         {
-            listproduct = new ObservableCollection<Product>();
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-            listproduct.Add(new Product());
-        }    
+            listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs);
+        }
     }
 }
