@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\ClothesShopManagement",
+    "\\ClothesShopManagement\\Resource"
   ],
-  "SelectedNode": "\\D:\\Trang\\Bài\\Đồ án LTTQ",
+  "SelectedNode": "\\ClothesShopManagement\\Resource\\MainResource.xaml",
   "PreviewInSolutionExplorer": false
 }
