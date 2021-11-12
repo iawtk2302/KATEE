@@ -22,7 +22,7 @@ namespace ClothesShopManagement.ViewModel
 
         public ProductsViewModel()
         {
-            listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(gr => gr.FirstOrDefault()));   
+            listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));   
             loadLSP();
         }
         public void loadLSP()
