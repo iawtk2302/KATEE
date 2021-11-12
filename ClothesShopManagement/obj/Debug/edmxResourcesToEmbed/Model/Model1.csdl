@@ -63,7 +63,7 @@
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
     <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="PASS" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="PASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="QTV" Type="Boolean" Nullable="false" />
     <Property Name="TTND" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK_HD_ND" FromRole="NGUOIDUNG" ToRole="HOADON" />
@@ -93,6 +93,16 @@
     <Property Name="SIZE" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_SP" FromRole="SANPHAM" ToRole="CTHD" />
     <NavigationProperty Name="CTPNs" Relationship="Self.FK_CN_SP" FromRole="SANPHAM" ToRole="CTPN" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK_CT_HD">
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
@@ -186,6 +196,7 @@
     <EntitySet Name="NGUOIDUNGs" EntityType="Self.NGUOIDUNG" />
     <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
     <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK_CT_HD" Association="Self.FK_CT_HD">
       <End Role="HOADON" EntitySet="HOADONs" />
       <End Role="CTHD" EntitySet="CTHDs" />

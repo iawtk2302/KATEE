@@ -15,7 +15,10 @@ namespace ClothesShopManagement.ViewModel
         public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; OnPropertyChanged(); } }
         public ProductsViewModel()
         {
-            listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs);
+
+            listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
+
+
         }
     }
 }
