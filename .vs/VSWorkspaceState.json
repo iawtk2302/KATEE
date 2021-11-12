@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\ClothesShopManagement",
-    "\\ClothesShopManagement\\ViewModel"
+    "\\ClothesShopManagement\\Model",
+    "\\ClothesShopManagement\\Resource"
   ],
-  "SelectedNode": "\\ClothesShopManagement\\ViewModel\\ProductsViewModel.cs",
+  "SelectedNode": "\\ClothesShopManagement\\Model\\Model1.edmx",
   "PreviewInSolutionExplorer": false
 }
