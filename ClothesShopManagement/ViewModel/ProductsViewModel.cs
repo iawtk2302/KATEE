@@ -34,7 +34,7 @@ namespace ClothesShopManagement.ViewModel
             listLSP = temp;
             ChoosePDCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _ChoosePDCommand(p));
             SearchCommand= new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
-            DetailPdCommand= new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _DetailPd(p));
+            DetailPdCommand= new RelayCommand<ProductsView>((p) => { return p.ListViewProduct.SelectedItem  == null ? false : true; }, (p) => _DetailPd(p));
         }
         void _ChoosePDCommand(ProductsView paramater)
         {
@@ -66,7 +66,7 @@ namespace ClothesShopManagement.ViewModel
         {
             DetailProduct detailProduct = new DetailProduct();
             SANPHAM temp= (SANPHAM)paramater.ListViewProduct.SelectedItem;
-            detailProduct.MaSP.Text = "Mã SP" + temp.MASP;
+            detailProduct.MaSP.Text ="Mã SP: " + temp.MASP;
             detailProduct.TenSP.Text = temp.TENSP;
             detailProduct.GiaSP.Text = temp.GIA.ToString();
             Uri fileUri = new Uri(temp.HINHSP, UriKind.Relative);
