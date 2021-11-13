@@ -81,6 +81,7 @@
                     <Grid Grid.Row="1">
                         <StackPanel Margin="0,20,0,0">
                             <TextBox
+                                Text="{Binding Username}"
                                 Style="{StaticResource MaterialDesignFilledTextBox}"
                                 Background="White"
                                 Height="48"
@@ -98,7 +99,7 @@
                                 FontFamily="{StaticResource Custom}"
                                 materialDesign:HintAssist.Hint="TÊN ĐĂNG NHẬP"
                                 />
-                            <PasswordBox
+                            <PasswordBox x:Name="password"
                                 Style="{StaticResource MaterialDesignFilledPasswordBox}"
                                 VerticalAlignment="Top"
                                 Background="White"
@@ -110,7 +111,14 @@
                                 FontFamily="{StaticResource Custom}"
                                 materialDesign:HintAssist.Foreground="LightPink"
                                 materialDesign:TextFieldAssist.UnderlineBrush="Lightpink"
-                                materialDesign:HintAssist.Hint="MẬT KHẨU" />
+                                materialDesign:HintAssist.Hint="MẬT KHẨU" >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="PasswordChanged">
+                                        <i:InvokeCommandAction Command="{Binding PasswordChangedCommand}"
+                                                       CommandParameter="{Binding ElementName=password}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </PasswordBox>
                             <Button
                                 Content="ĐĂNG NHẬP"
                                 Height="47"
