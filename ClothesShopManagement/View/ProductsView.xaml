@@ -111,49 +111,53 @@
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">
-                <ScrollViewer 
-                    Margin="30,0,0,0"
-                    VerticalScrollBarVisibility="Hidden">
-                    <StackPanel>
-                        <ItemsControl x:Name="ListViewProduct" ItemsSource="{Binding listSP}">
-                            <ItemsControl.ItemTemplate>
-                                <DataTemplate>
-                                    <Border
+                <ListView x:Name="ListViewProduct" ItemsSource="{Binding listSP}"
+                          SelectionMode="Single"
+                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                        >
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <Border
                                         Margin="10"
-                                        Height="170"
-                                        Width="130"
+                                        Height="200"
+                                        Width="160"
                                         Background="White"
                                         CornerRadius="15"
                                         >
-                                        <StackPanel>
-                                            <Image  Source="{Binding HINHSP}" 
-                                                    Height="132" 
-                                                    Width="120"
+                                    <StackPanel>
+                                        <Image  
+                                                    Source="{Binding HINHSP}" 
+                                                    Height="154" 
+                                                    Width="140"
                                                     />
-                                            <TextBlock
+                                        <TextBlock
                                                     FontFamily="{StaticResource Custom}"
                                                     FontSize="14"
                                                     HorizontalAlignment="Center"
                                                     Text="{Binding TENSP}"
                                                     />
-                                            <TextBlock
+                                        <TextBlock
                                                     FontFamily="{StaticResource Custom}"
                                                     FontSize="14"
                                                     HorizontalAlignment="Center"
                                                     Text="{Binding GIA}"
                                                     />
-                                        </StackPanel>
-                                    </Border>
-                                </DataTemplate>
-                            </ItemsControl.ItemTemplate>
-                            <ItemsControl.ItemsPanel>
-                                <ItemsPanelTemplate>
-                                    <WrapPanel/>
-                                </ItemsPanelTemplate>
-                            </ItemsControl.ItemsPanel>
-                        </ItemsControl>
-                    </StackPanel>
-                </ScrollViewer>
+                                    </StackPanel>
+                                </Border>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                    <i:Interaction.Triggers>
+                        <i:EventTrigger EventName="SelectionChanged">
+                            <i:InvokeCommandAction Command="{Binding DetailPdCommand}"
+                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                        </i:EventTrigger>
+                    </i:Interaction.Triggers>
+                </ListView>
             </Grid>
         </Grid>
     </Border>

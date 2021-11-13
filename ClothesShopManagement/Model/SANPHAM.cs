@@ -25,6 +25,7 @@ namespace ClothesShopManagement.Model
         public string TENSP { get; set; }
         public string DVT { get; set; }
         public Nullable<decimal> GIA { get; set; }
+        public string MOTA { get; set; }
         public string HINHSP { get; set; }
         public Nullable<int> SL { get; set; }
         public string LOAISP { get; set; }
