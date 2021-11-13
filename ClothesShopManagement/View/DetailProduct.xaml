@@ -24,6 +24,10 @@
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
                                        CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
             </i:EventTrigger>
+            <i:EventTrigger EventName="Loaded">
+                <i:InvokeCommandAction Command="{Binding GetName}"
+                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+            </i:EventTrigger>
         </i:Interaction.Triggers>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -67,15 +71,17 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <StackPanel Orientation="Vertical"
-                                Margin="15,50,0,0"
+                                Margin="15,30,0,0"
                                 >
                         <TextBlock Text="Mã SP: 1234"
                                    FontSize="14"
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="MaSP"
                                    />
-                        <TextBlock Text="SAMPLE"
+                        <TextBox Text="SAMPLE"
                                    FontSize="30"
+                                   materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                   BorderThickness="0"
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="TenSP"
                                    />
@@ -84,31 +90,84 @@
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="GiaSP"
                                    />
-                        <TextBlock Text="Loại sản phẩm: Áo thun"
+                        <StackPanel Orientation="Horizontal">
+                            <TextBlock
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="14"
+                                VerticalAlignment="Center"
+                                Text="Loại sản phẩm: "
+                                />
+                            <TextBox 
+                                VerticalAlignment="Center"
                                    FontSize="14"
+                                   materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                   BorderThickness="0"
                                    FontFamily="{StaticResource Custom}"
-                                   Margin="0,10,0,10"
                                    x:Name="LoaiSP"
                                    />
+                        </StackPanel>
                         <TextBlock Text="Số lượng tồn: 40"
                                    FontSize="14"
                                    FontFamily="{StaticResource Custom}"
                                    Margin="0,0,0,10"
                                    x:Name="SLSP"
                                    />
-                        <TextBlock Text="Kích cỡ:"
-                                   FontSize="14"
-                                   FontFamily="{StaticResource Custom}"
-                                   x:Name="Size"
+                        <StackPanel>
+                            <TextBlock  Text="Kích cỡ:"
+                                        FontSize="14"
+                                        FontFamily="{StaticResource Custom}"
+                                        x:Name="Size"
                                    />
+                            <ItemsControl x:Name="DtSize">
+                                <ItemsControl.ItemTemplate>
+                                    <DataTemplate>
+                                        <Border
+                                        Margin="2"
+                                        Height="20"
+                                        Width="50"
+                                        Background="LightPink"
+                                        CornerRadius="10"
+                                        >
+                                            <TextBlock Text="{Binding SIZE}"
+                                                       FontFamily="{StaticResource Custom}"
+                                                       VerticalAlignment="Center"
+                                                       HorizontalAlignment="Center"
+                                                       />
+                                        </Border>
+                                    </DataTemplate>
+                                </ItemsControl.ItemTemplate>
+                                <ItemsControl.ItemsPanel>
+                                    <ItemsPanelTemplate>
+                                        <WrapPanel/>
+                                    </ItemsPanelTemplate>
+                                </ItemsControl.ItemsPanel>
+                            </ItemsControl>
+                        </StackPanel>
                         <Expander
                             x:Name="Info"
                             Background="Transparent"
                             Header="Chi tiết sản phẩm"
                             FontFamily="{StaticResource Custom}"
                             >
-                            <TextBlock Text="Your Content" />
+                            <TextBox x:Name="Mota"
+                                     TextWrapping="Wrap"
+                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                     BorderThickness="0"
+                                     />
                         </Expander>
+                        <Button Content="CẬP NHẬT"
+                                Margin="0,30,0,0"
+                                Width="230"
+                                Background="LightPink"
+                                BorderThickness="0"
+                                >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding UpdateProduct}"
+                                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
                     </StackPanel>
                 </Grid>
             </Grid>

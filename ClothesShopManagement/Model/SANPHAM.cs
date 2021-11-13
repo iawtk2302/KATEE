@@ -9,10 +9,11 @@
 
 namespace ClothesShopManagement.Model
 {
+    using ClothesShopManagement.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class SANPHAM
+    public partial class SANPHAM:BaseViewModel
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
@@ -22,13 +23,16 @@ namespace ClothesShopManagement.Model
         }
     
         public string MASP { get; set; }
-        public string TENSP { get; set; }
+        private string _TENSP;
+        public string TENSP { get=> _TENSP; set { _TENSP = value; OnPropertyChanged(); } }
         public string DVT { get; set; }
         public Nullable<decimal> GIA { get; set; }
-        public string MOTA { get; set; }
+        private string _MOTA;
+        public string MOTA { get => _MOTA; set { _MOTA = value; OnPropertyChanged(); } }
         public string HINHSP { get; set; }
         public Nullable<int> SL { get; set; }
-        public string LOAISP { get; set; }
+        public string _LOAISP;
+        public string LOAISP { get => _LOAISP; set { _LOAISP = value; OnPropertyChanged(); } }
         public string SIZE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
