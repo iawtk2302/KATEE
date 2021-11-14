@@ -15,6 +15,12 @@
         x:Name="Mainwd"
         Icon="/Resource/Image/icon1.png"
         Height="600" Width="1024" WindowStartupLocation="CenterScreen">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loadwd}"
+                                                       CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers> 
     <Border
         Background="#17181F"
         CornerRadius="40"
@@ -182,7 +188,7 @@
                                 <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Loaded">
                                     <i:InvokeCommandAction Command="{Binding Quyen_Loaded}"
-                                                       CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                                           CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>/>
                             </TextBlock>

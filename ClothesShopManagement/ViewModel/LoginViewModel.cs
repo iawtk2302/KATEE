@@ -58,7 +58,8 @@ namespace ClothesShopManagement.ViewModel
                 Const.TenDangNhap = Username;
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                p.Close();
+                Username = "";
+                p.Hide();              
             }
             else
             {

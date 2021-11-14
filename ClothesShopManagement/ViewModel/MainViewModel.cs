@@ -26,15 +26,11 @@ namespace ClothesShopManagement.ViewModel
         private Visibility _SetQuanLy;
         public Visibility SetQuanLy { get => _SetQuanLy; set { _SetQuanLy = value; OnPropertyChanged(); } }
         public string Name;
+        public ICommand Loadwd { get; set; }
 
         public MainViewModel()
         {
-            if (LoginViewModel.IsLogin)
-            {
-                string a = Const.TenDangNhap;
-                User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
-                SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;                
-            }
+            Loadwd=new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
             CloseLogin = new RelayCommand<MainWindow>((p) => true, (p) => Close());
             MinimizeLogin = new RelayCommand<MainWindow>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<MainWindow>((p) => true, (p) => moveWindow(p));
@@ -44,14 +40,20 @@ namespace ClothesShopManagement.ViewModel
             Quyen_Loaded = new RelayCommand<MainWindow>((p) => true, (p) => LoadQuyen(p));
             LogOutCommand = new RelayCommand<MainWindow>((p) => { return true; }, (p) => LogOut(p));
         }
+        void _Loadwd(MainWindow p)
+        {
+            if (LoginViewModel.IsLogin)
+            {
+                string a = Const.TenDangNhap;
+                User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
+                SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
+            }
+        }
         void LogOut(MainWindow p)
         {
             LoginWindow login = new LoginWindow();
             login.Show();
             p.Close();
-            p = null;
-            User = null;
-            LoginViewModel.IsLogin = false;
         }
         public void LoadTenND(MainWindow p)
         {
