@@ -26,7 +26,7 @@ namespace ClothesShopManagement.ViewModel
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
             SwitchTab = new RelayCommand<MainWindow>((p) => true, (p) => switchtab(p));
         }
-        public void switchtab(MainWindow p)
+        void switchtab(MainWindow p)
         {
             int index = int.Parse(Name);
             switch (index)
@@ -38,6 +38,7 @@ namespace ClothesShopManagement.ViewModel
                     }
                 case 1:
                     {
+
                         p.Main.NavigationService.Navigate(new OrderView());
                         break;
                     }
