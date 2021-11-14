@@ -10,10 +10,17 @@ none
 false
 DEBUG;TRACE
 C:\Users\Admin\OneDrive\Desktop\Đồ án LTTQ\ClothesShopManagement\App.xaml
+<<<<<<< HEAD
 8-1497438628
 2-1556844510
 31334976760
 22-174191115
+=======
+81783160627
+2739969757
+31-1258252770
+22-2050035628
+>>>>>>> master
 Resource\MainResource.xaml;Resource\StylesResource.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
 
 True
