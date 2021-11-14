@@ -26,6 +26,8 @@ namespace ClothesShopManagement.ViewModel
         private Visibility _SetQuanLy;
         public Visibility SetQuanLy { get => _SetQuanLy; set { _SetQuanLy = value; OnPropertyChanged(); } }
         public string Name;
+        private string _Ava;
+        public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public ICommand Loadwd { get; set; }
 
         public MainViewModel()
@@ -47,6 +49,7 @@ namespace ClothesShopManagement.ViewModel
                 string a = Const.TenDangNhap;
                 User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
                 SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
+                Ava = User.AVA;
             }
         }
         void LogOut(MainWindow p)

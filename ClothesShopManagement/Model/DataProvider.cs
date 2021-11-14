@@ -24,11 +24,11 @@ namespace ClothesShopManagement.Model
             }
         }
 
-        public QLBH_Entities1 DB { get; set; }
+        public QLBH_Entities DB { get; set; }
 
         private DataProvider()
         {
-            DB = new QLBH_Entities1();
+            DB = new QLBH_Entities();
         }
     }
 }

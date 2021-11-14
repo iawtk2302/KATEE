@@ -172,7 +172,11 @@
                             CornerRadius="50"
                             Margin="6"
                             >
-                            <materialDesign:PackIcon Kind="Account" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="30"/>
+                            <Ellipse Height="40" Width="40">
+                                <Ellipse.Fill>
+                                    <ImageBrush ImageSource="{Binding Ava}"/>
+                                </Ellipse.Fill>
+                            </Ellipse>
                         </Border>
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
                             <TextBlock x:Name="TenDangNhap" Text="Tuấn Khôi" FontSize="15" Foreground="White" FontFamily="{StaticResource Custom}">
