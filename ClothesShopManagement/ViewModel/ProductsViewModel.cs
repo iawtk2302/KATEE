@@ -7,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
@@ -27,7 +28,7 @@ namespace ClothesShopManagement.ViewModel
             listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));   
             loadLSP();
         }
-        public void loadLSP()
+        void loadLSP()
         {
             ObservableCollection<string> temp= new ObservableCollection<string>(DataProvider.Ins.DB.SANPHAMs.Select(p => p.LOAISP).Distinct().ToList());
             temp.Add("Tất cả");
@@ -38,7 +39,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _ChoosePDCommand(ProductsView paramater)
         {
-            listSP= new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.LOAISP == paramater.cbxLSP.SelectedItem.ToString()));
+            //listSP= new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.LOAISP == paramater.cbxLSP.SelectedItem.ToString()));
             if (paramater.cbxLSP.SelectedItem.ToString() != "Tất cả")
                 paramater.ListViewProduct.ItemsSource = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == paramater.cbxLSP.SelectedItem.ToString()));
             else
@@ -69,9 +70,15 @@ namespace ClothesShopManagement.ViewModel
             detailProduct.MaSP.Text ="Mã SP: " + temp.MASP;
             detailProduct.TenSP.Text = temp.TENSP;
             detailProduct.GiaSP.Text = temp.GIA.ToString();
+            detailProduct.LoaiSP.Text = temp.LOAISP;
+            string SL = DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP).Sum(p=>p.SL).ToString();
+            detailProduct.SLSP.Text ="Số lượng: "+ SL;
+            detailProduct.DtSize.ItemsSource = DataProvider.Ins.DB.SANPHAMs.Where(p=>p.TENSP == temp.TENSP).ToList();
             Uri fileUri = new Uri(temp.HINHSP, UriKind.Relative);
             detailProduct.HinhAnh.Source = new BitmapImage(fileUri);
             detailProduct.ShowDialog();
+            paramater.ListViewProduct.SelectedItem = null;
+            loadLSP();
         }
     }
 }

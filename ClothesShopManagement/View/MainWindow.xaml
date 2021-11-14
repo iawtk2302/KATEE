@@ -98,11 +98,11 @@
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding SwitchTab}"
-                                                       CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                                           CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                                 <i:EventTrigger EventName="MouseMove">
                                     <i:InvokeCommandAction Command="{Binding GetIdTab}"
-                                                       CommandParameter="{Binding ElementName=btnProducts}"></i:InvokeCommandAction>
+                                                           CommandParameter="{Binding ElementName=btnProducts}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </RadioButton>
@@ -138,8 +138,8 @@
                 </Grid>
             </Grid>
 
-            <Frame x:Name="Main" Grid.Column="1" Source="/view/HomeView.xaml" NavigationUIVisibility="Hidden"></Frame>
-
+            <Frame x:Name="Main" Grid.Column="1" Source="/view/HomeView.xaml" NavigationUIVisibility="Hidden" DataContext="{StaticResource MainVM}">
+            </Frame>
             <Grid Grid.Column="2">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="150"></RowDefinition>
@@ -197,6 +197,12 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <Calendar Style="{DynamicResource CalendarStyle1}" CalendarButtonStyle="{DynamicResource CalendarButtonStyle1}" CalendarItemStyle="{DynamicResource CalendarItemStyle1}" CalendarDayButtonStyle="{DynamicResource CalendarDayButtonStyle1}" HorizontalAlignment="Left"/>
+                    <ProgressBar
+                    Style="{StaticResource MaterialDesignCircularProgressBar}"
+                    Value="0"
+                    Visibility="Hidden"
+                    x:Name="aload"
+                    IsIndeterminate="True" />
                 </Grid>
             </Grid>
         </Grid>

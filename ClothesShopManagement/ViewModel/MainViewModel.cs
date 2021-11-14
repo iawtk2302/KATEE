@@ -63,7 +63,7 @@ namespace ClothesShopManagement.ViewModel
         {
             p.Quyen.Text = User.QTV ? "Quản trị viên" : "Nhân viên";
         }
-        public void switchtab(MainWindow p)
+        void switchtab(MainWindow p)
         {
             
             int index = int.Parse(Name);
@@ -76,6 +76,7 @@ namespace ClothesShopManagement.ViewModel
                     }
                 case 1:
                     {
+
                         p.Main.NavigationService.Navigate(new OrderView());
                         break;
                     }
