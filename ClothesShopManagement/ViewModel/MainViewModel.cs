@@ -1,4 +1,5 @@
-﻿using ClothesShopManagement.View;
+﻿using ClothesShopManagement.Model;
+using ClothesShopManagement.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,17 +18,52 @@ namespace ClothesShopManagement.ViewModel
         public ICommand MoveWindow { get; set; }
         public ICommand GetIdTab { get; set; }
         public ICommand SwitchTab { get; set; }
+        public ICommand TenDangNhap_Loaded { get; set; }
+        public ICommand Quyen_Loaded { get; set; }
+        public ICommand LogOutCommand { get; set; }
+        private NGUOIDUNG _User;
+        public NGUOIDUNG User { get => _User; set { _User = value; OnPropertyChanged(); } }
+        private Visibility _SetQuanLy;
+        public Visibility SetQuanLy { get => _SetQuanLy; set { _SetQuanLy = value; OnPropertyChanged(); } }
         public string Name;
+
         public MainViewModel()
         {
+            if (LoginViewModel.IsLogin)
+            {
+                string a = Const.TenDangNhap;
+                User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
+                SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;                
+            }
             CloseLogin = new RelayCommand<MainWindow>((p) => true, (p) => Close());
             MinimizeLogin = new RelayCommand<MainWindow>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<MainWindow>((p) => true, (p) => moveWindow(p));
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
             SwitchTab = new RelayCommand<MainWindow>((p) => true, (p) => switchtab(p));
+            TenDangNhap_Loaded = new RelayCommand<MainWindow>((p) => true, (p) => LoadTenND(p));
+            Quyen_Loaded = new RelayCommand<MainWindow>((p) => true, (p) => LoadQuyen(p));
+            LogOutCommand = new RelayCommand<MainWindow>((p) => { return true; }, (p) => LogOut(p));
+        }
+        void LogOut(MainWindow p)
+        {
+            LoginWindow login = new LoginWindow();
+            login.Show();
+            p.Close();
+            p = null;
+            User = null;
+            LoginViewModel.IsLogin = false;
+        }
+        public void LoadTenND(MainWindow p)
+        {
+            p.TenDangNhap.Text = string.Join(" ", User.TENND.Split().Reverse().Take(2).Reverse());
+        }
+        public void LoadQuyen(MainWindow p)
+        {
+            p.Quyen.Text = User.QTV ? "Quản trị viên" : "Nhân viên";
         }
         public void switchtab(MainWindow p)
         {
+            
             int index = int.Parse(Name);
             switch (index)
             {

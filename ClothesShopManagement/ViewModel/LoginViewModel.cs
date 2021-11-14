@@ -14,6 +14,7 @@ namespace ClothesShopManagement.ViewModel
 {
     public class LoginViewModel : BaseViewModel
     {
+        public static bool IsLogin { get; set; }
         private string _Username;
         public string Username { get => _Username; set { _Username = value; OnPropertyChanged(); } }
         private string _Password;
@@ -25,6 +26,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand PasswordChangedCommand { get; set; }
         public LoginViewModel()
         {
+            IsLogin = false;
             Password = "";
             Username = "";
             CloseLogin = new RelayCommand<LoginWindow>((p) => true, (p) => Close());
@@ -47,13 +49,16 @@ namespace ClothesShopManagement.ViewModel
         }
         public void login(LoginWindow p)
         {
+            if (p == null) return;
             string PassEncode = MD5Hash(Base64Encode(Password));
             var accCount = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == Username && x.PASS == PassEncode).Count();
             if (accCount > 0)
             {
+                IsLogin = true;
+                Const.TenDangNhap = Username;
                 MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
                 p.Close();
-                mainWindow.ShowDialog();
             }
             else
             {

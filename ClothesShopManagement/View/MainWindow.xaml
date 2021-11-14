@@ -105,19 +105,29 @@
                             FontFamily="{StaticResource Custom}"
                             />
                         <RadioButton
+                            Visibility="{Binding SetQuanLy}"
                             Style="{StaticResource BtnStatistic}"
                             FontFamily="{StaticResource Custom}"
                             />
                         <RadioButton
+                            Visibility="{Binding SetQuanLy}"
                             Style="{StaticResource BtnManage}"
                             FontFamily="{StaticResource Custom}"
                             />
                     </StackPanel>
                     <Grid Grid.Row="2" VerticalAlignment="Bottom">
                         <Button
+                            
                             Style="{StaticResource BtnLogOut}"
                             FontFamily="{StaticResource Custom}"
-                            />
+                            >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding LogOutCommand}"
+                                       CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
                     </Grid>
                 </Grid>
             </Grid>
@@ -159,8 +169,23 @@
                             <materialDesign:PackIcon Kind="Account" HorizontalAlignment="Center" VerticalAlignment="Center" Height="30" Width="30"/>
                         </Border>
                         <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
-                            <TextBlock Text="Tuấn Khôi" FontSize="15" Foreground="White" FontFamily="{StaticResource Custom}"/>
-                            <TextBlock Text="Quản trị viên" FontSize="12" Foreground="White" FontFamily="{StaticResource Custom}"/>
+                            <TextBlock x:Name="TenDangNhap" Text="Tuấn Khôi" FontSize="15" Foreground="White" FontFamily="{StaticResource Custom}">
+                                <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding TenDangNhap_Loaded}"
+                                                       CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>/>
+                            </TextBlock>
+
+                            <TextBlock x:Name="Quyen" Text="Quản trị viên" FontSize="12" Foreground="White" FontFamily="{StaticResource Custom}">
+                                <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding Quyen_Loaded}"
+                                                       CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>/>
+                            </TextBlock>
                         </StackPanel>
                     </DockPanel>
                 </Grid>
