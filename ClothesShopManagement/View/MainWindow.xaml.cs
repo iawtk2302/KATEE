@@ -23,5 +23,15 @@ namespace ClothesShopManagement.View
         {
             InitializeComponent();
         }
+
+        private void TenDangNhap_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void Quyen_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
