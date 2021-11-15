@@ -26,8 +26,8 @@
     <Property Name="SOHD" Type="int" Nullable="false" />
     <Property Name="MAND" Type="char" MaxLength="4" />
     <Property Name="MAKH" Type="char" MaxLength="4" />
-    <Property Name="NGHD" Type="smalldatetime" />
-    <Property Name="TRIGIA" Type="money" />
+    <Property Name="NGHD" Type="smalldatetime" Nullable="false" />
+    <Property Name="TRIGIA" Type="bigint" Nullable="false" />
     <Property Name="TTHD" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="KHACHHANG">
@@ -39,7 +39,7 @@
     <Property Name="DCHI" Type="nvarchar" MaxLength="50" />
     <Property Name="SDT" Type="varchar" MaxLength="10" />
     <Property Name="NGSINH" Type="smalldatetime" />
-    <Property Name="DOANHSO" Type="money" />
+    <Property Name="DOANHSO" Type="bigint" Nullable="false" />
     <Property Name="NGDK" Type="smalldatetime" />
     <Property Name="HANGTV" Type="char" MaxLength="5" />
     <Property Name="KM" Type="float" />
@@ -58,6 +58,7 @@
     <Property Name="PASS" Type="nvarchar(max)" />
     <Property Name="QTV" Type="bit" Nullable="false" />
     <Property Name="TTND" Type="bit" Nullable="false" />
+    <Property Name="AVA" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
     <Key>

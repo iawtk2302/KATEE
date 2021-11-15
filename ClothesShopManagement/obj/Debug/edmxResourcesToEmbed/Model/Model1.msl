@@ -60,6 +60,7 @@
           <ScalarProperty Name="PASS" ColumnName="PASS" />
           <ScalarProperty Name="QTV" ColumnName="QTV" />
           <ScalarProperty Name="TTND" ColumnName="TTND" />
+          <ScalarProperty Name="AVA" ColumnName="AVA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

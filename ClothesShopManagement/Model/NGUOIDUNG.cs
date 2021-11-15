@@ -31,6 +31,7 @@ namespace ClothesShopManagement.Model
         public string PASS { get; set; }
         public bool QTV { get; set; }
         public bool TTND { get; set; }
+        public string AVA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }

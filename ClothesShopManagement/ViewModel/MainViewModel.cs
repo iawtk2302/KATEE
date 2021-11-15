@@ -50,7 +50,7 @@ namespace ClothesShopManagement.ViewModel
                 User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
                 SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
                 Const.Admin = User.QTV;
-                //Ava = User.AVA;
+                Ava = User.AVA;
             }
         }
         void LogOut(MainWindow p)

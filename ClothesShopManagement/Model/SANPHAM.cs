@@ -9,11 +9,10 @@
 
 namespace ClothesShopManagement.Model
 {
-    using ClothesShopManagement.ViewModel;
     using System;
     using System.Collections.Generic;
     
-    public partial class SANPHAM:BaseViewModel
+    public partial class SANPHAM
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public SANPHAM()
@@ -23,12 +22,10 @@ namespace ClothesShopManagement.Model
         }
     
         public string MASP { get; set; }
-        private string _TENSP;
-        public string TENSP { get => _TENSP; set { _TENSP = value; OnPropertyChanged(); } }
+        public string TENSP { get; set; }
         public string DVT { get; set; }
         public Nullable<int> GIA { get; set; }
-        private string _MOTA;
-        public string MOTA { get => _MOTA; set { _MOTA = value; OnPropertyChanged(); } }
+        public string MOTA { get; set; }
         public string HINHSP { get; set; }
         public Nullable<int> SL { get; set; }
         public string LOAISP { get; set; }
