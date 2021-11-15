@@ -25,7 +25,7 @@ namespace ClothesShopManagement.Model
         public string DCHI { get; set; }
         public string SDT { get; set; }
         public Nullable<System.DateTime> NGSINH { get; set; }
-        public Nullable<decimal> DOANHSO { get; set; }
+        public long DOANHSO { get; set; }
         public Nullable<System.DateTime> NGDK { get; set; }
         public string HANGTV { get; set; }
         public Nullable<double> KM { get; set; }

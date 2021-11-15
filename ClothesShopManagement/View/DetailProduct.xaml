@@ -15,6 +15,12 @@
         DataContext="{StaticResource DetailProductVM}"
         Height="450" 
         Width="600">
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding Loadwd}"
+                                   CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Border
         Background="White"
         CornerRadius="15"
@@ -71,21 +77,21 @@
                 </Grid>
                 <Grid Grid.Row="1">
                     <StackPanel Orientation="Vertical"
-                                Margin="15,30,0,0"
+                                Margin="15,20,0,0"
                                 >
-                        <TextBlock Text="Mã SP: 1234"
+                        <TextBlock 
                                    FontSize="14"
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="MaSP"
                                    />
-                        <TextBox Text="SAMPLE"
+                        <TextBox 
                                    FontSize="30"
                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                    BorderThickness="0"
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="TenSP"
                                    />
-                        <TextBlock Text="350.000đ"
+                        <TextBlock 
                                    FontSize="20"
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="GiaSP"
@@ -97,23 +103,22 @@
                                 VerticalAlignment="Center"
                                 Text="Loại sản phẩm: "
                                 />
-                            <TextBox 
+                            <TextBlock
                                 VerticalAlignment="Center"
                                    FontSize="14"
                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                   BorderThickness="0"
                                    FontFamily="{StaticResource Custom}"
                                    x:Name="LoaiSP"
                                    />
                         </StackPanel>
-                        <TextBlock Text="Số lượng tồn: 40"
+                        <TextBlock 
                                    FontSize="14"
                                    FontFamily="{StaticResource Custom}"
                                    Margin="0,0,0,10"
                                    x:Name="SLSP"
                                    />
                         <StackPanel>
-                            <TextBlock  Text="Kích cỡ:"
+                            <TextBlock  
                                         FontSize="14"
                                         FontFamily="{StaticResource Custom}"
                                         x:Name="Size"
