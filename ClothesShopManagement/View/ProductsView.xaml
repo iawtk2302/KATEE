@@ -93,13 +93,21 @@
                         </i:Interaction.Triggers>
                     </TextBox>
                     <Button
+                        Content="THÊM"
                         Margin="60,0,0,0"
                         Width="90"
                         Height="40"
                         Background="LightPink"
                         BorderBrush="LightPink"
                         materialDesign:ButtonAssist.CornerRadius="6"
-                        >THÊM</Button>
+                        >
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding AddPdPdCommand}"
+                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
                     <Button
                         Margin="10,0,0,0"
                         Width="90"

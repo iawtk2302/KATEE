@@ -10,5 +10,6 @@ namespace ClothesShopManagement.Model
     public class Const : BaseViewModel
     {
         public static string TenDangNhap { get; set; }
+        public static bool Admin { get; set; }
     }
 }
