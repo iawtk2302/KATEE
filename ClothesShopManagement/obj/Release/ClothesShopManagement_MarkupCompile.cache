@@ -10,11 +10,19 @@ none
 false
 TRACE
 C:\Users\Admin\OneDrive\Documents\Đồ án LTTQ\ClothesShopManagement\App.xaml
+<<<<<<< HEAD
 81783160627
 2739969757
 311940066905
 221526704180
 Resource\MainResource.xaml;Resource\StylesResource.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
+=======
+9-1533167947
+2739969757
+32-67050670
+221526704180
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddProductView.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
+>>>>>>> 070f8291837d404e55f2adf9909b8b724c58880e
 
 True
 
