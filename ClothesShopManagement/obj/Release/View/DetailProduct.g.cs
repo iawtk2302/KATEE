@@ -53,7 +53,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 45 "..\..\..\View\DetailProduct.xaml"
+        #line 39 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Image HinhAnh;
         
@@ -61,7 +61,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 85 "..\..\..\View\DetailProduct.xaml"
+        #line 79 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock MaSP;
         
@@ -69,7 +69,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 92 "..\..\..\View\DetailProduct.xaml"
+        #line 86 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox TenSP;
         
@@ -77,7 +77,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 97 "..\..\..\View\DetailProduct.xaml"
+        #line 91 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock GiaSP;
         
@@ -85,15 +85,15 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 111 "..\..\..\View\DetailProduct.xaml"
+        #line 106 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
-        internal System.Windows.Controls.TextBlock LoaiSP;
+        internal System.Windows.Controls.TextBox LoaiSP;
         
         #line default
         #line hidden
         
         
-        #line 118 "..\..\..\View\DetailProduct.xaml"
+        #line 113 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock SLSP;
         
@@ -101,7 +101,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 124 "..\..\..\View\DetailProduct.xaml"
+        #line 119 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBlock Size;
         
@@ -109,7 +109,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 126 "..\..\..\View\DetailProduct.xaml"
+        #line 121 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.ItemsControl DtSize;
         
@@ -117,7 +117,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 152 "..\..\..\View\DetailProduct.xaml"
+        #line 147 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.Expander Info;
         
@@ -125,7 +125,7 @@ namespace ClothesShopManagement.View {
         #line hidden
         
         
-        #line 157 "..\..\..\View\DetailProduct.xaml"
+        #line 152 "..\..\..\View\DetailProduct.xaml"
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
         internal System.Windows.Controls.TextBox Mota;
         
@@ -178,7 +178,7 @@ namespace ClothesShopManagement.View {
             this.GiaSP = ((System.Windows.Controls.TextBlock)(target));
             return;
             case 6:
-            this.LoaiSP = ((System.Windows.Controls.TextBlock)(target));
+            this.LoaiSP = ((System.Windows.Controls.TextBox)(target));
             return;
             case 7:
             this.SLSP = ((System.Windows.Controls.TextBlock)(target));
