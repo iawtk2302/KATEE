@@ -5,7 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClothesShopManagement.View"
       mc:Ignorable="d" 
+      xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      x:Name="Homewd"
       d:DesignHeight="550" d:DesignWidth="665"
+      DataContext="{StaticResource HomeVM}"
       >
 
     <Border
@@ -31,37 +35,203 @@
                 <Canvas>
                     <Border
                                     CornerRadius="20"
-                                    Background="#6C72CD"
                                     Height="130"
                                     Width="190"
                         Margin="23.75,0,0,0"
-                                    />
+                                    >
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="5"/>
+                        </Border.Effect>
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFC165DD" Offset="0"/>
+                                <GradientStop Color="#FF5C27FE" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="55"/>
+                                    <RowDefinition Height="55"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Width="150">
+                                    <TextBlock Text="Số đơn bán ra trong ngày:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                                </Grid>
+                                <Grid Grid.Row="1" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1">
+                                        <materialDesign:PackIcon Kind="Shopping" Foreground="White" Height="50" Width="50"/>
+                                    </Grid>
+                                    <TextBlock x:Name="DonNgay" VerticalAlignment="Center" Text="0" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="30" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                    <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadDon}"
+                                                       CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
                     <Border
                                     CornerRadius="20"
-                                    Background="#FFAC4D"
                                     Height="130"
                         Margin="237.5,0,0,0"
-                                    Width="190" 
-                                    
-                                    />
+                                    Width="190"                                     
+                                    >
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="5"/>
+                        </Border.Effect>
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFFFCB52" Offset="0"/>
+                                <GradientStop Color="#FFFF7B02" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="55"/>
+                                    <RowDefinition Height="55"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Height="30" VerticalAlignment="Top">
+                                    <TextBlock Text="Doanh thu ngày:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                                </Grid>
+                                <Grid Grid.Row="1">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1">
+                                        <materialDesign:PackIcon VerticalAlignment="Center" Kind="HandCoin" Foreground="White" Height="50" Width="50"/>
+                                    </Grid>
+                                    <TextBlock x:Name="DTNgay" VerticalAlignment="Center" Text="0 VNĐ" TextAlignment="Left" FontWeight="Bold"  TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadDoanhThu}"
+                                                       CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+
+                        </StackPanel>
+                    </Border>
                     <Border
                                     CornerRadius="20"
-                                    Background="#CB68C3"
                                     Height="130"
                         Margin="451.25,0,0,0"
-                                    Width="190"  
-                                    />
+                                    Width="190"                         
+                                    >
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="5"/>
+                        </Border.Effect>
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FF1DE5E2" Offset="0"/>
+                                <GradientStop Color="#FFB588F7" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
+
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="50"/>
+                                    <RowDefinition Height="30"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" Height="30">
+                                    <TextBlock Text="Đánh giá shop:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                                </Grid>
+                                <Grid Grid.Row="2">
+                                    <materialDesign:RatingBar
+                                        HorizontalAlignment="Center"
+                                        VerticalAlignment="Top"
+                                        Foreground="#FDCF76"                                        
+                                        x:Name="BasicRatingBar"
+                                        Value="4" Margin="10,0,10.667,8">
+                                    </materialDesign:RatingBar>
+
+                                </Grid>
+                                <Grid Grid.Row="1" VerticalAlignment="Center">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="100"/>
+                                        <ColumnDefinition Width="50"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Grid Grid.Column="1" VerticalAlignment="Bottom">
+                                        <materialDesign:PackIcon Kind="ThumbUp" Foreground="White" Height="45" Width="40"/>
+
+                                    </Grid>
+                                    <TextBlock x:Name="Rate" VerticalAlignment="Bottom" Text="4/5" TextWrapping="Wrap" TextAlignment="Right" Margin="0,0,20,0" FontWeight="Bold" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="Loaded">
+                                                <i:InvokeCommandAction Command="{Binding LoadRate}"
+                                                       CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
+                                    </TextBlock>
+                                </Grid>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
                 </Canvas>
             </Grid>
             <Grid Grid.Row="2">
-                <Border
+                <Border 
                                 Height="270"
                                 Width="617.5"
                                 Background="AliceBlue"
                                 CornerRadius="25"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center" 
-                                />
+                                >
+                    <Border.Effect>
+                        <DropShadowEffect BlurRadius="15" Direction="-90"
+                              RenderingBias="Quality" ShadowDepth="5"/>
+                    </Border.Effect>
+                    <StackPanel VerticalAlignment="Center">
+                        <syncfusion:SfChart 
+                            syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=MaterialDark}"
+                            Height="250" Width="600" Header="Đồ thị sản phẩm bán ra theo giờ">
+                            <syncfusion:SfChart.PrimaryAxis>
+                                <syncfusion:CategoryAxis/>
+                            </syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:SfChart.SecondaryAxis>
+                                <syncfusion:NumericalAxis/>
+                            </syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:SfChart.Legend>
+                                <syncfusion:ChartLegend/>
+                            </syncfusion:SfChart.Legend>
+                            <syncfusion:ColumnSeries x:Name="Chart" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP">
+                                <syncfusion:ColumnSeries.ColorModel>
+                                    <syncfusion:ChartColorModel>
+                                        <syncfusion:ChartColorModel.CustomBrushes>
+                                            <SolidColorBrush Color="LightPink"/>
+                                        </syncfusion:ChartColorModel.CustomBrushes>
+                                    </syncfusion:ChartColorModel>
+                                </syncfusion:ColumnSeries.ColorModel>
+                            </syncfusion:ColumnSeries>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadChart}"
+                                                       CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </syncfusion:SfChart>
+                    </StackPanel>
+                </Border>
             </Grid>
         </Grid>
     </Border>

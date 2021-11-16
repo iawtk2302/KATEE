@@ -31,7 +31,7 @@
     <Property Name="MAND" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
     <Property Name="MAKH" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
     <Property Name="NGHD" Type="DateTime" Precision="0" />
-    <Property Name="TRIGIA" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="TRIGIA" Type="Int64" />
     <Property Name="TTHD" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_HD" FromRole="HOADON" ToRole="CTHD" />
     <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_HD_ND" FromRole="HOADON" ToRole="NGUOIDUNG" />
@@ -46,7 +46,7 @@
     <Property Name="DCHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
     <Property Name="NGSINH" Type="DateTime" Precision="0" />
-    <Property Name="DOANHSO" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="DOANHSO" Type="Int64" />
     <Property Name="NGDK" Type="DateTime" Precision="0" />
     <Property Name="HANGTV" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
     <Property Name="KM" Type="Double" />

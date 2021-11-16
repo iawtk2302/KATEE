@@ -23,8 +23,8 @@ namespace ClothesShopManagement.Model
         public int SOHD { get; set; }
         public string MAND { get; set; }
         public string MAKH { get; set; }
-        public Nullable<System.DateTime> NGHD { get; set; }
-        public Nullable<decimal> TRIGIA { get; set; }
+        public System.DateTime NGHD { get; set; }
+        public long TRIGIA { get; set; }
         public bool TTHD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
