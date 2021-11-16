@@ -1,4 +1,5 @@
 ﻿using ClothesShopManagement.Model;
+using ClothesShopManagement.View;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -17,6 +18,24 @@ namespace ClothesShopManagement.ViewModel
         public CustomerViewModel()
         {
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
+            SearchCommand = new RelayCommand<CustomerView>((p) => true, (p) => _SearchCommand(p));
+        }
+        void _SearchCommand(CustomerView paramater)
+        {
+            ObservableCollection<KHACHHANG> temp = new ObservableCollection<KHACHHANG>();
+            if (paramater.txbSearch.Text != "")
+            {
+                foreach (KHACHHANG s in listKH)
+                {
+                    if (s.SDT.Contains(paramater.txbSearch.Text))
+                    {
+                        temp.Add(s);
+                    }
+                }
+                paramater.ListViewKH.ItemsSource = temp;
+            }
+            else
+                paramater.ListViewKH.ItemsSource = listKH;
         }
     }
 }

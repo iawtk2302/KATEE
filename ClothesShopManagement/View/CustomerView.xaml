@@ -126,7 +126,7 @@
                             </Grid>
                         </Grid>
                     </Border>
-                <ListView x:Name="ListViewProduct" ItemsSource="{Binding listKH}"
+                <ListView x:Name="ListViewKH" ItemsSource="{Binding listKH}"
                           Height="350"
                           Width="650"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
