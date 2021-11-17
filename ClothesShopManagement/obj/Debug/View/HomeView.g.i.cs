@@ -10,6 +10,13 @@
 //------------------------------------------------------------------------------
 
 using ClothesShopManagement.View;
+using LiveCharts.Wpf;
+using MaterialDesignThemes.Wpf;
+using MaterialDesignThemes.Wpf.Converters;
+using MaterialDesignThemes.Wpf.Transitions;
+using Syncfusion;
+using Syncfusion.SfSkinManager;
+using Syncfusion.UI.Xaml.Charts;
 using System;
 using System.Diagnostics;
 using System.Windows;
@@ -20,6 +27,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Ink;
 using System.Windows.Input;
+using System.Windows.Interactivity;
 using System.Windows.Markup;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
@@ -39,6 +47,54 @@ namespace ClothesShopManagement.View {
     /// HomeView
     /// </summary>
     public partial class HomeView : System.Windows.Controls.Page, System.Windows.Markup.IComponentConnector {
+        
+        
+        #line 10 "..\..\..\View\HomeView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal ClothesShopManagement.View.HomeView Homewd;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 71 "..\..\..\View\HomeView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock DonNgay;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 117 "..\..\..\View\HomeView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock DTNgay;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 163 "..\..\..\View\HomeView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal MaterialDesignThemes.Wpf.RatingBar BasicRatingBar;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 177 "..\..\..\View\HomeView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal System.Windows.Controls.TextBlock Rate;
+        
+        #line default
+        #line hidden
+        
+        
+        #line 217 "..\..\..\View\HomeView.xaml"
+        [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        internal Syncfusion.UI.Xaml.Charts.ColumnSeries Chart;
+        
+        #line default
+        #line hidden
         
         private bool _contentLoaded;
         
@@ -68,6 +124,27 @@ namespace ClothesShopManagement.View {
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Maintainability", "CA1502:AvoidExcessiveComplexity")]
         [System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1800:DoNotCastUnnecessarily")]
         void System.Windows.Markup.IComponentConnector.Connect(int connectionId, object target) {
+            switch (connectionId)
+            {
+            case 1:
+            this.Homewd = ((ClothesShopManagement.View.HomeView)(target));
+            return;
+            case 2:
+            this.DonNgay = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 3:
+            this.DTNgay = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 4:
+            this.BasicRatingBar = ((MaterialDesignThemes.Wpf.RatingBar)(target));
+            return;
+            case 5:
+            this.Rate = ((System.Windows.Controls.TextBlock)(target));
+            return;
+            case 6:
+            this.Chart = ((Syncfusion.UI.Xaml.Charts.ColumnSeries)(target));
+            return;
+            }
             this._contentLoaded = true;
         }
     }

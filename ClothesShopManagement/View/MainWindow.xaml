@@ -20,7 +20,7 @@
             <i:InvokeCommandAction Command="{Binding Loadwd}"
                                                        CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
         </i:EventTrigger>
-    </i:Interaction.Triggers> 
+    </i:Interaction.Triggers>
     <Border
         Background="#17181F"
         CornerRadius="40"
@@ -103,6 +103,23 @@
                                 <i:EventTrigger EventName="MouseMove">
                                     <i:InvokeCommandAction Command="{Binding GetIdTab}"
                                                            CommandParameter="{Binding ElementName=btnProducts}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RadioButton>
+                        <RadioButton
+                            Style="{StaticResource BtnKH}"
+                            FontFamily="{StaticResource Custom}"
+                            Uid="3"
+                            x:Name="btnKH"
+                            >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
+                                                           CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseMove">
+                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
+                                                           CommandParameter="{Binding ElementName=btnKH}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </RadioButton>

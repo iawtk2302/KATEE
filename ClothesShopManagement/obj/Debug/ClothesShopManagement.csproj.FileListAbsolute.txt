@@ -278,3 +278,5 @@ C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfCha
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfSkinManager.WPF.dll
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfSkinManager.WPF.xml
 >>>>>>> homewd
+C:\Users\Admin\OneDrive\Documents\Đồ án LTTQ\ClothesShopManagement\obj\Debug\View\CustomerView.g.cs
+C:\Users\Admin\OneDrive\Documents\Đồ án LTTQ\ClothesShopManagement\obj\Debug\View\CustomerView.baml
