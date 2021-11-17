@@ -9,12 +9,21 @@ ClothesShopManagement
 none
 false
 DEBUG;TRACE
+<<<<<<< HEAD
 C:\Users\Admin\OneDrive\Documents\Đồ án LTTQ\ClothesShopManagement\App.xaml
 9-1533167947
 2739969757
 332145828008
 221526704180
 Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddProductView.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
+=======
+C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\App.xaml
+8-1497438628
+2-1556844510
+32-826822454
+27-507903791
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
+>>>>>>> homewd
 
-False
+True
 

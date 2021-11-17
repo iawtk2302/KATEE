@@ -31,8 +31,13 @@
           <Property Name="SOHD" Type="int" Nullable="false" />
           <Property Name="MAND" Type="char" MaxLength="4" />
           <Property Name="MAKH" Type="char" MaxLength="4" />
+<<<<<<< HEAD
           <Property Name="NGHD" Type="smalldatetime" Nullable="false" />
           <Property Name="TRIGIA" Type="bigint" Nullable="false" />
+=======
+          <Property Name="NGHD" Type="smalldatetime" />
+          <Property Name="TRIGIA" Type="bigint" />
+>>>>>>> homewd
           <Property Name="TTHD" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="KHACHHANG">
@@ -44,7 +49,11 @@
           <Property Name="DCHI" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="varchar" MaxLength="10" />
           <Property Name="NGSINH" Type="smalldatetime" />
+<<<<<<< HEAD
           <Property Name="DOANHSO" Type="bigint" Nullable="false" />
+=======
+          <Property Name="DOANHSO" Type="bigint" />
+>>>>>>> homewd
           <Property Name="NGDK" Type="smalldatetime" />
           <Property Name="HANGTV" Type="char" MaxLength="5" />
           <Property Name="KM" Type="float" />
@@ -243,8 +252,13 @@
           <Property Name="SOHD" Type="Int32" Nullable="false" />
           <Property Name="MAND" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
           <Property Name="MAKH" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
+<<<<<<< HEAD
           <Property Name="NGHD" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="TRIGIA" Type="Int64" Nullable="false" />
+=======
+          <Property Name="NGHD" Type="DateTime" Precision="0" />
+          <Property Name="TRIGIA" Type="Int64" />
+>>>>>>> homewd
           <Property Name="TTHD" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_HD" FromRole="HOADON" ToRole="CTHD" />
           <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_HD_ND" FromRole="HOADON" ToRole="NGUOIDUNG" />
@@ -259,7 +273,11 @@
           <Property Name="DCHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
           <Property Name="NGSINH" Type="DateTime" Precision="0" />
+<<<<<<< HEAD
           <Property Name="DOANHSO" Type="Int64" Nullable="false" />
+=======
+          <Property Name="DOANHSO" Type="Int64" />
+>>>>>>> homewd
           <Property Name="NGDK" Type="DateTime" Precision="0" />
           <Property Name="HANGTV" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
           <Property Name="KM" Type="Double" />
