@@ -24,5 +24,10 @@ namespace ClothesShopManagement.View
         {
             InitializeComponent();
         }
+
+        private void PackIcon_ColorChanged(object sender, RoutedPropertyChangedEventArgs<Color> e)
+        {
+
+        }
     }
 }
