@@ -706,4 +706,5 @@
         <Setter Property="TextElement.Foreground" Value="White"/>
     </Style>
     <FontFamily x:Key="Custom">Font/Nunito-ExtraBold.ttf #Nunito ExtraBold</FontFamily>
+    
 </ResourceDictionary>

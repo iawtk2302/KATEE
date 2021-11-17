@@ -49,21 +49,28 @@ namespace ClothesShopManagement.ViewModel
         }
         public void login(LoginWindow p)
         {
-            if (p == null) return;
-            string PassEncode = MD5Hash(Base64Encode(Password));
-            var accCount = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == Username && x.PASS == PassEncode).Count();
-            if (accCount > 0)
+            try
             {
-                IsLogin = true;
-                Const.TenDangNhap = Username;
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                Username = "";
-                p.Hide();              
+                if (p == null) return;
+                string PassEncode = MD5Hash(Base64Encode(Password));
+                var accCount = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == Username && x.PASS == PassEncode).Count();
+                if (accCount > 0)
+                {
+                    IsLogin = true;
+                    Const.TenDangNhap = Username;
+                    MainWindow mainWindow = new MainWindow();
+                    mainWindow.Show();
+                    Username = "";
+                    p.Hide();
+                }
+                else
+                {
+                    MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButton.OK);
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Tên đăng nhập hoặc mật khẩu không đúng!", "Thông báo", MessageBoxButton.OK);
+                MessageBox.Show("Mất kết nối đến cơ sở dữ liệu!", "Thông báo", MessageBoxButton.OK);
             }
         }
         public static string Base64Encode(string plainText)

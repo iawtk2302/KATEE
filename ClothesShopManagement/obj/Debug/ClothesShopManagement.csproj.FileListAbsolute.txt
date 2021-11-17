@@ -228,3 +228,5 @@ C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfCha
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfChart.WPF.xml
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfSkinManager.WPF.dll
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfSkinManager.WPF.xml
+C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ReportView.g.cs
+C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ReportView.baml
