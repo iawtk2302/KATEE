@@ -11,14 +11,14 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True"
-        x:Name="DetailProductwd"
+        x:Name="DetailCswd"
         DataContext="{StaticResource DetailCsVM}"
         Height="550" 
         Width="700">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loadwd}"
-                                   CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                   CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border
@@ -28,11 +28,11 @@
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
-                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                       CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
             </i:EventTrigger>
             <i:EventTrigger EventName="Loaded">
                 <i:InvokeCommandAction Command="{Binding GetName}"
-                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                       CommandParameter="{Binding ElementName=DetailCstwd}"></i:InvokeCommandAction>
             </i:EventTrigger>
         </i:Interaction.Triggers>
         <Grid>
@@ -61,7 +61,7 @@
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                     <i:InvokeCommandAction Command="{Binding Minimizewd}"
-                                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
@@ -69,7 +69,7 @@
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                     <i:InvokeCommandAction Command="{Binding Closewd}"
-                                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
@@ -247,7 +247,7 @@
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
                                         <i:InvokeCommandAction Command="{Binding AddProduct}"
-                                                       CommandParameter="{Binding ElementName=AddProductwd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Button>

@@ -15,12 +15,12 @@ namespace ClothesShopManagement.ViewModel
         private ObservableCollection<KHACHHANG> _listKH;
         public ObservableCollection<KHACHHANG> listKH { get => _listKH; set { _listKH = value; OnPropertyChanged(); } }
         public ICommand SearchCommand { get; set; }
-        public ICommand DetailCsCommand { get; set; }
+        public ICommand Detail { get; set; }
         public CustomerViewModel()
         {
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
             SearchCommand = new RelayCommand<CustomerView>((p) => true, (p) => _SearchCommand(p));
-            DetailCsCommand = new RelayCommand<CustomerView>((p) => { return p.ListViewKH.SelectedItem == null ? false : true; }, (p) => _DetailCs(p));
+            Detail = new RelayCommand<CustomerView>((p) => { return p.ListViewKH.SelectedItem == null ? false : true; }, (p) => _DetailCs(p));
         }
         void _SearchCommand(CustomerView paramater)
         {
@@ -41,13 +41,14 @@ namespace ClothesShopManagement.ViewModel
         }
         void _DetailCs(CustomerView paramater)
         {
-            DetailCustomerView detailCustomerView = new DetailCustomerView();   
+            DetailCustomerView detailCustomerView = new DetailCustomerView();
+            detailCustomerView.ShowDialog();
             KHACHHANG temp=(KHACHHANG) paramater.ListViewKH.SelectedItem;
             detailCustomerView.MaKH.Text = temp.MAKH;
             detailCustomerView.TenKH.Text = temp.HOTEN;
             detailCustomerView.SDT.Text = temp.SDT;
             detailCustomerView.GT.Text = temp.GIOITINH;
-            detailCustomerView.ShowDialog();
+            
         }
     }
 }

@@ -6,7 +6,7 @@
     <viewmodel:ProductsViewModel x:Key="ProductsVM"></viewmodel:ProductsViewModel>
     <viewmodel:DetailProductViewModel x:Key="DetailProductVM"></viewmodel:DetailProductViewModel>
     <viewmodel:AddProductViewModel x:Key="AddProductVM"></viewmodel:AddProductViewModel>
-    <viewmodel:DetailCustomer x:Key="DetailCsVM"></viewmodel:DetailCustomer>
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
     <viewmodel:CustomerViewModel x:Key="CsVM"></viewmodel:CustomerViewModel>
+    <viewmodel:DetailCustomer x:Key="DetailCsVM"></viewmodel:DetailCustomer>
 </ResourceDictionary>

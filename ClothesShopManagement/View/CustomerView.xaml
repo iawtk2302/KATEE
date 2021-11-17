@@ -8,7 +8,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="665"
-      DataContext="{StaticResource CsVm}"
+      DataContext="{StaticResource CsVM}"
       x:Name="Cswd">
 
     <Border
@@ -67,7 +67,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddPdPdCommand}"
-                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
@@ -129,6 +129,7 @@
                 <ListView x:Name="ListViewKH" ItemsSource="{Binding listKH}"
                           Height="350"
                           Width="650"
+                          SelectionMode="Single"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
                         >
                     <ListView.ItemTemplate>
@@ -192,7 +193,7 @@
                     </ListView.ItemsPanel>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction     Command="{Binding }"
+                                <i:InvokeCommandAction     Command="{Binding Detail}"
                                                            CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
