@@ -37,13 +37,11 @@
         <MappingFragment StoreEntitySet="KHACHHANG">
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
           <ScalarProperty Name="HOTEN" ColumnName="HOTEN" />
+          <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
           <ScalarProperty Name="DCHI" ColumnName="DCHI" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
           <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
-          <ScalarProperty Name="DOANHSO" ColumnName="DOANHSO" />
           <ScalarProperty Name="NGDK" ColumnName="NGDK" />
-          <ScalarProperty Name="HANGTV" ColumnName="HANGTV" />
-          <ScalarProperty Name="KM" ColumnName="KM" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

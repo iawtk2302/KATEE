@@ -16,7 +16,7 @@ namespace ClothesShopManagement.Model
     {
         public int MAPN { get; set; }
         public string MASP { get; set; }
-        public Nullable<int> SL { get; set; }
+        public int SL { get; set; }
     
         public virtual PHIEUNHAP PHIEUNHAP { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
