@@ -13,10 +13,10 @@ namespace ClothesShopManagement.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class QLBH_Entities1 : DbContext
+    public partial class QLBH_Entities : DbContext
     {
-        public QLBH_Entities1()
-            : base("name=QLBH_Entities1")
+        public QLBH_Entities()
+            : base("name=QLBH_Entities")
         {
         }
     

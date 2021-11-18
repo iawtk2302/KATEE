@@ -178,7 +178,7 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <EntityContainer Name="QLBH_Entities1" annotation:LazyLoadingEnabled="true">
+  <EntityContainer Name="QLBH_Entities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CTHDs" EntityType="Self.CTHD" />
     <EntitySet Name="CTPNs" EntityType="Self.CTPN" />
     <EntitySet Name="HOADONs" EntityType="Self.HOADON" />
