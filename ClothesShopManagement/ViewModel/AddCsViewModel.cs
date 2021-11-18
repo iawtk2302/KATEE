@@ -14,11 +14,13 @@ namespace ClothesShopManagement.ViewModel
         public ICommand Closewd { get; set; }
         public ICommand Minimizewd { get; set; }
         public ICommand MoveWindow { get; set; }
+        public ICommand AddCs { get; set; }
         public AddCsView()
         {
             Closewd = new RelayCommand<AddCustomerView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddCustomerView>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<AddCustomerView>((p) => true, (p) => moveWindow(p));
+            AddCs = new RelayCommand<AddCustomerView>((p) => true, (p) => _AddCs(p));
         }
         void moveWindow(AddCustomerView p)
         {
@@ -31,6 +33,10 @@ namespace ClothesShopManagement.ViewModel
         void Minimize(AddCustomerView p)
         {
             p.WindowState = WindowState.Minimized;
+        }
+        void _AddCs(AddCustomerView paramater)
+        {
+
         }
     }
 }

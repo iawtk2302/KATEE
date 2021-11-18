@@ -22,7 +22,7 @@ namespace ClothesShopManagement.ViewModel
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
             SearchCommand = new RelayCommand<CustomerView>((p) => true, (p) => _SearchCommand(p));
             Detail = new RelayCommand<CustomerView>((p) => { return p.ListViewKH.SelectedItem == null ? false : true; }, (p) => _DetailCs(p));
-            AddCs = new RelayCommand<CustomerView>((p) => { return p.ListViewKH.SelectedItem == null ? false : true; }, (p) => _AddCs(p));
+            AddCs = new RelayCommand<CustomerView>((p) => true, (p) => _AddCs(p));
         }
         void _SearchCommand(CustomerView paramater)
         {

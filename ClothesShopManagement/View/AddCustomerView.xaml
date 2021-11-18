@@ -12,7 +12,6 @@
         x:Name="AddCswd"
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        mc:Ignorable="d"
         DataContext="{StaticResource AddCsVM}"
         Height="550" 
         Width="700">
@@ -193,7 +192,7 @@
                                 >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding Update}"
+                                    <i:InvokeCommandAction Command="{Binding AddCs}"
                                                        CommandParameter="{Binding ElementName=AddCswd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
