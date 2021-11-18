@@ -125,14 +125,14 @@
                         >
                         <ListView.ItemTemplate>
                             <DataTemplate>
-                                <Border
+                            <Border
                                         Margin="10"
                                         Height="200"
                                         Width="160"
                                         Background="White"
                                         CornerRadius="15"
                                         >
-                                    <StackPanel>
+                                <StackPanel>
                                         <Image  
                                                     Source="{Binding HINHSP}" 
                                                     Height="154" 
