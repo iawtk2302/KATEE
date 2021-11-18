@@ -192,7 +192,7 @@
                                 >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding AddCs}"
+                                    <i:InvokeCommandAction Command="{Binding }"
                                                        CommandParameter="{Binding ElementName=AddCswd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>

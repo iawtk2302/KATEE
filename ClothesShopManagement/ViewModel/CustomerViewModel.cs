@@ -16,13 +16,13 @@ namespace ClothesShopManagement.ViewModel
         public ObservableCollection<KHACHHANG> listKH { get => _listKH; set { _listKH = value; OnPropertyChanged(); } }
         public ICommand SearchCommand { get; set; }
         public ICommand Detail { get; set; }
-        public ICommand AddCs { get; set; }
+        public ICommand AddCsCommand { get; set; }
         public CustomerViewModel()
         {
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
             SearchCommand = new RelayCommand<CustomerView>((p) => true, (p) => _SearchCommand(p));
             Detail = new RelayCommand<CustomerView>((p) => { return p.ListViewKH.SelectedItem == null ? false : true; }, (p) => _DetailCs(p));
-            AddCs = new RelayCommand<CustomerView>((p) => true, (p) => _AddCs(p));
+            AddCsCommand = new RelayCommand<CustomerView>((p) => true, (p) => _AddCs(p));
         }
         void _SearchCommand(CustomerView paramater)
         {
@@ -73,6 +73,8 @@ namespace ClothesShopManagement.ViewModel
         {
             AddCustomerView addCustomerView = new AddCustomerView();
             addCustomerView.ShowDialog();
+            listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
+            paramater.ListViewKH.ItemsSource = listKH;
         }
     }
 }

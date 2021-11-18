@@ -1,4 +1,5 @@
-﻿using ClothesShopManagement.View;
+﻿using ClothesShopManagement.Model;
+using ClothesShopManagement.View;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -36,7 +37,22 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddCs(AddCustomerView paramater)
         {
-
+            if(string.IsNullOrEmpty(paramater.MaKH.Text)|| string.IsNullOrEmpty(paramater.TenKH.Text)|| string.IsNullOrEmpty(paramater.SDT.Text) || string.IsNullOrEmpty(paramater.GT.Text)|| string.IsNullOrEmpty(paramater.DC.Text))
+            {
+                MessageBox.Show("Thông tin chưa đầy đủ !","THÔNG BÁO");
+            }  
+            else
+            {
+                KHACHHANG temp = new KHACHHANG();
+                temp.MAKH = paramater.MaKH.Text;
+                temp.HOTEN = paramater.TenKH.Text;
+                temp.SDT = paramater.SDT.Text;
+                temp.GIOITINH = paramater.GT.Text;
+                temp.DCHI = paramater.DC.Text;
+                DataProvider.Ins.DB.KHACHHANGs.Add(temp);
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Thêm khách hàng thành công.", "THÔNG BÁO");
+            }    
         }
     }
 }
