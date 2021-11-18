@@ -10,7 +10,6 @@
       d:DesignHeight="550" d:DesignWidth="665"
       DataContext="{StaticResource CsVM}"
       x:Name="Cswd">
-
     <Border
                     Height="550"
                     Width="665"
@@ -57,7 +56,7 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="250,0,0,0"
+                        Margin="200,0,0,0"
                         Width="90"
                         Height="40"
                         Background="LightPink"
