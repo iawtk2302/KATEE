@@ -17,7 +17,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand MoveWindow { get; set; }
         public ICommand UpdateProduct { get; set; }
         public ICommand GetName { get; set; }
-        private string TenSP1;
+        private string MaPD1;
         public ICommand Loadwd { get; set; }
         public DetailProductViewModel()
         {
@@ -55,18 +55,26 @@ namespace ClothesShopManagement.ViewModel
         }
         void _GetName(DetailProduct p)
         {
-            TenSP1 = p.TenSP.Text;
+            MaPD1 = p.MaSP.Text;
         }
         void _UpdateProduct(DetailProduct p)
         {
-            var temp = DataProvider.Ins.DB.SANPHAMs.Where(pa => pa.TENSP == TenSP1);
-            foreach(SANPHAM a in temp)
+            if (string.IsNullOrEmpty(p.TenSP.Text) || string.IsNullOrEmpty(p.Mota.Text) || string.IsNullOrEmpty(p.Mota.Text))
             {
-                a.TENSP = p.TenSP.Text;
-                a.MOTA = p.Mota.Text;
-                a.MOTA = p.Mota.Text;
+                MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
+            }
+            else
+            {
+                var temp = DataProvider.Ins.DB.SANPHAMs.Where(pa => pa.MASP == MaPD1);
+                foreach (SANPHAM a in temp)
+                {
+                    a.TENSP = p.TenSP.Text;
+                    a.MOTA = p.Mota.Text;
+                    a.MOTA = p.Mota.Text;
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Cập nhật sản phẩm thành công !", "THÔNG BÁO");
             }              
-            DataProvider.Ins.DB.SaveChanges();
         }
     }
 }

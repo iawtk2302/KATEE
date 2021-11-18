@@ -24,7 +24,7 @@ namespace ClothesShopManagement.Model
         public string MAND { get; set; }
         public string MAKH { get; set; }
         public System.DateTime NGHD { get; set; }
-        public long TRIGIA { get; set; }
+        public int TRIGIA { get; set; }
         public bool TTHD { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

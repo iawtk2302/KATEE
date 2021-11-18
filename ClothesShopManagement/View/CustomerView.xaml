@@ -10,7 +10,6 @@
       d:DesignHeight="550" d:DesignWidth="665"
       DataContext="{StaticResource CsVM}"
       x:Name="Cswd">
-
     <Border
                     Height="550"
                     Width="665"
@@ -57,7 +56,7 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="60,0,0,0"
+                        Margin="200,0,0,0"
                         Width="90"
                         Height="40"
                         Background="LightPink"
@@ -66,8 +65,8 @@
                         >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding AddPdPdCommand}"
-                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction Command="{Binding AddCs}"
+                                                       CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
@@ -129,6 +128,7 @@
                 <ListView x:Name="ListViewKH" ItemsSource="{Binding listKH}"
                           Height="350"
                           Width="650"
+                          SelectionMode="Single"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
                         >
                     <ListView.ItemTemplate>
@@ -192,8 +192,8 @@
                     </ListView.ItemsPanel>
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
-                            <i:InvokeCommandAction Command="{Binding DetailPdCommand}"
-                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                                <i:InvokeCommandAction     Command="{Binding Detail}"
+                                                           CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </ListView>

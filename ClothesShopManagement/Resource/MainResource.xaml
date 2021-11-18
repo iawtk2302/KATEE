@@ -8,4 +8,6 @@
     <viewmodel:AddProductViewModel x:Key="AddProductVM"></viewmodel:AddProductViewModel>
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
     <viewmodel:CustomerViewModel x:Key="CsVM"></viewmodel:CustomerViewModel>
+    <viewmodel:DetailCustomer x:Key="DetailCsVM"></viewmodel:DetailCustomer>
+    <viewmodel:AddCsView x:Key="AddCsVM"></viewmodel:AddCsView>
 </ResourceDictionary>
