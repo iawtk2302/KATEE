@@ -14,7 +14,7 @@
         x:Name="DetailCswd"
         DataContext="{StaticResource DetailCsVM}"
         Height="550" 
-        Width="700">
+        Width="350">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding GetMAKH}"
@@ -22,9 +22,15 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border
-        Background="White"
+       
         CornerRadius="15"
         >
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                <GradientStop Color="#FFE5D8" Offset="0"/>
+                <GradientStop Color="#FFCAD4" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
@@ -34,14 +40,8 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Image 
-                    Source="/Resource/Image/Customer.png"
-                    VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
@@ -80,6 +80,7 @@
                             HorizontalAlignment="Center"
                             Text="THÔNG TIN KHÁCH HÀNG"
                             FontSize="24"
+                            Foreground="gray"
                             FontFamily="{StaticResource Custom}"
                             />
                             <StackPanel Orientation="Horizontal">
@@ -100,7 +101,7 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+
                                 />
                                 </Border>
                             </StackPanel>

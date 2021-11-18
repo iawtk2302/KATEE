@@ -56,13 +56,20 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="200,0,0,0"
+                        Margin="250,0,0,0"
                         Width="90"
                         Height="40"
-                        Background="LightPink"
+                        FontFamily="{StaticResource Custom}"
                         BorderBrush="LightPink"
+                        Foreground="Black"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFE5D8" Offset="1"/>
+                                <GradientStop Color="#FFCAD4" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddCsCommand}"
@@ -140,9 +147,9 @@
                        
                         >
                                     <Border.Background>
-                                        <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
-                                            <GradientStop Color="#FD986A" Offset="1"/>
-                                            <GradientStop Color="#FFC9C9" Offset="0"/>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#FFE5D8" Offset="1"/>
+                                            <GradientStop Color="#FFCAD4" Offset="0"/>
                                         </LinearGradientBrush>
                                      </Border.Background>
                                         <Grid>

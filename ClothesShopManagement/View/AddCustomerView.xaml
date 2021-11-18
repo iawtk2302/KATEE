@@ -14,11 +14,16 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource AddCsVM}"
         Height="550" 
-        Width="700">
+        Width="350">
     <Border
-        Background="White"
         CornerRadius="15"
         >
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                <GradientStop Color="#FFE5D8" Offset="0"/>
+                <GradientStop Color="#FFCAD4" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
@@ -28,14 +33,8 @@
         <Grid>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition/>
-                <ColumnDefinition/>
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
-                <Image 
-                    Source="/Resource/Image/Customer.png"
-                    VerticalAlignment="Center"/>
-            </Grid>
-            <Grid Grid.Column="1">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="30"/>
                     <RowDefinition/>
@@ -74,6 +73,7 @@
                             HorizontalAlignment="Center"
                             Text="THÔNG TIN KHÁCH HÀNG"
                             FontSize="24"
+                            Foreground="gray"
                             FontFamily="{StaticResource Custom}"
                             />
                         <StackPanel Orientation="Horizontal">
@@ -183,7 +183,7 @@
                                     AcceptsReturn="True"
                                     TextWrapping="Wrap"
                                 />
-                        <Button Content="CẬP NHẬT"
+                        <Button Content="THÊM KHÁCH HÀNG"
                                 Margin="0,30,0,0"
                                 Width="230"
                                 Background="LightPink"
