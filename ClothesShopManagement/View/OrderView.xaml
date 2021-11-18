@@ -8,7 +8,7 @@
       xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="665"
-      DataContext="{StaticResource}"
+      DataContext="{StaticResource OrderVM}"
       x:Name="Orderwd"
       >
     <Border
@@ -52,7 +52,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="TextChanged">
                                 <i:InvokeCommandAction Command="{Binding SearchCommand}"
-                                                       CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </TextBox>
@@ -75,7 +75,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddCsCommand}"
-                                                       CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
@@ -99,7 +99,7 @@
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
                                 <TextBlock
-                                Text="MÃ KH"
+                                Text="SỐ HD"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
@@ -109,7 +109,7 @@
                             <Grid Grid.Column="1">
                                 <TextBlock
                                 HorizontalAlignment="Left"
-                                Text="TÊN KHÁCH HÀNG"
+                                Text="KHÁCH HÀNG"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
@@ -117,8 +117,8 @@
                             </Grid>
                             <Grid Grid.Column="2">
                                 <TextBlock
-                                Text="SỐ ĐIỆN THOẠI"
-                                HorizontalAlignment="Left"
+                                Text="NGÀY"
+                                HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
@@ -126,15 +126,16 @@
                             </Grid>
                             <Grid Grid.Column="3">
                                 <TextBlock
-                                Text="ĐỊA CHỈ"
+                                Text="GIÁ"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
+                                HorizontalAlignment="Center"
                                 FontSize="12"
                                 />
                             </Grid>
                         </Grid>
                     </Border>
-                    <ListView x:Name="ListViewKH" ItemsSource="{Binding listKH}"
+                    <ListView x:Name="ListViewHD" ItemsSource="{Binding listHD}"
                           Height="350"
                           Width="650"
                           SelectionMode="Single"
@@ -163,7 +164,7 @@
                                         </Grid.ColumnDefinitions>
                                         <Grid Grid.Column="0">
                                             <TextBlock
-                                Text="{Binding MAKH}"
+                                Text="{Binding SOHD}"
                                 HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
@@ -174,7 +175,7 @@
                                             <TextBlock
                                                 Margin="2,0,0,0"
                                 HorizontalAlignment="Left"
-                                Text="{Binding HOTEN}"
+                                Text="{Binding KHACHHANG.HOTEN}"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
@@ -182,7 +183,7 @@
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <TextBlock
-                                Text="{Binding SDT}"
+                                Text="{Binding NGHD, StringFormat=dd/MM/yyyy hh:mm:tt}"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
@@ -191,8 +192,8 @@
                                         </Grid>
                                         <Grid Grid.Column="3">
                                             <TextBlock
-                                Text="{Binding DCHI}"
-                                                HorizontalAlignment="Left"
+                                Text="{Binding TRIGIA}"
+                                                HorizontalAlignment="Center"
                                 VerticalAlignment="Center"
                                                 MaxWidth="150"
                                 FontFamily="{StaticResource Custom}"
@@ -211,7 +212,7 @@
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
                                 <i:InvokeCommandAction     Command="{Binding Detail}"
-                                                           CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
+                                                           CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </ListView>
