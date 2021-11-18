@@ -57,7 +57,7 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="60,0,0,0"
+                        Margin="250,0,0,0"
                         Width="90"
                         Height="40"
                         Background="LightPink"
@@ -66,7 +66,7 @@
                         >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding AddPdPdCommand}"
+                                <i:InvokeCommandAction Command="{Binding AddCs}"
                                                        CommandParameter="{Binding ElementName=Cswd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

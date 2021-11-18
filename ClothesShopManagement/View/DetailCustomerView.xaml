@@ -17,8 +17,8 @@
         Width="700">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding Loadwd}"
-                                   CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
+            <i:InvokeCommandAction Command="{Binding GetMAKH}"
+                                       CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border
@@ -29,10 +29,6 @@
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
                                        CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
-            </i:EventTrigger>
-            <i:EventTrigger EventName="Loaded">
-                <i:InvokeCommandAction Command="{Binding GetName}"
-                                       CommandParameter="{Binding ElementName=DetailCstwd}"></i:InvokeCommandAction>
             </i:EventTrigger>
         </i:Interaction.Triggers>
         <Grid>
@@ -93,19 +89,21 @@
                                     Text="MÃ KHÁCH HÀNG"
                                     FontFamily="{StaticResource Custom}"
                                 />
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <TextBox
                                     x:Name="MaKH"
                                     HorizontalAlignment="Left"
                                     Width="150"
                                     FontFamily="{StaticResource Custom}"
-                                    BorderThickness="2"
+                                    BorderThickness="0"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
                                 />
-                                </StackPanel>
+                                </Border>
+                            </StackPanel>
                                 <StackPanel Orientation="Vertical"
                                         Margin="10,0,0,0"
                                         >
@@ -181,19 +179,21 @@
                                     Text="DOANH SỐ"
                                     FontFamily="{StaticResource Custom}"
                                 />
-                                    <TextBox
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                <TextBox
                                     x:Name="DS"
                                     HorizontalAlignment="Left"
                                     Width="150"
+                                    BorderThickness="0"
                                     FontFamily="{StaticResource Custom}"
-                                    BorderThickness="2"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
                                 />
-                                </StackPanel>
+                                </Border>
+                            </StackPanel>
                                 <StackPanel Orientation="Vertical"
                                         Margin="10,0,0,0"
                                         >
@@ -202,19 +202,21 @@
                                     Text="HẠNG"
                                     FontFamily="{StaticResource Custom}"
                                 />
+                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <TextBox
                                     x:Name="Rank"
                                     FontFamily="{StaticResource Custom}"
                                     HorizontalAlignment="Left"
                                     Width="150"
-                                    BorderThickness="2"
+                                    BorderThickness="0"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
                                 />
-                                </StackPanel>
+                                </Border>
+                            </StackPanel>
                             </StackPanel>
                             <TextBlock
                                     Margin="8,10,0,0"
@@ -246,7 +248,7 @@
                                 >
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{Binding AddProduct}"
+                                        <i:InvokeCommandAction Command="{Binding Update}"
                                                        CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
