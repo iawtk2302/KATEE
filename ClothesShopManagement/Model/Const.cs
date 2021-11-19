@@ -11,5 +11,6 @@ namespace ClothesShopManagement.Model
     {
         public static string TenDangNhap { get; set; }
         public static bool Admin { get; set; }
+        public static NGUOIDUNG ND { get; set; }   
     }
 }

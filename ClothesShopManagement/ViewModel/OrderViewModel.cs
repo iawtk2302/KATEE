@@ -24,7 +24,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _OpenAdd(OrderView paramater)
         {
-            AddOrder addOrder = new AddOrder();
+            AddOrderView addOrder = new AddOrderView();
             addOrder.ShowDialog();
         }
         void _SearchCommand(OrderView paramater)
