@@ -10,6 +10,22 @@ using System.Windows.Input;
 
 namespace ClothesShopManagement.ViewModel
 {
+    public class HienThi
+    {
+        public string MaSp { get; set; }
+        public string TenSP { get; set; }
+        public int SL { get; set; }
+        public int Tong { get; set; }
+        public string Size { get; set; }
+        public HienThi(string MaSp="", string TenSP="",string Size="", int SL=0, int Tong=0)
+        {
+            this.MaSp = MaSp;
+            this.TenSP = TenSP;
+            this.SL = SL;
+            this.Tong = Tong;
+            this.Size = Size;
+        }
+    }
     public class AddOrderViewModel:BaseViewModel
     {
         public ICommand Closewd { get; set; }
@@ -21,12 +37,17 @@ namespace ClothesShopManagement.ViewModel
         public List<KHACHHANG> LKH { get=>_LKH; set { _LKH = value;OnPropertyChanged(); } }
         private List<SANPHAM> _LSP;
         public List<SANPHAM> LSP { get => _LSP; set { _LSP = value; OnPropertyChanged(); } }
+        private List<HienThi> _LHT;
+        public List<HienThi> LHT { get => _LHT; set { _LHT = value; OnPropertyChanged(); } }
         private List<SANPHAM> _LSPSelected;
         public List<SANPHAM> LSPSelected { get=> _LSPSelected; set { _LSPSelected = value; OnPropertyChanged(); } }
+        private List<CTHD> _LCTHD;
+        public List<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
         public ICommand AddSP { get; set; }
         public AddOrderViewModel()
         {
-            _LSPSelected = new List<SANPHAM>();
+            LSPSelected = new List<SANPHAM>();
+            LHT = new List<HienThi>();
             Closewd = new RelayCommand<AddOrderView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddOrderView>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<AddOrderView>((p) => true, (p) => moveWindow(p));
@@ -62,9 +83,16 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddSP(AddOrderView paramater)
         {
-            LSPSelected.Add((SANPHAM)paramater.SP.SelectedItem);
-            paramater.ListViewSP.ItemsSource= LSPSelected;
+            SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
+            LSPSelected.Add(a);
+            HienThi b = new HienThi(a.MASP,a.TENSP,a.SIZE,int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text)*a.GIA);
+            LHT.Add(b);
+            paramater.ListViewSP.ItemsSource= LHT;
             paramater.ListViewSP.Items.Refresh();
+        }
+        void _ThanhToan()
+        {
+
         }
     }
 }
