@@ -4,9 +4,12 @@
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ClothesShopManagement.View"
-      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+      xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
       mc:Ignorable="d" 
       d:DesignHeight="550" d:DesignWidth="665"
+      x:Name="Reportwd"
+      xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"      
+      DataContext="{StaticResource ReportVM}"
       >
     <Border
                     Height="550"
@@ -18,7 +21,8 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="65"/>
-                <RowDefinition Height="80"/>
+                <RowDefinition Height="40
+                               "/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
@@ -28,9 +32,185 @@
                            >THỐNG KÊ</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                
+                <materialDesign:ColorZone Background="LightPink"
+                                          CornerRadius="10"
+                Mode="PrimaryMid">
+                    <StackPanel 
+        Orientation="Horizontal">
+                        <RadioButton Uid="0"
+                                     x:Name="btnMain"
+        Style="{StaticResource MaterialDesignTabRadioButton}"
+        Margin="20,4,4,4"
+        IsChecked="True"
+                            FontFamily="{StaticResource Custom}"
+        Content="Tổng quan" BorderBrush="White" Foreground="White" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseMove">
+                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
+                                                       CommandParameter="{Binding ElementName=btnMain}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RadioButton>
+                        <RadioButton Uid="1"
+                                     x:Name="btnSale"
+        Style="{StaticResource MaterialDesignTabRadioButton}"
+        Margin="4"
+                            FontFamily="{StaticResource Custom}"
+        Content="Lịch sử kinh doanh" BorderBrush="White" Foreground="White" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseMove">
+                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
+                                                       CommandParameter="{Binding ElementName=btnSale}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RadioButton>
+                        <RadioButton Uid="2" x:Name="btnImport"
+        Style="{StaticResource MaterialDesignTabRadioButton}"
+        Margin="4"
+                            FontFamily="{StaticResource Custom}"
+        Content="Lịch sử nhập hàng" BorderBrush="White" Foreground="White" >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseMove">
+                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
+                                                       CommandParameter="{Binding ElementName=btnImport}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RadioButton>
+                    </StackPanel>
+                </materialDesign:ColorZone>
             </Grid>
+            <Grid Grid.Row="2" Margin="0, 5, 0, 0">
+                <Border x:Name="DTChart" Height="250"
+                                Width="390"
+                        Visibility="{Binding SetMain}"
+                        Margin="10"
+                                Background="AliceBlue"
+                                CornerRadius="25"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Bottom" >
+                    <StackPanel>
+                        <ComboBox Margin="25,10,10,10" Width="100" HorizontalAlignment="Left"
+                                  materialDesign:HintAssist.Hint="Chọn chu kì"></ComboBox>
+                        <syncfusion:SfChart 
+                            Height="200"
+                                Width="360" VerticalAlignment="Bottom"
+                        >
+                            <syncfusion:SfChart.PrimaryAxis>
+                                <syncfusion:CategoryAxis/>
+                            </syncfusion:SfChart.PrimaryAxis>
+                            <syncfusion:SfChart.SecondaryAxis>
+                                <syncfusion:NumericalAxis/>
+                            </syncfusion:SfChart.SecondaryAxis>
+                            <syncfusion:SfChart.Legend>
+                                <syncfusion:ChartLegend/>
+                            </syncfusion:SfChart.Legend>
+                            <syncfusion:ColumnSeries x:Name="Chart" Palette="Custom" Label="Doanh thu" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP">
+                                <syncfusion:ColumnSeries.ColorModel>
+                                    <syncfusion:ChartColorModel>
+                                        <syncfusion:ChartColorModel.CustomBrushes>
+                                            <SolidColorBrush Color="LightPink"/>
+                                        </syncfusion:ChartColorModel.CustomBrushes>
+                                    </syncfusion:ChartColorModel>
+                                </syncfusion:ColumnSeries.ColorModel>
+                            </syncfusion:ColumnSeries>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadChart}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </syncfusion:SfChart>
+                    </StackPanel>
+                    
+                </Border>
+                <Border x:Name="PieChart" Height="250"
+                                Width="220"
+                        Visibility="{Binding SetMain}"
+                        Margin="10"
+                                Background="AliceBlue"
+                                CornerRadius="25"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Bottom" >
+                    <syncfusion:SfChart Header="Đánh giá của khách hàng" Margin="5">
+                        <syncfusion:SfChart.Legend>
+                            <syncfusion:ChartLegend DockPosition="Bottom"/>
+                        </syncfusion:SfChart.Legend>
+                        <syncfusion:SfChart.Series>                               
+                            <syncfusion:DoughnutSeries x:Name="Pie" LegendIcon="Diamond" EnableAnimation="True" 
+                                                       ItemsSource="{Binding Reviews}" EnableSmartLabels="True"
+                                                       XBindingPath="Type" YBindingPath="Num"
+                                                       StartAngle="135" EndAngle="405" Margin="0,20,0,0"
+                                                       >
+                                
 
+                            </syncfusion:DoughnutSeries>
+                        </syncfusion:SfChart.Series>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Loaded">
+                                <i:InvokeCommandAction Command="{Binding LoadPie}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </syncfusion:SfChart>
+                </Border>
+                <Border x:Name="NVBox" Height="150"
+                                Width="200"
+                        Visibility="{Binding SetMain}"
+                        Margin="10"
+                                CornerRadius="25"
+                                HorizontalAlignment="Right"
+                                VerticalAlignment="Top" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFF5B94" Offset="0"/>
+                            <GradientStop Color="#FF8441A4" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                </Border>
+                <Border x:Name="SPBox" Height="150"
+                                Width="200"
+                        Visibility="{Binding SetMain}"
+                        Margin="10"
+                                CornerRadius="25"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Top" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFF9897" Offset="0"/>
+                            <GradientStop Color="#FFF650A0" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                </Border>
+                <Border x:Name="KHBox" Height="150"
+                                Width="200"
+                        Visibility="{Binding SetMain}"
+                        Margin="10"
+                                CornerRadius="25"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Top" >
+                    <Border.Background>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FFFFCDA5" Offset="0"/>
+                            <GradientStop Color="#FFEE4D5F" Offset="1"/>
+                        </LinearGradientBrush>
+                    </Border.Background>
+
+                </Border>
+            </Grid>
         </Grid>
     </Border>
 </Page>

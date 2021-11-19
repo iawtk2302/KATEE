@@ -230,3 +230,15 @@ C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfSki
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfSkinManager.WPF.xml
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ReportView.g.cs
 C:\Users\a\source\repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ReportView.baml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.Core.XForms.dll
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfChart.XForms.dll
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Core.dll
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Platform.dll
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Xaml.dll
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.Core.XForms.xml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Syncfusion.SfChart.XForms.xml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Core.pdb
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Core.xml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Xaml.pdb
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\bin\Debug\Xamarin.Forms.Xaml.xml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\XamlC.stamp

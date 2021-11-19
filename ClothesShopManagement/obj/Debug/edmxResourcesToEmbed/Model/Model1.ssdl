@@ -6,8 +6,8 @@
       <PropertyRef Name="MASP" />
     </Key>
     <Property Name="SOHD" Type="int" Nullable="false" />
-    <Property Name="MASP" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="SL" Type="int" />
+    <Property Name="MASP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SL" Type="int" Nullable="false" />
     <Property Name="DANHGIA" Type="int" />
   </EntityType>
   <EntityType Name="CTPN">
@@ -16,46 +16,42 @@
       <PropertyRef Name="MASP" />
     </Key>
     <Property Name="MAPN" Type="int" Nullable="false" />
-    <Property Name="MASP" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="SL" Type="int" />
+    <Property Name="MASP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="SL" Type="int" Nullable="false" />
   </EntityType>
   <EntityType Name="HOADON">
     <Key>
       <PropertyRef Name="SOHD" />
     </Key>
     <Property Name="SOHD" Type="int" Nullable="false" />
-    <Property Name="MAND" Type="char" MaxLength="4" />
-    <Property Name="MAKH" Type="char" MaxLength="4" />
-    <Property Name="NGHD" Type="smalldatetime" />
-    <Property Name="TRIGIA" Type="bigint" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" />
+    <Property Name="MAKH" Type="varchar" MaxLength="50" />
+    <Property Name="NGHD" Type="smalldatetime" Nullable="false" />
+    <Property Name="TRIGIA" Type="int" Nullable="false" />
     <Property Name="TTHD" Type="bit" Nullable="false" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
       <PropertyRef Name="MAKH" />
     </Key>
-    <Property Name="MAKH" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="HOTEN" Type="nvarchar" MaxLength="40" />
+    <Property Name="MAKH" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="HOTEN" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
     <Property Name="DCHI" Type="nvarchar" MaxLength="50" />
-    <Property Name="SDT" Type="varchar" MaxLength="10" />
-    <Property Name="NGSINH" Type="smalldatetime" />
-    <Property Name="DOANHSO" Type="bigint" />
-    <Property Name="NGDK" Type="smalldatetime" />
-    <Property Name="HANGTV" Type="char" MaxLength="5" />
-    <Property Name="KM" Type="float" />
+    <Property Name="SDT" Type="varchar" MaxLength="50" Nullable="false" />
   </EntityType>
   <EntityType Name="NGUOIDUNG">
     <Key>
       <PropertyRef Name="MAND" />
     </Key>
-    <Property Name="MAND" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="TENND" Type="nvarchar" MaxLength="40" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENND" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="NGSINH" Type="smalldatetime" />
     <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
-    <Property Name="SDT" Type="char" MaxLength="10" />
+    <Property Name="SDT" Type="char" MaxLength="50" Nullable="false" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
-    <Property Name="USERNAME" Type="char" MaxLength="20" />
-    <Property Name="PASS" Type="nvarchar(max)" />
+    <Property Name="USERNAME" Type="char" MaxLength="50" Nullable="false" />
+    <Property Name="PASS" Type="nvarchar(max)" Nullable="false" />
     <Property Name="QTV" Type="bit" Nullable="false" />
     <Property Name="TTND" Type="bit" Nullable="false" />
     <Property Name="AVA" Type="varchar(max)" />
@@ -65,32 +61,22 @@
       <PropertyRef Name="MAPN" />
     </Key>
     <Property Name="MAPN" Type="int" Nullable="false" />
-    <Property Name="MAND" Type="char" MaxLength="4" />
-    <Property Name="NGAYNHAP" Type="smalldatetime" />
+    <Property Name="MAND" Type="varchar" MaxLength="50" />
+    <Property Name="NGAYNHAP" Type="smalldatetime" Nullable="false" />
   </EntityType>
   <EntityType Name="SANPHAM">
     <Key>
       <PropertyRef Name="MASP" />
     </Key>
-    <Property Name="MASP" Type="char" MaxLength="4" Nullable="false" />
-    <Property Name="TENSP" Type="nvarchar" MaxLength="40" />
-    <Property Name="DVT" Type="nvarchar" MaxLength="10" />
-    <Property Name="GIA" Type="int" />
+    <Property Name="MASP" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TENSP" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="DVT" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="GIA" Type="int" Nullable="false" />
     <Property Name="MOTA" Type="nvarchar(max)" />
     <Property Name="HINHSP" Type="nvarchar(max)" />
-    <Property Name="SL" Type="int" />
-    <Property Name="LOAISP" Type="nvarchar" MaxLength="10" />
-    <Property Name="SIZE" Type="char" MaxLength="8" />
-  </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-    <Property Name="principal_id" Type="int" Nullable="false" />
-    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="version" Type="int" />
-    <Property Name="definition" Type="varbinary(max)" />
+    <Property Name="SL" Type="int" Nullable="false" />
+    <Property Name="LOAISP" Type="nvarchar" MaxLength="50" />
+    <Property Name="SIZE" Type="char" MaxLength="50" />
   </EntityType>
   <Association Name="FK_CN_PN">
     <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
@@ -184,7 +170,6 @@
     <EntitySet Name="NGUOIDUNG" EntityType="Self.NGUOIDUNG" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="PHIEUNHAP" EntityType="Self.PHIEUNHAP" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="SANPHAM" EntityType="Self.SANPHAM" Schema="dbo" store:Type="Tables" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <AssociationSet Name="FK_CN_PN" Association="Self.FK_CN_PN">
       <End Role="PHIEUNHAP" EntitySet="PHIEUNHAP" />
       <End Role="CTPN" EntitySet="CTPN" />

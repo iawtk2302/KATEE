@@ -6,7 +6,8 @@
       xmlns:local="clr-namespace:ClothesShopManagement.View"
       mc:Ignorable="d" 
       xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
-      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
+      xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" xmlns:Wpf="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf" 
+      xmlns:syncfusion="http://schemas.syncfusion.com/wpf"
       x:Name="Homewd"
       d:DesignHeight="550" d:DesignWidth="665"
       DataContext="{StaticResource HomeVM}"
@@ -203,7 +204,6 @@
                     </Border.Effect>
                     <StackPanel VerticalAlignment="Center">
                         <syncfusion:SfChart 
-                            syncfusionskin:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=MaterialDark}"
                             Height="250" Width="600" Header="Đồ thị sản phẩm bán ra theo giờ">
                             <syncfusion:SfChart.PrimaryAxis>
                                 <syncfusion:CategoryAxis/>

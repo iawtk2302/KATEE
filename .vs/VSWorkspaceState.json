@@ -3,8 +3,10 @@
     "",
     "\\ClothesShopManagement",
     "\\ClothesShopManagement\\Model",
+    "\\ClothesShopManagement\\Resource",
+    "\\ClothesShopManagement\\View",
     "\\ClothesShopManagement\\ViewModel"
   ],
-  "SelectedNode": "\\ClothesShopManagement.sln",
+  "SelectedNode": "\\ClothesShopManagement\\View\\ReportView.xaml",
   "PreviewInSolutionExplorer": false
 }

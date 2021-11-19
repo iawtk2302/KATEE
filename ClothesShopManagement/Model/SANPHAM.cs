@@ -24,10 +24,10 @@ namespace ClothesShopManagement.Model
         public string MASP { get; set; }
         public string TENSP { get; set; }
         public string DVT { get; set; }
-        public Nullable<int> GIA { get; set; }
+        public int GIA { get; set; }
         public string MOTA { get; set; }
         public string HINHSP { get; set; }
-        public Nullable<int> SL { get; set; }
+        public int SL { get; set; }
         public string LOAISP { get; set; }
         public string SIZE { get; set; }
     

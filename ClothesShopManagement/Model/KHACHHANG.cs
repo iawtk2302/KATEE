@@ -22,13 +22,9 @@ namespace ClothesShopManagement.Model
     
         public string MAKH { get; set; }
         public string HOTEN { get; set; }
+        public string GIOITINH { get; set; }
         public string DCHI { get; set; }
         public string SDT { get; set; }
-        public Nullable<System.DateTime> NGSINH { get; set; }
-        public Nullable<long> DOANHSO { get; set; }
-        public Nullable<System.DateTime> NGDK { get; set; }
-        public string HANGTV { get; set; }
-        public Nullable<double> KM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }

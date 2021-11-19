@@ -6,8 +6,8 @@
       <PropertyRef Name="MASP" />
     </Key>
     <Property Name="SOHD" Type="Int32" Nullable="false" />
-    <Property Name="MASP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="SL" Type="Int32" />
+    <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SL" Type="Int32" Nullable="false" />
     <Property Name="DANHGIA" Type="Int32" />
     <NavigationProperty Name="HOADON" Relationship="Self.FK_CT_HD" FromRole="CTHD" ToRole="HOADON" />
     <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CT_SP" FromRole="CTHD" ToRole="SANPHAM" />
@@ -18,8 +18,8 @@
       <PropertyRef Name="MASP" />
     </Key>
     <Property Name="MAPN" Type="Int32" Nullable="false" />
-    <Property Name="MASP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="SL" Type="Int32" />
+    <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SL" Type="Int32" Nullable="false" />
     <NavigationProperty Name="PHIEUNHAP" Relationship="Self.FK_CN_PN" FromRole="CTPN" ToRole="PHIEUNHAP" />
     <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CN_SP" FromRole="CTPN" ToRole="SANPHAM" />
   </EntityType>
@@ -28,10 +28,10 @@
       <PropertyRef Name="SOHD" />
     </Key>
     <Property Name="SOHD" Type="Int32" Nullable="false" />
-    <Property Name="MAND" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-    <Property Name="MAKH" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-    <Property Name="NGHD" Type="DateTime" Precision="0" />
-    <Property Name="TRIGIA" Type="Int64" />
+    <Property Name="MAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGHD" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="TRIGIA" Type="Int32" Nullable="false" />
     <Property Name="TTHD" Type="Boolean" Nullable="false" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_HD" FromRole="HOADON" ToRole="CTHD" />
     <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_HD_ND" FromRole="HOADON" ToRole="NGUOIDUNG" />
@@ -41,29 +41,25 @@
     <Key>
       <PropertyRef Name="MAKH" />
     </Key>
-    <Property Name="MAKH" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="HOTEN" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="HOTEN" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="DCHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-    <Property Name="NGSINH" Type="DateTime" Precision="0" />
-    <Property Name="DOANHSO" Type="Int64" />
-    <Property Name="NGDK" Type="DateTime" Precision="0" />
-    <Property Name="HANGTV" Type="String" MaxLength="5" FixedLength="true" Unicode="false" />
-    <Property Name="KM" Type="Double" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK_KH_HD" FromRole="KHACHHANG" ToRole="HOADON" />
   </EntityType>
   <EntityType Name="NGUOIDUNG">
     <Key>
       <PropertyRef Name="MAND" />
     </Key>
-    <Property Name="MAND" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="TENND" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <Property Name="MAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="NGSINH" Type="DateTime" Precision="0" />
     <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
-    <Property Name="SDT" Type="String" MaxLength="10" FixedLength="true" Unicode="false" />
+    <Property Name="SDT" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="USERNAME" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
-    <Property Name="PASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
+    <Property Name="PASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="QTV" Type="Boolean" Nullable="false" />
     <Property Name="TTND" Type="Boolean" Nullable="false" />
     <Property Name="AVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
@@ -75,8 +71,8 @@
       <PropertyRef Name="MAPN" />
     </Key>
     <Property Name="MAPN" Type="Int32" Nullable="false" />
-    <Property Name="MAND" Type="String" MaxLength="4" FixedLength="true" Unicode="false" />
-    <Property Name="NGAYNHAP" Type="DateTime" Precision="0" />
+    <Property Name="MAND" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="NGAYNHAP" Type="DateTime" Nullable="false" Precision="0" />
     <NavigationProperty Name="CTPNs" Relationship="Self.FK_CN_PN" FromRole="PHIEUNHAP" ToRole="CTPN" />
     <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_PN_ND" FromRole="PHIEUNHAP" ToRole="NGUOIDUNG" />
   </EntityType>
@@ -84,27 +80,17 @@
     <Key>
       <PropertyRef Name="MASP" />
     </Key>
-    <Property Name="MASP" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="TENSP" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
-    <Property Name="DVT" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="GIA" Type="Int32" />
+    <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="TENSP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="DVT" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="GIA" Type="Int32" Nullable="false" />
     <Property Name="MOTA" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="HINHSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
-    <Property Name="SL" Type="Int32" />
-    <Property Name="LOAISP" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
-    <Property Name="SIZE" Type="String" MaxLength="8" FixedLength="true" Unicode="false" />
+    <Property Name="SL" Type="Int32" Nullable="false" />
+    <Property Name="LOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_SP" FromRole="SANPHAM" ToRole="CTHD" />
     <NavigationProperty Name="CTPNs" Relationship="Self.FK_CN_SP" FromRole="SANPHAM" ToRole="CTPN" />
-  </EntityType>
-  <EntityType Name="sysdiagram">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <Association Name="FK_CT_HD">
     <End Role="HOADON" Type="Self.HOADON" Multiplicity="1" />
@@ -198,7 +184,6 @@
     <EntitySet Name="NGUOIDUNGs" EntityType="Self.NGUOIDUNG" />
     <EntitySet Name="PHIEUNHAPs" EntityType="Self.PHIEUNHAP" />
     <EntitySet Name="SANPHAMs" EntityType="Self.SANPHAM" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK_CT_HD" Association="Self.FK_CT_HD">
       <End Role="HOADON" EntitySet="HOADONs" />
       <End Role="CTHD" EntitySet="CTHDs" />
