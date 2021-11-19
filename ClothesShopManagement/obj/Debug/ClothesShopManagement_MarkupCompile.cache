@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Admin\OneDrive\Documents\Đồ án LTTQ 1\ClothesShopManagement\App.xaml
-121251349507
+13750050679
 2739969757
-381158276494
+40-1282319477
 38-2049298039
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddProductView.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddOrder.xaml;View\AddProductView.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
 
-False
+True
 

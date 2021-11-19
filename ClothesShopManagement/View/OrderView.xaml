@@ -57,7 +57,7 @@
                         </i:Interaction.Triggers>
                     </TextBox>
                     <Button
-                        Content="THÊM"
+                        Content="TẠO"
                         Margin="250,0,0,0"
                         Width="90"
                         Height="40"
@@ -74,7 +74,7 @@
                         </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding AddCsCommand}"
+                                <i:InvokeCommandAction Command="{Binding OpenAddOrder}"
                                                        CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
@@ -211,7 +211,7 @@
                         </ListView.ItemsPanel>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="SelectionChanged">
-                                <i:InvokeCommandAction     Command="{Binding Detail}"
+                                <i:InvokeCommandAction     Command="{Binding}"
                                                            CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
