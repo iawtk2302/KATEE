@@ -44,6 +44,10 @@ namespace ClothesShopManagement.ViewModel
         public Visibility Up { get => _Up; set { _Up = value; OnPropertyChanged(); } }
         private Visibility _Down;
         public Visibility Down { get => _Down; set { _Down = value; OnPropertyChanged(); } }
+        private Visibility _SetBills;
+        public Visibility SetBills { get => _SetBills; set { _SetBills = value; OnPropertyChanged(); } }
+        private Visibility _SetImport;
+        public Visibility SetImport { get => _SetImport; set { _SetImport = value; OnPropertyChanged(); } }
         public string Name;
         public List<Review> Reviews { get; set; }
         public List<YData> YDatas { get; set; }
@@ -62,6 +66,10 @@ namespace ClothesShopManagement.ViewModel
         public long LastMonth { get; set; }
         private ObservableCollection<string> _Select;
         public ObservableCollection<string> Select { get => _Select; set { _Select = value; OnPropertyChanged(); } }
+        private ObservableCollection<HOADON> _listHD;
+        public ObservableCollection<HOADON> listHD { get => _listHD; set { _listHD = value; OnPropertyChanged(); } }
+        private ObservableCollection<PHIEUNHAP> _listPN;
+        public ObservableCollection<PHIEUNHAP> listPN { get => _listPN; set { _listPN = value; OnPropertyChanged(); } }
         public ICommand LoadPie { get; set; }
         public ICommand LoadCol { get; set; }
         public ICommand LoadCbbx { get; set; }
@@ -74,13 +82,16 @@ namespace ClothesShopManagement.ViewModel
             Select = new ObservableCollection<string> { "Theo năm", "Theo tháng" };
             LoadCbbx = new RelayCommand<ReportView>((p) => true, (p) => ColChart(p));
             SetMain = Visibility.Visible;
+            SetBills = Visibility.Hidden;
+            SetImport = Visibility.Hidden;
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
             SwitchTab = new RelayCommand<ReportView>((p) => true, (p) => switchtab(p));
             LoadPie = new RelayCommand<ReportView>((p) => true, (p) => PieChart(p));
             LoadSP = new RelayCommand<ReportView>((p) => true, (p) => SPCount(p));
             LoadNV = new RelayCommand<ReportView>((p) => true, (p) => NVCount(p));
             LoadDT = new RelayCommand<ReportView>((p) => true, (p) => DTTrend(p));
-            //LoadCol = new RelayCommand<ReportView>((p) => true, (p) => ColChart(p));
+            listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs.Select(x => x));
+            listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs.Select(x => x));
         }
         public void DTTrend(ReportView p)
         {
@@ -217,16 +228,22 @@ namespace ClothesShopManagement.ViewModel
                 case 0:
                     {
                         SetMain = Visibility.Visible;
+                        SetBills = Visibility.Hidden;
+                        SetImport = Visibility.Hidden;
                         break;
                     }
                 case 1:
                     {
                         SetMain = Visibility.Hidden;
+                        SetBills = Visibility.Visible;
+                        SetImport = Visibility.Hidden;
                         break;
                     }
                 case 2:
                     {
                         SetMain = Visibility.Hidden;
+                        SetBills = Visibility.Hidden;
+                        SetImport = Visibility.Visible;
                         break;
                     }
                 default:

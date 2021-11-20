@@ -11,6 +11,7 @@
       xmlns:syncfusion="clr-namespace:Syncfusion.UI.Xaml.Charts;assembly=Syncfusion.SfChart.WPF"      
       DataContext="{StaticResource ReportVM}"
       >
+    
     <Border
                     Height="550"
                     Width="665"
@@ -323,7 +324,43 @@
                         </Grid>
                     </StackPanel>
                 </Border>
-            </Grid>
+                <Border x:Name="Bills" Visibility="{Binding SetBills}" Background="AliceBlue" CornerRadius="10">
+                    <ListView
+  ItemsSource="{Binding listHD}" Background="Transparent">
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Width="Auto"
+        DisplayMemberBinding="{Binding SOHD}"
+        Header="Số hóa đơn" />
+                                <GridViewColumn Width="Auto"
+        DisplayMemberBinding="{Binding TRIGIA}"
+        Header="Trị giá" />
+                                <GridViewColumn Width="Auto"
+        DisplayMemberBinding="{Binding NGHD}"
+        Header="Ngày mua"/>
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </Border>
+                <Border x:Name="Import" Visibility="{Binding SetImport}" Background="AliceBlue" CornerRadius="10">
+        <ListView
+  ItemsSource="{Binding listPN}" Background="Transparent">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Width="Auto"
+        DisplayMemberBinding="{Binding MAPN}"
+        Header="Mã phiếu nhập" />
+                    <GridViewColumn Width="Auto"
+        DisplayMemberBinding="{Binding MAND}"
+        Header="Nhân viên nhập" />
+                    <GridViewColumn Width="Auto"
+        DisplayMemberBinding="{Binding NGAYNHAP}"
+        Header="Ngày nhập"/>
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Border>
+    </Grid>
         </Grid>
     </Border>
 </Page>
