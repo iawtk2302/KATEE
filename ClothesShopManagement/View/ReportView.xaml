@@ -101,10 +101,18 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom" >
                     <StackPanel>
-                        <ComboBox Margin="25,10,10,10" Width="100" HorizontalAlignment="Left"
-                                  materialDesign:HintAssist.Hint="Chọn chu kì"></ComboBox>
+                        <ComboBox x:Name="Combobox" ItemsSource="{Binding Select, Mode=TwoWay}" Margin="25,10,10,10" Width="100" HorizontalAlignment="Left"
+                                  materialDesign:HintAssist.Hint="Chọn chu kì"
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding LoadCbbx}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
                         <syncfusion:SfChart 
-                            Height="200"
+                            Height="185"
                                 Width="360" VerticalAlignment="Bottom"
                         >
                             <syncfusion:SfChart.PrimaryAxis>
@@ -116,7 +124,7 @@
                             <syncfusion:SfChart.Legend>
                                 <syncfusion:ChartLegend/>
                             </syncfusion:SfChart.Legend>
-                            <syncfusion:ColumnSeries x:Name="Chart" Palette="Custom" Label="Doanh thu" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP">
+                            <syncfusion:ColumnSeries x:Name="ColChart" Palette="Custom" Label="Doanh thu" XBindingPath="Time" YBindingPath="DT">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
                                         <syncfusion:ChartColorModel.CustomBrushes>
@@ -127,7 +135,7 @@
                             </syncfusion:ColumnSeries>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Loaded">
-                                    <i:InvokeCommandAction Command="{Binding LoadChart}"
+                                    <i:InvokeCommandAction Command="{Binding LoadCol}"
                                                        CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
@@ -178,7 +186,39 @@
                             <GradientStop Color="#FF8441A4" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
+                    <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
 
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="55"/>
+                                <RowDefinition Height="55"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Width="150">
+                                <TextBlock Text="Nhân viên năng suất nhất:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                            </Grid>
+                            <Grid Grid.Row="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1">
+                                    <materialDesign:PackIcon Kind="AccountStar" Foreground="White" Height="50" Width="50"/>
+                                </Grid>
+                                <TextBlock x:Name="NVBest" VerticalAlignment="Top" Text="NV00" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto" HorizontalAlignment="Right" Width="100">
+                                    <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadNV}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                                </TextBlock>
+                                <TextBlock x:Name="NVName" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="Wrap" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                    
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
                 </Border>
                 <Border x:Name="SPBox" Height="150"
                                 Width="200"
@@ -193,9 +233,42 @@
                             <GradientStop Color="#FFF650A0" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
+                    <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
 
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="55"/>
+                                <RowDefinition Height="55"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Width="150">
+                                <TextBlock Text="Sản phẩm bán chạy nhất:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                            </Grid>
+                            <Grid Grid.Row="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="50"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="1">
+                                    <materialDesign:PackIcon Kind="Basket" Foreground="White" Height="50" Width="50"/>
+                                </Grid>
+                                <TextBlock x:Name="MaxSP"
+                                           VerticalAlignment="Top" Text="Mã" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                    <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadSP}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                                </TextBlock>
+                                <TextBlock x:Name="SPName" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="Wrap" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+
+                                </TextBlock>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
                 </Border>
-                <Border x:Name="KHBox" Height="150"
+                <Border x:Name="DTBox" Height="150"
                                 Width="200"
                         Visibility="{Binding SetMain}"
                         Margin="10"
@@ -208,7 +281,39 @@
                             <GradientStop Color="#FFEE4D5F" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
+                    <StackPanel HorizontalAlignment="Center"
+                                    VerticalAlignment="Center">
 
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="55"/>
+                                <RowDefinition Height="55"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" Width="150">
+                                <TextBlock Text="Doanh thu so với tháng trước:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                            </Grid>
+                            <Grid Grid.Row="1" VerticalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40"/>
+                                    <ColumnDefinition Width="120"/>
+                                </Grid.ColumnDefinitions>
+                                <Grid Grid.Column="0">
+                                    <materialDesign:PackIcon x:Name="IconUp" VerticalAlignment="Bottom" Visibility="{Binding Up}" Kind="ArrowUpBold" Foreground="ForestGreen" Height="50" Width="50"/>
+                                    <materialDesign:PackIcon x:Name="IconDown" VerticalAlignment="Bottom" Visibility="{Binding Down}" Kind="ArrowDownBold" Foreground="DarkRed" Height="50" Width="50"/>
+                                </Grid>
+                                <Grid Grid.Column="1">
+                                    <TextBlock x:Name="DTTrend" VerticalAlignment="Center" Text="0" TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                    </TextBlock>
+                                </Grid>
+                                    <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadDT}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                            </Grid>
+                        </Grid>
+                    </StackPanel>
                 </Border>
             </Grid>
         </Grid>
