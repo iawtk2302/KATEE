@@ -114,7 +114,7 @@
                             Visibility="{Binding SetQuanLy}"
                             Style="{StaticResource BtnStatistic}"
                             FontFamily="{StaticResource Custom}"
-                            Uid="4"
+                            Uid="5"
                             x:Name="btnReport"
                             >
                             <i:Interaction.Triggers>

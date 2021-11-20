@@ -66,3 +66,4 @@ C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\XamlC.stamp
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\ClothesShopManagement.csproj.CopyComplete
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\ClothesShopManagement.exe
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\ClothesShopManagement.pdb
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\ClothesShopManagement.csproj.AssemblyReference.cache

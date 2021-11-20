@@ -204,7 +204,8 @@ namespace ClothesShopManagement.ViewModel
             p.Pie.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
             {
                 ShowLabel = true,
-                Margin = new Thickness(0)
+                ShowConnectorLine = true,
+                Margin = new Thickness(2)
             };
         }
         void switchtab(ReportView p)

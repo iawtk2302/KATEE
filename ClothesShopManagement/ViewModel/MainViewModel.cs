@@ -88,7 +88,7 @@ namespace ClothesShopManagement.ViewModel
                         p.Main.NavigationService.Navigate(new ProductsView());
                         break;
                     }
-                case 4:
+                case 5:
                     {
                         p.Main.NavigationService.Navigate(new ReportView());
                         break;
