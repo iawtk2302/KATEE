@@ -267,17 +267,43 @@
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
                                 </Border>
                             </StackPanel>
-                            <Button
+                            <StackPanel
+                                Orientation="Horizontal"
+                                >
+                                <Button
                                 Content="THÊM"
+                                FontFamily="{StaticResource Custom}"
+                                >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction     Command="{Binding AddSP}"
+                                                           CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button
+                                Content="XÓA"
                                 FontFamily="{StaticResource Custom}"
                                 >
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction     Command="{Binding AddSP}"
+                                        <i:InvokeCommandAction     Command="{Binding DeleteSP}"
                                                            CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>
                             </Button>
+                                <Button
+                                Content="THANH TOÁN"
+                                FontFamily="{StaticResource Custom}"
+                                >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction     Command="{Binding SaveHD}"
+                                                           CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -355,8 +381,7 @@
                             </Grid>
                         </Grid>
                     </Border>
-
-                <ListView x:Name="ListViewSP" 
+                    <ListView x:Name="ListViewSP" 
                           SelectionMode="Single"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
                           Height="150"

@@ -46,8 +46,6 @@
     <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="DCHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="NGSINH" Type="DateTime" Precision="0" />
-    <Property Name="NGDK" Type="DateTime" Precision="0" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK_KH_HD" FromRole="KHACHHANG" ToRole="HOADON" />
   </EntityType>
   <EntityType Name="NGUOIDUNG">
@@ -90,7 +88,7 @@
     <Property Name="HINHSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SL" Type="Int32" Nullable="false" />
     <Property Name="LOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_SP" FromRole="SANPHAM" ToRole="CTHD" />
     <NavigationProperty Name="CTPNs" Relationship="Self.FK_CN_SP" FromRole="SANPHAM" ToRole="CTPN" />
   </EntityType>

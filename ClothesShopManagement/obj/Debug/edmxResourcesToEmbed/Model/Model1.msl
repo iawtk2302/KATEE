@@ -40,8 +40,6 @@
           <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
           <ScalarProperty Name="DCHI" ColumnName="DCHI" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
-          <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
-          <ScalarProperty Name="NGDK" ColumnName="NGDK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

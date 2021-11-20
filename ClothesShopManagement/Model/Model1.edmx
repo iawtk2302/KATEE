@@ -44,8 +44,6 @@
           <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
           <Property Name="DCHI" Type="nvarchar" MaxLength="50" />
           <Property Name="SDT" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="NGSINH" Type="smalldatetime" />
-          <Property Name="NGDK" Type="smalldatetime" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
           <Key>
@@ -83,7 +81,7 @@
           <Property Name="HINHSP" Type="nvarchar(max)" />
           <Property Name="SL" Type="int" Nullable="false" />
           <Property Name="LOAISP" Type="nvarchar" MaxLength="50" />
-          <Property Name="SIZE" Type="char" MaxLength="50" />
+          <Property Name="SIZE" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_CN_PN">
           <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />
@@ -257,8 +255,6 @@
           <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
           <Property Name="DCHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="NGSINH" Type="DateTime" Precision="0" />
-          <Property Name="NGDK" Type="DateTime" Precision="0" />
           <NavigationProperty Name="HOADONs" Relationship="Self.FK_KH_HD" FromRole="KHACHHANG" ToRole="HOADON" />
         </EntityType>
         <EntityType Name="NGUOIDUNG">
@@ -301,7 +297,7 @@
           <Property Name="HINHSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="SL" Type="Int32" Nullable="false" />
           <Property Name="LOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-          <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+          <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_SP" FromRole="SANPHAM" ToRole="CTHD" />
           <NavigationProperty Name="CTPNs" Relationship="Self.FK_CN_SP" FromRole="SANPHAM" ToRole="CTPN" />
         </EntityType>
@@ -471,8 +467,6 @@
                 <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
                 <ScalarProperty Name="DCHI" ColumnName="DCHI" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
-                <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
-                <ScalarProperty Name="NGDK" ColumnName="NGDK" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

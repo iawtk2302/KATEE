@@ -2,11 +2,13 @@
 using ClothesShopManagement.View;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Forms;
 using System.Windows.Input;
 
 namespace ClothesShopManagement.ViewModel
@@ -42,24 +44,26 @@ namespace ClothesShopManagement.ViewModel
         public List<HienThi> LHT { get => _LHT; set { _LHT = value; OnPropertyChanged(); } }
         private List<SANPHAM> _LSPSelected;
         public List<SANPHAM> LSPSelected { get=> _LSPSelected; set { _LSPSelected = value; OnPropertyChanged(); } }
-        private List<CTHD> _LCTHD;
-        public List<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
+        private ObservableCollection<CTHD> _LCTHD;
+        public ObservableCollection<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
         public ICommand AddSP { get; set; }
-        public HOADON HD { get; set; }
+        public ICommand DeleteSP { get; set; }
+        public ICommand SaveHD { get; set; }
         public int tongtien { get; set; }
         public AddOrderViewModel()
         {
             tongtien = 0;
-            HD = new HOADON();
             LSPSelected = new List<SANPHAM>();
             LHT = new List<HienThi>();
-            LCTHD = new List<CTHD>();
+            LCTHD = new ObservableCollection<CTHD>();
             Closewd = new RelayCommand<AddOrderView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddOrderView>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<AddOrderView>((p) => true, (p) => moveWindow(p));
             Loadwd = new RelayCommand<AddOrderView>((p) => true, (p) => _Loadwd(p));
             Choose= new RelayCommand<AddOrderView>((p) => true, (p) => _Choose(p));
             AddSP=new RelayCommand<AddOrderView>((p) => true, (p) => _AddSP(p));
+            DeleteSP = new RelayCommand<AddOrderView>((p) => true, (p) => _DeleteSP(p));
+            SaveHD = new RelayCommand<AddOrderView>((p) => true, (p) => _SaveHD(p));
         }
         void moveWindow(AddOrderView p)
         {
@@ -85,8 +89,15 @@ namespace ClothesShopManagement.ViewModel
         }
         void _Choose(AddOrderView paramater)
         {
-            SANPHAM temp = (SANPHAM)paramater.SP.SelectedItem;
-            paramater.DG.Text=temp.GIA.ToString();
+            if(paramater.SP.SelectedItem!=null)
+            {
+                SANPHAM temp = (SANPHAM)paramater.SP.SelectedItem;
+                paramater.DG.Text = temp.GIA.ToString();
+            }
+            else
+            {
+                paramater.DG.Text = "";
+            }    
         }
         void _AddSP(AddOrderView paramater)
         {
@@ -95,10 +106,11 @@ namespace ClothesShopManagement.ViewModel
             HienThi b = new HienThi(a.MASP,a.TENSP,a.SIZE,int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text)*a.GIA);
             CTHD cthd = new CTHD()
             {
-                SL = int.Parse(paramater.SL.Text),             
+                MASP = a.MASP,
+                SL = int.Parse(paramater.SL.Text),
                 DANHGIA = 4,
-                SANPHAM=a,
-                HOADON=HD,
+                SANPHAM = a,
+                SOHD =int.Parse(paramater.SoHD.Text),
             };
             tongtien += int.Parse(paramater.SL.Text) * a.GIA;
             paramater.TT.Text = String.Format("{0:0,0}", tongtien)+" VND";
@@ -106,26 +118,76 @@ namespace ClothesShopManagement.ViewModel
             LHT.Add(b);
             paramater.ListViewSP.ItemsSource= LHT;
             paramater.ListViewSP.Items.Refresh();
+            paramater.SP.SelectedItem = null;
+            paramater.SL.Text = "";
         }
-        void _ThanhToan(AddOrderView paramater)
+        void _DeleteSP(AddOrderView paramater)
         {
-            KHACHHANG a = (KHACHHANG)paramater.KH.SelectedItem;
-            int tonggia = 0;
-            foreach(HienThi b in LHT)
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
             {
-                tonggia += b.Tong;
-            }    
-            HOADON temp = new HOADON()
+                HienThi a = (HienThi)paramater.ListViewSP.SelectedItem;
+                tongtien -= a.Tong;
+                paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                LHT.Remove(a);
+                foreach (SANPHAM b in LSPSelected)
+                {
+                    if (b.MASP == a.MaSp)
+                    {
+                        LSPSelected.Remove(b);
+                        break;
+                    }
+                }
+                foreach (CTHD b in LCTHD)
+                {
+                    if (b.MASP == a.MaSp && b.SL == a.SL)
+                    {
+                        LCTHD.Remove(b);
+                        break;
+                    }
+                }
+                paramater.ListViewSP.Items.Refresh();
+            }
+            else
+                return;
+        }
+        void _SaveHD(AddOrderView paramater)
+        {
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thanh toán.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
             {
-                SOHD = int.Parse(paramater.SoHD.Text),
-                MAKH = a.MAKH,
-                MAND = Const.ND.MAND,
-                NGHD=DateTime.Now,
-                CTHDs=LCTHD,
-                TRIGIA=tonggia
-            };
-            DataProvider.Ins.DB.HOADONs.Add(temp);
-            DataProvider.Ins.DB.SaveChanges();
+                KHACHHANG a = (KHACHHANG)paramater.KH.SelectedItem;
+                int tonggia = 0;
+                foreach (HienThi b in LHT)
+                {
+                    tonggia += b.Tong;
+                }
+                HOADON temp = new HOADON()
+                {
+                    SOHD = int.Parse(paramater.SoHD.Text),
+                    MAKH = a.MAKH,
+                    MAND = Const.ND.MAND,
+                    NGHD = DateTime.Now,
+                    CTHDs = new ObservableCollection<CTHD>(LCTHD),
+                    TRIGIA = tonggia
+                };
+                foreach(CTHD s in LCTHD)
+                {
+                    foreach(SANPHAM x in DataProvider.Ins.DB.SANPHAMs)
+                    {
+                        if(x.MASP==s.SANPHAM.MASP)
+                        {
+                            x.SL-=s.SL;
+                        }    
+                    }
+                    DataProvider.Ins.DB.SaveChanges();
+                }    
+                DataProvider.Ins.DB.HOADONs.Add(temp);
+                DataProvider.Ins.DB.SaveChanges();
+                System.Windows.MessageBox.Show("Thanh toán thành công", "THÔNG BÁO");
+            }
+            else
+                return;
         }
     }
 }

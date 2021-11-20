@@ -40,7 +40,7 @@ namespace ClothesShopManagement.ViewModel
             foreach (SANPHAM temp1 in DataProvider.Ins.DB.SANPHAMs)
             {
                 if (!temp1.HINHSP.Contains(_localLink))
-                    temp1.HINHSP = _localLink + temp1.HINHSP;
+                     temp1.HINHSP = _localLink + temp1.HINHSP;
             }
             DataProvider.Ins.DB.SaveChanges();
             listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
@@ -123,7 +123,7 @@ namespace ClothesShopManagement.ViewModel
             detailProduct.LoaiSP.Text = temp.LOAISP;
             string SL = DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP).Sum(p => p.SL).ToString();
             detailProduct.SLSP.Text = "Số lượng: " + SL;
-            detailProduct.DtSize.ItemsSource = DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP).ToList();
+            detailProduct.kichco.ItemsSource = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP));
             detailProduct.Mota.Text = temp.MOTA;
             Uri fileUri = new Uri(temp.HINHSP);
             detailProduct.HinhAnh.Source = new BitmapImage(fileUri);
