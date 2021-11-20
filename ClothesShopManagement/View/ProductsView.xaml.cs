@@ -24,5 +24,10 @@ namespace ClothesShopManagement.View
         {
             InitializeComponent();
         }
+
+        private void cbxLSP_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }

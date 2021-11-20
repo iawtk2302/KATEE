@@ -37,7 +37,7 @@
                                     CornerRadius="20"
                                     Height="130"
                                     Width="190"
-                        Margin="23.75,0,0,0"
+                        Margin="23.75,15,0,0"
                                     >
                         <Border.Effect>
                             <DropShadowEffect BlurRadius="15" Direction="-90"
@@ -83,7 +83,7 @@
                     <Border
                                     CornerRadius="20"
                                     Height="130"
-                        Margin="237.5,0,0,0"
+                        Margin="237.5,15,0,0"
                                     Width="190"                                     
                                     >
                         <Border.Effect>
@@ -130,7 +130,7 @@
                     <Border
                                     CornerRadius="20"
                                     Height="130"
-                        Margin="451.25,0,0,0"
+                        Margin="451.25,15,0,0"
                                     Width="190"                         
                                     >
                         <Border.Effect>

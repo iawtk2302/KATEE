@@ -31,48 +31,11 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
-                    <Border
-                        Margin="6,0,0,0"
-                        Height="40"
-                        Width="120"
-                        Background="White"
-                        CornerRadius="10"
-                        >
-                        <ComboBox
-                        x:Name="cbxLSP"
-                        Style="{StaticResource MaterialDesignFilledComboBox}"
-                        materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
-                        materialDesign:HintAssist.Hint="Loại"
-                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                        BorderThickness="0"
-                        materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
-                        materialDesign:HintAssist.Foreground="White"
-                        Background="White"
-                        FontFamily="{StaticResource Custom}"
-                        Height="38"
-                        FontSize="14"
-                        ItemsSource="{Binding listLSP}"
-                        Width="110">
-                            <ComboBox.ItemTemplate>
-                                <DataTemplate>
-                                    <StackPanel Orientation="Horizontal">
-                                        <TextBlock Text="{Binding}"/>
-                                    </StackPanel>
-                                </DataTemplate>
-                            </ComboBox.ItemTemplate>
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding ChoosePDCommand}"
-                                                           CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </ComboBox>
-                    </Border>
                     <TextBox
                                 x:Name="txbSearch"
                                 Width="250"
                                 Height="40"
-                                Margin="6,0,0,0"
+                                Margin="10,0,0,0"
                                 BorderBrush="White"
                                 Foreground="White"
                                 FontSize="16"
@@ -94,7 +57,7 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="60,0,0,0"
+                        Margin="300,0,0,0"
                         Width="90"
                         Height="40"
                         Background="LightPink"
@@ -108,14 +71,6 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
-                    <Button
-                        Margin="10,0,0,0"
-                        Width="90"
-                        Height="40"
-                        materialDesign:ButtonAssist.CornerRadius="6"
-                        Background="LightPink"
-                        BorderBrush="LightPink"
-                        >XÓA</Button>
                 </StackPanel>
             </Grid>
             <Grid Grid.Row="2">

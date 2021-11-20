@@ -22,7 +22,8 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border
-        Background="White"
+        x:Name="xx"
+        Background="Black"
         CornerRadius="15"
         >
         <i:Interaction.Triggers>
@@ -67,6 +68,7 @@
             <Grid Grid.Row="1">
                 <TextBlock
                     Text="HÓA ĐƠN"
+                    Foreground="White"
                     FontFamily="{StaticResource Custom}"
                     FontSize="30"
                     HorizontalAlignment="Center"
@@ -81,7 +83,7 @@
                 <Grid Grid.Column="0">
                     <Border
                         Margin="20,0,20,0"
-                        Background="LightPink"
+                        Background="White"
                         CornerRadius="15"
                         >
                         <StackPanel
@@ -183,7 +185,7 @@
                 <Grid Grid.Column="1">
                     <Border
                         Margin="20,0,20,0"
-                        Background="LightPink"
+                        Background="White"
                         CornerRadius="15"
                         >
                         <StackPanel
@@ -268,9 +270,12 @@
                                 </Border>
                             </StackPanel>
                             <StackPanel
+                                Margin="20"
                                 Orientation="Horizontal"
                                 >
                                 <Button
+                                    Background="Black"
+                                    BorderThickness="0"
                                 Content="THÊM"
                                     FontSize="12"
                                 x:Name="addbtn"
@@ -284,19 +289,25 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                                 <Button
+                                    Background="Black"
+                                    BorderThickness="0"
+                                Margin="6,0,0,0"
                                 Content="XÓA"
-                                    FontSize="12"
+                                FontSize="12"
                                 x:Name="deletebtn"
                                 FontFamily="{StaticResource Custom}"
                                 >
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction     Command="{Binding DeleteSP}"
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction     Command="{Binding DeleteSP}"
                                                            CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </Button>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
                                 <Button
+                                    Background="Black"
+                                    BorderThickness="0"
+                                Margin="6,0,0,0"
                                 Content="THANH TOÁN"
                                     FontSize="12"
                                 FontFamily="{StaticResource Custom}"
@@ -310,19 +321,6 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                             </StackPanel>
-                            <Button
-                                Content="IN"
-                                FontFamily="{StaticResource Custom}"
-                                x:Name="inbtn"
-                                    FontSize="12"
-                                >
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction     Command="{Binding InHD}"
-                                                           CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </Button>
                         </StackPanel>
                     </Border>
                 </Grid>
@@ -334,14 +332,8 @@
                         Width="600"
                         Height="40"
                         CornerRadius="10"
-                       
+                        Background="White"
                         >
-                        <Border.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFE5D8" Offset="1"/>
-                                <GradientStop Color="#FFCAD4" Offset="0"/>
-                            </LinearGradientBrush>
-                        </Border.Background>
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
@@ -407,20 +399,14 @@
                         >
                     <ListView.ItemTemplate>
                         <DataTemplate>
-                            <Border
+                                <Border
                                 Margin="35,0,0,0"
                         Width="600"
                         Height="40"
                         CornerRadius="10"
-                       
+                        Background="White"
                         >
-                                <Border.Background>
-                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                        <GradientStop Color="#FFE5D8" Offset="1"/>
-                                        <GradientStop Color="#FFCAD4" Offset="0"/>
-                                    </LinearGradientBrush>
-                                </Border.Background>
-                                <Grid>
+                                    <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100"/>
                                         <ColumnDefinition Width="150"/>
@@ -501,6 +487,7 @@
                       HorizontalAlignment="Right"
                       >
                     <TextBlock
+                        Foreground="White"
                         Text="TỔNG TIỀN: "
                         FontFamily="{StaticResource Custom}"
                         FontSize="16"
@@ -508,6 +495,7 @@
                 </Grid>
                 <Grid Grid.Column="3">
                     <TextBlock
+                        Foreground="White"
                         x:Name="TT"
                         FontFamily="{StaticResource Custom}"
                         FontSize="16"
