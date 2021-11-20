@@ -93,7 +93,7 @@
             </Grid>
             <Grid Grid.Row="2" Margin="0, 5, 0, 0">
                 <Border x:Name="DTChart" Height="250"
-                                Width="390"
+                                Width="410"
                         Visibility="{Binding SetMain}"
                         Margin="10"
                                 Background="AliceBlue"
@@ -113,7 +113,7 @@
                         </ComboBox>
                         <syncfusion:SfChart 
                             Height="185"
-                                Width="360" VerticalAlignment="Bottom"
+                                Width="400" VerticalAlignment="Bottom"
                         >
                             <syncfusion:SfChart.PrimaryAxis>
                                 <syncfusion:CategoryAxis/>
@@ -144,7 +144,7 @@
                     
                 </Border>
                 <Border x:Name="PieChart" Height="250"
-                                Width="220"
+                                Width="200"
                         Visibility="{Binding SetMain}"
                         Margin="10"
                                 Background="AliceBlue"
@@ -158,10 +158,18 @@
                         <syncfusion:SfChart.Series>                               
                             <syncfusion:DoughnutSeries x:Name="Pie" LegendIcon="Diamond" EnableAnimation="True" 
                                                        ItemsSource="{Binding Reviews}" EnableSmartLabels="True"
-                                                       XBindingPath="Type" YBindingPath="Num"
-                                                       StartAngle="135" EndAngle="405" Margin="0,20,0,0"
-                                                       >
-                                
+                                                       XBindingPath="Type" YBindingPath="Num" CapStyle="BothCurve" SegmentSpacing="0"
+                                                       DoughnutCoefficient="0.7"
+                                                       VerticalAlignment="Stretch" LabelPosition="OutsideExtended"
+                                                       Palette="Custom">
+                                <syncfusion:DoughnutSeries.ColorModel>
+                                    <syncfusion:ChartColorModel>
+                                        <syncfusion:ChartColorModel.CustomBrushes>
+                                            <SolidColorBrush Color="LightGreen"/>
+                                            <SolidColorBrush Color="PaleVioletRed"/>
+                                        </syncfusion:ChartColorModel.CustomBrushes>
+                                    </syncfusion:ChartColorModel>
+                                </syncfusion:DoughnutSeries.ColorModel>
 
                             </syncfusion:DoughnutSeries>
                         </syncfusion:SfChart.Series>

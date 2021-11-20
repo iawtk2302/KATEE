@@ -49,7 +49,6 @@ namespace ClothesShopManagement.ViewModel
         public List<YData> YDatas { get; set; }
         public long Tien { get; set; }
         public DateTime Ngay { get; set; }
-        public bool TT { get; set; }
         public string TenSP { get; set; }
         public string MaSP { get; set; }
         public int SL { get; set; }
@@ -151,16 +150,15 @@ namespace ClothesShopManagement.ViewModel
                 var query = DataProvider.Ins.DB.HOADONs.Select(x => new ReportViewModel()
                 {
                     Tien = x.TRIGIA,
-                    Ngay = x.NGHD,
-                    TT = x.TTHD
+                    Ngay = x.NGHD
                 });
                 YDatas = new List<YData>();
                 for (int h = 1; h < 13; h++)
                 {
                     long value = 0;
-                    if (query.Where(x => x.TT && x.Ngay.Month == h && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Count() > 0)
+                    if (query.Where(x => x.Ngay.Month == h && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Count() > 0)
                     {
-                        value = query.Where(x => x.TT && x.Ngay.Month == h && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Sum();
+                        value = query.Where(x => x.Ngay.Month == h && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Sum();
                     }
                     YData result = new YData(h, value);
                     YDatas.Add(result);
@@ -171,16 +169,15 @@ namespace ClothesShopManagement.ViewModel
                 var query = DataProvider.Ins.DB.HOADONs.Select(x => new ReportViewModel()
                 {
                     Tien = x.TRIGIA,
-                    Ngay = x.NGHD,
-                    TT = x.TTHD
+                    Ngay = x.NGHD
                 });
                 YDatas = new List<YData>();
                 for (int h = 1; h <= 31; h++)
                 {
                     long value = 0;
-                    if (query.Where(x => x.TT && x.Ngay.Day == h && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Count() > 0)
+                    if (query.Where(x => x.Ngay.Day == h && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Count() > 0)
                     {
-                        value = query.Where(x => x.TT && x.Ngay.Day == h && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Sum();
+                        value = query.Where(x => x.Ngay.Day == h && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Select(x => x.Tien).Sum();
                     }
                     YData result = new YData(h, value);
                     YDatas.Add(result);
@@ -194,19 +191,20 @@ namespace ClothesShopManagement.ViewModel
             Review r1 = new Review()
             {
                 Type = "Tích cực",
-                Num = DataProvider.Ins.DB.CTHDs.Where(x => x.DANHGIA >= 3).Count()
+                Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA >= 3).Count()
             };
             Review r2 = new Review()
             {
                 Type = "Tiêu cực",
-                Num = DataProvider.Ins.DB.CTHDs.Where(x => x.DANHGIA == 1 || x.DANHGIA == 2).Count()
+                Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA <= 2).Count()
             };
             Reviews.Add(r1);
             Reviews.Add(r2);
             p.Pie.ItemsSource = Reviews;
             p.Pie.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
             {
-                ShowLabel = true
+                ShowLabel = true,
+                Margin = new Thickness(0)
             };
         }
         void switchtab(ReportView p)

@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\ClothesShopManagement",
-    "\\ClothesShopManagement\\View"
+    "\\ClothesShopManagement\\View",
+    "\\ClothesShopManagement\\ViewModel"
   ],
-  "SelectedNode": "\\ClothesShopManagement\\View\\DetailProduct.xaml",
+  "SelectedNode": "\\ClothesShopManagement\\ViewModel\\ReportViewModel.cs",
   "PreviewInSolutionExplorer": false
 }

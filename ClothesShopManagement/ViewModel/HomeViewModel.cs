@@ -95,13 +95,13 @@ namespace ClothesShopManagement.ViewModel
         }
         public void SoDon(HomeView p)
         {
-            int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD == DateTime.Today && x.TTHD).Count();
+            int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD == DateTime.Today).Count();
             p.DonNgay.Text = count.ToString();
         }
         public void Rating(HomeView p)
         {
             double rate = 0;
-            rate = (double)DataProvider.Ins.DB.CTHDs.Where(x => x.DANHGIA != 0).Select(x => x.DANHGIA).Average();
+            rate = (double)DataProvider.Ins.DB.HOADONs.Select(x => x.DANHGIA).Average();
             p.Rate.Text = rate.ToString("#.#/5");
             p.BasicRatingBar.Value = (int)rate;
         }
@@ -110,7 +110,7 @@ namespace ClothesShopManagement.ViewModel
             long total = 0;
             if (DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD == DateTime.Today).Select(x => x.TRIGIA).Count() != 0)
             {
-                total = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD == DateTime.Today && x.TTHD).Select(x => x.TRIGIA).Sum();
+                total = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD == DateTime.Today).Select(x => x.TRIGIA).Sum();
                 DoanhThu = total.ToString("#,###") + " VNĐ";
             }
             else DoanhThu = "0 VNĐ";            
