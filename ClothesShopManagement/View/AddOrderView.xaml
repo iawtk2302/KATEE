@@ -37,6 +37,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="250"/>
                 <RowDefinition/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel 
@@ -282,14 +283,88 @@
                 </Grid>
             </Grid>
             <Grid Grid.Row="3">
+                <StackPanel>
+                    <Border
+                        Margin="-12,10,0,0"
+                        Width="600"
+                        Height="40"
+                        CornerRadius="10"
+                       
+                        >
+                        <Border.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="#FFE5D8" Offset="1"/>
+                                <GradientStop Color="#FFCAD4" Offset="0"/>
+                            </LinearGradientBrush>
+                        </Border.Background>
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="100"/>
+                                <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <Grid Grid.Column="0">
+                                <TextBlock
+                                Text="MÃ SP"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                            <Grid Grid.Column="1">
+                                <TextBlock
+                                                Margin="2,0,0,0"
+                                HorizontalAlignment="Left"
+                                Text="TÊN SP"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                            <Grid Grid.Column="2">
+                                <TextBlock
+                                Text="SIZE"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                            <Grid Grid.Column="3">
+                                <TextBlock
+                                Text="SL"
+                                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                                MaxWidth="150"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <TextBlock
+                                Text="GIA"
+                                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                                MaxWidth="150"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                        </Grid>
+                    </Border>
+
                 <ListView x:Name="ListViewSP" 
                           SelectionMode="Single"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          Height="150"
                         >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border
-                                Margin="6,0,0,0"
+                                Margin="35,0,0,0"
                         Width="600"
                         Height="40"
                         CornerRadius="10"
@@ -367,6 +442,33 @@
                         </ItemsPanelTemplate>
                     </ListView.ItemsPanel>
                 </ListView>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="4"
+                  Margin="0,4,0,0"
+                  >
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid Grid.Column="2"
+                      HorizontalAlignment="Right"
+                      >
+                    <TextBlock
+                        Text="TỔNG TIỀN: "
+                        FontFamily="{StaticResource Custom}"
+                        FontSize="16"
+                        />
+                </Grid>
+                <Grid Grid.Column="3">
+                    <TextBlock
+                        x:Name="TT"
+                        FontFamily="{StaticResource Custom}"
+                        FontSize="16"
+                        />
+                </Grid>
             </Grid>
         </Grid>
     </Border>

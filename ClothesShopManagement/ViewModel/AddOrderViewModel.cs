@@ -2,6 +2,7 @@
 using ClothesShopManagement.View;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,10 +45,15 @@ namespace ClothesShopManagement.ViewModel
         private List<CTHD> _LCTHD;
         public List<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
         public ICommand AddSP { get; set; }
+        public HOADON HD { get; set; }
+        public int tongtien { get; set; }
         public AddOrderViewModel()
         {
+            tongtien = 0;
+            HD = new HOADON();
             LSPSelected = new List<SANPHAM>();
             LHT = new List<HienThi>();
+            LCTHD = new List<CTHD>();
             Closewd = new RelayCommand<AddOrderView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddOrderView>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<AddOrderView>((p) => true, (p) => moveWindow(p));
@@ -75,6 +81,7 @@ namespace ClothesShopManagement.ViewModel
             paramater.SP.ItemsSource = LSP;
             paramater.MaND.Text = Const.ND.TENND;
             paramater.Ngay.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
         }
         void _Choose(AddOrderView paramater)
         {
@@ -86,13 +93,39 @@ namespace ClothesShopManagement.ViewModel
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
             LSPSelected.Add(a);
             HienThi b = new HienThi(a.MASP,a.TENSP,a.SIZE,int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text)*a.GIA);
+            CTHD cthd = new CTHD()
+            {
+                SL = int.Parse(paramater.SL.Text),             
+                DANHGIA = 4,
+                SANPHAM=a,
+                HOADON=HD,
+            };
+            tongtien += int.Parse(paramater.SL.Text) * a.GIA;
+            paramater.TT.Text = String.Format("{0:0,0}", tongtien)+" VND";
+            LCTHD.Add(cthd);
             LHT.Add(b);
             paramater.ListViewSP.ItemsSource= LHT;
             paramater.ListViewSP.Items.Refresh();
         }
-        void _ThanhToan()
+        void _ThanhToan(AddOrderView paramater)
         {
-
+            KHACHHANG a = (KHACHHANG)paramater.KH.SelectedItem;
+            int tonggia = 0;
+            foreach(HienThi b in LHT)
+            {
+                tonggia += b.Tong;
+            }    
+            HOADON temp = new HOADON()
+            {
+                SOHD = int.Parse(paramater.SoHD.Text),
+                MAKH = a.MAKH,
+                MAND = Const.ND.MAND,
+                NGHD=DateTime.Now,
+                CTHDs=LCTHD,
+                TRIGIA=tonggia
+            };
+            DataProvider.Ins.DB.HOADONs.Add(temp);
+            DataProvider.Ins.DB.SaveChanges();
         }
     }
 }
