@@ -49,6 +49,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand AddSP { get; set; }
         public ICommand DeleteSP { get; set; }
         public ICommand SaveHD { get; set; }
+        public ICommand InHD { get; set; }
         public int tongtien { get; set; }
         public AddOrderViewModel()
         {
@@ -64,6 +65,7 @@ namespace ClothesShopManagement.ViewModel
             AddSP=new RelayCommand<AddOrderView>((p) => true, (p) => _AddSP(p));
             DeleteSP = new RelayCommand<AddOrderView>((p) => true, (p) => _DeleteSP(p));
             SaveHD = new RelayCommand<AddOrderView>((p) => true, (p) => _SaveHD(p));
+            InHD = new RelayCommand<AddOrderView>((p) => true, (p) => _InHD(p));
         }
         void moveWindow(AddOrderView p)
         {
@@ -188,6 +190,28 @@ namespace ClothesShopManagement.ViewModel
             }
             else
                 return;
+        }
+        void _InHD(AddOrderView parameter)
+        {
+            try
+            {
+                PrintDialog printDialog = new PrintDialog();
+                if (printDialog.ShowDialog() == true)
+                {
+                    parameter.addbtn.Visibility = Visibility.Hidden;
+                    parameter.deletebtn.Visibility = Visibility.Hidden;
+                    parameter.ttbtn.Visibility = Visibility.Hidden;
+                    parameter.inbtn.Visibility = Visibility.Hidden;
+                    printDialog.PrintVisual(parameter, "Order");
+                }
+            }
+            finally
+            {
+                parameter.addbtn.Visibility = Visibility.Visible;
+                parameter.deletebtn.Visibility = Visibility.Visible;
+                parameter.ttbtn.Visibility = Visibility.Visible;
+                parameter.inbtn.Visibility = Visibility.Visible;
+            }
         }
     }
 }

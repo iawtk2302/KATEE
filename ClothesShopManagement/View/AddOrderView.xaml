@@ -272,6 +272,8 @@
                                 >
                                 <Button
                                 Content="THÊM"
+                                    FontSize="12"
+                                x:Name="addbtn"
                                 FontFamily="{StaticResource Custom}"
                                 >
                                     <i:Interaction.Triggers>
@@ -283,6 +285,8 @@
                                 </Button>
                                 <Button
                                 Content="XÓA"
+                                    FontSize="12"
+                                x:Name="deletebtn"
                                 FontFamily="{StaticResource Custom}"
                                 >
                                 <i:Interaction.Triggers>
@@ -294,7 +298,9 @@
                             </Button>
                                 <Button
                                 Content="THANH TOÁN"
+                                    FontSize="12"
                                 FontFamily="{StaticResource Custom}"
+                                x:Name="ttbtn"
                                 >
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
@@ -304,6 +310,19 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                             </StackPanel>
+                            <Button
+                                Content="IN"
+                                FontFamily="{StaticResource Custom}"
+                                x:Name="inbtn"
+                                    FontSize="12"
+                                >
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="Click">
+                                        <i:InvokeCommandAction     Command="{Binding InHD}"
+                                                           CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </Button>
                         </StackPanel>
                     </Border>
                 </Grid>
