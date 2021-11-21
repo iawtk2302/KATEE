@@ -33,7 +33,7 @@
                            >THỐNG KÊ</TextBlock>
             </Grid>
             <Grid Grid.Row="1">
-                <materialDesign:ColorZone Background="LightPink"
+                <materialDesign:ColorZone Background="Black"
                                           CornerRadius="10"
                 Mode="PrimaryMid">
                     <StackPanel 
@@ -330,14 +330,29 @@
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Width="Auto"
-        DisplayMemberBinding="{Binding SOHD}"
-        Header="Số hóa đơn" />
-                                <GridViewColumn Width="Auto"
-        DisplayMemberBinding="{Binding TRIGIA}"
-        Header="Trị giá" />
-                                <GridViewColumn Width="Auto"
-        DisplayMemberBinding="{Binding NGHD}"
-        Header="Ngày mua"/>
+        Header="Số hóa đơn" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding SOHD}" Margin="40,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="180"
+        Header="Trị giá" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding TRIGIA, StringFormat={}{0:#,###} VNĐ}" Margin="17,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="200"
+        Header="Ngày mua">
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding NGHD}"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -347,13 +362,23 @@
   ItemsSource="{Binding listPN}" Background="Transparent">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Width="Auto"
-        DisplayMemberBinding="{Binding MAPN}"
-        Header="Mã phiếu nhập" />
-                    <GridViewColumn Width="Auto"
-        DisplayMemberBinding="{Binding MAND}"
-        Header="Nhân viên nhập" />
-                    <GridViewColumn Width="Auto"
+                                <GridViewColumn Width="Auto"
+                                    Header="Mã phiếu nhập" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding MAPN}" Margin="50,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="200"
+                                    Header="Nhân viên nhập" >
+                                    <GridViewColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <TextBlock Text="{Binding NGUOIDUNG.TENND}" Margin="17,0,0,0"/>
+                                        </DataTemplate>
+                                    </GridViewColumn.CellTemplate>
+                                </GridViewColumn>
+                                <GridViewColumn Width="200"
         DisplayMemberBinding="{Binding NGAYNHAP}"
         Header="Ngày nhập"/>
                 </GridView>

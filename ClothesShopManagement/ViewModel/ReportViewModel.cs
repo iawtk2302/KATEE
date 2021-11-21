@@ -34,6 +34,17 @@ namespace ClothesShopManagement.ViewModel
             Time = h; DT = sp;
         }
     }
+    public class PN
+    {
+        public DateTime Ngay { get; set; }
+        public string NV { get; set; }
+        public int MaPN { get; set; }
+        public PN()
+        {
+            Ngay = DateTime.Now; NV = ""; MaPN = 0;
+        }
+    }
+
     class ReportViewModel : BaseViewModel
     {
         public ICommand GetIdTab { get; set; }
@@ -64,6 +75,7 @@ namespace ClothesShopManagement.ViewModel
         public string NVBest { get; set; }
         public long ThisMonth { get; set; }
         public long LastMonth { get; set; }
+        public int MaPN { get; set; }
         private ObservableCollection<string> _Select;
         public ObservableCollection<string> Select { get => _Select; set { _Select = value; OnPropertyChanged(); } }
         private ObservableCollection<HOADON> _listHD;
@@ -90,8 +102,8 @@ namespace ClothesShopManagement.ViewModel
             LoadSP = new RelayCommand<ReportView>((p) => true, (p) => SPCount(p));
             LoadNV = new RelayCommand<ReportView>((p) => true, (p) => NVCount(p));
             LoadDT = new RelayCommand<ReportView>((p) => true, (p) => DTTrend(p));
-            listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs.Select(x => x));
-            listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs.Select(x => x));
+            listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
+            listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);            
         }
         public void DTTrend(ReportView p)
         {
@@ -236,7 +248,7 @@ namespace ClothesShopManagement.ViewModel
                     {
                         SetMain = Visibility.Hidden;
                         SetBills = Visibility.Visible;
-                        SetImport = Visibility.Hidden;
+                        SetImport = Visibility.Hidden;                        
                         break;
                     }
                 case 2:
