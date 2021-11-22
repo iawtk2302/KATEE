@@ -12,4 +12,5 @@
     <viewmodel:AddCsView x:Key="AddCsVM"></viewmodel:AddCsView>
     <viewmodel:AddOrderViewModel x:Key="AddOrderVM"></viewmodel:AddOrderViewModel>
     <viewmodel:OrderViewModel x:Key="OrVM"></viewmodel:OrderViewModel>
+    <viewmodel:DetailOrderViewModel x:Key="DetailOrderVM"></viewmodel:DetailOrderViewModel>
 </ResourceDictionary>

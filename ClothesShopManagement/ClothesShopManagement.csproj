@@ -95,6 +95,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -180,6 +181,7 @@
     <Compile Include="ViewModel\BaseViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\DetailCustomer.cs" />
+    <Compile Include="ViewModel\DetailOrderViewModel.cs" />
     <Compile Include="ViewModel\DetailProductViewModel.cs" />
     <Compile Include="ViewModel\HomeViewModel.cs" />
     <Compile Include="ViewModel\LoginViewModel.cs" />
@@ -201,6 +203,9 @@
     </Compile>
     <Compile Include="View\DetailCustomerView.xaml.cs">
       <DependentUpon>DetailCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailOrder.xaml.cs">
+      <DependentUpon>DetailOrder.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DetailProduct.xaml.cs">
       <DependentUpon>DetailProduct.xaml</DependentUpon>
@@ -286,6 +291,10 @@
     <Page Include="View\DetailCustomerView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DetailOrder.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DetailProduct.xaml">
       <Generator>MSBuild:Compile</Generator>

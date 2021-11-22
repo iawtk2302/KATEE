@@ -123,7 +123,7 @@
                                         FontFamily="{StaticResource Custom}"
                                         x:Name="Size"
                                    />
-                            <ItemsControl x:Name="DtSize">
+                            <ItemsControl x:Name="kichco">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
                                         <Border

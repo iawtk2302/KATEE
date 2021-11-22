@@ -19,81 +19,21 @@ namespace ClothesShopManagement.ViewModel
         private string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
         private ObservableCollection<SANPHAM> _listSP;
         public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; OnPropertyChanged(); } }
-        private ObservableCollection<string> _listLSP;
-        public ObservableCollection<string> listLSP { get => _listLSP; set { _listLSP = value; OnPropertyChanged(); } }
-        public ICommand ChoosePDCommand { get; set; }
         public ICommand SearchCommand { get; set; }
         public ICommand DetailPdCommand { get; set; }
         public ICommand AddPdPdCommand { get; set; }
-        private string _LSP="Tất cả";
-        public string LSP
-        {
-            get => _LSP; set
-            {
-                _LSP = value;
-                if (!string.IsNullOrEmpty(_LSP))
-                    OnPropertyChanged();
-            }
-        }
         public ProductsViewModel()
         {
             foreach (SANPHAM temp1 in DataProvider.Ins.DB.SANPHAMs)
             {
                 if (!temp1.HINHSP.Contains(_localLink))
-                    temp1.HINHSP = _localLink + temp1.HINHSP;
+                     temp1.HINHSP = _localLink + temp1.HINHSP;
             }
             DataProvider.Ins.DB.SaveChanges();
             listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
             AddPdPdCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _AddPdCommand(p));
-            ObservableCollection<string> temp = new ObservableCollection<string>(DataProvider.Ins.DB.SANPHAMs.Select(p => p.LOAISP).Distinct().ToList());
-            temp.Add("Tất cả");
-            listLSP = temp;
-            ChoosePDCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _ChoosePDCommand(p));
             SearchCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
             DetailPdCommand = new RelayCommand<ProductsView>((p) => { return p.ListViewProduct.SelectedItem == null ? false : true; }, (p) => _DetailPd(p));
-        }
-        //void loadLSP()
-        //{
-        //    foreach (SANPHAM temp1 in DataProvider.Ins.DB.SANPHAMs)
-        //    {
-        //        if (!temp1.HINHSP.Contains(_localLink))
-        //            temp1.HINHSP = _localLink + temp1.HINHSP;
-        //    }
-        //    listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-        //    ObservableCollection<string> temp= new ObservableCollection<string>(DataProvider.Ins.DB.SANPHAMs.Select(p => p.LOAISP).Distinct().ToList());
-        //    temp.Add("Tất cả");
-        //    listLSP = temp;
-        //    ChoosePDCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _ChoosePDCommand(p));
-        //    SearchCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
-        //    DetailPdCommand = new RelayCommand<ProductsView>((p) => { return p.ListViewProduct.SelectedItem == null ? false : true; }, (p) => _DetailPd(p));
-        //}
-        void loadLSP1()
-        {
-            foreach (SANPHAM temp1 in DataProvider.Ins.DB.SANPHAMs)
-            {
-                if (!temp1.HINHSP.Contains(_localLink))
-                    temp1.HINHSP = _localLink + temp1.HINHSP;
-            }
-            if (LSP != ""&&LSP!="Tất cả")
-                listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == LSP));
-            else if(LSP == ""||LSP=="Tất cả")
-                listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-    
-                ObservableCollection<string> temp = new ObservableCollection<string>(DataProvider.Ins.DB.SANPHAMs.Select(p => p.LOAISP).Distinct().ToList());
-            temp.Add("Tất cả");
-            listLSP = temp;
-            ChoosePDCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _ChoosePDCommand(p));
-            SearchCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
-            DetailPdCommand = new RelayCommand<ProductsView>((p) => { return p.ListViewProduct.SelectedItem == null ? false : true; }, (p) => _DetailPd(p));
-        }
-        void _ChoosePDCommand(ProductsView paramater)
-        {
-            //listSP= new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.LOAISP == paramater.cbxLSP.SelectedItem.ToString()));
-            LSP = paramater.cbxLSP.SelectedItem.ToString();
-            if (paramater.cbxLSP.SelectedItem.ToString() != "Tất cả")
-                listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == LSP));
-            else
-                listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
         }
         void _SearchCommand(ProductsView paramater)
         {
@@ -111,7 +51,6 @@ namespace ClothesShopManagement.ViewModel
             }
             else
                 paramater.ListViewProduct.ItemsSource = listSP;
-            //listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
         }
         void _DetailPd(ProductsView paramater)
         {
@@ -123,7 +62,7 @@ namespace ClothesShopManagement.ViewModel
             detailProduct.LoaiSP.Text = temp.LOAISP;
             string SL = DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP).Sum(p => p.SL).ToString();
             detailProduct.SLSP.Text = "Số lượng: " + SL;
-            detailProduct.DtSize.ItemsSource = DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP).ToList();
+            detailProduct.kichco.ItemsSource = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.TENSP == temp.TENSP));
             detailProduct.Mota.Text = temp.MOTA;
             Uri fileUri = new Uri(temp.HINHSP);
             detailProduct.HinhAnh.Source = new BitmapImage(fileUri);
@@ -134,7 +73,14 @@ namespace ClothesShopManagement.ViewModel
         {
             AddProductView addProductView = new AddProductView();
             addProductView.ShowDialog();
-            loadLSP1();
+            foreach (SANPHAM temp1 in DataProvider.Ins.DB.SANPHAMs)
+            {
+                if (!temp1.HINHSP.Contains(_localLink))
+                    temp1.HINHSP = _localLink + temp1.HINHSP;
+            }
+            DataProvider.Ins.DB.SaveChanges();
+            listSP = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
+            paramater.ListViewProduct.ItemsSource = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
         }
     }
 }

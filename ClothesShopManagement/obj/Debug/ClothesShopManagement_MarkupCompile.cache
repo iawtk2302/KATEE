@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\App.xaml
-131052421340
+14-599108744
 2739969757
-40921033122
-381973749209
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
+42441865107
+391272200536
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailOrder.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;
 
 False
 

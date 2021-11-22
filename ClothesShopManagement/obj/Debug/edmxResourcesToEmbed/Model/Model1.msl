@@ -7,7 +7,6 @@
           <ScalarProperty Name="SOHD" ColumnName="SOHD" />
           <ScalarProperty Name="MASP" ColumnName="MASP" />
           <ScalarProperty Name="SL" ColumnName="SL" />
-          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -28,7 +27,7 @@
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
           <ScalarProperty Name="NGHD" ColumnName="NGHD" />
           <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
-          <ScalarProperty Name="TTHD" ColumnName="TTHD" />
+          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -40,8 +39,6 @@
           <ScalarProperty Name="GIOITINH" ColumnName="GIOITINH" />
           <ScalarProperty Name="DCHI" ColumnName="DCHI" />
           <ScalarProperty Name="SDT" ColumnName="SDT" />
-          <ScalarProperty Name="NGSINH" ColumnName="NGSINH" />
-          <ScalarProperty Name="NGDK" ColumnName="NGDK" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

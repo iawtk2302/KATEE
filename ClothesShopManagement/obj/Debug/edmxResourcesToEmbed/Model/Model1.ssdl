@@ -8,7 +8,6 @@
     <Property Name="SOHD" Type="int" Nullable="false" />
     <Property Name="MASP" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="SL" Type="int" Nullable="false" />
-    <Property Name="DANHGIA" Type="int" />
   </EntityType>
   <EntityType Name="CTPN">
     <Key>
@@ -28,7 +27,7 @@
     <Property Name="MAKH" Type="varchar" MaxLength="50" />
     <Property Name="NGHD" Type="smalldatetime" Nullable="false" />
     <Property Name="TRIGIA" Type="int" Nullable="false" />
-    <Property Name="TTHD" Type="bit" Nullable="false" />
+    <Property Name="DANHGIA" Type="int" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>
@@ -39,8 +38,6 @@
     <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
     <Property Name="DCHI" Type="nvarchar" MaxLength="50" />
     <Property Name="SDT" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="NGSINH" Type="smalldatetime" />
-    <Property Name="NGDK" Type="smalldatetime" />
   </EntityType>
   <EntityType Name="NGUOIDUNG">
     <Key>
@@ -52,10 +49,10 @@
     <Property Name="GIOITINH" Type="nvarchar" MaxLength="5" />
     <Property Name="SDT" Type="char" MaxLength="50" Nullable="false" />
     <Property Name="DIACHI" Type="nvarchar" MaxLength="50" />
-    <Property Name="USERNAME" Type="char" MaxLength="50" Nullable="false" />
-    <Property Name="PASS" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="USERNAME" Type="char" MaxLength="50" />
+    <Property Name="PASS" Type="nvarchar(max)" />
     <Property Name="QTV" Type="bit" Nullable="false" />
-    <Property Name="TTND" Type="bit" Nullable="false" />
+    <Property Name="TTND" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="AVA" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
@@ -78,7 +75,7 @@
     <Property Name="HINHSP" Type="nvarchar(max)" />
     <Property Name="SL" Type="int" Nullable="false" />
     <Property Name="LOAISP" Type="nvarchar" MaxLength="50" />
-    <Property Name="SIZE" Type="char" MaxLength="50" />
+    <Property Name="SIZE" Type="nvarchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_CN_PN">
     <End Role="PHIEUNHAP" Type="Self.PHIEUNHAP" Multiplicity="1" />

@@ -8,7 +8,6 @@
     <Property Name="SOHD" Type="Int32" Nullable="false" />
     <Property Name="MASP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="SL" Type="Int32" Nullable="false" />
-    <Property Name="DANHGIA" Type="Int32" />
     <NavigationProperty Name="HOADON" Relationship="Self.FK_CT_HD" FromRole="CTHD" ToRole="HOADON" />
     <NavigationProperty Name="SANPHAM" Relationship="Self.FK_CT_SP" FromRole="CTHD" ToRole="SANPHAM" />
   </EntityType>
@@ -32,7 +31,7 @@
     <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NGHD" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="TRIGIA" Type="Int32" Nullable="false" />
-    <Property Name="TTHD" Type="Boolean" Nullable="false" />
+    <Property Name="DANHGIA" Type="Int32" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_HD" FromRole="HOADON" ToRole="CTHD" />
     <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_HD_ND" FromRole="HOADON" ToRole="NGUOIDUNG" />
     <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_KH_HD" FromRole="HOADON" ToRole="KHACHHANG" />
@@ -46,8 +45,6 @@
     <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="DCHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-    <Property Name="NGSINH" Type="DateTime" Precision="0" />
-    <Property Name="NGDK" Type="DateTime" Precision="0" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK_KH_HD" FromRole="KHACHHANG" ToRole="HOADON" />
   </EntityType>
   <EntityType Name="NGUOIDUNG">
@@ -60,10 +57,10 @@
     <Property Name="GIOITINH" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
     <Property Name="SDT" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
     <Property Name="DIACHI" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" Nullable="false" />
-    <Property Name="PASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="PASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="QTV" Type="Boolean" Nullable="false" />
-    <Property Name="TTND" Type="Boolean" Nullable="false" />
+    <Property Name="TTND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="AVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK_HD_ND" FromRole="NGUOIDUNG" ToRole="HOADON" />
     <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.FK_PN_ND" FromRole="NGUOIDUNG" ToRole="PHIEUNHAP" />
@@ -90,7 +87,7 @@
     <Property Name="HINHSP" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="SL" Type="Int32" Nullable="false" />
     <Property Name="LOAISP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
-    <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
+    <Property Name="SIZE" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_SP" FromRole="SANPHAM" ToRole="CTHD" />
     <NavigationProperty Name="CTPNs" Relationship="Self.FK_CN_SP" FromRole="SANPHAM" ToRole="CTPN" />
   </EntityType>
