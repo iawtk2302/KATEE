@@ -29,7 +29,7 @@ namespace ClothesShopManagement.ViewModel
             this.Size = Size;
         }
     }
-    public class AddOrderViewModel:BaseViewModel
+    public class AddOrderViewModel : BaseViewModel
     {
         public ICommand Closewd { get; set; }
         public ICommand Minimizewd { get; set; }
@@ -37,12 +37,13 @@ namespace ClothesShopManagement.ViewModel
         public ICommand Loadwd { get; set; }
         public ICommand Choose { get; set; }
         private List<KHACHHANG> _LKH;
-        public List<KHACHHANG> LKH { get=>_LKH; set { _LKH = value;OnPropertyChanged(); } }
+        public List<KHACHHANG> LKH { get => _LKH; set { _LKH = value; OnPropertyChanged(); } }
         private List<SANPHAM> _LSP;
         public List<SANPHAM> LSP { get => _LSP; set { _LSP = value; OnPropertyChanged(); } }
         private List<HienThi> _LHT;
         public List<HienThi> LHT { get => _LHT; set { _LHT = value; OnPropertyChanged(); } }
         private List<SANPHAM> _LSPSelected;
+        public ObservableCollection<string> LDG { get; set; }
         public List<SANPHAM> LSPSelected { get=> _LSPSelected; set { _LSPSelected = value; OnPropertyChanged(); } }
         private ObservableCollection<CTHD> _LCTHD;
         public ObservableCollection<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
@@ -54,6 +55,7 @@ namespace ClothesShopManagement.ViewModel
         {
             tongtien = 0;
             LSPSelected = new List<SANPHAM>();
+            LDG = new ObservableCollection<string>() { "1", "2", "3", "4", "5" };
             LHT = new List<HienThi>();
             LCTHD = new ObservableCollection<CTHD>();
             Closewd = new RelayCommand<AddOrderView>((p) => true, (p) => Close(p));
@@ -83,8 +85,9 @@ namespace ClothesShopManagement.ViewModel
             LSP = DataProvider.Ins.DB.SANPHAMs.ToList();
             paramater.KH.ItemsSource = LKH;
             paramater.SP.ItemsSource = LSP;
-            paramater.MaND.Text = Const.ND.TENND;
-            paramater.Ngay.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            paramater.MaND.Text = Const.ND.MAND;
+            paramater.TenND.Text = Const.ND.TENND;
+            paramater.Ngay.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
             paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
         }
         void _Choose(AddOrderView paramater)
@@ -101,25 +104,44 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddSP(AddOrderView paramater)
         {
-            SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
-            LSPSelected.Add(a);
-            HienThi b = new HienThi(a.MASP,a.TENSP,a.SIZE,int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text)*a.GIA);
-            CTHD cthd = new CTHD()
+            foreach(HOADON s in DataProvider.Ins.DB.HOADONs)
             {
-                MASP = a.MASP,
-                SL = int.Parse(paramater.SL.Text),
-                DANHGIA = 4,
-                SANPHAM = a,
-                SOHD =int.Parse(paramater.SoHD.Text),
-            };
-            tongtien += int.Parse(paramater.SL.Text) * a.GIA;
-            paramater.TT.Text = String.Format("{0:0,0}", tongtien)+" VND";
-            LCTHD.Add(cthd);
-            LHT.Add(b);
-            paramater.ListViewSP.ItemsSource= LHT;
-            paramater.ListViewSP.Items.Refresh();
-            paramater.SP.SelectedItem = null;
-            paramater.SL.Text = "";
+                if(int.Parse(paramater.SoHD.Text)==s.SOHD)
+                {
+                    System.Windows.MessageBox.Show("Số hóa đơn đã tồn tại !", "THÔNG BÁO");
+                    return;
+                }    
+            }    
+            SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
+            if (a.SL >= int.Parse(paramater.SL.Text))
+            {
+                LSPSelected.Add(a);
+                HienThi b = new HienThi(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text) * a.GIA);
+                CTHD cthd = new CTHD()
+                {
+                    MASP = a.MASP,
+                    SL = int.Parse(paramater.SL.Text),
+                    SANPHAM = a,
+                    SOHD = int.Parse(paramater.SoHD.Text),
+                };
+                tongtien += int.Parse(paramater.SL.Text) * a.GIA;
+                paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                LCTHD.Add(cthd);
+                LHT.Add(b);
+                foreach(SANPHAM x in LSP)
+                {
+                    if (x.MASP == a.MASP)
+                        x.SL -= int.Parse(paramater.SL.Text);
+                } 
+                paramater.ListViewSP.ItemsSource = LHT;
+                paramater.ListViewSP.Items.Refresh();
+                paramater.SP.ItemsSource = LSP;
+                paramater.SP.Items.Refresh();
+                paramater.SP.SelectedItem = null;
+                paramater.SL.Text = "";
+            }
+            else
+                System.Windows.MessageBox.Show("Sản phẩm tồn kho không đủ cung cấp !", "THÔNG BÁO");
         }
         void _DeleteSP(AddOrderView paramater)
         {
@@ -169,7 +191,8 @@ namespace ClothesShopManagement.ViewModel
                     MAND = Const.ND.MAND,
                     NGHD = DateTime.Now,
                     CTHDs = new ObservableCollection<CTHD>(LCTHD),
-                    TRIGIA = tonggia
+                    TRIGIA = tonggia,
+                    DANHGIA=int.Parse(paramater.DG1.Text)
                 };
                 foreach(CTHD s in LCTHD)
                 {
@@ -186,6 +209,10 @@ namespace ClothesShopManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 System.Windows.MessageBox.Show("Thanh toán thành công", "THÔNG BÁO");
                 tongtien = 0;
+                LSPSelected.Clear();
+                paramater.KH.SelectedItem = null;
+                paramater.SoHD.Clear();
+                paramater.DG1.SelectedItem = null;
             }
             else
                 return;

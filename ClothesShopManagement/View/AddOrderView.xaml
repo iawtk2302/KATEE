@@ -96,13 +96,26 @@
                                 HorizontalAlignment="Center"
                                 />
                             <StackPanel Orientation="Vertical">
-                                <TextBlock
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
                                     Margin="8,0,0,0"
-                                    Text="NGƯỜI NHẬP"
+                                    Text="MÃ ND"
                                     FontFamily="{StaticResource Custom}"
-                                />
+                                    />
+                                    <TextBlock
+                                    Margin="4,0,0,0"
+                                    Text="|"
+                                    FontFamily="{StaticResource Custom}"
+                                    />
+                                    <TextBlock
+                                    Margin="4,0,0,0"
+                                    Text="TÊN ND"
+                                    FontFamily="{StaticResource Custom}"
+                                    />
+                                </StackPanel>
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox
                                     x:Name="MaND"
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
@@ -111,17 +124,48 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                        <TextBox
+                                            Text="|"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="{StaticResource Custom}"
+                                    BorderThickness="0"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                    IsEnabled="False"
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                        <TextBox
+                                    x:Name="TenND"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="{StaticResource Custom}"
+                                    BorderThickness="0"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                    IsEnabled="False"
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                    </StackPanel>
                                 </Border>
                             </StackPanel>
                             <StackPanel>
-                                <TextBlock
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock
                                     Margin="8,0,0,0"
-                                    Text="KHÁCH HÀNG"
+                                    Text="MÃ KH"
                                     FontFamily="{StaticResource Custom}"
-                                />
+                                    />
+                                    <TextBlock
+                                    Margin="2,0,0,0"
+                                    Text="|"
+                                    FontFamily="{StaticResource Custom}"
+                                    />
+                                    <TextBlock
+                                    Margin="2,0,0,0"
+                                    Text="HỌ TÊN KHÁCH HÀNG"
+                                    FontFamily="{StaticResource Custom}"
+                                    />
+                                </StackPanel>
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <ComboBox
-                                        Margin="4,0,0,0"
+                                        Margin="13,0,0,0"
                                         x:Name="KH"
                                         FontFamily="{StaticResource Custom}"
                                         BorderThickness="0"
@@ -147,7 +191,7 @@
                             <StackPanel>
                                 <TextBlock
                                     Margin="8,0,0,0"
-                                    Text="NGÀY"
+                                    Text="THỜI GIAN"
                                     FontFamily="{StaticResource Custom}"
                                 />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -200,7 +244,7 @@
                             <StackPanel Orientation="Vertical">
                                 <TextBlock
                                     Margin="8,0,0,0"
-                                    Text="SẢN PHẨM"
+                                    Text="TÊN SP | SIZE | TỒN KHO"
                                     FontFamily="{StaticResource Custom}"
                                 />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -222,6 +266,12 @@
                                                         />
                                                     <TextBlock 
                                                         Text="{Binding SIZE}"/>
+                                                    <TextBlock
+                                                        Text="|"
+                                                        Margin="4,0,4,0"
+                                                        />
+                                                    <TextBlock 
+                                                        Text="{Binding SL}"/>
                                                 </StackPanel>
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
@@ -252,14 +302,17 @@
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
                                 </Border>
                             </StackPanel>
-                            <StackPanel>
-                                <TextBlock
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel
+                                    Width="150"
+                                    >
+                                    <TextBlock
                                     Margin="8,0,0,0"
                                     Text="SỐ LƯỢNG"
                                     FontFamily="{StaticResource Custom}"
-                                />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
+                                    />
+                                    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                        <TextBox
                                     x:Name="SL"
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
@@ -267,7 +320,28 @@
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
-                                </Border>
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel
+                                    Width="140"
+                                    >
+                                    <TextBlock
+                                    Margin="8,0,0,0"
+                                    Text="ĐÁNH GIÁ"
+                                    FontFamily="{StaticResource Custom}"
+                                    />
+                                    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                        <ComboBox
+                                        Margin="6,0,0,0"
+                                        x:Name="DG1"
+                                        FontFamily="{StaticResource Custom}"
+                                        BorderThickness="0"
+                                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                        ItemsSource="{Binding LDG}"
+                                        >
+                                        </ComboBox>
+                                    </Border>
+                                </StackPanel>
                             </StackPanel>
                             <StackPanel
                                 Margin="20"
@@ -382,7 +456,7 @@
                             </Grid>
                             <Grid Grid.Column="4">
                                 <TextBlock
-                                Text="GIA"
+                                Text="GIÁ"
                                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                                 MaxWidth="150"

@@ -22,16 +22,6 @@ namespace ClothesShopManagement.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand DetailPdCommand { get; set; }
         public ICommand AddPdPdCommand { get; set; }
-        private string _LSP="Tất cả";
-        public string LSP
-        {
-            get => _LSP; set
-            {
-                _LSP = value;
-                if (!string.IsNullOrEmpty(_LSP))
-                    OnPropertyChanged();
-            }
-        }
         public ProductsViewModel()
         {
             foreach (SANPHAM temp1 in DataProvider.Ins.DB.SANPHAMs)

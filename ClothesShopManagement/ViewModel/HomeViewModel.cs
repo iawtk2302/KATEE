@@ -58,7 +58,6 @@ namespace ClothesShopManagement.ViewModel
         public HomeViewModel()
         {
             LoadDoanhThu = new RelayCommand<HomeView>((p) => true, (p) => LoadDT(p));
-            LoadRate = new RelayCommand<HomeView>((p) => true, (p) => Rating(p));
             LoadDon = new RelayCommand<HomeView>((p) => true, (p) => SoDon(p));
             //CT = new ObservableCollection<CTHD>(DataProvider.Ins.DB.CTHDs);
             LoadChart = new RelayCommand<HomeView>((p) => true, (p) => LineChart(p));
@@ -98,13 +97,7 @@ namespace ClothesShopManagement.ViewModel
             int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day).Count();
             p.DonNgay.Text = count.ToString();
         }
-        public void Rating(HomeView p)
-        {
-            double rate = 0;
-            rate = (double)DataProvider.Ins.DB.CTHDs.Where(x => x.DANHGIA != 0).Select(x => x.DANHGIA).Average();
-            p.Rate.Text = rate.ToString("#.#/5");
-            p.BasicRatingBar.Value = (int)rate;
-        }
+        
         public void LoadDT(HomeView p)
         {
             long total = 0;

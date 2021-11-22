@@ -17,7 +17,6 @@ namespace ClothesShopManagement.Model
         public int SOHD { get; set; }
         public string MASP { get; set; }
         public int SL { get; set; }
-        public Nullable<int> DANHGIA { get; set; }
     
         public virtual HOADON HOADON { get; set; }
         public virtual SANPHAM SANPHAM { get; set; }
