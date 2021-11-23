@@ -22,7 +22,6 @@
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border
-       
         CornerRadius="15"
         >
         <Border.Background>

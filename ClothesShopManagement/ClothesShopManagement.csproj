@@ -188,6 +188,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OrderViewModel.cs" />
     <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="ViewModel\QLNVViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="View\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
@@ -203,6 +204,9 @@
     </Compile>
     <Compile Include="View\DetailCustomerView.xaml.cs">
       <DependentUpon>DetailCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailNDView.xaml.cs">
+      <DependentUpon>DetailNDView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DetailOrder.xaml.cs">
       <DependentUpon>DetailOrder.xaml</DependentUpon>
@@ -224,6 +228,9 @@
     </Compile>
     <Compile Include="View\ProductsView.xaml.cs">
       <DependentUpon>ProductsView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\QLNVView.xaml.cs">
+      <DependentUpon>QLNVView.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -292,6 +299,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\DetailNDView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="View\DetailOrder.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -319,6 +330,10 @@
     <Page Include="View\ProductsView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\QLNVView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
   </ItemGroup>
   <ItemGroup>
