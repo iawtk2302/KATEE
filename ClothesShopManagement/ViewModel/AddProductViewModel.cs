@@ -57,17 +57,17 @@ namespace ClothesShopManagement.ViewModel
                 }
                 else
                 {
-                    SANPHAM temp=new SANPHAM();
-                    temp.MASP = paramater.MaSp.Text;
-                    temp.TENSP = paramater.TenSp.Text;
-                    temp.GIA=int.Parse(paramater.GiaSp.Text);
-                    temp.LOAISP=paramater.LoaiSp.Text;
-                    temp.SL = int.Parse(paramater.SlSp.Text);
-                    temp.SIZE = paramater.SizeSp.Text;
-                    temp.MOTA = paramater.MotaSp.Text;
-                    temp.DVT = "Cái";
-                    temp.HINHSP = "/Resource/ImgProduct/" + "product_" + paramater.MaSp.Text+((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
-                    DataProvider.Ins.DB.SANPHAMs.Add(temp);
+                    SANPHAM a=new SANPHAM();
+                    a.MASP = paramater.MaSp.Text;
+                    a.TENSP = paramater.TenSp.Text;
+                    a.GIA=int.Parse(paramater.GiaSp.Text);
+                    a.LOAISP=paramater.LoaiSp.Text;
+                    a.SL = int.Parse(paramater.SlSp.Text);
+                    a.SIZE = paramater.SizeSp.Text;
+                    a.MOTA = paramater.MotaSp.Text;
+                    a.DVT = "Cái";
+                    a.HINHSP = "/Resource/ImgProduct/" + "product_" + paramater.MaSp.Text+((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
+                    DataProvider.Ins.DB.SANPHAMs.Add(a);
                     DataProvider.Ins.DB.SaveChanges();
                     try
                     {

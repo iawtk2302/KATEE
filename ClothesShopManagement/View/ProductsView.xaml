@@ -89,7 +89,7 @@
                                         >
                                 <StackPanel>
                                         <Image  
-                                                    Source="{Binding HINHSP}" 
+                                                    Source="{Binding HINHSP,StringFormat={}}" 
                                                     Height="154" 
                                                     Width="140"
                                                     />
