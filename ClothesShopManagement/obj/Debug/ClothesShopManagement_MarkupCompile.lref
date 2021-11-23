@@ -2,10 +2,12 @@
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\App.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\Resource\MainResource.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\AddCustomerView.xaml;;
+FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\AddNDView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\AddOrderView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\AddProductView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\CustomerView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\DetailCustomerView.xaml;;
+FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\DetailNDView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\DetailOrder.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\DetailProduct.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\HomeView.xaml;;
@@ -14,5 +16,4 @@ FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\MainWindow.xa
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\OrderView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\ProductsView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\QLNVView.xaml;;
-FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\DetailNDView.xaml;;
 

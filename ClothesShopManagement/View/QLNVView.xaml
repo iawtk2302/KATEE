@@ -73,7 +73,7 @@
                         </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
-                                <i:InvokeCommandAction Command="{Binding AddCsCommand}"
+                                <i:InvokeCommandAction Command="{Binding AddNDCommand}"
                                                        CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>

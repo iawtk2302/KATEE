@@ -52,10 +52,12 @@ C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesSh
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.exe.config
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\Resource\StylesResource.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddCustomerView.g.cs
+C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddNDView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddOrderView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddProductView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\CustomerView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailCustomerView.g.cs
+C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailNDView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailOrder.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailProduct.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\HomeView.g.cs
@@ -63,6 +65,7 @@ C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\Logi
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\MainWindow.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\OrderView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\ProductsView.g.cs
+C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\QLNVView.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\App.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement_Content.g.cs
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\GeneratedInternalTypeHelper.g.cs
@@ -71,10 +74,12 @@ C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesSh
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\App.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\Resource\MainResource.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddCustomerView.baml
+C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddNDView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddOrderView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\AddProductView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\CustomerView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailCustomerView.baml
+C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailNDView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailOrder.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailProduct.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\HomeView.baml
@@ -82,6 +87,7 @@ C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\Logi
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\MainWindow.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\OrderView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\ProductsView.baml
+C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\QLNVView.baml
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.g.resources
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.Properties.Resources.resources
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.csproj.GenerateResource.cache
@@ -90,8 +96,3 @@ C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\XamlC.sta
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.csproj.CopyComplete
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.exe
 C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.pdb
-C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\ClothesShopManagement.csproj.AssemblyReference.cache
-C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\QLNVView.g.cs
-C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\QLNVView.baml
-C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailNDView.g.cs
-C:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\obj\Debug\View\DetailNDView.baml

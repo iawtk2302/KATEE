@@ -29,7 +29,6 @@ namespace ClothesShopManagement.ViewModel
         private string _Ava;
         public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public ICommand Loadwd { get; set; }
-
         public MainViewModel()
         {
             Loadwd=new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
@@ -51,7 +50,7 @@ namespace ClothesShopManagement.ViewModel
                 Const.ND = User;
                 SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
                 Const.Admin = User.QTV;
-                Ava = User.AVA;
+                Ava =Const._localLink + User.AVA;
             }
         }
         void LogOut(MainWindow p)

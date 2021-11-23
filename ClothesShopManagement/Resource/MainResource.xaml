@@ -14,4 +14,5 @@
     <viewmodel:OrderViewModel x:Key="OrVM"></viewmodel:OrderViewModel>
     <viewmodel:DetailOrderViewModel x:Key="DetailOrderVM"></viewmodel:DetailOrderViewModel>
     <viewmodel:QLNVViewModel x:Key="QLNVVM"></viewmodel:QLNVViewModel>
+    <viewmodel:AddNDVM x:Key="AddNDVM"></viewmodel:AddNDVM>
 </ResourceDictionary>
