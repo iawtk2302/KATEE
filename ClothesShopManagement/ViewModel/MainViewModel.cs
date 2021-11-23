@@ -13,6 +13,7 @@ namespace ClothesShopManagement.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
         public ICommand CloseLogin { get; set; }
         public ICommand MinimizeLogin { get; set; }
         public ICommand MoveWindow { get; set; }
@@ -32,7 +33,7 @@ namespace ClothesShopManagement.ViewModel
 
         public MainViewModel()
         {
-            Loadwd=new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
+            Loadwd = new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
             CloseLogin = new RelayCommand<MainWindow>((p) => true, (p) => Close());
             MinimizeLogin = new RelayCommand<MainWindow>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<MainWindow>((p) => true, (p) => moveWindow(p));
@@ -91,6 +92,11 @@ namespace ClothesShopManagement.ViewModel
                 case 5:
                     {
                         p.Main.NavigationService.Navigate(new ReportView());
+                        break;
+                    }
+                    case 7:
+                    {
+                        p.Main.NavigationService.Navigate(new SettingView());
                         break;
                     }
                 default:
