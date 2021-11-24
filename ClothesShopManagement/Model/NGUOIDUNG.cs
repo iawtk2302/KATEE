@@ -30,9 +30,20 @@ namespace ClothesShopManagement.Model
         public string USERNAME { get; set; }
         public string PASS { get; set; }
         public bool QTV { get; set; }
-        public string TTND { get; set; }
-        public string AVA { get; set; }
-    
+        public bool TTND { get; set; }
+        private string _AVA;
+        public string AVA
+        {
+            get
+            {
+                if (_AVA.Contains(Const._localLink))
+                    return _AVA;
+                else
+                    return Const._localLink + _AVA;
+            }
+            set { _AVA = value; }
+        }
+
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

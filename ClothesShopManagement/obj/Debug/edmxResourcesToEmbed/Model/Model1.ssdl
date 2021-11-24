@@ -52,7 +52,7 @@
     <Property Name="USERNAME" Type="char" MaxLength="50" />
     <Property Name="PASS" Type="nvarchar(max)" />
     <Property Name="QTV" Type="bit" Nullable="false" />
-    <Property Name="TTND" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="TTND" Type="bit" Nullable="false" />
     <Property Name="AVA" Type="varchar(max)" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
