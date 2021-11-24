@@ -17,12 +17,21 @@ namespace ClothesShopManagement.ViewModel
         public ICommand OpenAddOrder { get; set; }
         public ICommand SearchCommand { get; set; }
         public ICommand Detail { get; set; }
+        public ICommand LoadCsCommand { get; set; }
+        private ObservableCollection<string> _listTK;
+        public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
         public OrderViewModel()
         {
-            listHD= new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
+            listTK = new ObservableCollection<string>() { "Họ tên", "Số HD", "Ngày" };
+            listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
             OpenAddOrder = new RelayCommand<OrderView>((p) => true, (p) => _OpenAdd(p));
             SearchCommand = new RelayCommand<OrderView>((p) => true, (p) => _SearchCommand(p));
             Detail= new RelayCommand<OrderView>((p) => p.ListViewHD.SelectedItem!=null?true:false, (p) => _Detail(p));
+            LoadCsCommand = new RelayCommand<OrderView>((p) => true, (p) => _LoadCsCommand(p));
+        }
+        void _LoadCsCommand(OrderView parameter)
+        {
+            parameter.cbxChon.SelectedIndex = 0;
         }
         void _OpenAdd(OrderView paramater)
         {
@@ -35,12 +44,52 @@ namespace ClothesShopManagement.ViewModel
             ObservableCollection<HOADON> temp = new ObservableCollection<HOADON>();
             if (paramater.txbSearch.Text != "")
             {
-                foreach (HOADON s in listHD)
+                switch (paramater.cbxChon.SelectedItem.ToString())
                 {
-                    if (s.KHACHHANG.HOTEN.Contains(paramater.txbSearch.Text))
-                    {
-                        temp.Add(s);
-                    }
+                    case "Số HD":
+                        {
+                            foreach (HOADON s in listHD)
+                            {
+                                if (s.SOHD==int.Parse(paramater.txbSearch.Text))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                    case "Họ tên":
+                        {
+                            foreach (HOADON s in listHD)
+                            {
+                                if (s.KHACHHANG.HOTEN.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                    case "Ngày":
+                        {
+                            foreach (HOADON s in listHD)
+                            {
+                                if (s.NGHD.ToString("dd/MM/yyyy").Contains(paramater.txbSearch.Text))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            foreach (HOADON s in listHD)
+                            {
+                                if (s.KHACHHANG.HOTEN.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
                 }
                 paramater.ListViewHD.ItemsSource = temp;
             }

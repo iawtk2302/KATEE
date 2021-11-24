@@ -10,7 +10,12 @@
       d:DesignHeight="550" d:DesignWidth="665"
       DataContext="{StaticResource QLNVVM}"
       x:Name="QLNVwd">
-
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCsCommand}"
+                                                       CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Border
                     Height="550"
                     Width="665"
@@ -31,11 +36,42 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
+                    <Border
+                        Margin="20,0,0,0"
+                        Height="40"
+                        Width="120"
+                        CornerRadius="10"
+                        Background="White"
+                        >
+                        <ComboBox
+                        x:Name="cbxChon"
+                        Style="{StaticResource MaterialDesignFilledComboBox}"
+                        materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
+                        materialDesign:HintAssist.Hint="Tìm Kiếm"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        BorderThickness="0"
+                        materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                        materialDesign:HintAssist.Foreground="White"
+                        Background="White"
+                        FontFamily="{StaticResource Custom}"
+                        Height="38"
+                        FontSize="14"
+                        ItemsSource="{Binding listTK}"
+                        Width="110">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Border>
                     <TextBox
                                 x:Name="txbSearch"
                                 Width="250"
                                 Height="40"
-                                Margin="18,0,0,0"
+                                Margin="10,0,0,0"
                                 BorderBrush="White"
                                 Foreground="White"
                                 FontSize="16"
@@ -57,18 +93,18 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="250,0,0,0"
+                        Margin="150,0,0,0"
                         Width="90"
                         Height="40"
                         FontFamily="{StaticResource Custom}"
                         BorderBrush="LightPink"
-                        Foreground="Black"
+                        Foreground="White"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         >
                         <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFE5D8" Offset="1"/>
-                                <GradientStop Color="#FFCAD4" Offset="0"/>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                <GradientStop Color="#FFE5D8" Offset="0"/>
+                                <GradientStop Color="#FFCAD4" Offset="1"/>
                             </LinearGradientBrush>
                         </Button.Background>
                         <i:Interaction.Triggers>
@@ -84,6 +120,7 @@
                 <ListView x:Name="ListViewND" ItemsSource="{Binding listND}"
                             SelectionMode="Single"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          Width="635"
                             >
                     <ListView.ItemTemplate>
                         <DataTemplate>
@@ -122,6 +159,7 @@
                                             <TextBlock
                                                 Margin="4,0,0,0"
                                 Text="{Binding TENND}"
+                                                Foreground="White"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
@@ -131,11 +169,13 @@
                                                         Margin="4,0,0,0">
                                                 <TextBlock
                                         Text="SĐT: "
+                                                    Foreground="White"
                                         FontFamily="{StaticResource Custom}"
                                          FontSize="12"
                                         />
                                                 <TextBlock
                                         Text="{Binding SDT}"
+                                                    Foreground="White"
                                         FontFamily="{StaticResource Custom1}"
                                         FontSize="12"
                                         />
@@ -146,11 +186,13 @@
                                                         >
                                                 <TextBlock
                                         Text="ĐC: "
+                                                    Foreground="White"
                                         FontFamily="{StaticResource Custom}"
                                          FontSize="12"
                                         />
                                                 <TextBlock
                                         Text="{Binding DIACHI}"
+                                                    Foreground="White"
                                         FontFamily="{StaticResource Custom1}"
                                         FontSize="12"
                                         />
@@ -169,7 +211,7 @@
                     <i:Interaction.Triggers>
                         <i:EventTrigger EventName="SelectionChanged">
                             <i:InvokeCommandAction     Command="{Binding Detail}"
-                                                           CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
+                                                       CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
                         </i:EventTrigger>
                     </i:Interaction.Triggers>
                 </ListView>

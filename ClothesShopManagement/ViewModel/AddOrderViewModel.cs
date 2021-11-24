@@ -40,11 +40,11 @@ namespace ClothesShopManagement.ViewModel
         public List<KHACHHANG> LKH { get => _LKH; set { _LKH = value; OnPropertyChanged(); } }
         private List<SANPHAM> _LSP;
         public List<SANPHAM> LSP { get => _LSP; set { _LSP = value; OnPropertyChanged(); } }
-        private List<HienThi> _LHT;
-        public List<HienThi> LHT { get => _LHT; set { _LHT = value; OnPropertyChanged(); } }
-        private List<SANPHAM> _LSPSelected;
+        private ObservableCollection<HienThi> _LHT;
+        public ObservableCollection<HienThi> LHT { get => _LHT; set { _LHT = value; OnPropertyChanged(); } }
+        private ObservableCollection<SANPHAM> _LSPSelected;
         public ObservableCollection<string> LDG { get; set; }
-        public List<SANPHAM> LSPSelected { get=> _LSPSelected; set { _LSPSelected = value; OnPropertyChanged(); } }
+        public ObservableCollection<SANPHAM> LSPSelected { get=> _LSPSelected; set { _LSPSelected = value; OnPropertyChanged(); } }
         private ObservableCollection<CTHD> _LCTHD;
         public ObservableCollection<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
         public ICommand AddSP { get; set; }
@@ -54,9 +54,9 @@ namespace ClothesShopManagement.ViewModel
         public AddOrderViewModel()
         {
             tongtien = 0;
-            LSPSelected = new List<SANPHAM>();
+            LSPSelected = new ObservableCollection<SANPHAM>();
             LDG = new ObservableCollection<string>() { "1", "2", "3", "4", "5" };
-            LHT = new List<HienThi>();
+            LHT = new ObservableCollection<HienThi>();
             LCTHD = new ObservableCollection<CTHD>();
             Closewd = new RelayCommand<AddOrderView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddOrderView>((p) => true, (p) => Minimize(p));
@@ -82,7 +82,7 @@ namespace ClothesShopManagement.ViewModel
         void _Loadwd(AddOrderView paramater)
         {
             LKH= DataProvider.Ins.DB.KHACHHANGs.ToList();
-            LSP = DataProvider.Ins.DB.SANPHAMs.ToList();
+            LSP = DataProvider.Ins.DB.SANPHAMs.Where(p=>p.SL>=0).ToList();
             paramater.KH.ItemsSource = LKH;
             paramater.SP.ItemsSource = LSP;
             paramater.MaND.Text = Const.ND.MAND;
