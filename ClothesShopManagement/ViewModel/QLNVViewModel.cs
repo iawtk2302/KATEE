@@ -59,7 +59,10 @@ namespace ClothesShopManagement.ViewModel
             detailNDView.SDT.Text = temp.SDT;
             detailNDView.GT.Text = temp.GIOITINH;
             detailNDView.NS.Text = temp.NGSINH.ToString();
-            detailNDView.TT.Text = temp.TTND;
+            if(temp.TTND)
+                detailNDView.TT.Text = "1";
+            else
+                detailNDView.TT.Text = "0";
             Uri fileUri = new Uri(temp.AVA);
             detailNDView.HinhAnh.Source= new BitmapImage(fileUri);
             detailNDView.DC.Text = temp.DIACHI;
@@ -73,15 +76,15 @@ namespace ClothesShopManagement.ViewModel
             {
                 if (a.MAND == p.MaND.Text)
                 {
-                    if(p.TT.Text=="Đã nghỉ việc")
+                    if(p.TT.Text=="0"&&a.TTND==true)
                     {
-                        a.TTND = p.TT.Text;
+                        a.TTND = false;
                         a.USERNAME = "";
                         a.PASS = "";
                     }
-                    else if(p.TT.Text == "Đang làm việc")
+                    else if(p.TT.Text == "1"&&a.TTND==false)
                     {
-                        a.TTND = p.TT.Text;
+                        a.TTND = true;
                         a.USERNAME = a.MAND;
                         a.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode(a.MAND));
                     }
