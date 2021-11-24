@@ -23,7 +23,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand AddImage { get; set; }
         public AddNDVM()
         {
-            linkaddimage = "/Resource/Image/addava.png";
+            linkaddimage =Const._localLink + "/Resource/Image/addava.png";
             AddNDCommand = new RelayCommand<AddNDView>((p) => true, (p) => _AddND(p));
             AddImage = new RelayCommand<Image>((p) => true, (p) => _AddImage(p));
         }
@@ -31,8 +31,10 @@ namespace ClothesShopManagement.ViewModel
         {
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Image Files(*.jpg; *.png)|*.jpg; *.png";
-            if (open.ShowDialog() == true)
+            
+            if (open.ShowDialog()== true)
             {
+                if(open.FileName!="")
                 linkaddimage = open.FileName;
             };
             Uri fileUri = new Uri(linkaddimage);
@@ -64,7 +66,7 @@ namespace ClothesShopManagement.ViewModel
                 temp.QTV = true;
             else
                 temp.QTV = false;
-            temp.TTND = "Đang làm việc.";
+            temp.TTND = true;
             temp.USERNAME = addNDView.MaND.Text;
             temp.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode(addNDView.MaND.Text));
             if (linkaddimage == "/Resource/Image/addava.png")

@@ -10,8 +10,16 @@
         DataContext="{StaticResource QLNVVM}"
         x:Name="QLNVwd"
         ResizeMode="CanMinimize"
-        Title="THÔNG TIN CHI TIẾT" Height="420" Width="500">
-    <Border>
+        Title="THÔNG TIN CHI TIẾT" Height="450" Width="500">
+    <Border
+        
+        >
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                <GradientStop Color="#FFE5D8" Offset="0"/>
+                <GradientStop Color="#FFCAD4" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
@@ -35,8 +43,7 @@
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
                     <Image
-                        HorizontalAlignment="Center"
-                        VerticalAlignment="Center"
+                        Margin="6"
                         x:Name="HinhAnh"
                         />
                 </Grid>
@@ -126,7 +133,7 @@
                                 />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <TextBox
-                                    Margin="6,0,0,0"
+                                    Margin="4,0,0,0"
                                     x:Name="GT"
                                     FontFamily="{StaticResource Custom}"
                                     HorizontalAlignment="Left"
@@ -171,7 +178,7 @@
                                         >
                                 <TextBlock
                                     Margin="8,0,0,0"
-                                    Text="QUẢN TRỊ VIÊN"
+                                    Text="CHỨC VỤ"
                                     FontFamily="{StaticResource Custom}"
                                 />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
@@ -202,7 +209,6 @@
                                     x:Name="TT"
                                     FontFamily="{StaticResource Custom}"
                                     HorizontalAlignment="Left"
-                                    Width="150"
                                     BorderThickness="0"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
@@ -216,7 +222,7 @@
             </Grid>
             <Grid Grid.Row="2">
                 <StackPanel Orientation="Vertical"
-                                        >
+                            Margin="6,0,15,0"            >
                     <TextBlock
                                     Margin="8,0,0,0"
                                     Text="ĐỊA CHỈ"
@@ -239,8 +245,10 @@
                     <Button
                         Content="CẬP NHẬT"
                         Margin="0,10,0,0"
-                        Background="Black"
+                        Background="White"
+                        Foreground="Black"
                         x:Name="btnupdate"
+                        BorderThickness="0"
                         >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">

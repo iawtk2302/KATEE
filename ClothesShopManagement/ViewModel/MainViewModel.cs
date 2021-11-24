@@ -50,7 +50,7 @@ namespace ClothesShopManagement.ViewModel
                 Const.ND = User;
                 SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
                 Const.Admin = User.QTV;
-                Ava =Const._localLink + User.AVA;
+                Ava = User.AVA;
             }
         }
         void LogOut(MainWindow p)

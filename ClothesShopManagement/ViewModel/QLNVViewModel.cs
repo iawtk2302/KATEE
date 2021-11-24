@@ -35,20 +35,20 @@ namespace ClothesShopManagement.ViewModel
         }
         void _SearchCommand(QLNVView paramater)
         {
-            //ObservableCollection<KHACHHANG> temp = new ObservableCollection<KHACHHANG>();
-            //if (paramater.txbSearch.Text != "")
-            //{
-            //    foreach (KHACHHANG s in listKH)
-            //    {
-            //        if (s.SDT.Contains(paramater.txbSearch.Text))
-            //        {
-            //            temp.Add(s);
-            //        }
-            //    }
-            //    paramater.ListViewKH.ItemsSource = temp;
-            //}
-            //else
-            //    paramater.ListViewKH.ItemsSource = listKH;
+            ObservableCollection<NGUOIDUNG> temp = new ObservableCollection<NGUOIDUNG>();
+            if (paramater.txbSearch.Text != "")
+            {
+                foreach (NGUOIDUNG s in listND)
+                {
+                    if (s.TENND.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                    {
+                        temp.Add(s);
+                    }
+                }
+                paramater.ListViewND.ItemsSource = temp;
+            }
+            else
+                paramater.ListViewND.ItemsSource = listND;
         }
         void _DetailND(QLNVView paramater)
         {
@@ -60,7 +60,7 @@ namespace ClothesShopManagement.ViewModel
             detailNDView.GT.Text = temp.GIOITINH;
             detailNDView.NS.Text = temp.NGSINH.ToString();
             detailNDView.TT.Text = temp.TTND;
-            Uri fileUri = new Uri(Const._localLink + temp.AVA);
+            Uri fileUri = new Uri(temp.AVA);
             detailNDView.HinhAnh.Source= new BitmapImage(fileUri);
             detailNDView.DC.Text = temp.DIACHI;
             detailNDView.QTV.Text = temp.QTV == true ? "1" : "0";
