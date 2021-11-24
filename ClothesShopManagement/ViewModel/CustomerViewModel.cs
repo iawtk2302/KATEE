@@ -68,6 +68,7 @@ namespace ClothesShopManagement.ViewModel
             detailCustomerView.ShowDialog();
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
             paramater.ListViewKH.ItemsSource = listKH;
+            paramater.ListViewKH.SelectedItem = null;
         }
         void _AddCs(CustomerView paramater)
         {

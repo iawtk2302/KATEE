@@ -52,7 +52,7 @@
                                 VerticalAlignment="Center"
                                 Margin="0,0,10,0"
                                 >
-                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Gray" Height="24" Width="24" Margin="0,0,8,0">
+                        <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Black" Height="24" Width="24" Margin="0,0,8,0">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                     <i:InvokeCommandAction Command="{Binding Minimizewd}"
@@ -60,7 +60,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </materialDesign:PackIcon>
-                        <materialDesign:PackIcon Kind="CloseThick" Foreground="gray" Height="24" Width="24">
+                        <materialDesign:PackIcon Kind="CloseThick" Foreground="Black" Height="24" Width="24">
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="MouseLeftButtonDown">
                                     <i:InvokeCommandAction Command="{Binding Closewd}"
@@ -79,7 +79,7 @@
                             HorizontalAlignment="Center"
                             Text="THÔNG TIN KHÁCH HÀNG"
                             FontSize="24"
-                            Foreground="gray"
+                            Foreground="Black"
                             FontFamily="{StaticResource Custom}"
                             />
                             <StackPanel Orientation="Horizontal">
@@ -122,7 +122,7 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:HintAssist.Hint="THÊM HỌ TÊN"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                 />
                                 </StackPanel>
                             </StackPanel>
@@ -145,11 +145,11 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:HintAssist.Hint="THÊM SDT"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                 />
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical"
-                                        Margin="10,0,0,0"
+                                        Margin="15,0,0,0"
                                         >
                                     <TextBlock
                                     Margin="8,0,0,0"
@@ -166,7 +166,7 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:HintAssist.Hint="THÊM GIỚI TÍNH"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                 />
                                 </StackPanel>
                             </StackPanel>
@@ -190,7 +190,7 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                 />
                                 </Border>
                             </StackPanel>
@@ -213,7 +213,7 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                 />
                                 </Border>
                             </StackPanel>
@@ -234,7 +234,7 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:HintAssist.Hint="THÊM ĐỊA CHỈ"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                     HorizontalScrollBarVisibility="Auto"
                                     AcceptsReturn="True"
                                     TextWrapping="Wrap"
@@ -242,11 +242,16 @@
                             <Button Content="CẬP NHẬT"
                                 Margin="0,30,0,0"
                                 Width="230"
-                                Background="LightPink"
                                 BorderThickness="0"
                                 x:Name="btnupdate"
                                 >
-                                <i:Interaction.Triggers>
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                    <GradientStop Color="#FFE5D8" Offset="0"/>
+                                    <GradientStop Color="#FFCAD4" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
                                         <i:InvokeCommandAction Command="{Binding Update}"
                                                        CommandParameter="{Binding ElementName=DetailCswd}"></i:InvokeCommandAction>
