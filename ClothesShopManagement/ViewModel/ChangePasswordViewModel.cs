@@ -43,7 +43,7 @@ namespace ClothesShopManagement.ViewModel
         {
             string a = Const.TenDangNhap;
             User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
-            try 
+            try
             {
                 if (User.PASS != MD5Hash(Base64Encode(OldPass)))
                 {

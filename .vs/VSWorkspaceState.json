@@ -5,6 +5,6 @@
     "\\ClothesShopManagement\\View",
     "\\ClothesShopManagement\\ViewModel"
   ],
-  "SelectedNode": "\\ClothesShopManagement\\ViewModel\\MainViewModel.cs",
+  "SelectedNode": "\\ClothesShopManagement\\View\\MainWindow.xaml",
   "PreviewInSolutionExplorer": false
 }
