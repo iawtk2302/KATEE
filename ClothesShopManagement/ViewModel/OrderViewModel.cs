@@ -100,8 +100,8 @@ namespace ClothesShopManagement.ViewModel
         {
             DetailOrder detailOrder = new DetailOrder();
             HOADON temp = (HOADON) parameter.ListViewHD.SelectedItem;
-            detailOrder.MaND.Text = Const.ND.MAND;
-            detailOrder.TenND.Text= Const.ND.TENND;
+            detailOrder.MaND.Text = temp.NGUOIDUNG.MAND;
+            detailOrder.TenND.Text= temp.NGUOIDUNG.TENND;
             detailOrder.Ngay.Text = temp.NGHD.ToString();
             detailOrder.SoHD.Text = temp.SOHD.ToString();
             detailOrder.MaKH.Text = temp.MAKH.ToString();
