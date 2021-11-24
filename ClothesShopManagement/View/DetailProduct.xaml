@@ -163,12 +163,35 @@
                         <Button Content="CẬP NHẬT"
                                 Margin="0,30,0,0"
                                 Width="230"
-                                Background="LightPink"
                                 BorderThickness="0"
                                 >
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                    <GradientStop Color="#FFE5D8" Offset="0"/>
+                                    <GradientStop Color="#FFCAD4" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
                                     <i:InvokeCommandAction Command="{Binding UpdateProduct}"
+                                                       CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </Button>
+                        <Button Content="XÓA"
+                                Margin="0,30,0,0"
+                                Width="230"
+                                BorderThickness="0"
+                                >
+                            <Button.Background>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                    <GradientStop Color="#FFE5D8" Offset="0"/>
+                                    <GradientStop Color="#FFCAD4" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Button.Background>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding DeleteProduct}"
                                                        CommandParameter="{Binding ElementName=DetailProductwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>

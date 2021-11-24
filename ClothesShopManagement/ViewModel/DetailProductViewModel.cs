@@ -18,8 +18,9 @@ namespace ClothesShopManagement.ViewModel
         public ICommand MoveWindow { get; set; }
         public ICommand UpdateProduct { get; set; }
         public ICommand GetName { get; set; }
-        private string MaPD1;
+        private string TenSP1;
         public ICommand Loadwd { get; set; }
+        public ICommand DeleteProduct { get; set; }
         public DetailProductViewModel()
         {
             Closewd = new RelayCommand<DetailProduct>((p) => true, (p) => Close(p));
@@ -28,6 +29,7 @@ namespace ClothesShopManagement.ViewModel
             GetName = new RelayCommand<DetailProduct>((p) => true, (p) => _GetName(p));
             UpdateProduct =new RelayCommand<DetailProduct>((p) => true, (p) => _UpdateProduct(p));
             Loadwd=new RelayCommand<DetailProduct>((p) => true, (p) => _Loadwd(p));
+            DeleteProduct = new RelayCommand<DetailProduct>((p) => true, (p) => _DeleteProduct(p));
         }
         void _Loadwd(DetailProduct parmater)
         {
@@ -40,6 +42,19 @@ namespace ClothesShopManagement.ViewModel
             {
                 parmater.TenSP.IsEnabled = false;
                 parmater.Mota.IsEnabled = false;
+            }
+        }
+        void _DeleteProduct(DetailProduct parameter)
+        {
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn xóa sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
+            { 
+                foreach (SANPHAM a in DataProvider.Ins.DB.SANPHAMs.Where(pa => (pa.TENSP == TenSP1 && pa.SL >= 0)))
+                {
+                    a.SL = -1;
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Xóa sản phẩm thành công !", "THÔNG BÁO");
             }    
         }
         void moveWindow(DetailProduct p)
@@ -56,26 +71,29 @@ namespace ClothesShopManagement.ViewModel
         }
         void _GetName(DetailProduct p)
         {
-            MaPD1 = p.MaSP.Text;
+            TenSP1 = p.TenSP.Text;
         }
         void _UpdateProduct(DetailProduct p)
         {
-            if (string.IsNullOrEmpty(p.TenSP.Text) || string.IsNullOrEmpty(p.Mota.Text) || string.IsNullOrEmpty(p.Mota.Text))
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
-            }
-            else
-            {
-                var temp = DataProvider.Ins.DB.SANPHAMs.Where(pa => pa.MASP == MaPD1);
-                foreach (SANPHAM a in temp)
+                if (string.IsNullOrEmpty(p.TenSP.Text) || string.IsNullOrEmpty(p.Mota.Text) || string.IsNullOrEmpty(p.Mota.Text))
                 {
-                    a.TENSP = p.TenSP.Text;
-                    a.MOTA = p.Mota.Text;
-                    a.MOTA = p.Mota.Text;
+                    MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
                 }
-                DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Cập nhật sản phẩm thành công !", "THÔNG BÁO");
-            }              
+                else
+                {
+                    foreach (SANPHAM a in DataProvider.Ins.DB.SANPHAMs.Where(pa => (pa.TENSP == TenSP1&&pa.SL>=0)))
+                    {
+                        a.TENSP = p.TenSP.Text;
+                        a.MOTA = p.Mota.Text;
+                        a.MOTA = p.Mota.Text;
+                    }
+                    DataProvider.Ins.DB.SaveChanges();
+                    MessageBox.Show("Cập nhật sản phẩm thành công !", "THÔNG BÁO");
+                }
+            }                     
         }
     }
 }

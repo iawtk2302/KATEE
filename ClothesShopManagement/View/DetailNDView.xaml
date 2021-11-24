@@ -8,12 +8,22 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource QLNVVM}"
-        x:Name="QLNVwd"
-        ResizeMode="CanMinimize"
-        Title="THÔNG TIN CHI TIẾT" Height="450" Width="500">
+        x:Name="DTQLNVwd"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True" 
+        Height="450" 
+        Width="500">
     <Border
-        
+        CornerRadius="15"
         >
+        <i:Interaction.Triggers>
+            <i:EventTrigger EventName="MouseLeftButtonDown">
+                <i:InvokeCommandAction Command="{Binding MoveWindow}"
+                                       CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
+            </i:EventTrigger>
+        </i:Interaction.Triggers>
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
                 <GradientStop Color="#FFE5D8" Offset="0"/>
@@ -23,10 +33,38 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="210"/>
+                <RowDefinition Height="30"/>
+                <RowDefinition Height="190"/>
                 <RowDefinition/>
             </Grid.RowDefinitions>
-            <Grid Grid.Row="0">
+            <Grid Grid.Row="0"
+                  Background="Transparent"
+                  >
+                <StackPanel 
+                                Orientation="Horizontal" 
+                                HorizontalAlignment="Right" 
+                                VerticalAlignment="Center"
+                                Margin="0,0,10,0"
+                                >
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Black" Height="24" Width="24" Margin="0,0,8,0">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Minimizewd}"
+                                                       CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </materialDesign:PackIcon>
+                    <materialDesign:PackIcon Kind="CloseThick" Foreground="Black" Height="24" Width="24">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="MouseLeftButtonDown">
+                                <i:InvokeCommandAction Command="{Binding Closewd}"
+                                                       CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </materialDesign:PackIcon>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
                 <TextBlock
                             HorizontalAlignment="Center"
                             Text="THÔNG TIN NHÂN VIÊN"
@@ -34,7 +72,7 @@
                             FontFamily="{StaticResource Custom}"
                             />
             </Grid>
-            <Grid Grid.Row="1"
+            <Grid Grid.Row="2"
                   Margin="0,10,0,0"
                   >
                 <Grid.ColumnDefinitions>
@@ -42,10 +80,13 @@
                     <ColumnDefinition Width="350"/>
                 </Grid.ColumnDefinitions>
                 <Grid Grid.Column="0">
-                    <Image
-                        Margin="6"
-                        x:Name="HinhAnh"
-                        />
+                    <Ellipse Height="140" Width="140"
+                                                 Margin="4,0,0,0"
+                                                 VerticalAlignment="Center">
+                        <Ellipse.Fill>
+                            <ImageBrush x:Name="HinhAnh"/>
+                        </Ellipse.Fill>
+                    </Ellipse>
                 </Grid>
                 <Grid Grid.Column="1">
                     <StackPanel Orientation="Vertical"
@@ -69,7 +110,6 @@
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-
                                 />
                                 </Border>
                             </StackPanel>
@@ -196,31 +236,10 @@
                                 </Border>
                             </StackPanel>
                         </StackPanel>
-                        <StackPanel Orientation="Vertical"
-                                        Margin="0,0,0,0"
-                                        >
-                            <TextBlock
-                                    Margin="8,0,0,0"
-                                    Text="TÌNH TRẠNG"
-                                    FontFamily="{StaticResource Custom}"
-                                />
-                            <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                <TextBox
-                                    x:Name="TT"
-                                    FontFamily="{StaticResource Custom}"
-                                    HorizontalAlignment="Left"
-                                    BorderThickness="0"
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
-                                    materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
-                                />
-                            </Border>
-                        </StackPanel>
                     </StackPanel>
                 </Grid>
             </Grid>
-            <Grid Grid.Row="2">
+            <Grid Grid.Row="3">
                 <StackPanel Orientation="Vertical"
                             Margin="6,0,15,0"            >
                     <TextBlock
@@ -233,7 +252,7 @@
                                     x:Name="DC"
                                     FontFamily="{StaticResource Custom}"
                                     HorizontalAlignment="Left"
-                                    Height="100"
+                                    Height="70"
                                     BorderThickness="0"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
@@ -245,15 +264,39 @@
                     <Button
                         Content="CẬP NHẬT"
                         Margin="0,10,0,0"
-                        Background="White"
-                        Foreground="Black"
+                        Foreground="White"
                         x:Name="btnupdate"
                         BorderThickness="0"
                         >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                <GradientStop Color="#FFE5D8" Offset="0"/>
+                                <GradientStop Color="#FFCAD4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding UpdateNDCommand}"
-                                       CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
+                                       CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
+                    <Button
+                        Content="XÓA"
+                        Margin="0,10,0,0"
+                        Foreground="White"
+                        BorderThickness="0"
+                        >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                <GradientStop Color="#FFE5D8" Offset="0"/>
+                                <GradientStop Color="#FFCAD4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding DeleteNDCommand}"
+                                       CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>

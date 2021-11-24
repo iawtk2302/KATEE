@@ -11,7 +11,13 @@
       DataContext="{StaticResource ProductsVM}"
       x:Name="Productwd"
       >
-    <Border
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCsCommand}"
+                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+     </i:Interaction.Triggers>
+        <Border
                     Height="550"
                     Width="665"
                     Background="#21222D"
@@ -31,6 +37,37 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
+                    <Border
+                        Margin="8,0,0,0"
+                        Height="40"
+                        Width="120"
+                        CornerRadius="10"
+                        Background="White"
+                        >
+                        <ComboBox
+                        x:Name="cbxChon"
+                        Style="{StaticResource MaterialDesignFilledComboBox}"
+                        materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
+                        materialDesign:HintAssist.Hint="Tìm Kiếm"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        BorderThickness="0"
+                        materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                        materialDesign:HintAssist.Foreground="White"
+                        Background="White"
+                        FontFamily="{StaticResource Custom}"
+                        Height="38"
+                        FontSize="14"
+                        ItemsSource="{Binding listTK}"
+                        Width="110">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Border>
                     <TextBox
                                 x:Name="txbSearch"
                                 Width="250"
@@ -57,13 +94,18 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="300,0,0,0"
+                        Margin="90,0,0,0"
                         Width="90"
                         Height="40"
-                        Background="LightPink"
-                        BorderBrush="LightPink"
                         materialDesign:ButtonAssist.CornerRadius="6"
+                        BorderThickness="0"
                         >
+                        <Button.Background>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                                <GradientStop Color="#FFE5D8" Offset="0"/>
+                                <GradientStop Color="#FFCAD4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddPdPdCommand}"

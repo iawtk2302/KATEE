@@ -12,20 +12,32 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-
 namespace ClothesShopManagement.ViewModel
 {
     public class AddNDVM:BaseViewModel
     {
         private string _linkaddimage;
-        public string linkaddimage { get => _linkaddimage; set { _linkaddimage = value; OnPropertyChanged("HinhAnh1"); } }
+        public string linkaddimage { get => _linkaddimage; set { _linkaddimage = value; OnPropertyChanged(); } }
         public ICommand AddNDCommand { get; set; }
         public ICommand AddImage { get; set; }
+        public ICommand Closewd { get; set; }
+        public ICommand Minimizewd { get; set; }
         public AddNDVM()
         {
             linkaddimage =Const._localLink + "/Resource/Image/addava.png";
             AddNDCommand = new RelayCommand<AddNDView>((p) => true, (p) => _AddND(p));
             AddImage = new RelayCommand<Image>((p) => true, (p) => _AddImage(p));
+            Closewd = new RelayCommand<AddNDView>((p) => true, (p) => Close(p));
+            Minimizewd = new RelayCommand<AddNDView>((p) => true, (p) => Minimize(p));
+        }
+        void Close(AddNDView p)
+        {
+            linkaddimage = Const._localLink + "/Resource/Image/addava.png";
+            p.Close();
+        }
+        void Minimize(AddNDView p)
+        {
+            p.WindowState = WindowState.Minimized;
         }
         void _AddImage(Image img)
         {
@@ -51,7 +63,7 @@ namespace ClothesShopManagement.ViewModel
                     return;
                 }
                 NGUOIDUNG temp = new NGUOIDUNG();
-                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs)
+                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(p=>p.TTND==true))
                 {
                     if (addNDView.MaND.Text == a.MAND)
                     {
