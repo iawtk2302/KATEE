@@ -72,30 +72,34 @@ namespace ClothesShopManagement.ViewModel
         }
         void _UpdateNDCommand(DetailNDView p)
         {
-            foreach(NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs)
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
             {
-                if (a.MAND == p.MaND.Text)
+                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs)
                 {
-                    if(p.TT.Text=="0"&&a.TTND==true)
+                    if (a.MAND == p.MaND.Text)
                     {
-                        a.TTND = false;
-                        a.USERNAME = "";
-                        a.PASS = "";
+                        if (p.TT.Text == "0" && a.TTND == true)
+                        {
+                            a.TTND = false;
+                            a.USERNAME = "";
+                            a.PASS = "";
+                        }
+                        else if (p.TT.Text == "1" && a.TTND == false)
+                        {
+                            a.TTND = true;
+                            a.USERNAME = a.MAND;
+                            a.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode(a.MAND));
+                        }
+                        if (p.QTV.Text == "1")
+                            a.QTV = true;
+                        else
+                            a.QTV = false;
                     }
-                    else if(p.TT.Text == "1"&&a.TTND==false)
-                    {
-                        a.TTND = true;
-                        a.USERNAME = a.MAND;
-                        a.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode(a.MAND));
-                    }
-                    if (p.QTV.Text == "1")
-                        a.QTV = true;
-                    else
-                        a.QTV = false;
-                }                      
-            }
-            DataProvider.Ins.DB.SaveChanges();
-            MessageBox.Show("Cập nhật thành công !", "THÔNG BÁO");
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Cập nhật thành công !", "THÔNG BÁO");
+            }          
         }
         void _AddND(QLNVView parameter)
         {

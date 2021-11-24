@@ -17,9 +17,14 @@
         Width="700">
     <Border
         x:Name="xx"
-        Background="Black"
         CornerRadius="15"
         >
+        <Border.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                <GradientStop Color="#FFE5D8" Offset="0"/>
+                <GradientStop Color="#FFCAD4" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.Background>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"
@@ -41,7 +46,7 @@
                                 VerticalAlignment="Center"
                                 Margin="0,0,10,0"
                                 >
-                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="Gray" Height="24" Width="24" Margin="0,0,8,0">
+                    <materialDesign:PackIcon Kind="WindowMinimize" Foreground="White" Height="24" Width="24" Margin="0,0,8,0">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding Minimizewd}"
@@ -49,7 +54,7 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </materialDesign:PackIcon>
-                    <materialDesign:PackIcon Kind="CloseThick" Foreground="gray" Height="24" Width="24">
+                    <materialDesign:PackIcon Kind="CloseThick" Foreground="White" Height="24" Width="24">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="MouseLeftButtonDown">
                                 <i:InvokeCommandAction Command="{Binding Closewd}"

@@ -104,6 +104,11 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddSP(AddOrderView paramater)
         {
+            if(paramater.SoHD.Text=="")
+            {
+                System.Windows.MessageBox.Show("Bạn chưa nhập số hóa đơn !", "THÔNG BÁO");
+                return;
+            }    
             foreach(HOADON s in DataProvider.Ins.DB.HOADONs)
             {
                 if(int.Parse(paramater.SoHD.Text)==s.SOHD)
@@ -145,6 +150,11 @@ namespace ClothesShopManagement.ViewModel
         }
         void _DeleteSP(AddOrderView paramater)
         {
+            if(paramater.ListViewSP.SelectedItem==null)
+            {
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm !", "THÔNG BÁO");
+                return;
+            }    
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
             if (h == MessageBoxResult.Yes)
             {
@@ -175,7 +185,12 @@ namespace ClothesShopManagement.ViewModel
         }
         void _SaveHD(AddOrderView paramater)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thanh toán.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0)
+            {
+                System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO");
+                return;
+            }    
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thanh toán ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
             if (h == MessageBoxResult.Yes)
             {
                 KHACHHANG a = (KHACHHANG)paramater.KH.SelectedItem;

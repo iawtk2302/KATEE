@@ -44,23 +44,27 @@ namespace ClothesShopManagement.ViewModel
         }
         void _Update(DetailCustomerView p)
         {
-            if(string.IsNullOrEmpty(p.TenKH.Text)|| string.IsNullOrEmpty(p.SDT.Text) || string.IsNullOrEmpty(p.GT.Text) || string.IsNullOrEmpty(p.DC.Text))
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
-            }
-            else
-            {
-                var temp = DataProvider.Ins.DB.KHACHHANGs.Where(pa => pa.MAKH == MaKH);
-                foreach (KHACHHANG a in temp)
+                if (string.IsNullOrEmpty(p.TenKH.Text) || string.IsNullOrEmpty(p.SDT.Text) || string.IsNullOrEmpty(p.GT.Text) || string.IsNullOrEmpty(p.DC.Text))
                 {
-                    a.HOTEN = p.TenKH.Text;
-                    a.SDT = p.SDT.Text;
-                    a.GIOITINH = p.GT.Text;
-                    a.DCHI = p.DC.Text;
+                    MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
                 }
-                DataProvider.Ins.DB.SaveChanges();
-                MessageBox.Show("Cập nhật thông tin thành công !", "THÔNG BÁO");
-            }           
+                else
+                {
+                    var temp = DataProvider.Ins.DB.KHACHHANGs.Where(pa => pa.MAKH == MaKH);
+                    foreach (KHACHHANG a in temp)
+                    {
+                        a.HOTEN = p.TenKH.Text;
+                        a.SDT = p.SDT.Text;
+                        a.GIOITINH = p.GT.Text;
+                        a.DCHI = p.DC.Text;
+                    }
+                    DataProvider.Ins.DB.SaveChanges();
+                    MessageBox.Show("Cập nhật thông tin thành công !", "THÔNG BÁO");
+                }
+            }                    
         }
     }
 }
