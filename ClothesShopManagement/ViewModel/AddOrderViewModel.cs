@@ -104,6 +104,11 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddSP(AddOrderView paramater)
         {
+            if(paramater.SP.SelectedItem==null)
+            {
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để thêm !", "THÔNG BÁO");
+                return;
+            }    
             if(paramater.SoHD.Text=="")
             {
                 System.Windows.MessageBox.Show("Bạn chưa nhập số hóa đơn !", "THÔNG BÁO");
@@ -152,7 +157,7 @@ namespace ClothesShopManagement.ViewModel
         {
             if(paramater.ListViewSP.SelectedItem==null)
             {
-                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để xóa !", "THÔNG BÁO");
                 return;
             }    
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
@@ -170,6 +175,11 @@ namespace ClothesShopManagement.ViewModel
                         break;
                     }
                 }
+                foreach (SANPHAM x in LSP)
+                {
+                    if (x.MASP == a.MaSp)
+                        x.SL += a.SL;
+                }              
                 foreach (CTHD b in LCTHD)
                 {
                     if (b.MASP == a.MaSp && b.SL == a.SL)
@@ -178,6 +188,8 @@ namespace ClothesShopManagement.ViewModel
                         break;
                     }
                 }
+                paramater.SP.ItemsSource = LSP;
+                paramater.SP.Items.Refresh();
                 paramater.ListViewSP.Items.Refresh();
             }
             else
@@ -226,6 +238,8 @@ namespace ClothesShopManagement.ViewModel
                 tongtien = 0;
                 LSPSelected.Clear();
                 paramater.KH.SelectedItem = null;
+                LHT.Clear();
+                paramater.ListViewSP.ItemsSource = LHT;
                 paramater.SoHD.Clear();
                 paramater.DG1.SelectedItem = null;
             }
