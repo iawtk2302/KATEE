@@ -1,4 +1,5 @@
 ﻿
+<<<<<<< HEAD
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\App.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\Resource\MainResource.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\AddCustomerView.xaml;;
@@ -16,4 +17,20 @@ FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\MainWindow.xa
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\OrderView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\ProductsView.xaml;;
 FC:\Users\Admin\OneDrive\Documents\test\ClothesShopManagement\View\QLNVView.xaml;;
+=======
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\App.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\Resource\MainResource.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\AddImportView.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\ChangePassword.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\DetailImport.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\DetailProduct.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\HomeView.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\ImportView.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\LoginWindow.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\MainWindow.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\OrderView.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\ProductsView.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\ReportView.xaml;;
+FC:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\View\SettingView.xaml;;
+>>>>>>> importwd
 

@@ -9,6 +9,7 @@
 
 namespace ClothesShopManagement.Model
 {
+    using ClothesShopManagement.ViewModel;
     using System;
     using System.Collections.Generic;
     
@@ -23,7 +24,7 @@ namespace ClothesShopManagement.Model
     
         public string MAND { get; set; }
         public string TENND { get; set; }
-        public Nullable<System.DateTime> NGSINH { get; set; }
+        public DateTime NGSINH { get; set; }
         public string GIOITINH { get; set; }
         public string SDT { get; set; }
         public string DIACHI { get; set; }
@@ -32,6 +33,7 @@ namespace ClothesShopManagement.Model
         public bool QTV { get; set; }
         public bool TTND { get; set; }
         private string _AVA;
+<<<<<<< HEAD
         public string AVA
         {
             get
@@ -44,6 +46,10 @@ namespace ClothesShopManagement.Model
             set { _AVA = value; }
         }
 
+=======
+        public string AVA { get => _AVA.Contains(Const._localLink) ? _AVA : (Const._localLink + _AVA); set { _AVA = value; } }
+    
+>>>>>>> importwd
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

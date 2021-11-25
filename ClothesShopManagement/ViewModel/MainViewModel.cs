@@ -13,6 +13,7 @@ namespace ClothesShopManagement.ViewModel
 {
     public class MainViewModel : BaseViewModel
     {
+        private string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
         public ICommand CloseLogin { get; set; }
         public ICommand MinimizeLogin { get; set; }
         public ICommand MoveWindow { get; set; }
@@ -31,7 +32,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand Loadwd { get; set; }
         public MainViewModel()
         {
-            Loadwd=new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
+            Loadwd = new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
             CloseLogin = new RelayCommand<MainWindow>((p) => true, (p) => Close());
             MinimizeLogin = new RelayCommand<MainWindow>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<MainWindow>((p) => true, (p) => moveWindow(p));
@@ -41,7 +42,7 @@ namespace ClothesShopManagement.ViewModel
             Quyen_Loaded = new RelayCommand<MainWindow>((p) => true, (p) => LoadQuyen(p));
             LogOutCommand = new RelayCommand<MainWindow>((p) => { return true; }, (p) => LogOut(p));
         }
-        void _Loadwd(MainWindow p)
+        public void _Loadwd(MainWindow p)
         {
             if (LoginViewModel.IsLogin)
             {
@@ -76,17 +77,36 @@ namespace ClothesShopManagement.ViewModel
                 case 0:
                     {
                         p.Main.NavigationService.Navigate(new HomeView());
+                        _Loadwd(p);
                         break;
                     }
                 case 1:
-                    {
-
+                    {                        
                         p.Main.NavigationService.Navigate(new OrderView());
+                        _Loadwd(p);
                         break;
                     }
                 case 2:
                     {
                         p.Main.NavigationService.Navigate(new ProductsView());
+                        _Loadwd(p);
+                        break;
+                    }
+                case 4:
+                    {
+                        p.Main.NavigationService.Navigate(new ImportView());
+                        _Loadwd(p);
+                        break;
+                    }
+                case 5:
+                    {
+                        p.Main.NavigationService.Navigate(new ReportView());
+                        _Loadwd(p);
+                        break;
+                    }
+                    case 7:
+                    {
+                        p.Main.NavigationService.Navigate(new SettingView());
                         break;
                     }
                 case 3:

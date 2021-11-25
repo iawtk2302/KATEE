@@ -26,6 +26,7 @@ namespace ClothesShopManagement.Model
         public string DVT { get; set; }
         public int GIA { get; set; }
         public string MOTA { get; set; }
+<<<<<<< HEAD
         private string _HINHSP;
         public string HINHSP
         {
@@ -40,6 +41,9 @@ namespace ClothesShopManagement.Model
                 _HINHSP = value;
             }
         }
+=======
+        public string HINHSP { get; set; }
+>>>>>>> importwd
         public int SL { get; set; }
         public string LOAISP { get; set; }
         public string SIZE { get; set; }

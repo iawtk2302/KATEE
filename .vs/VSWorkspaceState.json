@@ -1,7 +1,14 @@
 {
   "ExpandedNodes": [
+<<<<<<< HEAD
     ""
+=======
+    "",
+    "\\ClothesShopManagement",
+    "\\ClothesShopManagement\\View",
+    "\\ClothesShopManagement\\ViewModel"
+>>>>>>> importwd
   ],
-  "SelectedNode": "\\ClothesShopManagement.sln",
+  "SelectedNode": "\\ClothesShopManagement\\View\\ChangePassword.xaml",
   "PreviewInSolutionExplorer": false
 }

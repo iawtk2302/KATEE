@@ -4,7 +4,11 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
+<<<<<<< HEAD
       <Diagram DiagramId="ec387b065347497fb0ea70155233f4ea" Name="Diagram1" ZoomLevel="90">
+=======
+      <Diagram DiagramId="1b20410a82bd491498c0a589851f284b" Name="Diagram1">
+>>>>>>> importwd
         <EntityTypeShape EntityType="QLBH_Model.CTHD" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.CTPN" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.HOADON" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
