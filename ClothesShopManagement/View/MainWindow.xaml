@@ -133,10 +133,23 @@
                             FontFamily="{StaticResource Custom}"
                             />
                         <RadioButton
+                            x:Name="btnQLNNV"
+                            Uid="6"
                             Visibility="{Binding SetQuanLy}"
                             Style="{StaticResource BtnManage}"
                             FontFamily="{StaticResource Custom}"
-                            />
+                            >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
+                                                           CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseMove">
+                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
+                                                           CommandParameter="{Binding ElementName=btnQLNNV}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RadioButton>
                     </StackPanel>
                     <Grid Grid.Row="2" VerticalAlignment="Bottom">
                         <Button
@@ -189,7 +202,7 @@
                             CornerRadius="50"
                             Margin="6"
                             >
-                            <Ellipse Height="40" Width="40">
+                            <Ellipse Height="40" Width="40" VerticalAlignment="Top">
                                 <Ellipse.Fill>
                                     <ImageBrush ImageSource="{Binding Ava}"/>
                                 </Ellipse.Fill>

@@ -11,6 +11,12 @@
       DataContext="{StaticResource OrVM}"
       x:Name="Orderwd"
       >
+    <i:Interaction.Triggers>
+        <i:EventTrigger EventName="Loaded">
+            <i:InvokeCommandAction Command="{Binding LoadCsCommand}"
+                                                       CommandParameter="{Binding ElementName=Orderwd}"></i:InvokeCommandAction>
+        </i:EventTrigger>
+    </i:Interaction.Triggers>
     <Border
                     Height="550"
                     Width="665"
@@ -32,11 +38,42 @@
             </Grid>
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
+                    <Border
+                        Margin="8,0,0,0"
+                        Height="40"
+                        Width="120"
+                        CornerRadius="10"
+                        Background="White"
+                        >
+                        <ComboBox
+                        x:Name="cbxChon"
+                        Style="{StaticResource MaterialDesignFilledComboBox}"
+                        materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
+                        materialDesign:HintAssist.Hint="Tìm Kiếm"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        BorderThickness="0"
+                        materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                        materialDesign:HintAssist.Foreground="White"
+                        Background="White"
+                        FontFamily="{StaticResource Custom}"
+                        Height="38"
+                        FontSize="14"
+                        ItemsSource="{Binding listTK}"
+                        Width="110">
+                            <ComboBox.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBlock Text="{Binding}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ComboBox.ItemTemplate>
+                        </ComboBox>
+                    </Border>
                     <TextBox
                                 x:Name="txbSearch"
                                 Width="250"
                                 Height="40"
-                                Margin="18,0,0,0"
+                                Margin="10,0,0,0"
                                 BorderBrush="White"
                                 Foreground="White"
                                 FontSize="16"
@@ -58,7 +95,7 @@
                     </TextBox>
                     <Button
                         Content="TẠO"
-                        Margin="250,0,0,0"
+                        Margin="125,0,0,0"
                         Width="90"
                         Height="40"
                         FontFamily="{StaticResource Custom}"

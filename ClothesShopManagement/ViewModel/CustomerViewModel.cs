@@ -17,25 +17,74 @@ namespace ClothesShopManagement.ViewModel
         public ICommand SearchCommand { get; set; }
         public ICommand Detail { get; set; }
         public ICommand AddCsCommand { get; set; }
+        public ICommand LoadCsCommand { get; set; }
+        private ObservableCollection<string> _listTK;
+        public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
         public CustomerViewModel()
         {
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
+            listTK = new ObservableCollection<string>() { "Họ tên", "Mã KH", "SĐT" };
             SearchCommand = new RelayCommand<CustomerView>((p) => true, (p) => _SearchCommand(p));
             Detail = new RelayCommand<CustomerView>((p) => { return p.ListViewKH.SelectedItem == null ? false : true; }, (p) => _DetailCs(p));
             AddCsCommand = new RelayCommand<CustomerView>((p) => true, (p) => _AddCs(p));
+            LoadCsCommand = new RelayCommand<CustomerView>((p) => true, (p) => _LoadCsCommand(p));
+        }
+        void _LoadCsCommand(CustomerView parameter)
+        {
+            parameter.cbxChon.SelectedIndex = 0;
         }
         void _SearchCommand(CustomerView paramater)
         {
-            ObservableCollection<KHACHHANG> temp = new ObservableCollection<KHACHHANG>();
+            ObservableCollection<KHACHHANG> temp = new ObservableCollection<KHACHHANG>(); 
             if (paramater.txbSearch.Text != "")
             {
-                foreach (KHACHHANG s in listKH)
+                switch (paramater.cbxChon.SelectedItem.ToString())
                 {
-                    if (s.SDT.Contains(paramater.txbSearch.Text))
-                    {
-                        temp.Add(s);
-                    }
-                }
+                    case "Mã KH":
+                        {
+                            foreach (KHACHHANG s in listKH)
+                            {
+                                if (s.MAKH.Contains(paramater.txbSearch.Text))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                    case "Họ tên":
+                        {
+                            foreach (KHACHHANG s in listKH)
+                            {
+                                if (s.HOTEN.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                    case "SĐT":
+                        {
+                            foreach (KHACHHANG s in listKH)
+                            {
+                                if (s.SDT.Contains(paramater.txbSearch.Text))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                    default:
+                        {
+                            foreach (KHACHHANG s in listKH)
+                            {
+                                if (s.HOTEN.Contains(paramater.txbSearch.Text))
+                                {
+                                    temp.Add(s);
+                                }
+                            }
+                            break;
+                        }
+                }     
                 paramater.ListViewKH.ItemsSource = temp;
             }
             else
@@ -68,6 +117,7 @@ namespace ClothesShopManagement.ViewModel
             detailCustomerView.ShowDialog();
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
             paramater.ListViewKH.ItemsSource = listKH;
+            paramater.ListViewKH.SelectedItem = null;
         }
         void _AddCs(CustomerView paramater)
         {

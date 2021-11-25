@@ -37,29 +37,33 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddCsCommand(AddCustomerView paramater)
         {
-            if(string.IsNullOrEmpty(paramater.MaKH.Text)|| string.IsNullOrEmpty(paramater.TenKH.Text)|| string.IsNullOrEmpty(paramater.SDT.Text) || string.IsNullOrEmpty(paramater.GT.Text)|| string.IsNullOrEmpty(paramater.DC.Text))
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm khách hàng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            if (h == MessageBoxResult.Yes)
             {
-                MessageBox.Show("Thông tin chưa đầy đủ !","THÔNG BÁO");
-            } 
-            else
-            {
-                if(DataProvider.Ins.DB.KHACHHANGs.Where(p=>p.MAKH== paramater.MaKH.Text).Count()>0)
+                if (string.IsNullOrEmpty(paramater.MaKH.Text) || string.IsNullOrEmpty(paramater.TenKH.Text) || string.IsNullOrEmpty(paramater.SDT.Text) || string.IsNullOrEmpty(paramater.GT.Text) || string.IsNullOrEmpty(paramater.DC.Text))
                 {
-                    MessageBox.Show("Mã khách hàng đã tồn tại !", "THÔNG BÁO");
-                }   
+                    MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
+                }
                 else
                 {
-                    KHACHHANG temp = new KHACHHANG();
-                    temp.MAKH = paramater.MaKH.Text.ToString();
-                    temp.HOTEN = paramater.TenKH.Text.ToString();
-                    temp.SDT = paramater.SDT.Text.ToString();
-                    temp.GIOITINH = paramater.GT.Text.ToString();
-                    temp.DCHI = paramater.DC.Text.ToString();
-                    DataProvider.Ins.DB.KHACHHANGs.Add(temp);
-                    DataProvider.Ins.DB.SaveChanges();
-                    MessageBox.Show("Thêm khách hàng thành công.", "THÔNG BÁO");
-                }                   
-            }    
-        }
+                    if (DataProvider.Ins.DB.KHACHHANGs.Where(p => p.MAKH == paramater.MaKH.Text).Count() > 0)
+                    {
+                        MessageBox.Show("Mã khách hàng đã tồn tại !", "THÔNG BÁO");
+                    }
+                    else
+                    {
+                        KHACHHANG temp = new KHACHHANG();
+                        temp.MAKH = paramater.MaKH.Text.ToString();
+                        temp.HOTEN = paramater.TenKH.Text.ToString();
+                        temp.SDT = paramater.SDT.Text.ToString();
+                        temp.GIOITINH = paramater.GT.Text.ToString();
+                        temp.DCHI = paramater.DC.Text.ToString();
+                        DataProvider.Ins.DB.KHACHHANGs.Add(temp);
+                        DataProvider.Ins.DB.SaveChanges();
+                        MessageBox.Show("Thêm khách hàng thành công.", "THÔNG BÁO");
+                    }
+                }
+            }
+        }             
     }
 }

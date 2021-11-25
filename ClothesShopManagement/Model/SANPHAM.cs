@@ -27,16 +27,17 @@ namespace ClothesShopManagement.Model
         public int GIA { get; set; }
         public string MOTA { get; set; }
         private string _HINHSP;
-        public string HINHSP { 
+        public string HINHSP
+        {
             get
             {
-                if(_HINHSP.Contains(Const._localLink))
+                if (_HINHSP.Contains(Const._localLink))
                     return _HINHSP;
                 return Const._localLink + _HINHSP;
             }
             set
             {
-                    _HINHSP = value;
+                _HINHSP = value;
             }
         }
         public int SL { get; set; }

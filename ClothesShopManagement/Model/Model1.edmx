@@ -57,7 +57,7 @@
           <Property Name="USERNAME" Type="char" MaxLength="50" />
           <Property Name="PASS" Type="nvarchar(max)" />
           <Property Name="QTV" Type="bit" Nullable="false" />
-          <Property Name="TTND" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TTND" Type="bit" Nullable="false" />
           <Property Name="AVA" Type="varchar(max)" />
         </EntityType>
         <EntityType Name="PHIEUNHAP">
@@ -268,7 +268,7 @@
           <Property Name="USERNAME" Type="String" MaxLength="50" FixedLength="true" Unicode="false" />
           <Property Name="PASS" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="QTV" Type="Boolean" Nullable="false" />
-          <Property Name="TTND" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TTND" Type="Boolean" Nullable="false" />
           <Property Name="AVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="HOADONs" Relationship="Self.FK_HD_ND" FromRole="NGUOIDUNG" ToRole="HOADON" />
           <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.FK_PN_ND" FromRole="NGUOIDUNG" ToRole="PHIEUNHAP" />

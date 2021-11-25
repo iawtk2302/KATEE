@@ -29,7 +29,6 @@ namespace ClothesShopManagement.ViewModel
         private string _Ava;
         public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public ICommand Loadwd { get; set; }
-
         public MainViewModel()
         {
             Loadwd=new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
@@ -93,6 +92,11 @@ namespace ClothesShopManagement.ViewModel
                 case 3:
                     {
                         p.Main.NavigationService.Navigate(new CustomerView());
+                        break;
+                    }
+                case 6:
+                    {
+                        p.Main.NavigationService.Navigate(new QLNVView());
                         break;
                     }
                 default:
