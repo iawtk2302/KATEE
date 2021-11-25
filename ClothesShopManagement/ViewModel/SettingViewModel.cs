@@ -81,7 +81,7 @@ namespace ClothesShopManagement.ViewModel
             temp.SDT = p.SDTBox.Text;
             temp.DIACHI = p.AddressBox.Text;
             temp.GIOITINH = p.GTBox.Text;
-            temp.NGSINH = p.DateBox.SelectedDate;
+            temp.NGSINH = (DateTime)p.DateBox.SelectedDate;
             string rd = StringGenerator();
             temp.AVA = "/Resource/Ava/" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();
             DataProvider.Ins.DB.SaveChanges();

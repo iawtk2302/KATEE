@@ -158,7 +158,7 @@
                                 Margin="6"
                                 />
                                 <TextBlock 
-                                Text="TỒN KHO"
+                                Text="NHẬP HÀNG"
                                 FontSize="13"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"

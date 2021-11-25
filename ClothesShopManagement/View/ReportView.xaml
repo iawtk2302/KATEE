@@ -325,7 +325,7 @@
                     </StackPanel>
                 </Border>
                 <Border x:Name="Bills" Visibility="{Binding SetBills}" Background="AliceBlue" CornerRadius="10">
-                    <ListView
+                    <ListView x:Name="HD"
   ItemsSource="{Binding listHD}" Background="Transparent">
                         <ListView.View>
                             <GridView>
@@ -349,7 +349,7 @@
         Header="Ngày mua">
                                     <GridViewColumn.CellTemplate>
                                         <DataTemplate>
-                                            <TextBlock Text="{Binding NGHD}"/>
+                                            <TextBlock Text="{Binding NGHD, StringFormat=dd/MM/yyyy hh:mm tt}"/>
                                         </DataTemplate>
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
@@ -358,7 +358,7 @@
                     </ListView>
                 </Border>
                 <Border x:Name="Import" Visibility="{Binding SetImport}" Background="AliceBlue" CornerRadius="10">
-        <ListView
+        <ListView x:Name="PN"
   ItemsSource="{Binding listPN}" Background="Transparent">
             <ListView.View>
                 <GridView>
@@ -379,7 +379,7 @@
                                     </GridViewColumn.CellTemplate>
                                 </GridViewColumn>
                                 <GridViewColumn Width="200"
-        DisplayMemberBinding="{Binding NGAYNHAP}"
+        DisplayMemberBinding="{Binding NGAYNHAP, StringFormat=dd/MM/yyyy hh:mm tt}"
         Header="Ngày nhập"/>
                 </GridView>
             </ListView.View>

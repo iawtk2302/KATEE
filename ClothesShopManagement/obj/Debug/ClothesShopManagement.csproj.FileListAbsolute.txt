@@ -71,3 +71,9 @@ C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\ClothesShopManag
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\ClothesShopManagement.pdb
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ChangePassword.g.cs
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ChangePassword.baml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ImportView.g.cs
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\ImportView.baml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\DetailImport.g.cs
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\DetailImport.baml
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\AddImportView.g.cs
+C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\obj\Debug\View\AddImportView.baml

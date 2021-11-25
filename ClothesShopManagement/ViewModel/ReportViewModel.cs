@@ -246,6 +246,7 @@ namespace ClothesShopManagement.ViewModel
                     }
                 case 1:
                     {
+                        listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
                         SetMain = Visibility.Hidden;
                         SetBills = Visibility.Visible;
                         SetImport = Visibility.Hidden;                        
@@ -253,6 +254,7 @@ namespace ClothesShopManagement.ViewModel
                     }
                 case 2:
                     {
+                        listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
                         SetMain = Visibility.Hidden;
                         SetBills = Visibility.Hidden;
                         SetImport = Visibility.Visible;

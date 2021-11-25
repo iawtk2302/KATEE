@@ -10,11 +10,11 @@ none
 false
 TRACE
 C:\Users\a\Source\Repos\-n-LTTQ\ClothesShopManagement\App.xaml
-11420881278
+141186413645
 2-1556844510
-361886681815
+42-723832734
 33-2700002
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\ChangePassword.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;View\ReportView.xaml;View\SettingView.xaml;
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddImportView.xaml;View\ChangePassword.xaml;View\DetailImport.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;View\ReportView.xaml;View\SettingView.xaml;
 
 True
 

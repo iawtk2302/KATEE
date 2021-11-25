@@ -9,4 +9,7 @@
     <viewmodel:ReportViewModel x:Key="ReportVM"></viewmodel:ReportViewModel>
     <viewmodel:SettingViewModel x:Key="SettingVM"></viewmodel:SettingViewModel>
     <viewmodel:ChangePasswordViewModel x:Key="ChangePassVM"></viewmodel:ChangePasswordViewModel>
+    <viewmodel:ImportViewModel x:Key="ImportVM"></viewmodel:ImportViewModel>
+    <viewmodel:DetailImportViewModel x:Key="DetailImportVM"></viewmodel:DetailImportViewModel>
+    <viewmodel:AddImportViewModel x:Key="AddImportVM"></viewmodel:AddImportViewModel>
 </ResourceDictionary>

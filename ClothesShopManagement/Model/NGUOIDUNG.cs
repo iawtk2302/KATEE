@@ -24,7 +24,7 @@ namespace ClothesShopManagement.Model
     
         public string MAND { get; set; }
         public string TENND { get; set; }
-        public Nullable<System.DateTime> NGSINH { get; set; }
+        public DateTime NGSINH { get; set; }
         public string GIOITINH { get; set; }
         public string SDT { get; set; }
         public string DIACHI { get; set; }

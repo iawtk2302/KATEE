@@ -49,6 +49,7 @@ namespace ClothesShopManagement.ViewModel
             {
                 string a = Const.TenDangNhap;
                 User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
+                Const.ND = User;
                 SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
                 Ava = User.AVA;
             }
@@ -88,6 +89,12 @@ namespace ClothesShopManagement.ViewModel
                 case 2:
                     {
                         p.Main.NavigationService.Navigate(new ProductsView());
+                        _Loadwd(p);
+                        break;
+                    }
+                case 4:
+                    {
+                        p.Main.NavigationService.Navigate(new ImportView());
                         _Loadwd(p);
                         break;
                     }
