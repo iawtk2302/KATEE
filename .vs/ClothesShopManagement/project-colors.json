@@ -1,15 +1,15 @@
 {
   "Version": 1,
   "ProjectMap": {
-    "299ee2ac-2131-474e-8234-92f7fd5533ac": {
-      "ProjectGuid": "299ee2ac-2131-474e-8234-92f7fd5533ac",
-      "DisplayName": "ClothesShopManagement",
-      "ColorIndex": 0
-    },
     "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3": {
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "299ee2ac-2131-474e-8234-92f7fd5533ac": {
+      "ProjectGuid": "299ee2ac-2131-474e-8234-92f7fd5533ac",
+      "DisplayName": "ClothesShopManagement",
+      "ColorIndex": 0
     }
   },
   "NextColorIndex": 1

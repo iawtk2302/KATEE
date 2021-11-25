@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace ClothesShopManagement.ViewModel
@@ -26,7 +27,7 @@ namespace ClothesShopManagement.ViewModel
         {
             linkaddimage =Const._localLink + "/Resource/Image/addava.png";
             AddNDCommand = new RelayCommand<AddNDView>((p) => true, (p) => _AddND(p));
-            AddImage = new RelayCommand<Image>((p) => true, (p) => _AddImage(p));
+            AddImage = new RelayCommand<ImageBrush>((p) => true, (p) => _AddImage(p));
             Closewd = new RelayCommand<AddNDView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddNDView>((p) => true, (p) => Minimize(p));
         }
@@ -39,7 +40,7 @@ namespace ClothesShopManagement.ViewModel
         {
             p.WindowState = WindowState.Minimized;
         }
-        void _AddImage(Image img)
+        void _AddImage(ImageBrush img)
         {
             OpenFileDialog open = new OpenFileDialog();
             open.Filter = "Image Files(*.jpg; *.png)|*.jpg; *.png";
@@ -50,7 +51,7 @@ namespace ClothesShopManagement.ViewModel
                 linkaddimage = open.FileName;
             };
             Uri fileUri = new Uri(linkaddimage);
-            img.Source = new BitmapImage(fileUri);
+            img.ImageSource = new BitmapImage(fileUri);
         }
         void _AddND(AddNDView addNDView)
         {
@@ -77,7 +78,7 @@ namespace ClothesShopManagement.ViewModel
                 temp.DIACHI = addNDView.DC.Text;
                 temp.GIOITINH = addNDView.GT.Text;
                 temp.NGSINH = addNDView.NS.SelectedDate;
-                if (addNDView.QTV.Text == "1")
+                if (addNDView.QTV.Text == "Quản lý")
                     temp.QTV = true;
                 else
                     temp.QTV = false;
