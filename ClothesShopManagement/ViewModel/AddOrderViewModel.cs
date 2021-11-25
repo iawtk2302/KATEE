@@ -104,6 +104,11 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddSP(AddOrderView paramater)
         {
+            if(paramater.SP.SelectedItem==null)
+            {
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để thêm !", "THÔNG BÁO");
+                return;
+            }    
             if(paramater.SoHD.Text=="")
             {
                 System.Windows.MessageBox.Show("Bạn chưa nhập số hóa đơn !", "THÔNG BÁO");
@@ -120,8 +125,29 @@ namespace ClothesShopManagement.ViewModel
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
             if (a.SL >= int.Parse(paramater.SL.Text))
             {
-                LSPSelected.Add(a);
-                HienThi b = new HienThi(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text) * a.GIA);
+                foreach(HienThi temp in LHT)
+                {
+                    if(temp.MaSp==a.MASP)
+                    {
+                        temp.SL+=int.Parse(paramater.SL.Text);
+                        temp.Tong = temp.SL * a.GIA;
+                        foreach(CTHD temp1 in LCTHD)
+                        {
+                            if(temp1.MASP==a.MASP)
+                            {
+                                temp1.SL += int.Parse(paramater.SL.Text); ;
+                            }    
+                        }
+                        tongtien += int.Parse(paramater.SL.Text) * a.GIA;
+                        paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                        paramater.ListViewSP.ItemsSource = LHT;
+                        paramater.ListViewSP.Items.Refresh();
+                        paramater.SP.SelectedItem = null;
+                        paramater.SL.Text = "";
+                        return;
+                    }    
+                }    
+                HienThi b = new HienThi(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text) * a.GIA);  
                 CTHD cthd = new CTHD()
                 {
                     MASP = a.MASP,
@@ -133,15 +159,15 @@ namespace ClothesShopManagement.ViewModel
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
                 LCTHD.Add(cthd);
                 LHT.Add(b);
-                foreach(SANPHAM x in LSP)
-                {
-                    if (x.MASP == a.MASP)
-                        x.SL -= int.Parse(paramater.SL.Text);
-                } 
+                //foreach (SANPHAM x in LSP)
+                //{
+                //    if (x.MASP == a.MASP)
+                //        x.SL -= int.Parse(paramater.SL.Text);
+                //}
                 paramater.ListViewSP.ItemsSource = LHT;
                 paramater.ListViewSP.Items.Refresh();
-                paramater.SP.ItemsSource = LSP;
-                paramater.SP.Items.Refresh();
+                //paramater.SP.ItemsSource = LSP;
+                //paramater.SP.Items.Refresh();
                 paramater.SP.SelectedItem = null;
                 paramater.SL.Text = "";
             }
@@ -152,7 +178,7 @@ namespace ClothesShopManagement.ViewModel
         {
             if(paramater.ListViewSP.SelectedItem==null)
             {
-                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để xóa !", "THÔNG BÁO");
                 return;
             }    
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
@@ -170,6 +196,11 @@ namespace ClothesShopManagement.ViewModel
                         break;
                     }
                 }
+                foreach (SANPHAM x in LSP)
+                {
+                    if (x.MASP == a.MaSp)
+                        x.SL += a.SL;
+                }              
                 foreach (CTHD b in LCTHD)
                 {
                     if (b.MASP == a.MaSp && b.SL == a.SL)
@@ -178,6 +209,8 @@ namespace ClothesShopManagement.ViewModel
                         break;
                     }
                 }
+                paramater.SP.ItemsSource = LSP;
+                paramater.SP.Items.Refresh();
                 paramater.ListViewSP.Items.Refresh();
             }
             else
@@ -185,7 +218,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _SaveHD(AddOrderView paramater)
         {
-            if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0)
+            if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0||paramater.DG1.Text=="")
             {
                 System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO");
                 return;
@@ -211,21 +244,25 @@ namespace ClothesShopManagement.ViewModel
                 };
                 foreach(CTHD s in LCTHD)
                 {
-                    foreach(SANPHAM x in DataProvider.Ins.DB.SANPHAMs)
+                    foreach (SANPHAM x in DataProvider.Ins.DB.SANPHAMs)
                     {
-                        if(x.MASP==s.SANPHAM.MASP)
+                        if (x.MASP == s.SANPHAM.MASP)
                         {
-                            x.SL-=s.SL;
-                        }    
+                            x.SL -= s.SL;
+                        }
                     }
-                    DataProvider.Ins.DB.SaveChanges();
-                }    
+                    //DataProvider.Ins.DB.SaveChanges();
+                }
                 DataProvider.Ins.DB.HOADONs.Add(temp);
                 DataProvider.Ins.DB.SaveChanges();
                 System.Windows.MessageBox.Show("Thanh toán thành công", "THÔNG BÁO");
                 tongtien = 0;
                 LSPSelected.Clear();
                 paramater.KH.SelectedItem = null;
+                LHT.Clear();
+                LCTHD.Clear();
+                paramater.ListViewSP.ItemsSource = LHT;
+                paramater.TT.Text = tongtien.ToString();
                 paramater.SoHD.Clear();
                 paramater.DG1.SelectedItem = null;
             }

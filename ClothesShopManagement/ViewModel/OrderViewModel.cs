@@ -38,6 +38,8 @@ namespace ClothesShopManagement.ViewModel
             AddOrderView addOrder = new AddOrderView();
             addOrder.ShowDialog();
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
+            paramater.ListViewHD.ItemsSource = listHD;
+            paramater.ListViewHD.Items.Refresh();
         }
         void _SearchCommand(OrderView paramater)
         {

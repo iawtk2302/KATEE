@@ -261,7 +261,9 @@
                                 <Grid Grid.Column="1">
                                     <materialDesign:PackIcon Kind="Basket" Foreground="White" Height="50" Width="50"/>
                                 </Grid>
-                                <TextBlock x:Name="MaxSP"
+                                <Grid Grid.Column="0">
+                                    <StackPanel>
+                                    <TextBlock x:Name="MaxSP"
                                            VerticalAlignment="Top" Text="Mã" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
                                     <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Loaded">
@@ -269,10 +271,12 @@
                                                        CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
-                                </TextBlock>
-                                <TextBlock x:Name="SPName" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="Wrap" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
-
-                                </TextBlock>
+                                    </TextBlock>
+                                    <TextBlock 
+                                    x:Name="SPName" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="Wrap" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                    </TextBlock>
+                                    </StackPanel>
+                                </Grid>
                             </Grid>
                         </Grid>
                     </StackPanel>

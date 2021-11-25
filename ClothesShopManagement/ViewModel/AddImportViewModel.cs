@@ -170,10 +170,11 @@ namespace ClothesShopManagement.ViewModel
                         if (x.MASP == s.SANPHAM.MASP)
                         {
                             x.SL += s.SL;
+                            DataProvider.Ins.DB.SaveChanges();
                         }
                     }
                 }
-                DataProvider.Ins.DB.PHIEUNHAPs.Add(temp);
+                DataProvider.Ins.DB.PHIEUNHAPs.Add(temp); 
                 DataProvider.Ins.DB.SaveChanges();
                 System.Windows.MessageBox.Show("Nhập hàng thành công", "THÔNG BÁO");
                 LHT = new ObservableCollection<Display>();

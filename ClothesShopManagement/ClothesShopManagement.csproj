@@ -197,12 +197,15 @@
     </Compile>
 <<<<<<< HEAD
     <Compile Include="ViewModel\AddCsViewModel.cs" />
+    <Compile Include="ViewModel\AddImportViewModel.cs" />
     <Compile Include="ViewModel\AddNDVM.cs" />
     <Compile Include="ViewModel\AddOrderViewModel.cs" />
     <Compile Include="ViewModel\AddProductViewModel.cs" />
     <Compile Include="ViewModel\BaseViewModel.cs" />
+    <Compile Include="ViewModel\ChangePasswordViewModel.cs" />
     <Compile Include="ViewModel\CustomerViewModel.cs" />
     <Compile Include="ViewModel\DetailCustomer.cs" />
+    <Compile Include="ViewModel\DetailImportViewModel.cs" />
     <Compile Include="ViewModel\DetailOrderViewModel.cs" />
 =======
     <Compile Include="ViewModel\AddImportViewModel.cs" />
@@ -219,9 +222,13 @@
     <Compile Include="ViewModel\ProductsViewModel.cs" />
     <Compile Include="ViewModel\QLNVViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
-<<<<<<< HEAD
+    <Compile Include="ViewModel\ReportViewModel.cs" />
+    <Compile Include="ViewModel\SettingViewModel.cs" />
     <Compile Include="View\AddCustomerView.xaml.cs">
       <DependentUpon>AddCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\AddImportView.xaml.cs">
+      <DependentUpon>AddImportView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\AddNDView.xaml.cs">
       <DependentUpon>AddNDView.xaml</DependentUpon>
@@ -232,11 +239,17 @@
     <Compile Include="View\AddProductView.xaml.cs">
       <DependentUpon>AddProductView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\ChangePassword.xaml.cs">
+      <DependentUpon>ChangePassword.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\CustomerView.xaml.cs">
       <DependentUpon>CustomerView.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DetailCustomerView.xaml.cs">
       <DependentUpon>DetailCustomerView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\DetailImport.xaml.cs">
+      <DependentUpon>DetailImport.xaml</DependentUpon>
     </Compile>
     <Compile Include="View\DetailNDView.xaml.cs">
       <DependentUpon>DetailNDView.xaml</DependentUpon>
@@ -287,6 +300,15 @@
     <Compile Include="View\SettingView.xaml.cs">
       <DependentUpon>SettingView.xaml</DependentUpon>
 >>>>>>> importwd
+    </Compile>
+    <Compile Include="View\ReportView.xaml.cs">
+      <DependentUpon>ReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\SettingView.xaml.cs">
+      <DependentUpon>SettingView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\test.xaml.cs">
+      <DependentUpon>test.xaml</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -341,6 +363,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="View\AddImportView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\AddNDView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -368,11 +394,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="View\ChangePassword.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="View\CustomerView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DetailCustomerView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\DetailImport.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -393,8 +427,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ImportView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\LoginWindow.xaml">
       <SubType>Designer</SubType>
@@ -417,10 +451,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ReportView.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\SettingView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\test.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

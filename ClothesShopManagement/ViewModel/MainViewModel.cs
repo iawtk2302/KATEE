@@ -114,9 +114,24 @@ namespace ClothesShopManagement.ViewModel
                         p.Main.NavigationService.Navigate(new CustomerView());
                         break;
                     }
+                case 4:
+                    {
+                        p.Main.NavigationService.Navigate(new ImportView());
+                        break;
+                    }
+                case 5:
+                    {
+                        p.Main.NavigationService.Navigate(new ReportView());
+                        break;
+                    }
                 case 6:
                     {
                         p.Main.NavigationService.Navigate(new QLNVView());
+                        break;
+                    }
+                case 7:
+                    {
+                        p.Main.NavigationService.Navigate(new SettingView());
                         break;
                     }
                 default:

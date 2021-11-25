@@ -119,9 +119,11 @@
                                    />
                         <StackPanel>
                             <TextBlock  
+                                        Margin="0,-10,0,0"
                                         FontSize="14"
                                         FontFamily="{StaticResource Custom}"
                                         x:Name="Size"
+                                        Text="Kích cỡ"
                                    />
                             <ItemsControl x:Name="kichco">
                                 <ItemsControl.ItemTemplate>

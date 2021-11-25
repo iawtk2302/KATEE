@@ -97,9 +97,6 @@ namespace ClothesShopManagement.ViewModel
             int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day).Count();
             p.DonNgay.Text = count.ToString();
         }
-<<<<<<< HEAD
-        
-=======
         public void Rating(HomeView p)
         {
             double rate = 0;
@@ -107,7 +104,6 @@ namespace ClothesShopManagement.ViewModel
             p.Rate.Text = rate.ToString("#.#/5");
             p.BasicRatingBar.Value = (int)rate;
         }
->>>>>>> importwd
         public void LoadDT(HomeView p)
         {
             long total = 0;
