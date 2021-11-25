@@ -79,6 +79,7 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Windows.Interactivity.WPF.2.0.20525\lib\net40\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -162,6 +163,7 @@
     <Compile Include="ViewModel\MainViewModel.cs" />
     <Compile Include="ViewModel\OrderViewModel.cs" />
     <Compile Include="ViewModel\ProductsViewModel.cs" />
+    <Compile Include="ViewModel\QLNVViewModel.cs" />
     <Compile Include="ViewModel\RelayCommand.cs" />
     <Compile Include="ViewModel\ReportViewModel.cs" />
     <Compile Include="ViewModel\SettingViewModel.cs" />
@@ -227,11 +229,13 @@
     <None Include="Model\Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
     </None>
+    <None Include="OpenTK.dll.config" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Resource Include="Resource\Font\NunitoRegular.ttf" />
     <Resource Include="Resource\Font\Nunito-ExtraBold.ttf" />
     <Resource Include="Resource\Font\NunitoBold.ttf" />
   </ItemGroup>
@@ -260,8 +264,8 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\DetailProduct.xaml">
-      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="View\HomeView.xaml">
       <SubType>Designer</SubType>
@@ -284,6 +288,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\ProductsView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\QLNVView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -340,6 +348,15 @@
     <Resource Include="Resource\Ava\donald_trump.jpg" />
     <Resource Include="Resource\Ava\Kim_Jong-un.jpg" />
     <Resource Include="Resource\Ava\taylor.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\Customer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\Image\addava.png" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Model\Model1.Context.tt">

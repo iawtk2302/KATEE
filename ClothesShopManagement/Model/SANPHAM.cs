@@ -26,7 +26,20 @@ namespace ClothesShopManagement.Model
         public string DVT { get; set; }
         public int GIA { get; set; }
         public string MOTA { get; set; }
-        public string HINHSP { get; set; }
+        private string _HINHSP;
+        public string HINHSP
+        {
+            get
+            {
+                if (_HINHSP.Contains(Const._localLink))
+                    return _HINHSP;
+                return Const._localLink + _HINHSP;
+            }
+            set
+            {
+                _HINHSP = value;
+            }
+        }
         public int SL { get; set; }
         public string LOAISP { get; set; }
         public string SIZE { get; set; }

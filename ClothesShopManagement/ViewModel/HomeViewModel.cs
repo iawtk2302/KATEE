@@ -58,7 +58,6 @@ namespace ClothesShopManagement.ViewModel
         public HomeViewModel()
         {
             LoadDoanhThu = new RelayCommand<HomeView>((p) => true, (p) => LoadDT(p));
-            LoadRate = new RelayCommand<HomeView>((p) => true, (p) => Rating(p));
             LoadDon = new RelayCommand<HomeView>((p) => true, (p) => SoDon(p));
             //CT = new ObservableCollection<CTHD>(DataProvider.Ins.DB.CTHDs);
             LoadChart = new RelayCommand<HomeView>((p) => true, (p) => LineChart(p));

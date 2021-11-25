@@ -30,7 +30,6 @@ namespace ClothesShopManagement.ViewModel
         private string _Ava;
         public string Ava { get => _Ava; set { _Ava = value; OnPropertyChanged(); } }
         public ICommand Loadwd { get; set; }
-
         public MainViewModel()
         {
             Loadwd = new RelayCommand<MainWindow>((p) => true, (p) => _Loadwd(p));
@@ -51,6 +50,7 @@ namespace ClothesShopManagement.ViewModel
                 User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
                 Const.ND = User;
                 SetQuanLy = User.QTV ? Visibility.Visible : Visibility.Collapsed;
+                Const.Admin = User.QTV;
                 Ava = User.AVA;
             }
         }
@@ -107,6 +107,16 @@ namespace ClothesShopManagement.ViewModel
                     case 7:
                     {
                         p.Main.NavigationService.Navigate(new SettingView());
+                        break;
+                    }
+                case 3:
+                    {
+                        p.Main.NavigationService.Navigate(new CustomerView());
+                        break;
+                    }
+                case 6:
+                    {
+                        p.Main.NavigationService.Navigate(new QLNVView());
                         break;
                     }
                 default:

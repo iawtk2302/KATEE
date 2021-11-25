@@ -10,9 +10,12 @@
 //------------------------------------------------------------------------------
 
 using ClothesShopManagement.View;
+using LiveCharts.Wpf;
 using MaterialDesignThemes.Wpf;
 using MaterialDesignThemes.Wpf.Converters;
 using MaterialDesignThemes.Wpf.Transitions;
+using Syncfusion;
+using Syncfusion.SfSkinManager;
 using System;
 using System.Diagnostics;
 using System.Windows;
