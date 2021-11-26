@@ -33,9 +33,29 @@ namespace ClothesShopManagement.ViewModel
         {
             parameter.cbxChon.SelectedIndex = 0;
         }
+        bool check(int m)
+        {
+            foreach (HOADON temp in DataProvider.Ins.DB.HOADONs)
+            {
+                if (temp.SOHD == m)
+                    return true;
+            }
+            return false;
+        }
+        int rdma()
+        {
+            int ma;
+            do
+            {
+                Random rand = new Random();
+                ma = rand.Next(0, 10000);
+            } while (check(ma));
+            return ma;
+        }
         void _OpenAdd(OrderView paramater)
         {
             AddOrderView addOrder = new AddOrderView();
+            addOrder.SoHD.Text=rdma().ToString();
             addOrder.ShowDialog();
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
             paramater.ListViewHD.ItemsSource = listHD;

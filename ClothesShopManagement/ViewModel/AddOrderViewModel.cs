@@ -187,20 +187,7 @@ namespace ClothesShopManagement.ViewModel
                 HienThi a = (HienThi)paramater.ListViewSP.SelectedItem;
                 tongtien -= a.Tong;
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
-                LHT.Remove(a);
-                foreach (SANPHAM b in LSPSelected)
-                {
-                    if (b.MASP == a.MaSp)
-                    {
-                        LSPSelected.Remove(b);
-                        break;
-                    }
-                }
-                foreach (SANPHAM x in LSP)
-                {
-                    if (x.MASP == a.MaSp)
-                        x.SL += a.SL;
-                }              
+                LHT.Remove(a);            
                 foreach (CTHD b in LCTHD)
                 {
                     if (b.MASP == a.MaSp && b.SL == a.SL)
@@ -216,8 +203,28 @@ namespace ClothesShopManagement.ViewModel
             else
                 return;
         }
+        bool check(int m)
+        {
+            foreach (HOADON temp in DataProvider.Ins.DB.HOADONs)
+            {
+                if (temp.SOHD == m)
+                    return true;
+            }
+            return false;
+        }
+        int rdma()
+        {
+            int ma;
+            do
+            {
+                Random rand = new Random();
+                ma = rand.Next(0, 10000);
+            } while (check(ma));
+            return ma;
+        }
         void _SaveHD(AddOrderView paramater)
         {
+            DataProvider.Ins.DB.SaveChangesAsync();
             if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0||paramater.DG1.Text=="")
             {
                 System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO");
@@ -263,7 +270,7 @@ namespace ClothesShopManagement.ViewModel
                 LCTHD.Clear();
                 paramater.ListViewSP.ItemsSource = LHT;
                 paramater.TT.Text = tongtien.ToString();
-                paramater.SoHD.Clear();
+                paramater.SoHD.Text=rdma().ToString();
                 paramater.DG1.SelectedItem = null;
             }
             else

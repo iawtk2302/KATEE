@@ -119,9 +119,29 @@ namespace ClothesShopManagement.ViewModel
             paramater.ListViewKH.ItemsSource = listKH;
             paramater.ListViewKH.SelectedItem = null;
         }
+        bool check(string m)
+        {
+            foreach (KHACHHANG temp in DataProvider.Ins.DB.KHACHHANGs)
+            {
+                if (temp.MAKH == m)
+                    return true;
+            }
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "KH" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
+        }
         void _AddCs(CustomerView paramater)
         {
             AddCustomerView addCustomerView = new AddCustomerView();
+            addCustomerView.MaKH.Text=rdma();
             addCustomerView.ShowDialog();
             listKH = new ObservableCollection<KHACHHANG>(DataProvider.Ins.DB.KHACHHANGs);
             paramater.ListViewKH.ItemsSource = listKH;

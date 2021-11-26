@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Media.Imaging;
 
 namespace ClothesShopManagement.ViewModel
 {
@@ -42,6 +43,25 @@ namespace ClothesShopManagement.ViewModel
             {
                 linkimage = open.FileName;
             };
+        }
+        bool check(string m)
+        {
+            foreach (SANPHAM temp in DataProvider.Ins.DB.SANPHAMs)
+            {
+                if (temp.MASP == m)
+                    return true;
+            }
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "PD" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
         }
         void _AddProduct(AddProductView paramater)
         {
@@ -77,6 +97,16 @@ namespace ClothesShopManagement.ViewModel
                             File.Copy(linkimage, _localLink + @"Resource\ImgProduct\" + "product_" + paramater.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString(), true);
                         }
                         catch { }
+                        MessageBox.Show("Thêm sản phẩm mới thành công !", "THÔNG BÁO");
+                        paramater.MaSp.Text = rdma();
+                        paramater.TenSp.Clear();
+                        paramater.LoaiSp.Clear();
+                        paramater.GiaSp.Clear();
+                        paramater.SlSp.Clear();
+                        paramater.SizeSp.Clear();
+                        Uri fileUri = new Uri(Const._localLink+ "/Resource/Image/add.png");
+                        paramater.HinhAnh.Source=new BitmapImage(fileUri);
+                        paramater.MotaSp.Clear();
                     }
                 }                    
             }    

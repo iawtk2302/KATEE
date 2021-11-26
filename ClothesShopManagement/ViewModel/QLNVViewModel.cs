@@ -33,7 +33,7 @@ namespace ClothesShopManagement.ViewModel
         public QLNVViewModel()
         {
             
-            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p=>p.TTND==true));
+            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p=>p.TTND==true&&p.MAND!=Const.ND.MAND));
             listTK = new ObservableCollection<string>() { "Họ tên", "Mã NV", "SĐT" };
             SearchCommand = new RelayCommand<QLNVView>((p) => true, (p) => _SearchCommand(p));
             Detail = new RelayCommand<QLNVView>((p) => { return p.ListViewND.SelectedItem == null ? false : true; }, (p) => _DetailND(p));
@@ -133,7 +133,7 @@ namespace ClothesShopManagement.ViewModel
             detailNDView.DC.Text = temp.DIACHI;
             detailNDView.QTV.Text = temp.QTV == true ? "Quản lý" : "Nhân viên";
             detailNDView.ShowDialog();
-            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p => p.TTND == true));
+            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p => p.TTND == true && p.MAND != Const.ND.MAND));
             paramater.ListViewND.ItemsSource = listND;
             paramater.ListViewND.SelectedItem = null;
         }
@@ -142,7 +142,7 @@ namespace ClothesShopManagement.ViewModel
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
             if (h == MessageBoxResult.Yes)
             {
-                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(pa=>pa.TTND==true))
+                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(pa => pa.TTND == true && pa.MAND != Const.ND.MAND))
                 {
                     if (a.MAND == p.MaND.Text)
                     {
@@ -161,7 +161,7 @@ namespace ClothesShopManagement.ViewModel
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn xóa người dùng này ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
             if (h == MessageBoxResult.Yes)
             {
-                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(pa => pa.TTND == true))
+                foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(pa => pa.TTND == true && pa.MAND != Const.ND.MAND))
                 {
                     if (a.MAND == p.MaND.Text)
                     {
@@ -172,11 +172,31 @@ namespace ClothesShopManagement.ViewModel
                 MessageBox.Show("Xóa người dùng thành công !", "THÔNG BÁO");
             }
         }
+        bool check(string m)
+        {
+            foreach(NGUOIDUNG temp in DataProvider.Ins.DB.NGUOIDUNGs)
+            {
+                if(temp.MAND==m)
+                    return true;
+            } 
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "NV" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
+        }
         void _AddND(QLNVView parameter)
         {
             AddNDView addNDView = new AddNDView();
+            addNDView.MaND.Text=rdma();
             addNDView.ShowDialog();
-            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p=>p.TTND==true));
+            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p => p.TTND == true && p.MAND != Const.ND.MAND));
             parameter.ListViewND.ItemsSource = listND;
             parameter.ListViewND.Items.Refresh();
         }

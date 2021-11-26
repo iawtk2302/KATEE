@@ -83,18 +83,25 @@
                                     Text="MÃ KHÁCH HÀNG"
                                     FontFamily="{StaticResource Custom}"
                                 />
+                                <Border
+                                    CornerRadius="10"
+                                    BorderThickness="2"
+                                    BorderBrush="Gray"
+                                    >
                                 <TextBox
+                                    IsEnabled="False"
                                     x:Name="MaKH"
                                     HorizontalAlignment="Left"
                                     Width="150"
                                     FontFamily="{StaticResource Custom}"
                                     materialDesign:HintAssist.Hint="THÊM MÃ KH"
-                                    BorderThickness="2"
+                                    BorderThickness="0"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Black"
                                 />
+                                </Border>
                             </StackPanel>
                             <StackPanel Orientation="Vertical"
                                         Margin="10,0,0,0"
@@ -148,7 +155,8 @@
                                     Text="GIỚI TÍNH"
                                     FontFamily="{StaticResource Custom}"
                                 />
-                                <TextBox
+                                <ComboBox
+                                    Height="30"
                                     x:Name="GT"
                                     FontFamily="{StaticResource Custom}"
                                     HorizontalAlignment="Left"
@@ -159,7 +167,12 @@
                                     materialDesign:HintAssist.Hint="THÊM GIỚI TÍNH"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Black"
-                                />
+                                    SelectedIndex="0"
+                                >
+                                    <ComboBoxItem Content="Nam"/>
+                                    <ComboBoxItem Content="Nữ"/>
+                                    <ComboBoxItem Content="Khác"/>
+                                </ComboBox>
                             </StackPanel>
                         </StackPanel>
                         <TextBlock

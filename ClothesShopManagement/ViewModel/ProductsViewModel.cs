@@ -107,9 +107,29 @@ namespace ClothesShopManagement.ViewModel
             paramater.ListViewProduct.ItemsSource = listSP;
             paramater.ListViewProduct.SelectedItem = null;
         }
+        bool check(string m)
+        {
+            foreach (SANPHAM temp in DataProvider.Ins.DB.SANPHAMs)
+            {
+                if (temp.MASP == m)
+                    return true;
+            }
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "PD" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
+        }
         void _AddPdCommand(ProductsView paramater)
         {
             AddProductView addProductView = new AddProductView();
+            addProductView.MaSp.Text=rdma();
             addProductView.ShowDialog();
             listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p=>p.SL>=0));
             listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));

@@ -58,18 +58,25 @@
                                     Text="MÃ SẢN PHẨM"
                                     FontFamily="{StaticResource Custom}"
                                 />
+                            <Border
+                                CornerRadius="10"
+                                BorderThickness="2"
+                                BorderBrush="gray"
+                                >
                             <TextBox
                                     x:Name="MaSp"
                                     HorizontalAlignment="Left"
                                     Width="150"
+                                    IsEnabled="False"
+                                    BorderThickness="0"
                                     FontFamily="{StaticResource Custom}"
-                                    BorderThickness="2"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:HintAssist.Hint="THÊM MÃ SẢN PHẨM"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="LightPink"
                                 />
+                            </Border>
                         </StackPanel>
                         <StackPanel Orientation="Vertical"
                                         Margin="10,0,0,0"

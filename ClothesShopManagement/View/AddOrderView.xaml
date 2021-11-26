@@ -223,6 +223,7 @@
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
                                     BorderThickness="0"
+                                        IsEnabled="False"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>

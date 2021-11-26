@@ -35,6 +35,25 @@ namespace ClothesShopManagement.ViewModel
         {
             p.WindowState = WindowState.Minimized;
         }
+        bool check(string m)
+        {
+            foreach (KHACHHANG temp in DataProvider.Ins.DB.KHACHHANGs)
+            {
+                if (temp.MAKH == m)
+                    return true;
+            }
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "KH" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
+        }
         void _AddCsCommand(AddCustomerView paramater)
         {
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm khách hàng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
@@ -61,6 +80,11 @@ namespace ClothesShopManagement.ViewModel
                         DataProvider.Ins.DB.KHACHHANGs.Add(temp);
                         DataProvider.Ins.DB.SaveChanges();
                         MessageBox.Show("Thêm khách hàng thành công.", "THÔNG BÁO");
+                        paramater.MaKH.Text = rdma();
+                        paramater.TenKH.Clear();
+                        paramater.SDT.Clear();
+                        paramater.GT.SelectedIndex = 0;
+                        paramater.DC.Clear();
                     }
                 }
             }

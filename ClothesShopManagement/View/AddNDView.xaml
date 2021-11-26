@@ -115,6 +115,7 @@
                                     AcceptsReturn="True"
                                     TextWrapping="Wrap"
                                     MaxWidth="400" x:Name="MaND"
+                                            IsEnabled="False"
                                     FontFamily="{StaticResource Custom}"
                                     materialDesign:HintAssist.Hint="Mã ND"/>
                                 <TextBox Margin="10,10,0,0" Foreground="Black" 
