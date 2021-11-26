@@ -1,0 +1,20 @@
+﻿ClothesShopManagement
+
+
+winexe
+C#
+.cs
+D:\Trang\Bài\C#\New folder\ClothesShopManagement\obj\Debug\
+ClothesShopManagement
+none
+false
+DEBUG;TRACE
+D:\Trang\Bài\C#\New folder\ClothesShopManagement\App.xaml
+23971348227
+2-1556844510
+601550215350
+39-1640737920
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddNDView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailImport.xaml;View\DetailNDView.xaml;View\DetailOrder.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\ProductsView.xaml;View\QLNVView.xaml;View\ReportView.xaml;View\SettingView.xaml;
+
+True
+

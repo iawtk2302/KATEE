@@ -75,42 +75,49 @@ namespace ClothesShopManagement.ViewModel
             {
                 case 0:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new HomeView());
                         break;
                     }
                 case 1:
                     {
-
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new OrderView());
                         break;
                     }
                 case 2:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new ProductsView());
                         break;
                     }
                 case 3:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new CustomerView());
                         break;
                     }
                 case 4:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new ImportView());
                         break;
                     }
                 case 5:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new ReportView());
                         break;
                     }
                 case 6:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new QLNVView());
                         break;
                     }
                 case 7:
                     {
+                        _Loadwd(p);
                         p.Main.NavigationService.Navigate(new SettingView());
                         break;
                     }
