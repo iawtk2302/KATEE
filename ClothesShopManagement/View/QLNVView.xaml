@@ -159,7 +159,7 @@
                                             <TextBlock
                                                 Margin="4,0,0,0"
                                 Text="{Binding TENND}"
-                                                Foreground="#b596e1"
+                                                Foreground="#6C63FF"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
@@ -169,13 +169,13 @@
                                                         Margin="4,0,0,0">
                                                 <TextBlock
                                         Text="SĐT: "
-                                                    Foreground="#b596e1"
+                                                    Foreground="#6C63FF"
                                         FontFamily="{StaticResource Custom}"
                                          FontSize="12"
                                         />
                                                 <TextBlock
                                         Text="{Binding SDT}"
-                                                    Foreground="#b596e1"
+                                                    Foreground="#6C63FF"
                                         FontFamily="{StaticResource Custom1}"
                                         FontSize="12"
                                         />
@@ -186,13 +186,13 @@
                                                         >
                                                 <TextBlock
                                         Text="ĐC: "
-                                                    Foreground="#b596e1"
+                                                    Foreground="#6C63FF"
                                         FontFamily="{StaticResource Custom}"
                                          FontSize="12"
                                         />
                                                 <TextBlock
                                         Text="{Binding DIACHI}"
-                                                    Foreground="#b596e1"
+                                                    Foreground="#6C63FF"
                                         FontFamily="{StaticResource Custom1}"
                                         FontSize="12"
                                         />

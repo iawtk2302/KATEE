@@ -51,30 +51,34 @@ namespace ClothesShopManagement.ViewModel
             }
             else
             {
-                if(DataProvider.Ins.DB.SANPHAMs.Where(p=>p.MASP==paramater.MaSp.Text).Count()>0)
+                MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm sản phẩm mới ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+                if (h == MessageBoxResult.Yes)
                 {
-                    MessageBox.Show("Mã sản phẩm đã tồn tại.", "Thông Báo");
-                }
-                else
-                {
-                    SANPHAM a=new SANPHAM();
-                    a.MASP = paramater.MaSp.Text;
-                    a.TENSP = paramater.TenSp.Text;
-                    a.GIA=int.Parse(paramater.GiaSp.Text);
-                    a.LOAISP=paramater.LoaiSp.Text;
-                    a.SL = int.Parse(paramater.SlSp.Text);
-                    a.SIZE = paramater.SizeSp.Text;
-                    a.MOTA = paramater.MotaSp.Text;
-                    a.DVT = "Cái";
-                    a.HINHSP = "/Resource/ImgProduct/" + "product_" + paramater.MaSp.Text+((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
-                    DataProvider.Ins.DB.SANPHAMs.Add(a);
-                    DataProvider.Ins.DB.SaveChanges();
-                    try
+                    if (DataProvider.Ins.DB.SANPHAMs.Where(p => p.MASP == paramater.MaSp.Text).Count() > 0)
                     {
-                        File.Copy(linkimage, _localLink + @"Resource\ImgProduct\" + "product_" + paramater.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString(), true);
+                        MessageBox.Show("Mã sản phẩm đã tồn tại.", "Thông Báo");
                     }
-                    catch { }
-                }          
+                    else
+                    {
+                        SANPHAM a = new SANPHAM();
+                        a.MASP = paramater.MaSp.Text;
+                        a.TENSP = paramater.TenSp.Text;
+                        a.GIA = int.Parse(paramater.GiaSp.Text);
+                        a.LOAISP = paramater.LoaiSp.Text;
+                        a.SL = int.Parse(paramater.SlSp.Text);
+                        a.SIZE = paramater.SizeSp.Text;
+                        a.MOTA = paramater.MotaSp.Text;
+                        a.DVT = "Cái";
+                        a.HINHSP = "/Resource/ImgProduct/" + "product_" + paramater.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
+                        DataProvider.Ins.DB.SANPHAMs.Add(a);
+                        DataProvider.Ins.DB.SaveChanges();
+                        try
+                        {
+                            File.Copy(linkimage, _localLink + @"Resource\ImgProduct\" + "product_" + paramater.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString(), true);
+                        }
+                        catch { }
+                    }
+                }                    
             }    
         }
     }

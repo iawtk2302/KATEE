@@ -77,7 +77,7 @@ namespace ClothesShopManagement.ViewModel
                 temp.SDT = addNDView.SDT.Text;
                 temp.DIACHI = addNDView.DC.Text;
                 temp.GIOITINH = addNDView.GT.Text;
-                temp.NGSINH = addNDView.NS.SelectedDate;
+                temp.NGSINH = (DateTime)addNDView.NS.SelectedDate;
                 if (addNDView.QTV.Text == "Quản lý")
                     temp.QTV = true;
                 else

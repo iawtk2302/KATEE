@@ -7,7 +7,6 @@
     <viewmodel:DetailProductViewModel x:Key="DetailProductVM"></viewmodel:DetailProductViewModel>
     <viewmodel:AddProductViewModel x:Key="AddProductVM"></viewmodel:AddProductViewModel>
     <viewmodel:HomeViewModel x:Key="HomeVM"></viewmodel:HomeViewModel>
-<<<<<<< HEAD
     <viewmodel:CustomerViewModel x:Key="CsVM"></viewmodel:CustomerViewModel>
     <viewmodel:DetailCustomer x:Key="DetailCsVM"></viewmodel:DetailCustomer>
     <viewmodel:AddCsView x:Key="AddCsVM"></viewmodel:AddCsView>

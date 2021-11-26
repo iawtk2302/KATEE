@@ -39,7 +39,7 @@
             </Grid.ColumnDefinitions>
             <Grid Grid.Column="0">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="140"></RowDefinition>
+                    <RowDefinition Height="120"></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition Height="35"></RowDefinition>
                 </Grid.RowDefinitions>
@@ -164,15 +164,7 @@
                             Visibility="{Binding SetQuanLy}"
                             Style="{StaticResource BtnManage}"
                             FontFamily="{StaticResource Custom}"
-<<<<<<< HEAD
-=======
-                            />
-                        <RadioButton
-                            Style="{StaticResource BtnSetting}"
-                            FontFamily="{StaticResource Custom}"
-                            Uid="7"
-                            x:Name="btnSetting"
->>>>>>> importwd
+                            
                             >
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Click">
@@ -181,11 +173,7 @@
                                 </i:EventTrigger>
                                 <i:EventTrigger EventName="MouseMove">
                                     <i:InvokeCommandAction Command="{Binding GetIdTab}"
-<<<<<<< HEAD
                                                            CommandParameter="{Binding ElementName=btnQLNNV}"></i:InvokeCommandAction>
-=======
-                                                           CommandParameter="{Binding ElementName=btnSetting}"></i:InvokeCommandAction>
->>>>>>> importwd
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </RadioButton>
@@ -206,6 +194,23 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                         </RadioButton>
+                        <!--<RadioButton
+                            Style="{StaticResource BtnSetting}"
+                            FontFamily="{StaticResource Custom}"
+                            Uid="7"
+                            x:Name="btnSetting"
+                            >
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Click">
+                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
+                                                           CommandParameter="{Binding ElementName=Mainwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                                <i:EventTrigger EventName="MouseMove">
+                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
+                                                           CommandParameter="{Binding ElementName=btnSetting}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </RadioButton>-->
                     </StackPanel>
                     <Grid Grid.Row="2" VerticalAlignment="Bottom">
                         <Button

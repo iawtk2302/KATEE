@@ -181,7 +181,7 @@
                             </i:Interaction.Triggers>
                         </Button>
                         <Button Content="XÓA"
-                                Margin="0,30,0,0"
+                                Margin="0,15,0,0"
                                 Width="230"
                                 BorderThickness="0"
                                 >

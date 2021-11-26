@@ -131,7 +131,7 @@ namespace ClothesShopManagement.ViewModel
             Uri fileUri = new Uri(temp.AVA);
             detailNDView.HinhAnh.ImageSource= new BitmapImage(fileUri);
             detailNDView.DC.Text = temp.DIACHI;
-            detailNDView.QTV.Text = temp.QTV == true ? "1" : "0";
+            detailNDView.QTV.Text = temp.QTV == true ? "Quản lý" : "Nhân viên";
             detailNDView.ShowDialog();
             listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p => p.TTND == true));
             paramater.ListViewND.ItemsSource = listND;
@@ -146,7 +146,7 @@ namespace ClothesShopManagement.ViewModel
                 {
                     if (a.MAND == p.MaND.Text)
                     {
-                        if (p.QTV.Text == "1")
+                        if (p.QTV.Text == "Quản lý")
                             a.QTV = true;
                         else
                             a.QTV = false;

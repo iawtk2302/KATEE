@@ -138,7 +138,7 @@
                                     <TextBox
                                     x:Name="SDT"
                                     HorizontalAlignment="Left"
-                                    Width="150"
+                                    Width="151"
                                     FontFamily="{StaticResource Custom}"
                                     BorderThickness="2"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
@@ -227,7 +227,7 @@
                                     x:Name="DC"
                                     FontFamily="{StaticResource Custom}"
                                     HorizontalAlignment="Left"
-                                    Width="310"
+                                    Width="319"
                                     Height="150"
                                     BorderThickness="2"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
