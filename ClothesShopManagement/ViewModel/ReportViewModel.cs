@@ -88,22 +88,51 @@ namespace ClothesShopManagement.ViewModel
         public ICommand LoadSP { get; set; }
         public ICommand LoadNV { get; set; }
         public ICommand LoadDT { get; set; }
+        public ICommand LoadTotal { get; set; }
+        public ICommand LoadView { get; set; }
 
         public ReportViewModel()
         {
+            LoadView = new RelayCommand<ReportView>((p) => true, (p) => _Loadview(p));
             Select = new ObservableCollection<string> { "Theo năm", "Theo tháng" };
             LoadCbbx = new RelayCommand<ReportView>((p) => true, (p) => ColChart(p));
-            SetMain = Visibility.Visible;
-            SetBills = Visibility.Hidden;
-            SetImport = Visibility.Hidden;
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
             SwitchTab = new RelayCommand<ReportView>((p) => true, (p) => switchtab(p));
             LoadPie = new RelayCommand<ReportView>((p) => true, (p) => PieChart(p));
             LoadSP = new RelayCommand<ReportView>((p) => true, (p) => SPCount(p));
             LoadNV = new RelayCommand<ReportView>((p) => true, (p) => NVCount(p));
             LoadDT = new RelayCommand<ReportView>((p) => true, (p) => DTTrend(p));
+            LoadTotal = new RelayCommand<ReportView>((p) => true, (p) => Total(p));
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
-            listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);            
+            listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
+        }
+        public void _Loadview(ReportView p)
+        {
+            if ((bool)p.btnMain.IsChecked)
+            {
+                SetMain = Visibility.Visible;
+                SetBills = Visibility.Hidden;
+                SetImport = Visibility.Hidden;
+            }
+            else if ((bool)p.btnSale.IsChecked)
+            {
+                listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
+                SetMain = Visibility.Hidden;
+                SetBills = Visibility.Visible;
+                SetImport = Visibility.Hidden;
+            }
+            else
+            {
+                listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
+                SetMain = Visibility.Hidden;
+                SetBills = Visibility.Hidden;
+                SetImport = Visibility.Visible;
+            }
+        }
+        public void Total(ReportView p)
+        {
+            long total = DataProvider.Ins.DB.HOADONs.Select(x => x.TRIGIA).Sum();
+            p.Total.Text = total.ToString("#,### VNĐ");
         }
         public void DTTrend(ReportView p)
         {
@@ -139,7 +168,7 @@ namespace ClothesShopManagement.ViewModel
             }
             NVName = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.MAND == NVBest).Select(x => x.TENND).FirstOrDefault();
             p.NVBest.Text = NVBest;
-            p.NVName.Text = string.Join(" ", NVName.Split().Reverse().Take(2).Reverse()); 
+            p.NVName.Text = string.Join(" ", NVName.Split().Reverse().Take(2).Reverse());
         }
         public void SPCount(ReportView p)
         {
@@ -185,7 +214,7 @@ namespace ClothesShopManagement.ViewModel
                     }
                     YData result = new YData(h, value);
                     YDatas.Add(result);
-                }                
+                }
             }
             else
             {
@@ -249,7 +278,7 @@ namespace ClothesShopManagement.ViewModel
                         listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
                         SetMain = Visibility.Hidden;
                         SetBills = Visibility.Visible;
-                        SetImport = Visibility.Hidden;                        
+                        SetImport = Visibility.Hidden;
                         break;
                     }
                 case 2:

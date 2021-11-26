@@ -90,7 +90,19 @@ namespace ClothesShopManagement.ViewModel
                 return;
             }
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
-            LSPSelected.Add(a);
+            foreach (Display display in paramater.ListViewSP.Items)
+            {
+                if (display.MaSp == a.MASP)
+                {
+                    display.SL += int.Parse(paramater.SL.Text);
+                    foreach (CTPN ct in LCTPN)
+                    {
+                        if (ct.MASP == display.MaSp)
+                            ct.SL = display.SL;
+                    }
+                    goto There;
+                }
+            }
             Display b = new Display(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text));
             CTPN ctpn = new CTPN()
             {
@@ -100,18 +112,19 @@ namespace ClothesShopManagement.ViewModel
                 MAPN = int.Parse(paramater.MaPN.Text),
             };
             LCTPN.Add(ctpn);
-            LHT.Add(b);
+            LHT.Add(b);/*
             foreach (SANPHAM x in LSP)
             {
                 if (x.MASP == a.MASP)
                     x.SL += int.Parse(paramater.SL.Text);
-            }
+            }*/
+        There:
             paramater.ListViewSP.ItemsSource = LHT;
             paramater.ListViewSP.Items.Refresh();
             paramater.SP.ItemsSource = LSP;
             paramater.SP.Items.Refresh();
             paramater.SP.SelectedItem = null;
-            paramater.SL.Text = "";            
+            paramater.SL.Text = "";
         }
         void _DeleteSP(AddImportView paramater)
         {
@@ -170,18 +183,18 @@ namespace ClothesShopManagement.ViewModel
                         if (x.MASP == s.SANPHAM.MASP)
                         {
                             x.SL += s.SL;
-                            DataProvider.Ins.DB.SaveChanges();
                         }
                     }
                 }
-                DataProvider.Ins.DB.PHIEUNHAPs.Add(temp); 
+                DataProvider.Ins.DB.PHIEUNHAPs.Add(temp);
                 DataProvider.Ins.DB.SaveChanges();
                 System.Windows.MessageBox.Show("Nhập hàng thành công", "THÔNG BÁO");
                 LHT = new ObservableCollection<Display>();
                 paramater.MaPN.Clear();
                 LCTPN = new ObservableCollection<CTPN>();
-                LSPSelected = new ObservableCollection<SANPHAM>();
                 paramater.ListViewSP.ItemsSource = LHT;
+                LSP = DataProvider.Ins.DB.SANPHAMs.Where(p => p.SL >= 0).ToList();
+                paramater.SP.Items.Refresh();
             }
             else
                 return;
