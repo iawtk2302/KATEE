@@ -95,7 +95,7 @@ namespace ClothesShopManagement.ViewModel
             detailProduct.TenSP.Text = temp.TENSP;
             detailProduct.GiaSP.Text = temp.GIA.ToString();
             detailProduct.LoaiSP.Text = temp.LOAISP;
-            string SL = listSP.Where(p => p.TENSP == temp.TENSP).Sum(p => p.SL).ToString();
+            string SL = listSP1.Where(p => p.TENSP == temp.TENSP&&p.SL>=0).Select(p=>p.SL).Sum().ToString();
             detailProduct.SLSP.Text = "Số lượng: " + SL;
             detailProduct.kichco.ItemsSource = new ObservableCollection<SANPHAM>(listSP1.Where(p => p.TENSP == temp.TENSP&&p.SL>=0));
             detailProduct.Mota.Text = temp.MOTA;

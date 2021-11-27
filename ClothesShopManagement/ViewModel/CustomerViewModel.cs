@@ -105,7 +105,7 @@ namespace ClothesShopManagement.ViewModel
                 if (a.MAKH == temp.MAKH)
                     doanhso += a.TRIGIA;
             }    
-            detailCustomerView.DS.Text = doanhso.ToString();
+            detailCustomerView.DS.Text = String.Format("{0:0,0}", doanhso) + " VND"; ;
             string hang = "Đồng";
             if (doanhso > 2000000 && doanhso <= 5000000)
                 hang = "Bạc";

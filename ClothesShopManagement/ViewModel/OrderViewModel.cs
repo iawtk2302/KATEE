@@ -124,7 +124,7 @@ namespace ClothesShopManagement.ViewModel
             HOADON temp = (HOADON) parameter.ListViewHD.SelectedItem;
             detailOrder.MaND.Text = temp.NGUOIDUNG.MAND;
             detailOrder.TenND.Text= temp.NGUOIDUNG.TENND;
-            detailOrder.Ngay.Text = temp.NGHD.ToString();
+            detailOrder.Ngay.Text = temp.NGHD.ToString("dd/MM/yyyy hh:mm tt");
             detailOrder.SoHD.Text = temp.SOHD.ToString();
             detailOrder.MaKH.Text = temp.MAKH.ToString();
             detailOrder.TenKH.Text = temp.KHACHHANG.HOTEN;

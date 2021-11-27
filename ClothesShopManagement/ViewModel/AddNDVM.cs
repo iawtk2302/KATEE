@@ -53,6 +53,25 @@ namespace ClothesShopManagement.ViewModel
             Uri fileUri = new Uri(linkaddimage);
             img.ImageSource = new BitmapImage(fileUri);
         }
+        bool check(string m)
+        {
+            foreach (NGUOIDUNG temp in DataProvider.Ins.DB.NGUOIDUNGs)
+            {
+                if (temp.MAND == m)
+                    return true;
+            }
+            return false;
+        }
+        string rdma()
+        {
+            string ma;
+            do
+            {
+                Random rand = new Random();
+                ma = "NV" + rand.Next(0, 10000).ToString();
+            } while (check(ma));
+            return ma;
+        }
         void _AddND(AddNDView addNDView)
         {
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
@@ -97,6 +116,18 @@ namespace ClothesShopManagement.ViewModel
                 catch { }
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Thêm người dùng thành công !", "THÔNG BÁO");
+                addNDView.MaND.Text = rdma();
+                addNDView.TenND.Clear();
+                addNDView.GT.SelectedItem = null;
+                addNDView.GT.Items.Refresh();
+                addNDView.QTV.SelectedItem = null;
+                addNDView.QTV.Items.Refresh();
+                addNDView.NS.SelectedDate = null;
+                addNDView.SDT.Clear();
+                addNDView.DC.Clear();
+                linkaddimage = Const._localLink + "/Resource/Image/addava.png";
+                Uri fileUri = new Uri(linkaddimage);
+                addNDView.HinhAnh1.ImageSource = new BitmapImage(fileUri);
             }
         }               
     }

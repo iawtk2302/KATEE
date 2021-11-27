@@ -38,9 +38,29 @@ namespace ClothesShopManagement.ViewModel
             OpenAddImport = new RelayCommand<ImportView>((p) => true, (p) => _OpenAdd(p));
             Detail = new RelayCommand<ImportView>((p) => p.ListViewPN.SelectedItem != null ? true : false, (p) => _Detail(p));
         }
+        bool check(int m)
+        {
+            foreach (HOADON temp in DataProvider.Ins.DB.HOADONs)
+            {
+                if (temp.SOHD == m)
+                    return true;
+            }
+            return false;
+        }
+        int rdma()
+        {
+            int ma;
+            do
+            {
+                Random rand = new Random();
+                ma = rand.Next(0, 10000);
+            } while (check(ma));
+            return ma;
+        }
         void _OpenAdd(ImportView paramater)
         {
             AddImportView addOrder = new AddImportView();
+            addOrder.MaPN.Text = rdma().ToString();
             addOrder.ShowDialog();
             listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
         }

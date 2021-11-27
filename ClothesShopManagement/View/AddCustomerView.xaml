@@ -167,7 +167,6 @@
                                     materialDesign:HintAssist.Hint="THÊM GIỚI TÍNH"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"
                                     materialDesign:TextFieldAssist.UnderlineBrush="Black"
-                                    SelectedIndex="0"
                                 >
                                     <ComboBoxItem Content="Nam"/>
                                     <ComboBoxItem Content="Nữ"/>

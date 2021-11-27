@@ -145,6 +145,8 @@
                                     Content="Nam" />
                                     <ComboBoxItem
                                     Content="Nữ" />
+                                    <ComboBoxItem
+                                    Content="Khác" />
                                 </ComboBox>
                                 <ComboBox 
                                 Margin="10,0,0,0"
@@ -166,10 +168,12 @@
                         >
                                 <DatePicker   
                                             materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                            materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                             Foreground="Black" x:Name="NS"
                                             FontFamily="{StaticResource Custom}"
+                                            Focusable="False"
                                             materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFilledDatePicker}" HorizontalAlignment="Left" Width="190">
+
                                 </DatePicker>
                                 <TextBox Margin="10,0,0,0"  Width="190"
                                         Style="{StaticResource MaterialDesignFilledTextBox}"

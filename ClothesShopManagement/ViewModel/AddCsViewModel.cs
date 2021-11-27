@@ -83,7 +83,8 @@ namespace ClothesShopManagement.ViewModel
                         paramater.MaKH.Text = rdma();
                         paramater.TenKH.Clear();
                         paramater.SDT.Clear();
-                        paramater.GT.SelectedIndex = 0;
+                        paramater.GT.SelectedItem=null;
+                        paramater.GT.Items.Refresh();
                         paramater.DC.Clear();
                     }
                 }

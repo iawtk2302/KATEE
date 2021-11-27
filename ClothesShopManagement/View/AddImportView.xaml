@@ -176,7 +176,7 @@
                                     FontFamily="{StaticResource Custom}"
                                 />
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox IsEnabled="True"
+                                    <TextBox IsEnabled="False"
                                     x:Name="MaPN"
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
