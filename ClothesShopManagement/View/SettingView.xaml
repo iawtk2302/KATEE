@@ -94,7 +94,8 @@
     materialDesign:HintAssist.Hint="Họ tên" Text="{Binding Name}"/>
                                 <DatePicker Margin="0,20,0,0" Foreground="Black" x:Name="DateBox"
                                             Text="{Binding DoB}" FontFamily="{StaticResource Custom}"
-                            materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFilledDatePicker}" HorizontalAlignment="Left" Width="190">
+                                            Focusable="False"
+                                            materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFilledDatePicker}" HorizontalAlignment="Left" Width="190">
                                 </DatePicker>
 
                                 <TextBox Margin="0,20,-200,0" Foreground="Black" 
