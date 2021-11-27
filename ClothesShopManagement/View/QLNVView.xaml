@@ -119,13 +119,13 @@
             <Grid Grid.Row="2">
                 <ListView x:Name="ListViewND" ItemsSource="{Binding listND}"
                             SelectionMode="Single"
-                          ScrollViewer.HorizontalScrollBarVisibility="Disabled"
-                          Width="635"
+                            ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            Width="635"
                             >
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <Border
-                                Width="300"
+                                Width="290"
                                 Height="100"
                                 CornerRadius="10"
                             >
