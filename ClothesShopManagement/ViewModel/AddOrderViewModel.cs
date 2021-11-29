@@ -8,7 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Forms;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ClothesShopManagement.ViewModel
@@ -18,15 +18,17 @@ namespace ClothesShopManagement.ViewModel
         public string MaSp { get; set; }
         public string TenSP { get; set; }
         public int SL { get; set; }
+        public int Dongia { get; set; }
         public int Tong { get; set; }
         public string Size { get; set; }
-        public HienThi(string MaSp="", string TenSP="",string Size="", int SL=0, int Tong=0)
+        public HienThi(string MaSp="", string TenSP="",string Size="", int SL=0,int Dongia=0, int Tong=0)
         {
             this.MaSp = MaSp;
             this.TenSP = TenSP;
             this.SL = SL;
             this.Tong = Tong;
             this.Size = Size;
+            this.Dongia = Dongia;
         }
     }
     public class AddOrderViewModel : BaseViewModel
@@ -49,6 +51,7 @@ namespace ClothesShopManagement.ViewModel
         public ObservableCollection<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
         public ICommand AddSP { get; set; }
         public ICommand DeleteSP { get; set; }
+        public ICommand PrintSP { get; set; }
         public ICommand SaveHD { get; set; }
         public int tongtien { get; set; }
         public AddOrderViewModel()
@@ -65,6 +68,7 @@ namespace ClothesShopManagement.ViewModel
             Choose= new RelayCommand<AddOrderView>((p) => true, (p) => _Choose(p));
             AddSP=new RelayCommand<AddOrderView>((p) => true, (p) => _AddSP(p));
             DeleteSP = new RelayCommand<AddOrderView>((p) => true, (p) => _DeleteSP(p));
+            PrintSP = new RelayCommand<AddOrderView>((p) => true, (p) => print(p));
             SaveHD = new RelayCommand<AddOrderView>((p) => true, (p) => _SaveHD(p));
         }
         void moveWindow(AddOrderView p)
@@ -113,8 +117,13 @@ namespace ClothesShopManagement.ViewModel
             {
                 System.Windows.MessageBox.Show("Bạn chưa nhập số hóa đơn !", "THÔNG BÁO");
                 return;
-            }    
-            foreach(HOADON s in DataProvider.Ins.DB.HOADONs)
+            }
+            if (paramater.SL.Text == "")
+            {
+                System.Windows.MessageBox.Show("Bạn chưa nhập số lượng sản phẩm !", "THÔNG BÁO");
+                return;
+            }
+            foreach (HOADON s in DataProvider.Ins.DB.HOADONs)
             {
                 if(int.Parse(paramater.SoHD.Text)==s.SOHD)
                 {
@@ -147,7 +156,7 @@ namespace ClothesShopManagement.ViewModel
                         return;
                     }    
                 }    
-                HienThi b = new HienThi(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text), int.Parse(paramater.SL.Text) * a.GIA);  
+                HienThi b = new HienThi(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text),a.GIA, int.Parse(paramater.SL.Text) * a.GIA);  
                 CTHD cthd = new CTHD()
                 {
                     MASP = a.MASP,
@@ -229,7 +238,7 @@ namespace ClothesShopManagement.ViewModel
             {
                 System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO");
                 return;
-            }    
+            }
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thanh toán ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
             if (h == MessageBoxResult.Yes)
             {
@@ -262,7 +271,11 @@ namespace ClothesShopManagement.ViewModel
                 }
                 DataProvider.Ins.DB.HOADONs.Add(temp);
                 DataProvider.Ins.DB.SaveChanges();
-                System.Windows.MessageBox.Show("Thanh toán thành công", "THÔNG BÁO");
+                MessageBoxResult d = System.Windows.MessageBox.Show("  Bạn có muốn in hóa đơn ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+                if (d == MessageBoxResult.Yes)
+                {
+                    print(paramater);
+                }    
                 tongtien = 0;
                 LSPSelected.Clear();
                 paramater.KH.SelectedItem = null;
@@ -272,9 +285,36 @@ namespace ClothesShopManagement.ViewModel
                 paramater.TT.Text = tongtien.ToString();
                 paramater.SoHD.Text=rdma().ToString();
                 paramater.DG1.SelectedItem = null;
+                MessageBox.Show("Thanh toán hóa đơn thành công !", "THÔNG BÁO");
             }
             else
                 return;
+        }
+        void print(AddOrderView parameter)
+        {  
+                KHACHHANG temp = (KHACHHANG)parameter.KH.SelectedItem;
+                PrintOrderView printOrderView = new PrintOrderView();
+                printOrderView.Height = 270 + 35 * LHT.Count;
+                printOrderView.TenKH.Text = temp.HOTEN;
+                printOrderView.dc.Text = temp.DCHI;
+                printOrderView.sdt.Text = temp.SDT;
+                printOrderView.ngay.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
+                printOrderView.sohd.Text = parameter.SoHD.Text;
+                printOrderView.ListSP.ItemsSource = LHT;
+                printOrderView.tt.Text = parameter.TT.Text;
+                try
+                {
+                    PrintDialog printDialog = new PrintDialog();
+                    if (printDialog.ShowDialog() == true)
+                    {
+                        printDialog.PrintVisual(printOrderView.PrintView, "BILL");
+                    }
+                }
+                finally
+                {
+
+                }
+                MessageBox.Show("In Hóa đơn thành công !", "THÔNG BÁO");
         }
     }
 }

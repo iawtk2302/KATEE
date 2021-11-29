@@ -6,6 +6,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace ClothesShopManagement.ViewModel
@@ -131,7 +132,7 @@ namespace ClothesShopManagement.ViewModel
             List<HienThi> list = new List<HienThi>();
             foreach(CTHD a in temp.CTHDs)
             {
-                list.Add(new HienThi(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, a.SL, a.SL * a.SANPHAM.GIA));    
+                list.Add(new HienThi(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, a.SL,a.SANPHAM.GIA, a.SL * a.SANPHAM.GIA));    
             }    
             detailOrder.ListViewSP.ItemsSource = list;
             detailOrder.TT.Text= String.Format("{0:0,0}", temp.TRIGIA) + " VND";

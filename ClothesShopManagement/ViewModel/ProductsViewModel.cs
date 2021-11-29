@@ -93,7 +93,7 @@ namespace ClothesShopManagement.ViewModel
             SANPHAM temp = (SANPHAM)paramater.ListViewProduct.SelectedItem;
             detailProduct.MaSP.Text = "Mã SP: " + temp.MASP;
             detailProduct.TenSP.Text = temp.TENSP;
-            detailProduct.GiaSP.Text = temp.GIA.ToString();
+            detailProduct.GiaSP.Text = string.Format("{0:0,0}", temp.GIA) + " VNĐ";
             detailProduct.LoaiSP.Text = temp.LOAISP;
             string SL = listSP1.Where(p => p.TENSP == temp.TENSP&&p.SL>=0).Select(p=>p.SL).Sum().ToString();
             detailProduct.SLSP.Text = "Số lượng: " + SL;

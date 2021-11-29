@@ -145,7 +145,7 @@
                                                     FontFamily="{StaticResource Custom}"
                                                     FontSize="14"
                                                     HorizontalAlignment="Center"
-                                                    Text="{Binding GIA}"
+                                                    Text="{Binding GIA,StringFormat={}{0:#,###} VNĐ}"
                                                     />
                                     </StackPanel>
                                 </Border>

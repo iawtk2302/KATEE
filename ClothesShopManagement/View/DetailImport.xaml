@@ -38,6 +38,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="180"/>
                 <RowDefinition/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel 
@@ -192,8 +193,9 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="220"/>
                                 <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="80"/>
+                                <ColumnDefinition Width="80"/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
@@ -207,7 +209,7 @@
                             </Grid>
                             <Grid Grid.Column="1">
                                 <TextBlock
-                                                Margin="2,0,0,0"
+                                Margin="2,0,0,0"
                                 HorizontalAlignment="Left"
                                 Text="TÊN SẢN PHẨM"
                                 VerticalAlignment="Center"
@@ -229,7 +231,18 @@
                                 Text="SỐ LƯỢNG"
                                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                                MaxWidth="150"
+                                                
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <TextBlock
+                                Text="TIỀN NHẬP"
+                                    Margin="50,0,0,0"
+                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                                
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
                                 />
@@ -239,7 +252,7 @@
                     <ListView x:Name="ListViewSP" 
                           SelectionMode="Single"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
-                            Height="280"
+                            Height="240"
                         >
                         <ListView.ItemTemplate>
                             <DataTemplate>
@@ -253,8 +266,9 @@
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="220"/>
                                             <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="100"/>
+                                            <ColumnDefinition Width="100"/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
                                         <Grid Grid.Column="0">
@@ -278,6 +292,7 @@
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <TextBlock
+                                                Margin="2,0,0,0"
                                 Text="{Binding Size}"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
@@ -295,6 +310,17 @@
                                 FontSize="12"
                                 />
                                         </Grid>
+                                        <Grid Grid.Column="4">
+                                            <TextBlock
+                                                
+                                                Text="{Binding Tiennhap,StringFormat={}{0:#,###} VNĐ}"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                MaxWidth="150"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                />
+                                        </Grid>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
@@ -305,6 +331,12 @@
                             </ItemsPanelTemplate>
                         </ListView.ItemsPanel>
                     </ListView>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="4">
+                <StackPanel Orientation="Horizontal" Margin="45,0,0,0" VerticalAlignment="Center">
+                    <TextBlock Text="TỔNG TIỀN NHẬP: " FontFamily="{StaticResource Custom}" FontSize="16" Foreground="White"/>
+                    <TextBlock x:Name="ttn" FontFamily="{StaticResource Custom}" FontSize="16" Foreground="White"/>
                 </StackPanel>
             </Grid>
         </Grid>

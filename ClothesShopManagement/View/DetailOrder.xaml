@@ -305,7 +305,7 @@
                             </Grid>
                             <Grid Grid.Column="4">
                                 <TextBlock
-                                Text="GIA"
+                                Text="THÀNH TIỀN"
                                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                                 MaxWidth="150"
@@ -377,7 +377,7 @@
                                         </Grid>
                                         <Grid Grid.Column="4">
                                             <TextBlock
-                                Text="{Binding Tong}"
+                                Text="{Binding Tong,StringFormat={}{0:#,###} VNĐ}"
                                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                                 MaxWidth="150"

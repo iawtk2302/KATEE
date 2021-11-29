@@ -340,11 +340,11 @@
                             <RowDefinition Height="40"/>
                         </Grid.RowDefinitions>
                         <ListView x:Name="HD"
-  ItemsSource="{Binding listHD}" Background="Transparent">
+                            ItemsSource="{Binding listHD}" Background="Transparent">
                             <ListView.View>
                                 <GridView>
                                     <GridViewColumn Width="Auto"
-        Header="Số hóa đơn" >
+                                         Header="Số hóa đơn" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding SOHD}" Margin="40,0,0,0"/>
@@ -352,7 +352,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     <GridViewColumn Width="180"
-        Header="Trị giá" >
+                                            Header="Trị giá" >
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding TRIGIA, StringFormat={}{0:#,###} VNĐ}" Margin="17,0,0,0"/>
@@ -360,7 +360,7 @@
                                         </GridViewColumn.CellTemplate>
                                     </GridViewColumn>
                                     <GridViewColumn Width="200"
-        Header="Ngày mua">
+                                            Header="Ngày mua">
                                         <GridViewColumn.CellTemplate>
                                             <DataTemplate>
                                                 <TextBlock Text="{Binding NGHD, StringFormat=dd/MM/yyyy hh:mm tt}"/>

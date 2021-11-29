@@ -16,12 +16,14 @@ namespace ClothesShopManagement.ViewModel
         public string TenSP { get; set; }
         public int SL { get; set; }
         public string Size { get; set; }
-        public Display(string MaSp = "", string TenSP = "", string Size = "", int SL = 0)
+        public int Tiennhap { get; set; }
+        public Display(string MaSp = "", string TenSP = "", string Size = "", int SL = 0,int Tiennhap=0)
         {
             this.MaSp = MaSp;
             this.TenSP = TenSP;
             this.SL = SL;
             this.Size = Size;
+            this.Tiennhap = Tiennhap;
         }
     }
     class ImportViewModel : BaseViewModel
@@ -73,10 +75,13 @@ namespace ClothesShopManagement.ViewModel
             detailImport.Ngay.Text = temp.NGAYNHAP.ToString("dd/MM/yyyy hh:mm tt");
             detailImport.MaPN.Text = temp.MAPN.ToString();
             List<Display> list = new List<Display>();
+            int tong = 0;
             foreach (CTPN a in temp.CTPNs)
             {
-                list.Add(new Display(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, a.SL));
+                list.Add(new Display(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, a.SL,(int)((float)(a.SL*a.SANPHAM.GIA)*0.8)));
+                tong += (int)((float)(a.SL * a.SANPHAM.GIA) * 0.8);
             }
+            detailImport.ttn.Text = String.Format("{0:#,###}"+" VND",tong);
             detailImport.ListViewSP.ItemsSource = list;
             detailImport.ShowDialog();
             p.ListViewPN.SelectedItem = null;
