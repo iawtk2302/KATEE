@@ -14,14 +14,16 @@ namespace ClothesShopManagement.ViewModel
     {
         public string MaSp { get; set; }
         public string TenSP { get; set; }
+        public int Dongia { get; set; }
         public int SL { get; set; }
         public string Size { get; set; }
         public int Tiennhap { get; set; }
-        public Display(string MaSp = "", string TenSP = "", string Size = "", int SL = 0,int Tiennhap=0)
+        public Display(string MaSp = "", string TenSP = "", string Size = "", int Dongia = 0, int SL = 0,int Tiennhap=0)
         {
             this.MaSp = MaSp;
             this.TenSP = TenSP;
             this.SL = SL;
+            this.Dongia = Dongia;
             this.Size = Size;
             this.Tiennhap = Tiennhap;
         }
@@ -78,7 +80,7 @@ namespace ClothesShopManagement.ViewModel
             int tong = 0;
             foreach (CTPN a in temp.CTPNs)
             {
-                list.Add(new Display(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, a.SL,(int)((float)(a.SL*a.SANPHAM.GIA)*0.8)));
+                list.Add(new Display(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, (int)((float)a.SANPHAM.GIA* 0.8), a.SL,(int)((float)(a.SL*a.SANPHAM.GIA)*0.8)));
                 tong += (int)((float)(a.SL * a.SANPHAM.GIA) * 0.8);
             }
             detailImport.ttn.Text = String.Format("{0:#,###}"+" VND",tong);

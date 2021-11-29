@@ -91,7 +91,6 @@ namespace ClothesShopManagement.ViewModel
         {
             DetailProduct detailProduct = new DetailProduct();
             SANPHAM temp = (SANPHAM)paramater.ListViewProduct.SelectedItem;
-            detailProduct.MaSP.Text = "Mã SP: " + temp.MASP;
             detailProduct.TenSP.Text = temp.TENSP;
             detailProduct.GiaSP.Text = string.Format("{0:0,0}", temp.GIA) + " VNĐ";
             detailProduct.LoaiSP.Text = temp.LOAISP;

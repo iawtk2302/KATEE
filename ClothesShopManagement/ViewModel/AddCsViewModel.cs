@@ -56,6 +56,11 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddCsCommand(AddCustomerView paramater)
         {
+            if(paramater.TenKH.Text==""||paramater.SDT.Text==""||paramater.GT.SelectedItem==null||paramater.DC.Text=="")
+            {
+                MessageBox.Show("Bạn chưa nhập đủ thông tin !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }    
             MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm khách hàng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
             if (h == MessageBoxResult.Yes)
             {

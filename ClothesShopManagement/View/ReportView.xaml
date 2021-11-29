@@ -27,9 +27,9 @@
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="65"/>
-                <RowDefinition Height="40
-                               "/>
+                <RowDefinition Height="10"/>
                 <RowDefinition/>
+                <RowDefinition Height="20"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <TextBlock VerticalAlignment="Center" 
@@ -37,66 +37,7 @@
                            FontFamily="{StaticResource Custom}" Foreground="White" 
                            >THỐNG KÊ</TextBlock>
             </Grid>
-            <Grid Grid.Row="1">
-                <materialDesign:ColorZone Background="Black"
-                                          CornerRadius="10"
-                Mode="PrimaryMid">
-                    <StackPanel 
-        Orientation="Horizontal">
-                        <RadioButton Uid="0"
-                                     x:Name="btnMain"
-        Style="{StaticResource MaterialDesignTabRadioButton}"
-        Margin="20,4,4,4"
-        IsChecked="True"
-                            FontFamily="{StaticResource Custom}"
-        Content="Tổng quan" BorderBrush="White" Foreground="White" >
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
-                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                                <i:EventTrigger EventName="MouseMove">
-                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
-                                                       CommandParameter="{Binding ElementName=btnMain}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </RadioButton>
-                        <RadioButton Uid="1"
-                                     x:Name="btnSale"
-        Style="{StaticResource MaterialDesignTabRadioButton}"
-        Margin="4"
-                            FontFamily="{StaticResource Custom}"
-        Content="Lịch sử kinh doanh" BorderBrush="White" Foreground="White" >
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
-                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                                <i:EventTrigger EventName="MouseMove">
-                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
-                                                       CommandParameter="{Binding ElementName=btnSale}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </RadioButton>
-                        <RadioButton Uid="2" x:Name="btnImport"
-        Style="{StaticResource MaterialDesignTabRadioButton}"
-        Margin="4"
-                            FontFamily="{StaticResource Custom}"
-        Content="Lịch sử nhập hàng" BorderBrush="White" Foreground="White" >
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="Click">
-                                    <i:InvokeCommandAction Command="{Binding SwitchTab}"
-                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                                <i:EventTrigger EventName="MouseMove">
-                                    <i:InvokeCommandAction Command="{Binding GetIdTab}"
-                                                       CommandParameter="{Binding ElementName=btnImport}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </RadioButton>
-                    </StackPanel>
-                </materialDesign:ColorZone>
-            </Grid>
+            <Grid Grid.Row="1"/>
             <Grid Grid.Row="2" Margin="0, 5, 0, 0">
                 <Border x:Name="DTChart" Height="250"
                                 Width="410"
@@ -333,95 +274,7 @@
                         </Grid>
                     </StackPanel>
                 </Border>
-                <Border x:Name="Bills" Visibility="{Binding SetBills}" Background="AliceBlue" CornerRadius="10">
-                    <Grid>
-                        <Grid.RowDefinitions>
-                            <RowDefinition/>
-                            <RowDefinition Height="40"/>
-                        </Grid.RowDefinitions>
-                        <ListView x:Name="HD"
-                            ItemsSource="{Binding listHD}" Background="Transparent">
-                            <ListView.View>
-                                <GridView>
-                                    <GridViewColumn Width="Auto"
-                                         Header="Số hóa đơn" >
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding SOHD}" Margin="40,0,0,0"/>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    <GridViewColumn Width="180"
-                                            Header="Trị giá" >
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding TRIGIA, StringFormat={}{0:#,###} VNĐ}" Margin="17,0,0,0"/>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                    <GridViewColumn Width="200"
-                                            Header="Ngày mua">
-                                        <GridViewColumn.CellTemplate>
-                                            <DataTemplate>
-                                                <TextBlock Text="{Binding NGHD, StringFormat=dd/MM/yyyy hh:mm tt}"/>
-                                            </DataTemplate>
-                                        </GridViewColumn.CellTemplate>
-                                    </GridViewColumn>
-                                </GridView>
-                            </ListView.View>
-                        </ListView>
-                        <Grid Grid.Row="1">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition/>
-                                <ColumnDefinition Width="200"/>
-                            </Grid.ColumnDefinitions>
-                            <TextBlock Text="Tổng doanh thu: " FontFamily="{StaticResource Custom}"
-                                       FontSize="20" Foreground="DimGray" Margin="0,0,0,5"
-                                       VerticalAlignment="Bottom" HorizontalAlignment="Right"/>
-                            <Grid Grid.Column="1">
-                                <TextBlock x:Name="Total" Text="00 VNĐ" FontSize="20" Foreground="DimGray"
-                                           FontFamily="{StaticResource Custom}" Margin="0,0,0,5"
-                                           VerticalAlignment="Bottom" HorizontalAlignment="Left">
-                                                            <i:Interaction.Triggers>
-                            <i:EventTrigger EventName="Loaded">
-                                <i:InvokeCommandAction Command="{Binding LoadTotal}"
-                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
-                            </i:EventTrigger>
-                        </i:Interaction.Triggers>
-                                </TextBlock>
-                            </Grid>
-                        </Grid>
-                    </Grid>
-                </Border>
-                <Border x:Name="Import" Visibility="{Binding SetImport}" Background="AliceBlue" CornerRadius="10">
-        <ListView x:Name="PN"
-  ItemsSource="{Binding listPN}" Background="Transparent">
-            <ListView.View>
-                <GridView>
-                                <GridViewColumn Width="Auto"
-                                    Header="Mã phiếu nhập" >
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding MAPN}" Margin="50,0,0,0"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Width="200"
-                                    Header="Nhân viên nhập" >
-                                    <GridViewColumn.CellTemplate>
-                                        <DataTemplate>
-                                            <TextBlock Text="{Binding NGUOIDUNG.TENND}" Margin="17,0,0,0"/>
-                                        </DataTemplate>
-                                    </GridViewColumn.CellTemplate>
-                                </GridViewColumn>
-                                <GridViewColumn Width="200"
-        DisplayMemberBinding="{Binding NGAYNHAP, StringFormat=dd/MM/yyyy hh:mm tt}"
-        Header="Ngày nhập"/>
-                </GridView>
-            </ListView.View>
-        </ListView>
-    </Border>
-    </Grid>
+            </Grid>
         </Grid>
     </Border>
 </Page>

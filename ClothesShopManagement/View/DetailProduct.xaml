@@ -79,11 +79,6 @@
                     <StackPanel Orientation="Vertical"
                                 Margin="15,20,0,0"
                                 >
-                        <TextBlock 
-                                   FontSize="14"
-                                   FontFamily="{StaticResource Custom}"
-                                   x:Name="MaSP"
-                                   />
                         <TextBox 
                                    FontSize="30"
                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"

@@ -127,9 +127,9 @@ namespace ClothesShopManagement.ViewModel
             detailNDView.TenND.Text = temp.TENND;
             detailNDView.SDT.Text = temp.SDT;
             detailNDView.GT.Text = temp.GIOITINH;
-            detailNDView.NS.Text = temp.NGSINH.ToString();
+            detailNDView.NS.Text = temp.NGSINH.ToString();           
             Uri fileUri = new Uri(temp.AVA);
-            detailNDView.HinhAnh.ImageSource= new BitmapImage(fileUri);
+            detailNDView.HinhAnh.ImageSource = new BitmapImage(fileUri); 
             detailNDView.DC.Text = temp.DIACHI;
             detailNDView.QTV.Text = temp.QTV == true ? "Quản lý" : "Nhân viên";
             detailNDView.ShowDialog();

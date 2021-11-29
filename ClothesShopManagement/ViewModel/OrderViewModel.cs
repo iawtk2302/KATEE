@@ -71,25 +71,30 @@ namespace ClothesShopManagement.ViewModel
                 {
                     case "Số HD":
                         {
-                            foreach (HOADON s in listHD)
+                            try
                             {
-                                if (s.SOHD==int.Parse(paramater.txbSearch.Text))
+                                foreach (HOADON s in listHD)
                                 {
-                                    temp.Add(s);
+                                    if (s.SOHD == int.Parse(paramater.txbSearch.Text))
+                                    {
+                                        temp.Add(s);
+                                    }
                                 }
+                                
                             }
+                            catch  { }
                             break;
                         }
                     case "Họ tên":
                         {
-                            foreach (HOADON s in listHD)
-                            {
-                                if (s.KHACHHANG.HOTEN.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                                foreach (HOADON s in listHD)
                                 {
-                                    temp.Add(s);
+                                    if (s.KHACHHANG.HOTEN.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                                    {
+                                        temp.Add(s);
+                                    }
                                 }
-                            }
-                            break;
+                                break;
                         }
                     case "Ngày":
                         {
