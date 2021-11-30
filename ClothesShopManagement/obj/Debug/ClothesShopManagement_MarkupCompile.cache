@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\Users\Admin\OneDrive\Documents\test3\ClothesShopManagement\obj\Debug\
+D:\Trang\Bài\C#\New folder\ClothesShopManagement\obj\Debug\
 ClothesShopManagement
 none
 false
 DEBUG;TRACE
-C:\Users\Admin\OneDrive\Documents\test3\ClothesShopManagement\App.xaml
-251889353593
-2739969757
-611754759987
-39-536053711
+D:\Trang\Bài\C#\New folder\ClothesShopManagement\App.xaml
+25-1562652297
+2-1556844510
+611730097137
+39-1640737920
 Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddNDView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailImport.xaml;View\DetailNDView.xaml;View\DetailOrder.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintOrderView.xaml;View\ProductsView.xaml;View\QLNVView.xaml;View\ReportView.xaml;View\SettingView.xaml;View\test.xaml;
 
 False

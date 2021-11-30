@@ -44,6 +44,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="200"/>
                 <RowDefinition/>
+                <RowDefinition Height="50"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel 
@@ -150,7 +151,7 @@
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
-                            
+
                             <StackPanel>
                                 <TextBlock
                                     Margin="8,0,0,0"
@@ -238,18 +239,27 @@
                                                 </StackPanel>
                                             </DataTemplate>
                                         </ComboBox.ItemTemplate>
+                                        <i:Interaction.Triggers>
+                                            <i:EventTrigger EventName="SelectionChanged">
+                                                <i:InvokeCommandAction Command="{Binding Choose}"
+                                                       CommandParameter="{Binding ElementName=AddImportwd}"></i:InvokeCommandAction>
+                                            </i:EventTrigger>
+                                        </i:Interaction.Triggers>
                                     </ComboBox>
                                 </Border>
                             </StackPanel>
-                            
-                            <StackPanel>
-                                <TextBlock
+
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel
+                                    Width="150"
+                                    >
+                                    <TextBlock
                                     Margin="8,0,0,0"
                                     Text="SỐ LƯỢNG"
                                     FontFamily="{StaticResource Custom}"
                                     />
-                                <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
-                                    <TextBox
+                                    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                        <TextBox
                                     x:Name="SL"
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
@@ -257,8 +267,28 @@
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
-                                </Border>
-                            </StackPanel>
+                                    </Border>
+                                </StackPanel>
+                                <StackPanel
+                                    Width="140"
+                                    >
+                                    <TextBlock
+                                    Margin="8,0,0,0"
+                                    Text="ĐƠN GIÁ"
+                                    FontFamily="{StaticResource Custom}"
+                                    />
+                                    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
+                                        <TextBox
+                                    x:Name="DG" IsEnabled="False"
+                                    HorizontalAlignment="Left"
+                                    FontFamily="{StaticResource Custom}"
+                                    BorderThickness="0"
+                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                    </Border>
+                                </StackPanel>
+                                </StackPanel>
                             <StackPanel
                                 Margin="20"
                                 Orientation="Horizontal"
@@ -345,8 +375,9 @@
                         <Grid>
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="100"/>
-                                <ColumnDefinition Width="220"/>
                                 <ColumnDefinition Width="150"/>
+                                <ColumnDefinition Width="130"/>
+                                <ColumnDefinition/>
                                 <ColumnDefinition/>
                             </Grid.ColumnDefinitions>
                             <Grid Grid.Column="0">
@@ -362,7 +393,7 @@
                                 <TextBlock
                                                 Margin="2,0,0,0"
                                 HorizontalAlignment="Left"
-                                Text="TÊN SẢN PHẨM"
+                                Text="TÊN SP"
                                 VerticalAlignment="Center"
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
@@ -379,7 +410,17 @@
                             </Grid>
                             <Grid Grid.Column="3">
                                 <TextBlock
-                                Text="SỐ LƯỢNG"
+                                Text="SL"
+                                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                                MaxWidth="150"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                            </Grid>
+                            <Grid Grid.Column="4">
+                                <TextBlock
+                                Text="THÀNH TIỀN"
                                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
                                                 MaxWidth="150"
@@ -392,22 +433,23 @@
                     <ListView x:Name="ListViewSP" 
                           SelectionMode="Single"
                           ScrollViewer.VerticalScrollBarVisibility="Visible"
-                            Height="280"
+                          Height="220"
                         >
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border
                                 Margin="35,0,0,0"
-                                Width="600"
-                                Height="40"
-                                CornerRadius="10"
-                                Background="White"
+                        Width="600"
+                        Height="40"
+                        CornerRadius="10"
+                        Background="White"
                         >
                                     <Grid>
                                         <Grid.ColumnDefinitions>
                                             <ColumnDefinition Width="100"/>
-                                            <ColumnDefinition Width="220"/>
                                             <ColumnDefinition Width="150"/>
+                                            <ColumnDefinition Width="130"/>
+                                            <ColumnDefinition/>
                                             <ColumnDefinition/>
                                         </Grid.ColumnDefinitions>
                                         <Grid Grid.Column="0">
@@ -448,6 +490,16 @@
                                 FontSize="12"
                                 />
                                         </Grid>
+                                        <Grid Grid.Column="4">
+                                            <TextBlock
+                                Text="{Binding Tiennhap, StringFormat={}{0:#,###} VNĐ}"
+                                                HorizontalAlignment="Left"
+                                VerticalAlignment="Center"
+                                                MaxWidth="150"
+                                FontFamily="{StaticResource Custom}"
+                                FontSize="12"
+                                />
+                                        </Grid>
                                     </Grid>
                                 </Border>
                             </DataTemplate>
@@ -460,6 +512,34 @@
                     </ListView>
                 </StackPanel>
             </Grid>
-        </Grid>
+                <Grid Grid.Row="4"
+                  Margin="0,4,0,0"
+                  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid Grid.Column="0"
+                      HorizontalAlignment="Right"
+                      >
+                        <TextBlock
+                        Foreground="White"
+                        Text="TỔNG TIỀN: "
+                        FontFamily="{StaticResource Custom}"
+                        FontSize="16"
+                        />
+                    </Grid>
+                    <Grid Grid.Column="1">
+                        <TextBlock
+                        Foreground="White"
+                        x:Name="TT"
+                        FontFamily="{StaticResource Custom}"
+                        FontSize="16"
+                        />
+                    </Grid>
+                </Grid>
+            </Grid>
     </Border>
 </Window>

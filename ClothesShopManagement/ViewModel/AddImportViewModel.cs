@@ -28,14 +28,18 @@ namespace ClothesShopManagement.ViewModel
         public ICommand AddSP { get; set; }
         public ICommand DeleteSP { get; set; }
         public ICommand SavePN { get; set; }
+        public ICommand Choose { get; set; }
+        public int tongtien { get; set; }
         public AddImportViewModel()
         {
+            tongtien = 0;
             LSPSelected = new ObservableCollection<SANPHAM>();
             LHT = new ObservableCollection<Display>();
             LCTPN = new ObservableCollection<CTPN>();
             Closewd = new RelayCommand<AddImportView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<AddImportView>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<AddImportView>((p) => true, (p) => moveWindow(p));
+            Choose = new RelayCommand<AddImportView>((p) => true, (p) => _Choose(p));
             Loadwd = new RelayCommand<AddImportView>((p) => true, (p) => _Loadwd(p));
             AddSP = new RelayCommand<AddImportView>((p) => true, (p) => _AddSP(p));
             DeleteSP = new RelayCommand<AddImportView>((p) => true, (p) => _DeleteSP(p));
@@ -59,7 +63,20 @@ namespace ClothesShopManagement.ViewModel
             paramater.SP.ItemsSource = LSP;
             paramater.MaND.Text = Const.ND.MAND;
             paramater.TenND.Text = Const.ND.TENND;
+            paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
             paramater.Ngay.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
+        }
+        void _Choose(AddImportView paramater)
+        {
+            if (paramater.SP.SelectedItem != null)
+            {
+                SANPHAM temp = (SANPHAM)paramater.SP.SelectedItem;
+                paramater.DG.Text = ((int)(float)temp.GIA * 0.8).ToString();
+            }
+            else
+            {
+                paramater.DG.Text = "";
+            }
         }
         void _AddSP(AddImportView paramater)
         {
@@ -95,6 +112,7 @@ namespace ClothesShopManagement.ViewModel
                 if (display.MaSp == a.MASP)
                 {
                     display.SL += int.Parse(paramater.SL.Text);
+                    display.Tiennhap = display.SL * (int)(a.GIA * 0.8);
                     foreach (CTPN ct in LCTPN)
                     {
                         if (ct.MASP == display.MaSp)
@@ -103,7 +121,7 @@ namespace ClothesShopManagement.ViewModel
                     goto There;
                 }
             }
-            Display b = new Display(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text));
+            Display b = new Display(a.MASP, a.TENSP, a.SIZE, (int)((float)a.GIA * 0.8), int.Parse(paramater.SL.Text), (int)((float)(int.Parse(paramater.SL.Text) * a.GIA) * 0.8));
             CTPN ctpn = new CTPN()
             {
                 MASP = a.MASP,
@@ -119,12 +137,14 @@ namespace ClothesShopManagement.ViewModel
                     x.SL += int.Parse(paramater.SL.Text);
             }*/
         There:
+            tongtien += int.Parse(paramater.SL.Text) * (int)(a.GIA * 0.8);
             paramater.ListViewSP.ItemsSource = LHT;
             paramater.ListViewSP.Items.Refresh();
             paramater.SP.ItemsSource = LSP;
             paramater.SP.Items.Refresh();
             paramater.SP.SelectedItem = null;
             paramater.SL.Text = "";
+            paramater.TT.Text = tongtien.ToString("#,### VNĐ");
         }
         void _DeleteSP(AddImportView paramater)
         {
@@ -137,6 +157,8 @@ namespace ClothesShopManagement.ViewModel
             if (h == MessageBoxResult.Yes)
             {
                 Display a = (Display)paramater.ListViewSP.SelectedItem;
+                tongtien -= a.Tiennhap;
+                paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
                 LHT.Remove(a);
                 foreach (SANPHAM b in LSPSelected)
                 {

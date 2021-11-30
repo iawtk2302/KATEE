@@ -64,6 +64,7 @@ namespace ClothesShopManagement.ViewModel
         public List<YData> YDatas { get; set; }
         public long Tien { get; set; }
         public DateTime Ngay { get; set; }
+        public DateTime NgayMua { get; set; }
         public string TenSP { get; set; }
         public string MaSP { get; set; }
         public int SL { get; set; }
@@ -93,7 +94,6 @@ namespace ClothesShopManagement.ViewModel
 
         public ReportViewModel()
         {
-            LoadView = new RelayCommand<ReportView>((p) => true, (p) => _Loadview(p));
             Select = new ObservableCollection<string> { "Theo năm", "Theo tháng" };
             LoadCbbx = new RelayCommand<ReportView>((p) => true, (p) => ColChart(p));
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
@@ -102,38 +102,10 @@ namespace ClothesShopManagement.ViewModel
             LoadSP = new RelayCommand<ReportView>((p) => true, (p) => SPCount(p));
             LoadNV = new RelayCommand<ReportView>((p) => true, (p) => NVCount(p));
             LoadDT = new RelayCommand<ReportView>((p) => true, (p) => DTTrend(p));
-            LoadTotal = new RelayCommand<ReportView>((p) => true, (p) => Total(p));
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
             listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
         }
-        public void _Loadview(ReportView p)
-        {
-            if ((bool)p.btnMain.IsChecked)
-            {
-                SetMain = Visibility.Visible;
-                SetBills = Visibility.Hidden;
-                SetImport = Visibility.Hidden;
-            }
-            else if ((bool)p.btnSale.IsChecked)
-            {
-                listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
-                SetMain = Visibility.Hidden;
-                SetBills = Visibility.Visible;
-                SetImport = Visibility.Hidden;
-            }
-            else
-            {
-                listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
-                SetMain = Visibility.Hidden;
-                SetBills = Visibility.Hidden;
-                SetImport = Visibility.Visible;
-            }
-        }
-        public void Total(ReportView p)
-        {
-            long total = DataProvider.Ins.DB.HOADONs.Select(x => x.TRIGIA).Sum();
-            p.Total.Text = total.ToString("#,### VNĐ");
-        }
+
         public void DTTrend(ReportView p)
         {
             ThisMonth = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month).Sum(x => x.TRIGIA);
@@ -175,12 +147,13 @@ namespace ClothesShopManagement.ViewModel
             MaxSell = int.MinValue;
             var query = from a in DataProvider.Ins.DB.CTHDs
                         join b in DataProvider.Ins.DB.SANPHAMs on a.MASP equals b.MASP
-                        where a.MASP == b.MASP
+                        where a.MASP == b.MASP && a.HOADON.NGHD.Month == DateTime.Now.Month && a.HOADON.NGHD.Year == DateTime.Now.Year
                         select new ReportViewModel()
                         {
                             SL = a.SL,
                             MaSP = a.MASP,
-                            TenSP = b.TENSP
+                            TenSP = b.TENSP,
+                            //NgayMua = a.HOADON.NGHD
                         };
             foreach (ReportViewModel obj in query)
             {
@@ -192,6 +165,7 @@ namespace ClothesShopManagement.ViewModel
                     SPName = obj.TenSP;
                 }
             }
+
             p.MaxSP.Text = BestSeller;
             p.SPName.Text = SPName;
         }
