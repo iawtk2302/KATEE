@@ -61,6 +61,7 @@ namespace ClothesShopManagement.ViewModel
         void _LoadCsCommand(QLNVView parameter)
         {
             parameter.cbxChon.SelectedIndex = 0;
+            listND = new ObservableCollection<NGUOIDUNG>(DataProvider.Ins.DB.NGUOIDUNGs.Where(p => p.TTND == true && p.MAND != Const.ND.MAND));
         }
         void _SearchCommand(QLNVView paramater)
         {
