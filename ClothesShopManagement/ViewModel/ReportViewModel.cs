@@ -107,8 +107,22 @@ namespace ClothesShopManagement.ViewModel
 
         public void DTTrend(ReportView p)
         {
-            ThisMonth = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month).Sum(x => x.TRIGIA);
-            LastMonth = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month - 1).Sum(x => x.TRIGIA);
+            if(DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month).Count()==0)
+            {
+                ThisMonth = 0;
+            }
+            else
+            {
+                ThisMonth = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month).Sum(x => x.TRIGIA);
+            }
+            if(DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month-1).Count() == 0)
+            {
+                LastMonth = 0;
+            }    
+            else
+            {
+                LastMonth = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month - 1).Sum(x => x.TRIGIA);    
+            }
             long temp = ThisMonth - LastMonth;
             if (temp >= 0)
             {
