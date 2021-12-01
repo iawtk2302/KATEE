@@ -121,32 +121,32 @@
                                 <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="10">
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox
-                                    x:Name="MaND"
-                                    HorizontalAlignment="Left"
-                                    FontFamily="{StaticResource Custom}"
-                                    BorderThickness="0"
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                                    IsEnabled="False"
-                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                            x:Name="MaND"
+                                            HorizontalAlignment="Left"
+                                            FontFamily="{StaticResource Custom}"
+                                            BorderThickness="0"
+                                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                            IsEnabled="False"
+                                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
                                         <TextBox
                                             Text="|"
-                                    HorizontalAlignment="Left"
-                                    FontFamily="{StaticResource Custom}"
-                                    BorderThickness="0"
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                                    IsEnabled="False"
-                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                            HorizontalAlignment="Left"
+                                            FontFamily="{StaticResource Custom}"
+                                            BorderThickness="0"
+                                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                            IsEnabled="False"
+                                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
                                         <TextBox
-                                    x:Name="TenND"
-                                    HorizontalAlignment="Left"
-                                    FontFamily="{StaticResource Custom}"
-                                    BorderThickness="0"
-                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
-                                    materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
-                                    IsEnabled="False"
-                                    materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
+                                            x:Name="TenND"
+                                            HorizontalAlignment="Left"
+                                            FontFamily="{StaticResource Custom}"
+                                            BorderThickness="0"
+                                            materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                                            materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
+                                            IsEnabled="False"
+                                            materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
                                     </StackPanel>
                                 </Border>
                             </StackPanel>
@@ -223,7 +223,7 @@
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
                                     BorderThickness="0"
-                                        IsEnabled="False"
+                                    IsEnabled="False"
                                     materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                     materialDesign:TextFieldAssist.TextFieldCornerRadius="10"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
@@ -354,12 +354,11 @@
                                 Orientation="Horizontal"
                                 >
                                 <Button
-                                    
                                     BorderThickness="0"
-                                Content="THÊM"
+                                    Content="THÊM"
                                     FontSize="12"
-                                x:Name="addbtn"
-                                FontFamily="{StaticResource Custom}"
+                                    x:Name="addbtn"
+                                    FontFamily="{StaticResource Custom}"
                                 >
                                     <Button.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -369,19 +368,19 @@
                                     </Button.Background>
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction     Command="{Binding AddSP}"
-                                                           CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
+                                            <i:InvokeCommandAction     
+                                                            Command="{Binding AddSP}"
+                                                            CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
-                                <Button
-                                    
+                                <Button 
                                     BorderThickness="0"
-                                Margin="6,0,0,0"
-                                Content="XÓA"
-                                FontSize="12"
-                                x:Name="deletebtn"
-                                FontFamily="{StaticResource Custom}"
+                                    Margin="6,0,0,0"
+                                    Content="XÓA"
+                                    FontSize="12"
+                                    x:Name="deletebtn"
+                                    FontFamily="{StaticResource Custom}"
                                 >
                                     <Button.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -397,13 +396,12 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                                 <Button
-                                    
                                     BorderThickness="0"
-                                Margin="6,0,0,0"
-                                Content="THANH TOÁN"
+                                    Margin="6,0,0,0"
+                                    Content="THANH TOÁN"
                                     FontSize="12"
-                                FontFamily="{StaticResource Custom}"
-                                x:Name="ttbtn"
+                                    FontFamily="{StaticResource Custom}"
+                                    x:Name="ttbtn"
                                 >
                                     <Button.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -413,8 +411,9 @@
                                     </Button.Background>
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
-                                            <i:InvokeCommandAction     Command="{Binding SaveHD}"
-                                                           CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
+                                            <i:InvokeCommandAction     
+                                                            Command="{Binding SaveHD}"
+                                                            CommandParameter="{Binding ElementName=AddOrderwd}"></i:InvokeCommandAction>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
@@ -451,7 +450,7 @@
                             </Grid>
                             <Grid Grid.Column="1">
                                 <TextBlock
-                                                Margin="2,0,0,0"
+                                Margin="2,0,0,0"
                                 HorizontalAlignment="Left"
                                 Text="TÊN SP"
                                 VerticalAlignment="Center"
@@ -499,11 +498,11 @@
                         <DataTemplate>
                                 <Border
                                 Margin="35,0,0,0"
-                        Width="600"
-                        Height="40"
-                        CornerRadius="10"
-                        Background="White"
-                        >
+                                Width="600"
+                                Height="40"
+                                CornerRadius="10"
+                                Background="White"
+                                >
                                     <Grid>
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100"/>
@@ -514,50 +513,50 @@
                                     </Grid.ColumnDefinitions>
                                     <Grid Grid.Column="0">
                                         <TextBlock
-                                Text="{Binding MaSp}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                            Text="{Binding MaSp}"
+                                            HorizontalAlignment="Center"
+                                            VerticalAlignment="Center"
+                                            FontFamily="{StaticResource Custom}"
+                                            FontSize="12"
+                                        />
                                     </Grid>
                                     <Grid Grid.Column="1">
                                         <TextBlock
                                                 Margin="2,0,0,0"
-                                HorizontalAlignment="Left"
-                                Text="{Binding TenSP}"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding TenSP}"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                        />
                                     </Grid>
                                     <Grid Grid.Column="2">
                                         <TextBlock
-                                Text="{Binding Size}"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                            Text="{Binding Size}"
+                                            HorizontalAlignment="Left"
+                                            VerticalAlignment="Center"
+                                            FontFamily="{StaticResource Custom}"
+                                            FontSize="12"
+                                        />
                                     </Grid>
                                     <Grid Grid.Column="3">
                                         <TextBlock
-                                Text="{Binding SL}"
+                                                Text="{Binding SL}"
                                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 MaxWidth="150"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
                                 />
                                     </Grid>
                                     <Grid Grid.Column="4">
                                         <TextBlock
-                                Text="{Binding Tong,StringFormat={}{0:#,###} VNĐ}"
+                                                Text="{Binding Tong,StringFormat={}{0:#,###} VNĐ}"
                                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 MaxWidth="150"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
                                 />
                                     </Grid>
                                 </Grid>

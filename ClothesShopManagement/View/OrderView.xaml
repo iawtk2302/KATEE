@@ -201,41 +201,41 @@
                                         </Grid.ColumnDefinitions>
                                         <Grid Grid.Column="0">
                                             <TextBlock
-                                Text="{Binding SOHD}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                Text="{Binding SOHD}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="1">
                                             <TextBlock
                                                 Margin="2,0,0,0"
-                                HorizontalAlignment="Left"
-                                Text="{Binding KHACHHANG.HOTEN}"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding KHACHHANG.HOTEN}"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <TextBlock
-                                Text="{Binding NGHD, StringFormat=dd/MM/yyyy hh:mm:tt}"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
+                                                Text="{Binding NGHD, StringFormat=dd/MM/yyyy hh:mm:tt}"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
                                 FontSize="12"
                                 />
                                         </Grid>
                                         <Grid Grid.Column="3">
                                             <TextBlock
-                                Text="{Binding TRIGIA, StringFormat={}{0:#,###} VNĐ}"
+                                                Text="{Binding TRIGIA, StringFormat={}{0:#,###} VNĐ}"
                                                 HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 MaxWidth="150"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                     </Grid>
                                 </Border>

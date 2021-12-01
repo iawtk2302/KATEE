@@ -168,15 +168,8 @@ namespace ClothesShopManagement.ViewModel
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
                 LCTHD.Add(cthd);
                 LHT.Add(b);
-                //foreach (SANPHAM x in LSP)
-                //{
-                //    if (x.MASP == a.MASP)
-                //        x.SL -= int.Parse(paramater.SL.Text);
-                //}
                 paramater.ListViewSP.ItemsSource = LHT;
                 paramater.ListViewSP.Items.Refresh();
-                //paramater.SP.ItemsSource = LSP;
-                //paramater.SP.Items.Refresh();
                 paramater.SP.SelectedItem = null;
                 paramater.SL.Text = "";
             }

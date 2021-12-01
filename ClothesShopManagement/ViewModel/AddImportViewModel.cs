@@ -130,12 +130,7 @@ namespace ClothesShopManagement.ViewModel
                 MAPN = int.Parse(paramater.MaPN.Text),
             };
             LCTPN.Add(ctpn);
-            LHT.Add(b);/*
-            foreach (SANPHAM x in LSP)
-            {
-                if (x.MASP == a.MASP)
-                    x.SL += int.Parse(paramater.SL.Text);
-            }*/
+            LHT.Add(b);
         There:
             tongtien += int.Parse(paramater.SL.Text) * (int)(a.GIA * 0.8);
             paramater.ListViewSP.ItemsSource = LHT;

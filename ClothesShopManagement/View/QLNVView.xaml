@@ -12,8 +12,8 @@
       x:Name="QLNVwd">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
-            <i:InvokeCommandAction Command="{Binding LoadCsCommand}"
-                                                       CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
+            <i:InvokeCommandAction  Command="{Binding LoadCsCommand}"
+                                    CommandParameter="{Binding ElementName=QLNVwd}"></i:InvokeCommandAction>
         </i:EventTrigger>
     </i:Interaction.Triggers>
     <Border
@@ -158,43 +158,43 @@
                                     >
                                             <TextBlock
                                                 Margin="4,0,0,0"
-                                Text="{Binding TENND}"
+                                                Text="{Binding TENND}"
                                                 Foreground="#6C63FF"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
                                 />
                                             <StackPanel Orientation="Horizontal"
                                                         Margin="4,0,0,0">
                                                 <TextBlock
-                                        Text="SĐT: "
+                                                    Text="SĐT: "
                                                     Foreground="#6C63FF"
-                                        FontFamily="{StaticResource Custom}"
-                                         FontSize="12"
-                                        />
+                                                    FontFamily="{StaticResource Custom}"
+                                                    FontSize="12"
+                                                />
                                                 <TextBlock
-                                        Text="{Binding SDT}"
+                                                    Text="{Binding SDT}"
                                                     Foreground="#6C63FF"
-                                        FontFamily="{StaticResource Custom1}"
-                                        FontSize="12"
-                                        />
+                                                    FontFamily="{StaticResource Custom1}"
+                                                    FontSize="12"
+                                                />
                                             </StackPanel>
 
                                             <StackPanel Orientation="Horizontal"
                                                         Margin="4,0,0,0"
                                                         >
                                                 <TextBlock
-                                        Text="ĐC: "
+                                                    Text="ĐC: "
                                                     Foreground="#6C63FF"
-                                        FontFamily="{StaticResource Custom}"
-                                         FontSize="12"
-                                        />
+                                                    FontFamily="{StaticResource Custom}"
+                                                    FontSize="12"
+                                                />
                                                 <TextBlock
-                                        Text="{Binding DIACHI}"
+                                                    Text="{Binding DIACHI}"
                                                     Foreground="#6C63FF"
-                                        FontFamily="{StaticResource Custom1}"
-                                        FontSize="12"
+                                                    FontFamily="{StaticResource Custom1}"
+                                                    FontSize="12"
                                         />
                                             </StackPanel>
                                         </StackPanel>

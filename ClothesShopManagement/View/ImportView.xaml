@@ -136,10 +136,10 @@
                         <ListView.ItemTemplate>
                             <DataTemplate>
                                 <Border
-                        Width="600"
-                        Height="40"
-                        CornerRadius="10"                       
-                        >
+                                    Width="600"
+                                    Height="40"
+                                    CornerRadius="10"                       
+                                 >
                                     <Border.Background>
                                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                             <GradientStop Color="#FFE5D8" Offset="1"/>
@@ -154,31 +154,31 @@
                                         </Grid.ColumnDefinitions>
                                         <Grid Grid.Column="0">
                                             <TextBlock
-                                Text="{Binding MAPN}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                Text="{Binding MAPN}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="1">
                                             <TextBlock
                                                 Margin="55,0,0,0"
-                                HorizontalAlignment="Left"
-                                Text="{Binding NGUOIDUNG.TENND}"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding NGUOIDUNG.TENND}"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <TextBlock Margin="55,0,0,0"
-                                Text="{Binding NGAYNHAP, StringFormat=dd/MM/yyyy hh:mm:tt}"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                Text="{Binding NGAYNHAP, StringFormat=dd/MM/yyyy hh:mm:tt}"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                                />
                                         </Grid>
                                     </Grid>
                                 </Border>

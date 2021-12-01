@@ -121,7 +121,7 @@
                                     IsEnabled="False"
                                     materialDesign:TextFieldAssist.TextBoxViewMargin="10,0,0,0"/>
                                     <TextBox
-                                            Text="|"
+                                    Text="|"
                                     HorizontalAlignment="Left"
                                     FontFamily="{StaticResource Custom}"
                                     BorderThickness="0"
@@ -296,9 +296,9 @@
                             <Grid Grid.Column="3">
                                 <TextBlock
                                 Text="SL"
-                                                HorizontalAlignment="Left"
+                                HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                                MaxWidth="150"
+                                MaxWidth="150"
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
                                 />
@@ -306,9 +306,9 @@
                             <Grid Grid.Column="4">
                                 <TextBlock
                                 Text="THÀNH TIỀN"
-                                                HorizontalAlignment="Left"
+                                HorizontalAlignment="Left"
                                 VerticalAlignment="Center"
-                                                MaxWidth="150"
+                                MaxWidth="150"
                                 FontFamily="{StaticResource Custom}"
                                 FontSize="12"
                                 />
@@ -339,51 +339,51 @@
                                         </Grid.ColumnDefinitions>
                                         <Grid Grid.Column="0">
                                             <TextBlock
-                                Text="{Binding MaSp}"
-                                HorizontalAlignment="Center"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                Text="{Binding MaSp}"
+                                                HorizontalAlignment="Center"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="1">
                                             <TextBlock
                                                 Margin="2,0,0,0"
-                                HorizontalAlignment="Left"
-                                Text="{Binding TenSP}"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                HorizontalAlignment="Left"
+                                                Text="{Binding TenSP}"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <TextBlock
-                                Text="{Binding Size}"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                Text="{Binding Size}"
+                                                HorizontalAlignment="Left"
+                                                VerticalAlignment="Center"
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="3">
                                             <TextBlock
-                                Text="{Binding SL}"
+                                                Text="{Binding SL}"
                                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 MaxWidth="150"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                         <Grid Grid.Column="4">
                                             <TextBlock
-                                Text="{Binding Tong,StringFormat={}{0:#,###} VNĐ}"
+                                                Text="{Binding Tong,StringFormat={}{0:#,###} VNĐ}"
                                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 MaxWidth="150"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                     </Grid>
                                 </Border>

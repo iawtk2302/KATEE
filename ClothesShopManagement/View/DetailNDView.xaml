@@ -100,9 +100,10 @@
                             <StackPanel
                         Orientation="Horizontal"
                         >
-                                <TextBox    Margin="0,10,0,0" Foreground="Black" 
-                                            materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                <TextBox    
+                                    Margin="0,10,0,0" Foreground="Black" 
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                     Width="190"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                                     VerticalAlignment="Top"
@@ -112,15 +113,16 @@
                                     IsEnabled="False"
                                     FontFamily="{StaticResource Custom}"
                                     materialDesign:HintAssist.Hint="Mã ND"/>
-                                <TextBox Margin="10,10,0,0" Foreground="Black" 
-                                         materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                <TextBox 
+                                    Margin="10,10,0,0" Foreground="Black" 
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                     Width="190"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                                     VerticalAlignment="Top"
                                     AcceptsReturn="True"
                                     TextWrapping="Wrap"
-                                         IsEnabled="False"
+                                    IsEnabled="False"
                                     MaxWidth="400" x:Name="TenND"
                                     FontFamily="{StaticResource Custom}"
                                     materialDesign:HintAssist.Hint="Họ tên"/>
@@ -130,26 +132,26 @@
                         Margin="0,10,0,0"
                         >
                                 <ComboBox 
-                            x:Name="GT" FontFamily="{StaticResource Custom}"
-                            Style="{StaticResource MaterialDesignFilledComboBox}"
+                                    x:Name="GT" FontFamily="{StaticResource Custom}"
+                                    Style="{StaticResource MaterialDesignFilledComboBox}"
                                     materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                     IsEnabled="False"
-                            materialDesign:HintAssist.Hint="Giới tính"
-                            Width="190" >
+                                    materialDesign:HintAssist.Hint="Giới tính"
+                                    Width="190" >
                                     <ComboBoxItem
                                     Content="Nam" />
                                     <ComboBoxItem
                                     Content="Nữ" />
                                 </ComboBox>
                                 <ComboBox 
-                                Margin="10,0,0,0"
-                                x:Name="QTV" FontFamily="{StaticResource Custom}"
-                                Style="{StaticResource MaterialDesignFilledComboBox}"
+                                    Margin="10,0,0,0"
+                                    x:Name="QTV" FontFamily="{StaticResource Custom}"
+                                    Style="{StaticResource MaterialDesignFilledComboBox}"
                                     materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
-                                materialDesign:HintAssist.Hint="Chức vụ"
-                                Width="190" >
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                    materialDesign:HintAssist.Hint="Chức vụ"
+                                    Width="190" >
                                     <ComboBoxItem
                                     Content="Quản lý" />
                                     <ComboBoxItem
@@ -162,20 +164,20 @@
                         >
                                 <DatePicker   
                                             materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
-                                    IsEnabled="False"
+                                            materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                            IsEnabled="False"
                                             Foreground="Black" x:Name="NS"
                                             FontFamily="{StaticResource Custom}"
                                             materialDesign:HintAssist.Hint="Ngày sinh" Style="{StaticResource MaterialDesignFilledDatePicker}" HorizontalAlignment="Left" Width="190">
                                 </DatePicker>
                                 <TextBox Margin="10,0,0,0"  Width="190"
                                         Style="{StaticResource MaterialDesignFilledTextBox}"
-                                         materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                        materialDesign:HintAssist.Foreground="Black"
+                                        materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                         VerticalAlignment="Top"
                                         AcceptsReturn="True"
                                         TextWrapping="Wrap"
-                                         IsEnabled="False"
+                                        IsEnabled="False"
                                         HorizontalAlignment="Left" x:Name="SDT"
                                         FontFamily="{StaticResource Custom}"
                                         materialDesign:HintAssist.Hint="Số điện thoại" />
@@ -186,10 +188,10 @@
                                  VerticalAlignment="Top"
                                  AcceptsReturn="True"
                                  TextWrapping="Wrap"
-                                     IsEnabled="False"
+                                 IsEnabled="False"
                                  MaxWidth="400" x:Name="DC"
-                                     materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                 materialDesign:HintAssist.Foreground="Black"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                  FontFamily="{StaticResource Custom}"
                                  materialDesign:HintAssist.Hint="Địa chỉ" Width="390"/>
                         </StackPanel>
@@ -197,11 +199,11 @@
                     <Grid Grid.Row="1" Grid.Column="1">
                         <StackPanel Orientation="Horizontal">
                             <Button
-                        Width="190"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="CẬP NHẬT"
-                        BorderThickness="0"
+                            Width="190"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Content="CẬP NHẬT"
+                            BorderThickness="0"
                             FontFamily="{StaticResource Custom}"
                             Foreground="#6C63FF"
                             Background="White"
@@ -216,12 +218,12 @@
                                 </i:Interaction.Triggers>
                             </Button>
                             <Button
-                        Width="190"
-                        Margin="10,0,0,0"
-                        HorizontalAlignment="Left"
-                        VerticalAlignment="Top"
-                        Content="XÓA"
-                        BorderThickness="0"
+                            Width="190"
+                            Margin="10,0,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Top"
+                            Content="XÓA"
+                            BorderThickness="0"
                             FontFamily="{StaticResource Custom}"
                             Foreground="#6C63FF"
                             Background="White"

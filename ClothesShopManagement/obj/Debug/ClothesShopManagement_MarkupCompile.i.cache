@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\Admin\OneDrive\Documents\test3\ClothesShopManagement\obj\Debug\
+C:\Users\Admin\OneDrive\Documents\doanlttq\ClothesShopManagement\obj\Debug\
 ClothesShopManagement
 none
 false
 DEBUG;TRACE
-C:\Users\Admin\OneDrive\Documents\test3\ClothesShopManagement\App.xaml
-251889353593
+C:\Users\Admin\OneDrive\Documents\doanlttq\ClothesShopManagement\App.xaml
+24-1867211312
 2739969757
-62-327328631
-39-536053711
-Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddNDView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailImport.xaml;View\DetailNDView.xaml;View\DetailOrder.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintOrderView.xaml;View\ProductsView.xaml;View\QLNVView.xaml;View\ReportView.xaml;View\SettingView.xaml;View\test.xaml;
+61-498149174
+39-1848810159
+Resource\MainResource.xaml;Resource\StylesResource.xaml;View\AddCustomerView.xaml;View\AddImportView.xaml;View\AddNDView.xaml;View\AddOrderView.xaml;View\AddProductView.xaml;View\ChangePassword.xaml;View\CustomerView.xaml;View\DetailCustomerView.xaml;View\DetailImport.xaml;View\DetailNDView.xaml;View\DetailOrder.xaml;View\DetailProduct.xaml;View\HomeView.xaml;View\ImportView.xaml;View\LoginWindow.xaml;View\MainWindow.xaml;View\OrderView.xaml;View\PrintOrderView.xaml;View\ProductsView.xaml;View\QLNVView.xaml;View\ReportView.xaml;View\SettingView.xaml;
 
-False
+True
 

@@ -96,13 +96,9 @@ namespace ClothesShopManagement.ViewModel
         {
             Random rd = new Random();
             int length = rd.Next(5, 20);
-
-            // creating a StringBuilder object()
             StringBuilder str_build = new StringBuilder();
             Random random = new Random();
-
             char letter;
-
             for (int i = 0; i < length; i++)
             {
                 double flt = random.NextDouble();

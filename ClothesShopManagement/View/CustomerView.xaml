@@ -217,22 +217,22 @@
                                         </Grid>
                                         <Grid Grid.Column="2">
                                             <TextBlock
-                                Text="{Binding SDT}"
-                                HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                    Text="{Binding SDT}"
+                                                    HorizontalAlignment="Left"
+                                                    VerticalAlignment="Center"
+                                                    FontFamily="{StaticResource Custom}"
+                                                    FontSize="12"
+                                        />
                                         </Grid>
                                         <Grid Grid.Column="3">
                                             <TextBlock
-                                Text="{Binding DCHI}"
+                                                Text="{Binding DCHI}"
                                                 HorizontalAlignment="Left"
-                                VerticalAlignment="Center"
+                                                VerticalAlignment="Center"
                                                 MaxWidth="150"
-                                FontFamily="{StaticResource Custom}"
-                                FontSize="12"
-                                />
+                                                FontFamily="{StaticResource Custom}"
+                                                FontSize="12"
+                                            />
                                         </Grid>
                                     </Grid>
                                 </Border>
