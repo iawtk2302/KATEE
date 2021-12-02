@@ -74,7 +74,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddND(AddNDView addNDView)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm người dùng ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 if (String.IsNullOrEmpty(addNDView.MaND.Text) || String.IsNullOrEmpty(addNDView.TenND.Text) || String.IsNullOrEmpty(addNDView.SDT.Text) || String.IsNullOrEmpty(addNDView.GT.Text) || String.IsNullOrEmpty(addNDView.QTV.Text) || addNDView.NS.SelectedDate == null)

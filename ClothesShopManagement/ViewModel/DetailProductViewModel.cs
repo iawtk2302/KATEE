@@ -46,7 +46,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _DeleteProduct(DetailProduct parameter)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn xóa sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn xóa sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             { 
                 foreach (SANPHAM a in DataProvider.Ins.DB.SANPHAMs.Where(pa => (pa.TENSP == TenSP1 && pa.SL >= 0)))
@@ -75,7 +75,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _UpdateProduct(DetailProduct p)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn cập nhật sản phẩm ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 if (string.IsNullOrEmpty(p.TenSP.Text) || string.IsNullOrEmpty(p.Mota.Text) || string.IsNullOrEmpty(p.Mota.Text))

@@ -144,6 +144,9 @@ namespace ClothesShopManagement.ViewModel
             detailOrder.DG.Text=temp.DANHGIA.ToString();
             detailOrder.ShowDialog();
             parameter.ListViewHD.SelectedItem=null;
+            listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
+            parameter.ListViewHD.ItemsSource = listHD;
+            parameter.ListViewHD.Items.Refresh();
         }
     }
 }

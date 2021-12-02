@@ -82,14 +82,14 @@ namespace ClothesShopManagement.ViewModel
         {
             if (paramater.MaPN.Text == "")
             {
-                System.Windows.MessageBox.Show("Bạn chưa nhập mã phiếu nhập!", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa nhập mã phiếu nhập!", "THÔNG BÁO",MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             foreach (PHIEUNHAP s in DataProvider.Ins.DB.PHIEUNHAPs)
             {
                 if (int.Parse(paramater.MaPN.Text) == s.MAPN)
                 {
-                    System.Windows.MessageBox.Show("Mã phiếu nhập đã tồn tại !", "THÔNG BÁO");
+                    System.Windows.MessageBox.Show("Mã phiếu nhập đã tồn tại !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }
@@ -97,13 +97,13 @@ namespace ClothesShopManagement.ViewModel
             {
                 if (int.Parse(paramater.SL.Text) < 10)
                 {
-                    System.Windows.MessageBox.Show("Số lượng nhập không được nhỏ hơn 10!", "THÔNG BÁO");
+                    System.Windows.MessageBox.Show("Số lượng nhập không được nhỏ hơn 10!", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
             }
             catch
             {
-                System.Windows.MessageBox.Show("Số lượng nhập không hợp lệ!", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Số lượng nhập không hợp lệ!", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
@@ -145,10 +145,10 @@ namespace ClothesShopManagement.ViewModel
         {
             if (paramater.ListViewSP.SelectedItem == null)
             {
-                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 Display a = (Display)paramater.ListViewSP.SelectedItem;
@@ -180,10 +180,10 @@ namespace ClothesShopManagement.ViewModel
         {
             if (paramater.ListViewSP.Items.Count == 0)
             {
-                System.Windows.MessageBox.Show("Thông tin phiếu nhập chưa đầy đủ !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Thông tin phiếu nhập chưa đầy đủ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBoxResult h = System.Windows.MessageBox.Show("Xác nhận nhập hàng?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Xác nhận nhập hàng?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 PHIEUNHAP temp = new PHIEUNHAP()

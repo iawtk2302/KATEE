@@ -83,10 +83,12 @@ namespace ClothesShopManagement.ViewModel
             temp.GIOITINH = p.GTBox.Text;
             temp.NGSINH = (DateTime)p.DateBox.SelectedDate;
             string rd = StringGenerator();
-            temp.AVA = "/Resource/Ava/" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();
+            if (User.AVA != Ava)
+                temp.AVA = "/Resource/Ava/" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();
             DataProvider.Ins.DB.SaveChanges();
             try
             {
+                if (User.AVA != Ava) 
                 File.Copy(Ava, Const._localLink + @"Resource/Ava/" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString(), true);
             }
             catch { }

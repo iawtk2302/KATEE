@@ -95,7 +95,7 @@ namespace ClothesShopManagement.ViewModel
         }
         public void SoDon(HomeView p)
         {
-            int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day).Count();
+            int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day && x.NGHD.Month == DateTime.Now.Month && x.NGHD.Year == DateTime.Now.Year).Count();
             p.DonNgay.Text = count.ToString();
         }
         public void Rating(HomeView p)
@@ -108,9 +108,9 @@ namespace ClothesShopManagement.ViewModel
         public void LoadDT(HomeView p)
         {
             long total = 0;
-            if (DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day).Select(x => x.TRIGIA).Count() != 0)
+            if (DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day && x.NGHD.Month == DateTime.Now.Month && x.NGHD.Year == DateTime.Now.Year).Select(x => x.TRIGIA).Count() != 0)
             {
-                total = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day).Select(x => x.TRIGIA).Sum();
+                total = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day && x.NGHD.Month == DateTime.Now.Month && x.NGHD.Year == DateTime.Now.Year).Select(x => x.TRIGIA).Sum();
                 DoanhThu = total.ToString("#,###") + " VNĐ";
             }
             else DoanhThu = "0 VNĐ";

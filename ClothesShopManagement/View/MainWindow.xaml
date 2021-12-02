@@ -51,6 +51,12 @@
                         VerticalAlignment="Center"
                         Style="{StaticResource NameApp}" RenderTransformOrigin="0.5,0.5"
                         >
+                        <TextBlock.Foreground>
+                            <LinearGradientBrush EndPoint="1,1" StartPoint="0,0">
+                                <GradientStop Color="#FFE5D8" Offset="0"/>
+                                <GradientStop Color="#FFCAD4" Offset="1"/>
+                            </LinearGradientBrush>
+                        </TextBlock.Foreground>
                     </TextBlock>
                 </Grid>
                 <Grid Grid.Row="1">

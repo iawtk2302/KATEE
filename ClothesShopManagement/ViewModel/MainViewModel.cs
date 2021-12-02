@@ -66,7 +66,7 @@ namespace ClothesShopManagement.ViewModel
         }
         public void LoadQuyen(MainWindow p)
         {
-            p.Quyen.Text = User.QTV ? "Quản trị viên" : "Nhân viên";
+            p.Quyen.Text = User.QTV ? "Quản lý" : "Nhân viên";
         }
         void switchtab(MainWindow p)
         {

@@ -67,11 +67,11 @@ namespace ClothesShopManagement.ViewModel
         {
             if(string.IsNullOrEmpty(paramater.MaSp.Text)|| string.IsNullOrEmpty(paramater.TenSp.Text) || string.IsNullOrEmpty(paramater.LoaiSp.Text) || string.IsNullOrEmpty(paramater.GiaSp.Text) || string.IsNullOrEmpty(paramater.SizeSp.Text) || string.IsNullOrEmpty(paramater.MotaSp.Text) || string.IsNullOrEmpty(paramater.SlSp.Text) || linkimage== "/Resource/Image/add.png")
             {
-                MessageBox.Show("Bạn chưa nhập đủ thông tin.", "Thông Báo");
+                MessageBox.Show("Bạn chưa nhập đủ thông tin.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
             else
             {
-                MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thêm sản phẩm mới ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+                MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn thêm sản phẩm mới ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
                 if (h == MessageBoxResult.Yes)
                 {
                     if (DataProvider.Ins.DB.SANPHAMs.Where(p => p.MASP == paramater.MaSp.Text).Count() > 0)

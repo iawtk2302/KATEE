@@ -140,7 +140,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _UpdateNDCommand(DetailNDView p)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(pa => pa.TTND == true && pa.MAND != Const.ND.MAND))
@@ -159,7 +159,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _DeleteNDCommand(DetailNDView p)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn xóa người dùng này ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn xóa người dùng này ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 foreach (NGUOIDUNG a in DataProvider.Ins.DB.NGUOIDUNGs.Where(pa => pa.TTND == true && pa.MAND != Const.ND.MAND))

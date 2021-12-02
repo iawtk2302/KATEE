@@ -121,8 +121,8 @@
                                     materialDesign:HintAssist.Hint="Mã ND"/>
                                 <TextBox 
                                     Margin="10,10,0,0" Foreground="Black" 
-                                         materialDesign:HintAssist.Foreground="Black"
-                                materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
                                     Width="190"
                                     Style="{StaticResource MaterialDesignFilledTextBox}"
                                     VerticalAlignment="Top"

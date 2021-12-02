@@ -44,12 +44,12 @@ namespace ClothesShopManagement.ViewModel
         }
         void _Update(DetailCustomerView p)
         {
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn cập nhật thông tin ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 if (string.IsNullOrEmpty(p.TenKH.Text) || string.IsNullOrEmpty(p.SDT.Text) || string.IsNullOrEmpty(p.GT.Text) || string.IsNullOrEmpty(p.DC.Text))
                 {
-                    MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO");
+                    MessageBox.Show("Thông tin chưa đầy đủ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
                 else
                 {

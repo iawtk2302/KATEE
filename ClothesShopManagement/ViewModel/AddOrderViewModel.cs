@@ -99,7 +99,7 @@ namespace ClothesShopManagement.ViewModel
             if(paramater.SP.SelectedItem!=null)
             {
                 SANPHAM temp = (SANPHAM)paramater.SP.SelectedItem;
-                paramater.DG.Text = temp.GIA.ToString();
+                paramater.DG.Text = String.Format("{0:0,0}", temp.GIA) + " VND"; ;
             }
             else
             {
@@ -110,42 +110,41 @@ namespace ClothesShopManagement.ViewModel
         {
             if(paramater.SP.SelectedItem==null)
             {
-                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để thêm !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để thêm !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }    
             if(paramater.SoHD.Text=="")
             {
-                System.Windows.MessageBox.Show("Bạn chưa nhập số hóa đơn !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa nhập số hóa đơn !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             if (paramater.SL.Text == "")
             {
-                System.Windows.MessageBox.Show("Bạn chưa nhập số lượng sản phẩm !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa nhập số lượng sản phẩm !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            foreach (HOADON s in DataProvider.Ins.DB.HOADONs)
-            {
-                if(int.Parse(paramater.SoHD.Text)==s.SOHD)
-                {
-                    System.Windows.MessageBox.Show("Số hóa đơn đã tồn tại !", "THÔNG BÁO");
-                    return;
-                }    
-            }    
+            try {
+                int so = int.Parse(paramater.SL.Text);
+            }
+            catch {
+                MessageBox.Show("Số lượng không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return ;
+            }
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
             if (a.SL >= int.Parse(paramater.SL.Text))
             {
-                foreach(HienThi temp in LHT)
+                foreach (HienThi temp in LHT)
                 {
-                    if(temp.MaSp==a.MASP)
+                    if (temp.MaSp == a.MASP)
                     {
-                        temp.SL+=int.Parse(paramater.SL.Text);
+                        temp.SL += int.Parse(paramater.SL.Text);
                         temp.Tong = temp.SL * a.GIA;
-                        foreach(CTHD temp1 in LCTHD)
+                        foreach (CTHD temp1 in LCTHD)
                         {
-                            if(temp1.MASP==a.MASP)
+                            if (temp1.MASP == a.MASP)
                             {
                                 temp1.SL += int.Parse(paramater.SL.Text); ;
-                            }    
+                            }
                         }
                         tongtien += int.Parse(paramater.SL.Text) * a.GIA;
                         paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
@@ -154,8 +153,8 @@ namespace ClothesShopManagement.ViewModel
                         paramater.SP.SelectedItem = null;
                         paramater.SL.Text = "";
                         return;
-                    }    
-                }    
+                    }
+                }
                 HienThi b = new HienThi(a.MASP, a.TENSP, a.SIZE, int.Parse(paramater.SL.Text),a.GIA, int.Parse(paramater.SL.Text) * a.GIA);  
                 CTHD cthd = new CTHD()
                 {
@@ -180,10 +179,10 @@ namespace ClothesShopManagement.ViewModel
         {
             if(paramater.ListViewSP.SelectedItem==null)
             {
-                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để xóa !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Bạn chưa chọn sản phẩm để xóa !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }    
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn có chắc muốn xóa sản phẩm.", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 HienThi a = (HienThi)paramater.ListViewSP.SelectedItem;
@@ -229,10 +228,10 @@ namespace ClothesShopManagement.ViewModel
             DataProvider.Ins.DB.SaveChangesAsync();
             if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0||paramater.DG1.Text=="")
             {
-                System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO");
+                System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thanh toán ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+            MessageBoxResult h = System.Windows.MessageBox.Show("  Bạn muốn thanh toán ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
                 KHACHHANG a = (KHACHHANG)paramater.KH.SelectedItem;
@@ -260,11 +259,10 @@ namespace ClothesShopManagement.ViewModel
                             x.SL -= s.SL;
                         }
                     }
-                    //DataProvider.Ins.DB.SaveChanges();
                 }
                 DataProvider.Ins.DB.HOADONs.Add(temp);
                 DataProvider.Ins.DB.SaveChanges();
-                MessageBoxResult d = System.Windows.MessageBox.Show("  Bạn có muốn in hóa đơn ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel);
+                MessageBoxResult d = System.Windows.MessageBox.Show("  Bạn có muốn in hóa đơn ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel,MessageBoxImage.Question);
                 if (d == MessageBoxResult.Yes)
                 {
                     print(paramater);
@@ -307,7 +305,7 @@ namespace ClothesShopManagement.ViewModel
                 {
 
                 }
-                MessageBox.Show("In Hóa đơn thành công !", "THÔNG BÁO");
+                MessageBox.Show("In Hóa đơn thành công !","THÔNG BÁO");
         }
     }
 }
