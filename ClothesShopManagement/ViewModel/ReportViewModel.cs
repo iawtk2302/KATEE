@@ -82,7 +82,7 @@ namespace ClothesShopManagement.ViewModel
         public ObservableCollection<HOADON> listHD { get => _listHD; set { _listHD = value; OnPropertyChanged(); } }
         private ObservableCollection<PHIEUNHAP> _listPN;
         public ObservableCollection<PHIEUNHAP> listPN { get => _listPN; set { _listPN = value; OnPropertyChanged(); } }
-        public ICommand LoadPie { get; set; }
+        public ICommand LoadDonut { get; set; }
         public ICommand LoadCol { get; set; }
         public ICommand LoadCbbx { get; set; }
         public ICommand LoadSP { get; set; }
@@ -90,13 +90,17 @@ namespace ClothesShopManagement.ViewModel
         public ICommand LoadDT { get; set; }
         public ICommand LoadTotal { get; set; }
         public ICommand LoadView { get; set; }
+        public ICommand LoadPie { get; set; }
+        public ICommand Loadwd { get; set; }
 
         public ReportViewModel()
         {
             Select = new ObservableCollection<string> { "Theo năm", "Theo tháng" };
             LoadCbbx = new RelayCommand<ReportView>((p) => true, (p) => ColChart(p));
+            Loadwd = new RelayCommand<ReportView>((p) => true, (p) => _loadwd(p));
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
             SwitchTab = new RelayCommand<ReportView>((p) => true, (p) => switchtab(p));
+            LoadDonut = new RelayCommand<ReportView>((p) => true, (p) => DonutChart(p));
             LoadPie = new RelayCommand<ReportView>((p) => true, (p) => PieChart(p));
             LoadSP = new RelayCommand<ReportView>((p) => true, (p) => SPCount(p));
             LoadNV = new RelayCommand<ReportView>((p) => true, (p) => NVCount(p));
@@ -104,7 +108,11 @@ namespace ClothesShopManagement.ViewModel
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
             listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
         }
-
+        public void _loadwd(ReportView p)
+        {
+            SetMain = Visibility.Visible;
+            SetBills = Visibility.Hidden;
+        }
         public void DTTrend(ReportView p)
         {
             if(DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month).Count()==0)
@@ -225,6 +233,46 @@ namespace ClothesShopManagement.ViewModel
         }
         void PieChart(ReportView p)
         {
+            int at = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Áo thun").Sum(x => x.SL);
+            int ak = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Áo khoác").Sum(x => x.SL);
+            int sm = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Áo sơ mi").Sum(x => x.SL);
+            int other = DataProvider.Ins.DB.CTHDs.Sum(x => x.SL) - at - ak - sm;
+            Reviews = new List<Review>();
+            Review r1 = new Review()
+            {
+                Type = "Áo thun",
+                Num = at
+            };
+            Review r2 = new Review()
+            {
+                Type = "Áo khoác",
+                Num = ak
+            };
+            Review r3 = new Review()
+            {
+                Type = "Áo sơ mi",
+                Num = sm
+            };
+            Review r4 = new Review()
+            {
+                Type = "Khác",
+                Num = other
+            };
+            Reviews.Add(r1);
+            Reviews.Add(r2);
+            Reviews.Add(r3);
+            Reviews.Add(r4);
+            p.Pie.ItemsSource = Reviews;
+            p.Pie.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
+            {
+                ShowLabel = true,
+                ShowConnectorLine = true,
+                Margin = new Thickness(2)
+            };
+            p.Pie.ExplodeOnMouseClick = true;
+        }
+        void DonutChart(ReportView p)
+        {
             Reviews = new List<Review>();
             Review r1 = new Review()
             {
@@ -238,8 +286,8 @@ namespace ClothesShopManagement.ViewModel
             };
             Reviews.Add(r1);
             Reviews.Add(r2);
-            p.Pie.ItemsSource = Reviews;
-            p.Pie.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
+            p.Donut.ItemsSource = Reviews;
+            p.Donut.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
             {
                 ShowLabel = true,
                 ShowConnectorLine = true,

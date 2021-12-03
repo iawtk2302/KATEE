@@ -93,7 +93,7 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="115,0,0,0"
+                        Margin="125,0,0,0"
                         Width="90"
                         Height="40"
                         FontFamily="{StaticResource Custom}"

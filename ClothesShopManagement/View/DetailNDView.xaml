@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True" 
-        Height="410" Width="650">
+        Height="420" Width="650">
     <Border CornerRadius="15" >
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -61,7 +61,7 @@
             </Grid>
             <Grid Grid.Row="1">
                 <TextBlock
-                    Text="THÊM THÔNG TIN NHÂN VIÊN"
+                    Text="THÔNG TIN NHÂN VIÊN"
                     HorizontalAlignment="Center"
                     FontSize="24"
                     Foreground="#6C63FF"
@@ -197,8 +197,9 @@
                         </StackPanel>
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="1">
-                        <StackPanel Orientation="Horizontal">
-                            <Button
+                        <StackPanel>
+                            <StackPanel Orientation="Horizontal">
+                                <Button
                             Width="190"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
@@ -210,14 +211,14 @@
                             Height="40"
                             Style="{StaticResource MaterialDesignFlatMidBgButton}"
                         >
-                                <i:Interaction.Triggers>
-                                    <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{Binding UpdateNDCommand}"
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding UpdateNDCommand}"
                                                        CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
-                                    </i:EventTrigger>
-                                </i:Interaction.Triggers>
-                            </Button>
-                            <Button
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                                <Button
                             Width="190"
                             Margin="10,0,0,0"
                             HorizontalAlignment="Left"
@@ -229,10 +230,31 @@
                             Background="White"
                             Height="40"
                             Style="{StaticResource MaterialDesignFlatMidBgButton}"
-                        >
+                            >
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding DeleteNDCommand}"
+                                                       CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </StackPanel>
+                            <Button
+                            Width="390"
+                            Margin="0,10,0,0"
+                            HorizontalAlignment="Left"
+                            VerticalAlignment="Center"
+                            Content="ĐẶT LẠI MẬT KHẨU"
+                            BorderThickness="0"
+                            FontFamily="{StaticResource Custom}"
+                            Foreground="#6C63FF"
+                            Background="White"
+                            Height="40"
+                            Style="{StaticResource MaterialDesignFlatMidBgButton}"
+                            >
                                 <i:Interaction.Triggers>
                                     <i:EventTrigger EventName="Click">
-                                        <i:InvokeCommandAction Command="{Binding DeleteNDCommand}"
+                                        <i:InvokeCommandAction Command="{Binding ResetPass}"
                                                        CommandParameter="{Binding ElementName=DTQLNVwd}"></i:InvokeCommandAction>
                                     </i:EventTrigger>
                                 </i:Interaction.Triggers>

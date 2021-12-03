@@ -73,7 +73,6 @@
         <MappingFragment StoreEntitySet="SANPHAM">
           <ScalarProperty Name="MASP" ColumnName="MASP" />
           <ScalarProperty Name="TENSP" ColumnName="TENSP" />
-          <ScalarProperty Name="DVT" ColumnName="DVT" />
           <ScalarProperty Name="GIA" ColumnName="GIA" />
           <ScalarProperty Name="MOTA" ColumnName="MOTA" />
           <ScalarProperty Name="HINHSP" ColumnName="HINHSP" />

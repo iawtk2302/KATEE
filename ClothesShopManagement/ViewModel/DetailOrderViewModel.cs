@@ -33,6 +33,16 @@ namespace ClothesShopManagement.ViewModel
                 {
                     if (temp.SOHD == int.Parse(parameter.SoHD.Text))
                     {
+                        foreach (CTHD temp1 in temp.CTHDs)
+                        {
+                            foreach (SANPHAM temp2 in DataProvider.Ins.DB.SANPHAMs)
+                            {
+                                if (temp1.MASP == temp2.MASP)
+                                {
+                                    temp2.SL += temp1.SL;
+                                }
+                            }
+                        }
                         DataProvider.Ins.DB.HOADONs.Remove(temp);
                     }
                 }

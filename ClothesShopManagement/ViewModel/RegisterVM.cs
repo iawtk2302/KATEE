@@ -84,22 +84,20 @@ namespace ClothesShopManagement.ViewModel
         }
         void _Register(RegisterView parameter)
         {
+            if (parameter.TenND.Text == "" || parameter.GT.Text == "" || parameter.NS.SelectedDate == null || parameter.SDT.Text == "" || parameter.User.Text == "" || Password == "")
+            {
+                MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Warning);
+                return;
+            }
+            int dem = DataProvider.Ins.DB.NGUOIDUNGs.Where(p => p.USERNAME == parameter.User.Text).Count();
+            if (dem > 0)
+            {
+                MessageBox.Show("Tên đăng nhập đã tồn tại !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn đăng ký tài khoản ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (h == MessageBoxResult.Yes)
             {
-                foreach (NGUOIDUNG x in DataProvider.Ins.DB.NGUOIDUNGs)
-                {
-                    if (x.USERNAME == parameter.User.Text)
-                    {
-                        MessageBox.Show("Tên đăng nhập đã tồn tại", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
-                        return;
-                    }
-                }
-                if(parameter.TenND.Text==""|| parameter.GT.Text==""|| parameter.NS.SelectedDate==null|| parameter.SDT.Text==""|| parameter.User.Text==""||Password=="")
-                {
-                    MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Warning);
-                    return;
-                }    
                 NGUOIDUNG temp = new NGUOIDUNG();
                 temp.MAND = rdma();
                 temp.TENND = parameter.TenND.Text;
@@ -131,8 +129,8 @@ namespace ClothesShopManagement.ViewModel
                 parameter.SDT.Clear();
                 parameter.DC.Clear();
                 linkaddimage = "/Resource/Image/addava.png";
-                parameter.HinhAnh1.ImageSource = new BitmapImage(new Uri(Const._localLink+linkaddimage));
-            }        
+                parameter.HinhAnh1.ImageSource = new BitmapImage(new Uri(Const._localLink + linkaddimage));
+            }
         }
     }
 }

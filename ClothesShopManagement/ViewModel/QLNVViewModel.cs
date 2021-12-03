@@ -30,6 +30,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand MoveWindow { get; set; }
         private ObservableCollection<string> _listTK;
         public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
+        public ICommand ResetPass { get; set; }
         public QLNVViewModel()
         {
             
@@ -44,7 +45,7 @@ namespace ClothesShopManagement.ViewModel
             Closewd = new RelayCommand<DetailNDView>((p) => true, (p) => Close(p));
             Minimizewd = new RelayCommand<DetailNDView>((p) => true, (p) => Minimize(p));
             MoveWindow = new RelayCommand<DetailNDView>((p) => true, (p) => moveWindow(p));
-
+            ResetPass = new RelayCommand<DetailNDView>((p) => true, (p) => _ResetPass(p));
         }
         void moveWindow(DetailNDView p)
         {
@@ -156,6 +157,20 @@ namespace ClothesShopManagement.ViewModel
                 DataProvider.Ins.DB.SaveChanges();
                 MessageBox.Show("Cập nhật thành công !", "THÔNG BÁO");
             }          
+        }
+        void _ResetPass(DetailNDView p)
+        {
+            MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn đặt lại mật khẩu ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (h == MessageBoxResult.Yes)
+            {
+                foreach(NGUOIDUNG temp in DataProvider.Ins.DB.NGUOIDUNGs)
+                {
+                    if (temp.MAND == p.MaND.Text)
+                        temp.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode("123456"));
+                }
+                DataProvider.Ins.DB.SaveChanges();
+                MessageBox.Show("Đặt lại mật khẩu thành công !", "THÔNG BÁO");
+            }   
         }
         void _DeleteNDCommand(DetailNDView p)
         {

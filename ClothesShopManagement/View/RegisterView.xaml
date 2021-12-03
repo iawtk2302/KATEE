@@ -115,7 +115,8 @@
                                     VerticalAlignment="Top"
                                     AcceptsReturn="True"
                                     TextWrapping="Wrap"
-                                    MaxWidth="400" x:Name="User"
+                                    MaxWidth="400" 
+                                    x:Name="User"
                                     FontFamily="{StaticResource Custom}"
                                     materialDesign:HintAssist.Hint="Tên đăng nhập"/>
                                 <PasswordBox x:Name="password"

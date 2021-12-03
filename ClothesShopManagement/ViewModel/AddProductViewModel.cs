@@ -88,7 +88,6 @@ namespace ClothesShopManagement.ViewModel
                         a.SL = int.Parse(paramater.SlSp.Text);
                         a.SIZE = paramater.SizeSp.Text;
                         a.MOTA = paramater.MotaSp.Text;
-                        a.DVT = "Cái";
                         a.HINHSP = "/Resource/ImgProduct/" + "product_" + paramater.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();
                         DataProvider.Ins.DB.SANPHAMs.Add(a);
                         DataProvider.Ins.DB.SaveChanges();
