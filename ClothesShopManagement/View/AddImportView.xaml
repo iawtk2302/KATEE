@@ -15,7 +15,7 @@
         DataContext="{StaticResource AddImportVM}"
         x:Name="AddImportwd"
         Height="600" 
-        Width="700">
+        Width="700" SizeToContent="Manual" WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loadwd}"

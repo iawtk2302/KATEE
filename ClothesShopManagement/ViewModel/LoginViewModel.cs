@@ -24,6 +24,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand MoveLogin { get; set; }
         public ICommand Login { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
+        public ICommand RegisterCommand { get; set; }
         public LoginViewModel()
         {
             IsLogin = false;
@@ -34,6 +35,7 @@ namespace ClothesShopManagement.ViewModel
             MoveLogin = new RelayCommand<LoginWindow>((p) => true, (p) => Move(p));
             Login = new RelayCommand<LoginWindow>((p) => true, (p) => login(p));
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => true, (p) => { Password = p.Password; });
+            RegisterCommand = new RelayCommand<LoginWindow>((p) => true, (p) => _RegisterCommand(p));
         }
         public void Close()
         {
@@ -89,6 +91,11 @@ namespace ClothesShopManagement.ViewModel
                 hash.Append(bytes[i].ToString("x2"));
             }
             return hash.ToString();
+        }
+        void _RegisterCommand(LoginWindow parameter)
+        {
+            RegisterView registerView = new RegisterView();
+            registerView.ShowDialog();
         }
     }
 }

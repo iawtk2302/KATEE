@@ -33,20 +33,6 @@ namespace ClothesShopManagement.Model
         public bool QTV { get; set; }
         public bool TTND { get; set; }
         private string _AVA;
-
-        //public string AVA
-        //{
-        //    get
-        //    {
-        //        if (_AVA.Contains(Const._localLink))
-        //            return _AVA;
-        //        else
-        //            return Const._localLink + _AVA;
-        //    }
-        //    set { _AVA = value; }
-        //}
-
-
         public string AVA { get => _AVA.Contains(Const._localLink) ? _AVA : (Const._localLink + _AVA); set { _AVA = value; } }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

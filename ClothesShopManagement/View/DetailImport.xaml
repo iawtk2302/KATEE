@@ -349,6 +349,8 @@
                                     Width="150"
                                     VerticalAlignment="Top"
                                     Foreground="Black"
+                                    materialDesign:ButtonAssist.CornerRadius="10"
+                                    Margin="-100,0,0,0"
                                 >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
