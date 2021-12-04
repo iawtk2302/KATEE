@@ -146,7 +146,7 @@ namespace ClothesShopManagement.ViewModel
             parameter.ListViewHD.SelectedItem=null;
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
             parameter.ListViewHD.ItemsSource = listHD;
-            parameter.ListViewHD.Items.Refresh();
+            _SearchCommand(parameter);
         }
     }
 }

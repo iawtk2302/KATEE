@@ -132,8 +132,17 @@
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom" >
                     <syncfusion:SfChart Header="Số lượng loại sản phẩm bán ra" Margin="5">
+                        <syncfusion:SfChart.Resources>
+
+                            <ItemsPanelTemplate x:Key="itemPanelTemplate">
+
+                                <WrapPanel/>
+
+                            </ItemsPanelTemplate>
+
+                        </syncfusion:SfChart.Resources>
                         <syncfusion:SfChart.Legend>
-                            <syncfusion:ChartLegend DockPosition="Bottom"/>
+                            <syncfusion:ChartLegend DockPosition="Bottom" ItemsPanel="{StaticResource itemPanelTemplate}"/>
                         </syncfusion:SfChart.Legend>
                         <syncfusion:SfChart.Series>
                             <syncfusion:PieSeries x:Name="Pie" LegendIcon="Diamond" EnableAnimation="True" 
@@ -145,10 +154,13 @@
                                 <syncfusion:PieSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
                                         <syncfusion:ChartColorModel.CustomBrushes>
-                                            <SolidColorBrush Color="#9BBFE0"/>
-                                            <SolidColorBrush Color="#E8A09A"/>
-                                            <SolidColorBrush Color="#FBE29F"/>
-                                            <SolidColorBrush Color="#C6D68F"/>
+                                            <SolidColorBrush Color="#C3E9FF"/>
+                                            <SolidColorBrush Color="#c6f8e5"/>
+                                            <SolidColorBrush Color="#fbf7d5"/>
+                                            <SolidColorBrush Color="#f9ded7"/>
+                                            <SolidColorBrush Color="#f5cdde "/>
+                                            <SolidColorBrush Color="#e2bef1"/>
+                                            <SolidColorBrush Color="#D5B9FC"/>
                                         </syncfusion:ChartColorModel.CustomBrushes>
                                     </syncfusion:ChartColorModel>
                                 </syncfusion:PieSeries.ColorModel>

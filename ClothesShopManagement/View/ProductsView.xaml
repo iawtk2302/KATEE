@@ -45,6 +45,44 @@
                         Background="White"
                         >
                         <ComboBox
+                        x:Name="cbxChon1"
+                        Style="{StaticResource MaterialDesignFilledComboBox}"
+                        materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
+                        materialDesign:HintAssist.Hint="Bộ lọc"
+                        materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
+                        BorderThickness="0"
+                        materialDesign:HintAssist.FontFamily="{StaticResource Custom}"
+                        materialDesign:HintAssist.Foreground="White"
+                        Background="White"
+                        FontFamily="{StaticResource Custom}"
+                        Height="38"
+                        FontSize="14"
+                        SelectedIndex="0"
+                        Width="110">
+                            <ComboBoxItem Content="All"/>
+                            <ComboBoxItem Content="Shirt"/>
+                            <ComboBoxItem Content="T-Shirt"/>
+                            <ComboBoxItem Content="Hoodies"/>
+                            <ComboBoxItem Content="Jacket"/>
+                            <ComboBoxItem Content="Sweater"/>
+                            <ComboBoxItem Content="Short vs Pants"/>
+                            <ComboBoxItem Content="Accessories"/>
+                            <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="SelectionChanged">
+                                    <i:InvokeCommandAction Command="{Binding Filter}"
+                                                       CommandParameter="{Binding ElementName=Productwd}"></i:InvokeCommandAction>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
+                        </ComboBox>
+                    </Border>
+                    <Border
+                        Margin="8,0,0,0"
+                        Height="40"
+                        Width="120"
+                        CornerRadius="10"
+                        Background="White"
+                        >
+                        <ComboBox
                         x:Name="cbxChon"
                         Style="{StaticResource MaterialDesignFilledComboBox}"
                         materialDesign:TextFieldAssist.TextBoxViewMargin="8,-11,0,0"
@@ -70,7 +108,7 @@
                     </Border>
                     <TextBox
                                 x:Name="txbSearch"
-                                Width="250"
+                                Width="200"
                                 Height="40"
                                 Margin="10,0,0,0"
                                 BorderBrush="White"
@@ -94,7 +132,7 @@
                     </TextBox>
                     <Button
                         Content="THÊM"
-                        Margin="90,0,0,0"
+                        Margin="40,0,0,0"
                         Width="90"
                         Height="40"
                         materialDesign:ButtonAssist.CornerRadius="6"
@@ -124,13 +162,14 @@
                             <DataTemplate>
                             <Border
                                         Margin="10"
-                                        Height="200"
-                                        Width="160"
+                                        Height="210"
+                                        Width="170"
                                         Background="White"
                                         CornerRadius="15"
                                         >
                                 <StackPanel>
                                         <Image  
+                                                    Margin="0,10,0,0"
                                                     Source="{Binding HINHSP,StringFormat={}}" 
                                                     Height="154" 
                                                     Width="140"

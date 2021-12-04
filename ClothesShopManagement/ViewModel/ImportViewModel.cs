@@ -88,6 +88,7 @@ namespace ClothesShopManagement.ViewModel
             detailImport.ShowDialog();
             p.ListViewPN.SelectedItem = null;
             listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
+            _SearchCommand(p);
         }
         void _SearchCommand(ImportView p)
         {

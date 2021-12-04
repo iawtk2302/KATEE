@@ -17,29 +17,87 @@ namespace ClothesShopManagement.ViewModel
     {
         private string _localLink = System.Reflection.Assembly.GetExecutingAssembly().Location.Remove(System.Reflection.Assembly.GetExecutingAssembly().Location.IndexOf(@"bin\Debug"));
         private ObservableCollection<SANPHAM> _listSP;
-        public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; OnPropertyChanged(); } }
+        public ObservableCollection<SANPHAM> listSP { get => _listSP; set { _listSP = value; /*OnPropertyChanged();*/ } }
         private ObservableCollection<SANPHAM> _listSP1;
-        public ObservableCollection<SANPHAM> listSP1 { get => _listSP1; set { _listSP1 = value; OnPropertyChanged(); } }
+        public ObservableCollection<SANPHAM> listSP1 { get => _listSP1; set { _listSP1 = value; /*OnPropertyChanged();*/ } }
         public ICommand SearchCommand { get; set; }
         public ICommand DetailPdCommand { get; set; }
         public ICommand AddPdPdCommand { get; set; }
         public ICommand LoadCsCommand { get; set; }
         private ObservableCollection<string> _listTK;
         public ObservableCollection<string> listTK { get => _listTK; set { _listTK = value; OnPropertyChanged(); } }
+        public ICommand Filter { get; set; }    
         public ProductsViewModel()
         {
-            listTK = new ObservableCollection<string>() { "Tên SP", "Loại SP" };
+            listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
             listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p=>p.SL>=0));  
             listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
             AddPdPdCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _AddPdCommand(p));
             SearchCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
             DetailPdCommand = new RelayCommand<ProductsView>((p) => { return p.ListViewProduct.SelectedItem == null ? false : true; }, (p) => _DetailPd(p));
             LoadCsCommand = new RelayCommand<ProductsView>((p) => true, (p) => _LoadCsCommand(p));
-            
+            Filter = new RelayCommand<ProductsView>((p) => true, (p) => _Filter(p));
+
         }
         void _LoadCsCommand(ProductsView parameter)
         {
             parameter.cbxChon.SelectedIndex = 0;
+        }
+        void _Filter(ProductsView parameter)
+        {
+            switch(parameter.cbxChon1.SelectedIndex.ToString())
+            {
+                case "0":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "1":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p=>p.LOAISP== "Shirt"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "2":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "T-Shirt"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "3":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Hoodies"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "4":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Jacket"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "5":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Sweater"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "6":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Short & Pants"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+                case "7":
+                    {
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Accessories"));
+                        parameter.ListViewProduct.ItemsSource = listSP;
+                        break;
+                    }
+            }
+           
         }
         void _SearchCommand(ProductsView paramater)
         {
@@ -59,15 +117,19 @@ namespace ClothesShopManagement.ViewModel
                             }
                             break;
                         }
-                    case "Loại SP":
+                    case "Giá SP":
                         {
-                            foreach (SANPHAM s in listSP)
+                            try
                             {
-                                if (s.LOAISP.ToLower().Contains(paramater.txbSearch.Text.ToLower()))
+                                foreach (SANPHAM s in listSP)
                                 {
-                                    temp.Add(s);
+                                    if (s.GIA <= int.Parse(paramater.txbSearch.Text))
+                                    {
+                                        temp.Add(s);
+                                    }
                                 }
                             }
+                            catch { }    
                             break;
                         }
                     default:
@@ -102,9 +164,9 @@ namespace ClothesShopManagement.ViewModel
             detailProduct.HinhAnh.Source = new BitmapImage(fileUri);
             detailProduct.ShowDialog();
             listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.SL >= 0));
-            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-            paramater.ListViewProduct.ItemsSource = listSP;
             paramater.ListViewProduct.SelectedItem = null;
+            _Filter(paramater);
+            _SearchCommand(paramater);
         }
         bool check(string m)
         {
@@ -131,8 +193,8 @@ namespace ClothesShopManagement.ViewModel
             addProductView.MaSp.Text=rdma();
             addProductView.ShowDialog();
             listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p=>p.SL>=0));
-            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
-            paramater.ListViewProduct.ItemsSource = listSP;
+            _Filter(paramater);
+            _SearchCommand(paramater);
         }
     }
 }

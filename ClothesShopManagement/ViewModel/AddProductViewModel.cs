@@ -43,6 +43,8 @@ namespace ClothesShopManagement.ViewModel
             {
                 linkimage = open.FileName;
             };
+            Uri fileUri = new Uri(linkimage);
+            img.Source = new BitmapImage(fileUri);
         }
         bool check(string m)
         {
@@ -65,7 +67,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _AddProduct(AddProductView paramater)
         {
-            if(string.IsNullOrEmpty(paramater.MaSp.Text)|| string.IsNullOrEmpty(paramater.TenSp.Text) || string.IsNullOrEmpty(paramater.LoaiSp.Text) || string.IsNullOrEmpty(paramater.GiaSp.Text) || string.IsNullOrEmpty(paramater.SizeSp.Text) || string.IsNullOrEmpty(paramater.MotaSp.Text) || string.IsNullOrEmpty(paramater.SlSp.Text) || linkimage== "/Resource/Image/add.png")
+            if(string.IsNullOrEmpty(paramater.MaSp.Text)|| string.IsNullOrEmpty(paramater.TenSp.Text) || string.IsNullOrEmpty(paramater.LoaiSp.Text) || string.IsNullOrEmpty(paramater.GiaSp.Text) || string.IsNullOrEmpty(paramater.SizeSp.Text) || string.IsNullOrEmpty(paramater.SlSp.Text) || linkimage== "/Resource/Image/add.png")
             {
                 MessageBox.Show("Bạn chưa nhập đủ thông tin.", "Thông Báo", MessageBoxButton.OK, MessageBoxImage.Error);
             }
@@ -99,10 +101,10 @@ namespace ClothesShopManagement.ViewModel
                         MessageBox.Show("Thêm sản phẩm mới thành công !", "THÔNG BÁO");
                         paramater.MaSp.Text = rdma();
                         paramater.TenSp.Clear();
-                        paramater.LoaiSp.Clear();
+                        paramater.LoaiSp.SelectedItem = null;
                         paramater.GiaSp.Clear();
                         paramater.SlSp.Clear();
-                        paramater.SizeSp.Clear();
+                        paramater.SizeSp.SelectedItem = null;
                         Uri fileUri = new Uri(Const._localLink+ "/Resource/Image/add.png");
                         paramater.HinhAnh.Source=new BitmapImage(fileUri);
                         paramater.MotaSp.Clear();

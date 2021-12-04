@@ -233,35 +233,63 @@ namespace ClothesShopManagement.ViewModel
         }
         void PieChart(ReportView p)
         {
-            int at = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Áo thun").Sum(x => x.SL);
-            int ak = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Áo khoác").Sum(x => x.SL);
-            int sm = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Áo sơ mi").Sum(x => x.SL);
-            int other = DataProvider.Ins.DB.CTHDs.Sum(x => x.SL) - at - ak - sm;
+            int ts = 0, sh = 0, jk = 0, sw = 0, ac = 0, sp = 0, ho = 0;
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "T-Shirt").Count() > 0)
+                ts = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "T-Shirt").Sum(x => x.SL);
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Shirt").Count() > 0)
+                sh = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Shirt").Sum(x => x.SL);
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Jacket").Count() > 0)
+                jk = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Jacket").Sum(x => x.SL);
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Sweater").Count() > 0)
+                sw = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Sweater").Sum(x => x.SL);
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Accessories").Count() > 0)
+                ac = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Accessories").Sum(x => x.SL);
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Short & Pants").Count() > 0)
+                sp = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Short & Pants").Sum(x => x.SL);
+            if (DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Hoodies").Count() > 0)
+                ho = DataProvider.Ins.DB.CTHDs.Where(x => x.SANPHAM.LOAISP == "Hoodies").Sum(x => x.SL);
             Reviews = new List<Review>();
             Review r1 = new Review()
             {
-                Type = "Áo thun",
-                Num = at
+                Type = "T-Shirt",
+                Num = ts
             };
             Review r2 = new Review()
             {
-                Type = "Áo khoác",
-                Num = ak
+                Type = "Shirt",
+                Num = sh
             };
             Review r3 = new Review()
             {
-                Type = "Áo sơ mi",
-                Num = sm
+                Type = "Jacket",
+                Num = jk
             };
             Review r4 = new Review()
             {
-                Type = "Khác",
-                Num = other
+                Type = "Hoodies",
+                Num = ho
+            };
+            Review r5 = new Review()
+            {
+                Type = "Sweater",
+                Num = sw
+            }; Review r6 = new Review()
+            {
+                Type = "Short & Pants",
+                Num = sp
+            };
+            Review r7 = new Review()
+            {
+                Type = "Accessories",
+                Num = ac
             };
             Reviews.Add(r1);
             Reviews.Add(r2);
             Reviews.Add(r3);
             Reviews.Add(r4);
+            Reviews.Add(r5);
+            Reviews.Add(r6);
+            Reviews.Add(r7);
             p.Pie.ItemsSource = Reviews;
             p.Pie.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
             {
