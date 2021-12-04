@@ -42,6 +42,9 @@ namespace ClothesShopManagement.ViewModel
         void _LoadCsCommand(ProductsView parameter)
         {
             parameter.cbxChon.SelectedIndex = 0;
+            parameter.cbxChon1.SelectedIndex = 0;
+            _Filter(parameter);
+            _SearchCommand(parameter);
         }
         void _Filter(ProductsView parameter)
         {
