@@ -42,6 +42,7 @@ namespace ClothesShopManagement.ViewModel
         {
             listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
             listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.SL >= 0));
+            listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
             parameter.cbxChon.SelectedIndex = 0;
             parameter.cbxChon1.SelectedIndex = 0;
             _Filter(parameter);
