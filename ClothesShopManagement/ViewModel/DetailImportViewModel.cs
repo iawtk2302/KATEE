@@ -39,6 +39,12 @@ namespace ClothesShopManagement.ViewModel
                             {
                                 if(temp1.MASP==temp2.MASP)
                                 {
+                                    if(temp2.SL-temp1.SL<0)
+                                    {
+                                        MessageBox.Show("Không thể xóa phiếu nhập vì sản phẩm nhập đã được bán !","THÔNG BÁO",MessageBoxButton.OK,MessageBoxImage.Error);
+                                        return;
+                                    }
+                                    else
                                     temp2.SL -= temp1.SL;
                                 }    
                             }    

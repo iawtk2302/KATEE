@@ -152,13 +152,16 @@
                             FontFamily="{StaticResource Custom}"
                             >
                             <TextBox x:Name="Mota"
+                                     Height="80"
                                      TextWrapping="Wrap"
                                      materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                      BorderThickness="0"
+                                     AcceptsReturn="True"
+                                     VerticalScrollBarVisibility="Visible"
                                      />
                         </Expander>
                         <Button Content="CẬP NHẬT"
-                                Margin="0,30,0,0"
+                                Margin="0,20,0,0"
                                 Width="230"
                                 BorderThickness="0"
                                 >
