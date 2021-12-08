@@ -30,21 +30,22 @@ namespace ClothesShopManagement.ViewModel
         public ProductsViewModel()
         {
             listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
-            listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p=>p.SL>=0));  
+            listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.SL >= 0));
             listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()));
             AddPdPdCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _AddPdCommand(p));
             SearchCommand = new RelayCommand<ProductsView>((p) => { return p == null ? false : true; }, (p) => _SearchCommand(p));
             DetailPdCommand = new RelayCommand<ProductsView>((p) => { return p.ListViewProduct.SelectedItem == null ? false : true; }, (p) => _DetailPd(p));
             LoadCsCommand = new RelayCommand<ProductsView>((p) => true, (p) => _LoadCsCommand(p));
             Filter = new RelayCommand<ProductsView>((p) => true, (p) => _Filter(p));
-
         }
         void _LoadCsCommand(ProductsView parameter)
         {
+            listTK = new ObservableCollection<string>() { "Tên SP", "Giá SP" };
+            listSP1 = new ObservableCollection<SANPHAM>(DataProvider.Ins.DB.SANPHAMs.Where(p => p.SL >= 0));
             parameter.cbxChon.SelectedIndex = 0;
             parameter.cbxChon1.SelectedIndex = 0;
             _Filter(parameter);
-            _SearchCommand(parameter);
+            _SearchCommand(parameter);  
         }
         void _Filter(ProductsView parameter)
         {

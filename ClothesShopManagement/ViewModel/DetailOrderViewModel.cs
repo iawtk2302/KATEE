@@ -39,7 +39,10 @@ namespace ClothesShopManagement.ViewModel
                             {
                                 if (temp1.MASP == temp2.MASP)
                                 {
-                                    temp2.SL += temp1.SL;
+                                    if(temp2.SL==-1)
+                                        temp2.SL += temp1.SL+1;
+                                    else if(temp2.SL>=0)
+                                        temp2.SL += temp1.SL;
                                 }
                             }
                         }

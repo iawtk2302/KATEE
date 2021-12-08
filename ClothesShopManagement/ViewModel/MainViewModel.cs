@@ -70,7 +70,6 @@ namespace ClothesShopManagement.ViewModel
         }
         void switchtab(MainWindow p)
         {
-
             int index = int.Parse(Name);
             switch (index)
             {
