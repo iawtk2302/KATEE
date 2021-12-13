@@ -27,7 +27,7 @@
           <ScalarProperty Name="MAKH" ColumnName="MAKH" />
           <ScalarProperty Name="NGHD" ColumnName="NGHD" />
           <ScalarProperty Name="TRIGIA" ColumnName="TRIGIA" />
-          <ScalarProperty Name="DANHGIA" ColumnName="DANHGIA" />
+          <ScalarProperty Name="KHUYENMAI" ColumnName="KHUYENMAI" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>

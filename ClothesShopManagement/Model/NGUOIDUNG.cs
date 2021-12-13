@@ -34,7 +34,6 @@ namespace ClothesShopManagement.Model
         private string _AVA;
         public string AVA { get => _AVA.Contains(Const._localLink) ? _AVA : (Const._localLink + _AVA); set { _AVA = value; } }
 
-
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HOADON> HOADONs { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -27,7 +27,7 @@
     <Property Name="MAKH" Type="varchar" MaxLength="50" />
     <Property Name="NGHD" Type="smalldatetime" Nullable="false" />
     <Property Name="TRIGIA" Type="int" Nullable="false" />
-    <Property Name="DANHGIA" Type="int" />
+    <Property Name="KHUYENMAI" Type="int" />
   </EntityType>
   <EntityType Name="KHACHHANG">
     <Key>

@@ -49,10 +49,12 @@ namespace ClothesShopManagement.ViewModel
         public ObservableCollection<SANPHAM> LSPSelected { get=> _LSPSelected; set { _LSPSelected = value; OnPropertyChanged(); } }
         private ObservableCollection<CTHD> _LCTHD;
         public ObservableCollection<CTHD> LCTHD { get => _LCTHD; set { _LCTHD = value; OnPropertyChanged(); } }
+        public int km { get; set; }
         public ICommand AddSP { get; set; }
         public ICommand DeleteSP { get; set; }
         public ICommand PrintSP { get; set; }
         public ICommand SaveHD { get; set; }
+        public ICommand chooseKH { get; set; }
         public int tongtien { get; set; }
         public AddOrderViewModel()
         {
@@ -66,7 +68,8 @@ namespace ClothesShopManagement.ViewModel
             MoveWindow = new RelayCommand<AddOrderView>((p) => true, (p) => moveWindow(p));
             Loadwd = new RelayCommand<AddOrderView>((p) => true, (p) => _Loadwd(p));
             Choose= new RelayCommand<AddOrderView>((p) => true, (p) => _Choose(p));
-            AddSP=new RelayCommand<AddOrderView>((p) => true, (p) => _AddSP(p));
+            chooseKH = new RelayCommand<AddOrderView>((p) => true, (p) => _chooseKH(p));
+            AddSP =new RelayCommand<AddOrderView>((p) => true, (p) => _AddSP(p));
             DeleteSP = new RelayCommand<AddOrderView>((p) => true, (p) => _DeleteSP(p));
             PrintSP = new RelayCommand<AddOrderView>((p) => true, (p) => print(p));
             SaveHD = new RelayCommand<AddOrderView>((p) => true, (p) => _SaveHD(p));
@@ -77,6 +80,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void Close(AddOrderView p)
         {
+            LHT.Clear();
             p.Close();
         }
         void Minimize(AddOrderView p)
@@ -93,6 +97,26 @@ namespace ClothesShopManagement.ViewModel
             paramater.TenND.Text = Const.ND.TENND;
             paramater.Ngay.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
             paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+            km = 0;
+            paramater.khuyenmai.Text = km.ToString()+"%";
+        }
+        void _chooseKH(AddOrderView parameter)
+        {
+            KHACHHANG temp = (KHACHHANG)parameter.KH.SelectedItem;
+            int doanhso = 0;
+            foreach (HOADON a in DataProvider.Ins.DB.HOADONs)
+            {
+                if (a.MAKH == temp.MAKH)
+                    doanhso += a.TRIGIA;
+            }
+                km = 0;
+            if (doanhso > 2000000 && doanhso <= 5000000)
+                km = 2;
+            else if (doanhso > 5000000 && doanhso <= 10000000)
+                km = 5;
+            else if (doanhso > 10000000)
+                km = 10;
+            parameter.khuyenmai.Text = km.ToString() + "%";
         }
         void _Choose(AddOrderView paramater)
         {
@@ -130,6 +154,11 @@ namespace ClothesShopManagement.ViewModel
                 MessageBox.Show("Số lượng không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return ;
             }
+            if (int.Parse(paramater.SL.Text) < 0)
+            {
+                MessageBox.Show("Số lượng sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
             if (a.SL >= int.Parse(paramater.SL.Text))
             {
@@ -146,7 +175,7 @@ namespace ClothesShopManagement.ViewModel
                                 temp1.SL += int.Parse(paramater.SL.Text); ;
                             }
                         }
-                        tongtien += int.Parse(paramater.SL.Text) * a.GIA;
+                        tongtien += int.Parse(paramater.SL.Text) * a.GIA*(100-km)/100;
                         paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
                         paramater.ListViewSP.ItemsSource = LHT;
                         paramater.ListViewSP.Items.Refresh();
@@ -163,7 +192,7 @@ namespace ClothesShopManagement.ViewModel
                     SANPHAM = a,
                     SOHD = int.Parse(paramater.SoHD.Text),
                 };
-                tongtien += int.Parse(paramater.SL.Text) * a.GIA;
+                tongtien += int.Parse(paramater.SL.Text) * a.GIA*(100-km)/100;
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
                 LCTHD.Add(cthd);
                 LHT.Add(b);
@@ -186,7 +215,7 @@ namespace ClothesShopManagement.ViewModel
             if (h == MessageBoxResult.Yes)
             {
                 HienThi a = (HienThi)paramater.ListViewSP.SelectedItem;
-                tongtien -= a.Tong;
+                tongtien -= a.Tong*(100-km)/100;
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
                 LHT.Remove(a);            
                 foreach (CTHD b in LCTHD)
@@ -226,7 +255,7 @@ namespace ClothesShopManagement.ViewModel
         void _SaveHD(AddOrderView paramater)
         {
             DataProvider.Ins.DB.SaveChangesAsync();
-            if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0||paramater.DG1.Text=="")
+            if(paramater.KH.SelectedItem==null||paramater.ListViewSP.Items.Count==0)
             {
                 System.Windows.MessageBox.Show("Thông tin hóa đơn chưa đầy đủ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -247,8 +276,8 @@ namespace ClothesShopManagement.ViewModel
                     MAND = Const.ND.MAND,
                     NGHD = DateTime.Now,
                     CTHDs = new ObservableCollection<CTHD>(LCTHD),
-                    TRIGIA = tonggia,
-                    DANHGIA=int.Parse(paramater.DG1.Text)
+                    TRIGIA = tonggia*(100-km)/100,
+                    
                 };
                 foreach(CTHD s in LCTHD)
                 {
@@ -268,6 +297,7 @@ namespace ClothesShopManagement.ViewModel
                     print(paramater);
                 }    
                 tongtien = 0;
+                km = 0;
                 LSPSelected.Clear();
                 paramater.KH.SelectedItem = null;
                 LHT.Clear();
@@ -275,7 +305,7 @@ namespace ClothesShopManagement.ViewModel
                 paramater.ListViewSP.ItemsSource = LHT;
                 paramater.TT.Text = tongtien.ToString();
                 paramater.SoHD.Text=rdma().ToString();
-                paramater.DG1.SelectedItem = null;
+                
                 MessageBox.Show("Thanh toán hóa đơn thành công !", "THÔNG BÁO");
             }
             else

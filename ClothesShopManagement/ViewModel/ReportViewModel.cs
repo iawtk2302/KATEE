@@ -301,26 +301,26 @@ namespace ClothesShopManagement.ViewModel
         }
         void DonutChart(ReportView p)
         {
-            Reviews = new List<Review>();
-            Review r1 = new Review()
-            {
-                Type = "Tích cực",
-                Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA >= 3).Count()
-            };
-            Review r2 = new Review()
-            {
-                Type = "Tiêu cực",
-                Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA <= 2).Count()
-            };
-            Reviews.Add(r1);
-            Reviews.Add(r2);
-            p.Donut.ItemsSource = Reviews;
-            p.Donut.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
-            {
-                ShowLabel = true,
-                ShowConnectorLine = true,
-                Margin = new Thickness(2)
-            };
+            //Reviews = new List<Review>();
+            //Review r1 = new Review()
+            //{
+            //    Type = "Tích cực",
+            //    Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA >= 3).Count()
+            //};
+            //Review r2 = new Review()
+            //{
+            //    Type = "Tiêu cực",
+            //    Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA <= 2).Count()
+            //};
+            //Reviews.Add(r1);
+            //Reviews.Add(r2);
+            //p.Donut.ItemsSource = Reviews;
+            //p.Donut.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
+            //{
+            //    ShowLabel = true,
+            //    ShowConnectorLine = true,
+            //    Margin = new Thickness(2)
+            //};
         }
         void switchtab(ReportView p)
         {

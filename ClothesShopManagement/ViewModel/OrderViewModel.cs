@@ -141,7 +141,6 @@ namespace ClothesShopManagement.ViewModel
             }    
             detailOrder.ListViewSP.ItemsSource = list;
             detailOrder.TT.Text= String.Format("{0:0,0}", temp.TRIGIA) + " VND";
-            detailOrder.DG.Text=temp.DANHGIA.ToString();
             detailOrder.ShowDialog();
             parameter.ListViewHD.SelectedItem=null;
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);

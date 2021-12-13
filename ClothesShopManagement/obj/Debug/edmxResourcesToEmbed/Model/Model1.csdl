@@ -31,7 +31,7 @@
     <Property Name="MAKH" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
     <Property Name="NGHD" Type="DateTime" Nullable="false" Precision="0" />
     <Property Name="TRIGIA" Type="Int32" Nullable="false" />
-    <Property Name="DANHGIA" Type="Int32" />
+    <Property Name="KHUYENMAI" Type="Int32" />
     <NavigationProperty Name="CTHDs" Relationship="Self.FK_CT_HD" FromRole="HOADON" ToRole="CTHD" />
     <NavigationProperty Name="NGUOIDUNG" Relationship="Self.FK_HD_ND" FromRole="HOADON" ToRole="NGUOIDUNG" />
     <NavigationProperty Name="KHACHHANG" Relationship="Self.FK_KH_HD" FromRole="HOADON" ToRole="KHACHHANG" />

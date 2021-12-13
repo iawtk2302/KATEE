@@ -85,9 +85,35 @@ namespace ClothesShopManagement.ViewModel
                         SANPHAM a = new SANPHAM();
                         a.MASP = paramater.MaSp.Text;
                         a.TENSP = paramater.TenSp.Text;
-                        a.GIA = int.Parse(paramater.GiaSp.Text);
+                        try
+                        {
+                            a.GIA = int.Parse(paramater.GiaSp.Text);
+                        }
+                        catch
+                        {
+                            MessageBox.Show("Giá sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }
+                        if (int.Parse(paramater.GiaSp.Text) < 0)
+                        {
+                            MessageBox.Show("Giá sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        } 
                         a.LOAISP = paramater.LoaiSp.Text;
-                        a.SL = int.Parse(paramater.SlSp.Text);
+                        try
+                        {
+                            a.SL = int.Parse(paramater.SlSp.Text);
+                        }
+                        catch 
+                        {
+                            MessageBox.Show("Số lượng sản phẩm không hợp lệ !","THÔNG BÁO",MessageBoxButton.OK,MessageBoxImage.Error);
+                            return;
+                        }
+                        if(a.SL<0)
+                        {
+                            MessageBox.Show("Số lượng sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                            return;
+                        }    
                         a.SIZE = paramater.SizeSp.Text;
                         a.MOTA = paramater.MotaSp.Text;
                         a.HINHSP = "/Resource/ImgProduct/" + "product_" + paramater.MaSp.Text + ((linkimage.Contains(".jpg")) ? ".jpg" : ".png").ToString();

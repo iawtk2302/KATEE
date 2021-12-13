@@ -51,6 +51,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void Close(AddImportView p)
         {
+            LHT.Clear();
             p.Close();
         }
         void Minimize(AddImportView p)
@@ -71,7 +72,7 @@ namespace ClothesShopManagement.ViewModel
             if (paramater.SP.SelectedItem != null)
             {
                 SANPHAM temp = (SANPHAM)paramater.SP.SelectedItem;
-                paramater.DG.Text = ((int)(float)temp.GIA * 0.8).ToString();
+                paramater.DG.Text = String.Format("{0:#,###} VNĐ", ((int)(float)temp.GIA * 5 / 6));
             }
             else
             {
@@ -112,7 +113,7 @@ namespace ClothesShopManagement.ViewModel
                 if (display.MaSp == a.MASP)
                 {
                     display.SL += int.Parse(paramater.SL.Text);
-                    display.Tiennhap = display.SL * (int)(a.GIA * 0.8);
+                    display.Tiennhap = display.SL * (int)(a.GIA * 5/6);
                     foreach (CTPN ct in LCTPN)
                     {
                         if (ct.MASP == display.MaSp)
@@ -121,7 +122,7 @@ namespace ClothesShopManagement.ViewModel
                     goto There;
                 }
             }
-            Display b = new Display(a.MASP, a.TENSP, a.SIZE, (int)((float)a.GIA * 0.8), int.Parse(paramater.SL.Text), (int)((float)(int.Parse(paramater.SL.Text) * a.GIA) * 0.8));
+            Display b = new Display(a.MASP, a.TENSP, a.SIZE, (int)((float)a.GIA * 0.8), int.Parse(paramater.SL.Text), (int)((float)(int.Parse(paramater.SL.Text) * a.GIA) * 5/6));
             CTPN ctpn = new CTPN()
             {
                 MASP = a.MASP,
@@ -132,7 +133,7 @@ namespace ClothesShopManagement.ViewModel
             LCTPN.Add(ctpn);
             LHT.Add(b);
         There:
-            tongtien += int.Parse(paramater.SL.Text) * (int)(a.GIA * 0.8);
+            tongtien += int.Parse(paramater.SL.Text) * (int)(a.GIA * 5/6);
             paramater.ListViewSP.ItemsSource = LHT;
             paramater.ListViewSP.Items.Refresh();
             paramater.SP.ItemsSource = LSP;

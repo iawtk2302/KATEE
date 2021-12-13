@@ -25,7 +25,7 @@ namespace ClothesShopManagement.Model
         public string MAKH { get; set; }
         public System.DateTime NGHD { get; set; }
         public int TRIGIA { get; set; }
-        public Nullable<int> DANHGIA { get; set; }
+        public Nullable<int> KHUYENMAI { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CTHD> CTHDs { get; set; }

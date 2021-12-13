@@ -100,10 +100,10 @@ namespace ClothesShopManagement.ViewModel
         }
         public void Rating(HomeView p)
         {
-            double rate = 0;
-            rate = (double)DataProvider.Ins.DB.HOADONs.Select(x => x.DANHGIA).Average();
-            p.Rate.Text = rate.ToString("#.#/5");
-            p.BasicRatingBar.Value = (int)rate;
+            //double rate = 0;
+            //rate = (double)DataProvider.Ins.DB.HOADONs.Select(x => x.DANHGIA).Average();
+            //p.Rate.Text = rate.ToString("#.#/5");
+            //p.BasicRatingBar.Value = (int)rate;
         }
         public void LoadDT(HomeView p)
         {
