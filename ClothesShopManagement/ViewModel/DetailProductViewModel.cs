@@ -37,11 +37,14 @@ namespace ClothesShopManagement.ViewModel
             {
                 parmater.TenSP.IsEnabled = true;
                 parmater.Mota.IsEnabled = true;
+                parmater.btncapnhat.Visibility = Visibility.Visible;
+                parmater.btnxoa.Visibility = Visibility.Visible;
             } 
             else
             {
                 parmater.TenSP.IsEnabled = false;
                 parmater.Mota.IsEnabled = false;
+                parmater.Mota.Height = 200;
             }
         }
         void _DeleteProduct(DetailProduct parameter)

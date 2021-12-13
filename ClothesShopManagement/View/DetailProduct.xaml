@@ -164,6 +164,8 @@
                                 Margin="0,20,0,0"
                                 Width="230"
                                 BorderThickness="0"
+                                x:Name="btncapnhat"
+                                Visibility="Collapsed"
                                 >
                             <Button.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -182,6 +184,8 @@
                                 Margin="0,15,0,0"
                                 Width="230"
                                 BorderThickness="0"
+                                x:Name="btnxoa"
+                                Visibility="Collapsed"
                                 >
                             <Button.Background>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
