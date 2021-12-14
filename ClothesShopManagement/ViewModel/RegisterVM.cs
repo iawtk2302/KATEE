@@ -12,7 +12,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-
+using System.Text.RegularExpressions;
 namespace ClothesShopManagement.ViewModel
 {
    public class RegisterVM:BaseViewModel
@@ -84,7 +84,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void _Register(RegisterView parameter)
         {
-            if (parameter.TenND.Text == "" || parameter.GT.Text == "" || parameter.NS.SelectedDate == null || parameter.SDT.Text == "" || parameter.User.Text == "" || Password == "")
+            if (parameter.TenND.Text == "" || parameter.GT.Text == "" || parameter.NS.SelectedDate == null || parameter.SDT.Text == "" || parameter.User.Text == "" || Password == ""||parameter.Mail.Text=="")
             {
                 MessageBox.Show("Bạn chưa nhập đầy đủ thông tin !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
@@ -93,6 +93,28 @@ namespace ClothesShopManagement.ViewModel
             if (dem > 0)
             {
                 MessageBox.Show("Tên đăng nhập đã tồn tại !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            foreach(NGUOIDUNG temp in DataProvider.Ins.DB.NGUOIDUNGs)
+            {
+                if(temp.MAIL==parameter.Mail.Text)
+                {
+                    MessageBox.Show("Email này đã được sử dụng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }    
+            }
+            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            Regex reg = new Regex(match);
+            if (!reg.IsMatch(parameter.Mail.Text))
+            {
+                MessageBox.Show("Email không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            string match1 = @"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$";
+            Regex reg1 = new Regex(match1);
+            if (!reg1.IsMatch(parameter.SDT.Text))
+            {
+                MessageBox.Show("Số điện thoại không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
             MessageBoxResult h = System.Windows.MessageBox.Show("Bạn muốn đăng ký tài khoản ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
@@ -104,6 +126,7 @@ namespace ClothesShopManagement.ViewModel
                 temp.GIOITINH = parameter.GT.Text;
                 temp.DIACHI = parameter.DC.Text;
                 temp.NGSINH = (DateTime)parameter.NS.SelectedDate;
+                temp.MAIL=parameter.Mail.Text;
                 temp.SDT = parameter.SDT.Text;
                 temp.QTV = false;
                 temp.TTND = true;

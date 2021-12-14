@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True" 
-        Height="420" Width="650">
+        Height="480" Width="650">
     <Border CornerRadius="15" >
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -31,7 +31,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="350"/>
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid Grid.Row="0"
                   Background="Transparent">
@@ -182,6 +182,18 @@
                                         FontFamily="{StaticResource Custom}"
                                         materialDesign:HintAssist.Hint="Số điện thoại" />
                             </StackPanel>
+                            <TextBox Foreground="Black" 
+                                 Margin="-50,10,0,0"
+                                 Style="{StaticResource MaterialDesignFilledTextBox}"
+                                 VerticalAlignment="Top"
+                                 AcceptsReturn="True"
+                                 TextWrapping="Wrap"
+                                 IsEnabled="False"
+                                 MaxWidth="400" x:Name="Mail"
+                                 materialDesign:HintAssist.Foreground="Black"
+                                 materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                 FontFamily="{StaticResource Custom}"
+                                 materialDesign:HintAssist.Hint="Email" Width="390"/>
                             <TextBox Foreground="Black" 
                                  Margin="-50,10,0,0"
                                  Style="{StaticResource MaterialDesignFilledTextBox}"

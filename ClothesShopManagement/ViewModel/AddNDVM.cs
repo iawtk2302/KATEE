@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -91,11 +92,34 @@ namespace ClothesShopManagement.ViewModel
                         return;
                     }
                 }
+                foreach (NGUOIDUNG temp5 in DataProvider.Ins.DB.NGUOIDUNGs)
+                {
+                    if (temp5.MAIL == addNDView.Mail.Text)
+                    {
+                        MessageBox.Show("Email này đã được sử dụng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                        return;
+                    }
+                }
+                string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+                Regex reg = new Regex(match);
+                if (!reg.IsMatch(addNDView.Mail.Text))
+                {
+                    MessageBox.Show("Email không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+                string match1 = @"^((09(\d){8})|(086(\d){7})|(088(\d){7})|(089(\d){7})|(01(\d){9}))$";
+                Regex reg1 = new Regex(match1);
+                if (!reg1.IsMatch(addNDView.SDT.Text))
+                {
+                    MessageBox.Show("Số điện thoại không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
                 temp.MAND = addNDView.MaND.Text;
                 temp.TENND = addNDView.TenND.Text;
                 temp.SDT = addNDView.SDT.Text;
                 temp.DIACHI = addNDView.DC.Text;
                 temp.GIOITINH = addNDView.GT.Text;
+                temp.MAIL=addNDView.Mail.Text;
                 temp.NGSINH = (DateTime)addNDView.NS.SelectedDate;
                 if (addNDView.QTV.Text == "Quản lý")
                     temp.QTV = true;

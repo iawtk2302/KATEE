@@ -134,6 +134,7 @@ namespace ClothesShopManagement.ViewModel
             detailOrder.SoHD.Text = temp.SOHD.ToString();
             detailOrder.MaKH.Text = temp.MAKH.ToString();
             detailOrder.TenKH.Text = temp.KHACHHANG.HOTEN;
+            detailOrder.KM.Text = temp.KHUYENMAI.ToString()+"%";
             List<HienThi> list = new List<HienThi>();
             foreach(CTHD a in temp.CTHDs)
             {

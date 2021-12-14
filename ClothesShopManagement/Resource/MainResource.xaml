@@ -22,4 +22,5 @@
     <viewmodel:DetailImportViewModel x:Key="DetailImportVM"></viewmodel:DetailImportViewModel>
     <viewmodel:AddImportViewModel x:Key="AddImportVM"></viewmodel:AddImportViewModel>
     <viewmodel:RegisterVM x:Key="RegisterVM"></viewmodel:RegisterVM>
+    <viewmodel:ForgetPassViewModel x:Key="ForgetPassVM"></viewmodel:ForgetPassViewModel>
 </ResourceDictionary>

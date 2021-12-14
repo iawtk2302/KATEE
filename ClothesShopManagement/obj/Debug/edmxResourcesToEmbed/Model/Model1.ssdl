@@ -54,6 +54,7 @@
     <Property Name="QTV" Type="bit" Nullable="false" />
     <Property Name="TTND" Type="bit" Nullable="false" />
     <Property Name="AVA" Type="varchar(max)" />
+    <Property Name="MAIL" Type="varchar" MaxLength="100" />
   </EntityType>
   <EntityType Name="PHIEUNHAP">
     <Key>

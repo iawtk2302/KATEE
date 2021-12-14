@@ -62,6 +62,7 @@
     <Property Name="QTV" Type="Boolean" Nullable="false" />
     <Property Name="TTND" Type="Boolean" Nullable="false" />
     <Property Name="AVA" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="MAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
     <NavigationProperty Name="HOADONs" Relationship="Self.FK_HD_ND" FromRole="NGUOIDUNG" ToRole="HOADON" />
     <NavigationProperty Name="PHIEUNHAPs" Relationship="Self.FK_PN_ND" FromRole="NGUOIDUNG" ToRole="PHIEUNHAP" />
   </EntityType>

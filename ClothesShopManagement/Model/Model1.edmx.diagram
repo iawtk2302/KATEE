@@ -4,12 +4,12 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="024ccc0ffe34444e97689b666bfdae26" Name="Diagram1">
+      <Diagram DiagramId="b6d6012ac5184e26a58a0edb6610aaa0" Name="Diagram1">
         <EntityTypeShape EntityType="QLBH_Model.CTHD" Width="1.5" PointX="5.25" PointY="2.875" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.CTPN" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.HOADON" Width="1.5" PointX="3" PointY="2.5" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.KHACHHANG" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="QLBH_Model.NGUOIDUNG" Width="1.5" PointX="0.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLBH_Model.NGUOIDUNG" Width="1.5" PointX="0.75" PointY="2" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.PHIEUNHAP" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
         <EntityTypeShape EntityType="QLBH_Model.SANPHAM" Width="1.5" PointX="3" PointY="9.375" IsExpanded="true" />
         <AssociationConnector Association="QLBH_Model.FK_CT_HD" ManuallyRouted="false" />

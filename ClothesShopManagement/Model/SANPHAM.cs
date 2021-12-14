@@ -24,7 +24,7 @@ namespace ClothesShopManagement.Model
         public string MASP { get; set; }
         public string TENSP { get; set; }
         private int _GIA;
-        public int GIA { get=>_GIA*120/100; set=>_GIA=value; }
+        public int GIA { get => _GIA * 120 / 100; set => _GIA = value; }
         public string MOTA { get; set; }
         private string _HINHSP;
         public string HINHSP

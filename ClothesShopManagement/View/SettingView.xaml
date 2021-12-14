@@ -158,6 +158,7 @@
             </Grid>
             <Grid Grid.Row="4">
                 <Border CornerRadius="10" Background="White"/>
+                <StackPanel>
                 <StackPanel Orientation="Horizontal">
                     <TextBox Margin="30,20,0,0"  Width="190"
                             Style="{StaticResource MaterialDesignFilledTextBox}"
@@ -185,6 +186,16 @@
                             </i:EventTrigger>
                         </i:Interaction.Triggers>
                     </Button>
+                </StackPanel>
+                    <TextBox        
+                                    Margin="-195,-20,0,0"
+                                    Foreground="Black" 
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap"
+                                    MaxWidth="400" x:Name="Mail"
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Email" Text="{Binding Mail}" Width="390"/>
                 </StackPanel>
             </Grid>
         </Grid>

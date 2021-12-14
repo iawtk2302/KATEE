@@ -103,20 +103,28 @@ namespace ClothesShopManagement.ViewModel
         void _chooseKH(AddOrderView parameter)
         {
             KHACHHANG temp = (KHACHHANG)parameter.KH.SelectedItem;
-            int doanhso = 0;
-            foreach (HOADON a in DataProvider.Ins.DB.HOADONs)
+            if(temp!=null)
             {
-                if (a.MAKH == temp.MAKH)
-                    doanhso += a.TRIGIA;
-            }
+                int doanhso = 0;
+                foreach (HOADON a in DataProvider.Ins.DB.HOADONs)
+                {
+                    if (a.MAKH == temp.MAKH)
+                        doanhso += a.TRIGIA;
+                }
                 km = 0;
-            if (doanhso > 2000000 && doanhso <= 5000000)
-                km = 2;
-            else if (doanhso > 5000000 && doanhso <= 10000000)
-                km = 5;
-            else if (doanhso > 10000000)
-                km = 10;
-            parameter.khuyenmai.Text = km.ToString() + "%";
+                if (doanhso > 2000000 && doanhso <= 5000000)
+                    km = 2;
+                else if (doanhso > 5000000 && doanhso <= 10000000)
+                    km = 5;
+                else if (doanhso > 10000000)
+                    km = 10;
+                parameter.khuyenmai.Text = km.ToString() + "%";
+            }    
+            else
+            {
+                km = 0;
+                parameter.khuyenmai.Text = "0%";
+            }              
         }
         void _Choose(AddOrderView paramater)
         {
@@ -269,6 +277,7 @@ namespace ClothesShopManagement.ViewModel
                 {
                     tonggia += b.Tong;
                 }
+                double tien = (double)(1-(double)km/100)*tonggia;
                 HOADON temp = new HOADON()
                 {
                     SOHD = int.Parse(paramater.SoHD.Text),
@@ -276,8 +285,10 @@ namespace ClothesShopManagement.ViewModel
                     MAND = Const.ND.MAND,
                     NGHD = DateTime.Now,
                     CTHDs = new ObservableCollection<CTHD>(LCTHD),
-                    TRIGIA = tonggia*(100-km)/100,
-                    
+                    TRIGIA = (int)tien,
+                    KHACHHANG = a,
+                    NGUOIDUNG = Const.ND,
+                    KHUYENMAI = km
                 };
                 foreach(CTHD s in LCTHD)
                 {
@@ -305,7 +316,6 @@ namespace ClothesShopManagement.ViewModel
                 paramater.ListViewSP.ItemsSource = LHT;
                 paramater.TT.Text = tongtien.ToString();
                 paramater.SoHD.Text=rdma().ToString();
-                
                 MessageBox.Show("Thanh toán hóa đơn thành công !", "THÔNG BÁO");
             }
             else

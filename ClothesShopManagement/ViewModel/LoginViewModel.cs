@@ -25,6 +25,7 @@ namespace ClothesShopManagement.ViewModel
         public ICommand Login { get; set; }
         public ICommand PasswordChangedCommand { get; set; }
         public ICommand RegisterCommand { get; set; }
+        public ICommand ForgetPassCommand { get; set; }
         public LoginViewModel()
         {
             IsLogin = false;
@@ -36,6 +37,7 @@ namespace ClothesShopManagement.ViewModel
             Login = new RelayCommand<LoginWindow>((p) => true, (p) => login(p));
             PasswordChangedCommand = new RelayCommand<PasswordBox>((p) => true, (p) => { Password = p.Password; });
             RegisterCommand = new RelayCommand<LoginWindow>((p) => true, (p) => _RegisterCommand(p));
+            ForgetPassCommand = new RelayCommand<LoginWindow>((p) => true, (p) => _ForgetPassCommand(p));
         }
         public void Close()
         {
@@ -47,7 +49,7 @@ namespace ClothesShopManagement.ViewModel
         }
         public void Move(LoginWindow p)
         {
-            p.DragMove();
+            //p.DragMove();
         }
         public void login(LoginWindow p)
         {
@@ -55,7 +57,7 @@ namespace ClothesShopManagement.ViewModel
             {
                 if (p == null) return;
                 string PassEncode = MD5Hash(Base64Encode(Password));
-                var accCount = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == Username && x.PASS == PassEncode).Count();
+                var accCount = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == Username && x.PASS == PassEncode&&x.TTND).Count();
                 if (accCount > 0)
                 {
                     IsLogin = true;
@@ -95,7 +97,12 @@ namespace ClothesShopManagement.ViewModel
         void _RegisterCommand(LoginWindow parameter)
         {
             RegisterView registerView = new RegisterView();
-            registerView.ShowDialog();
+            registerView.ShowDialog();   
         }
-    }
+        void _ForgetPassCommand(LoginWindow parameter)
+        {
+            ForgetPassView forgetPassView = new ForgetPassView();
+            forgetPassView.ShowDialog();
+        }
+    }   
 }

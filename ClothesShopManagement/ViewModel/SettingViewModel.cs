@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,6 +26,8 @@ namespace ClothesShopManagement.ViewModel
         public string DoB { get => _DoB; set { _DoB = value; OnPropertyChanged(); } }
         private string _DiaChi;
         public string DiaChi { get => _DiaChi; set { _DiaChi = value; OnPropertyChanged(); } }
+        private string _Mail;
+        public string Mail { get => _Mail; set { _Mail = value; OnPropertyChanged(); } }
         private int _GioiTinh;
         public int GioiTinh { get => _GioiTinh; set { _GioiTinh = value; OnPropertyChanged(); } }
         private string _SDT;
@@ -72,16 +75,33 @@ namespace ClothesShopManagement.ViewModel
                 GioiTinh = (User.GIOITINH == "Nam") ? 0 : 1;
                 SDT = User.SDT;
                 TenTK = User.USERNAME;
+                Mail = User.MAIL;
             }
         }
         void _UdpateInfo(SettingView p)
         {
+            foreach (NGUOIDUNG temp2 in DataProvider.Ins.DB.NGUOIDUNGs)
+            {
+                if (temp2.MAIL == p.Mail.Text&&p.Mail.Text!=Const.ND.MAIL)
+                {
+                    MessageBox.Show("Email này đã được sử dụng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                    return;
+                }
+            }
+            string match = @"\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*";
+            Regex reg = new Regex(match);
+            if (!reg.IsMatch(p.Mail.Text))
+            {
+                MessageBox.Show("Email không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             var temp = DataProvider.Ins.DB.NGUOIDUNGs.Where(pa => pa.USERNAME == TenTK).FirstOrDefault();
             temp.TENND = p.NameBox.Text;
             temp.SDT = p.SDTBox.Text;
             temp.DIACHI = p.AddressBox.Text;
             temp.GIOITINH = p.GTBox.Text;
             temp.NGSINH = (DateTime)p.DateBox.SelectedDate;
+            temp.MAIL = p.Mail.Text;
             string rd = StringGenerator();
             if (User.AVA != Ava)
                 temp.AVA = "/Resource/Ava/" + rd + (Ava.Contains(".jpg") ? ".jpg" : ".png").ToString();

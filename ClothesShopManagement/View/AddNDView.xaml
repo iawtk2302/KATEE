@@ -12,7 +12,7 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Background="Transparent"
-        AllowsTransparency="True"  Height="410" Width="650">
+        AllowsTransparency="True"  Height="460" Width="650">
     <Border CornerRadius="15" >
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
@@ -24,7 +24,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="30"/>
                 <RowDefinition Height="30"/>
-                <RowDefinition Height="350"/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0"
                   Background="Transparent">
@@ -88,7 +88,7 @@
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>
-                    <Button HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"
+                    <Button HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"
                         Style="{StaticResource MaterialDesignFlatMidBgButton}"
                         Content="Thêm Avatar" FontFamily="{StaticResource Custom}"
                         BorderThickness="0"
@@ -196,6 +196,18 @@
                                     VerticalAlignment="Top"
                                     AcceptsReturn="True"
                                     TextWrapping="Wrap"
+                                    MaxWidth="400" x:Name="Mail"
+                                    materialDesign:HintAssist.Foreground="Black"
+                                    materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Email" Width="390"/>
+                            <TextBox 
+                                    Foreground="Black" 
+                                    Margin="-50,10,0,0"
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    VerticalAlignment="Top"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap"
                                     MaxWidth="400" x:Name="DC"
                                     materialDesign:HintAssist.Foreground="Black"
                                     materialDesign:TextFieldAssist.UnderlineBrush="#6C63FF"
@@ -205,6 +217,7 @@
                     </Grid>
                     <Grid Grid.Row="1" Grid.Column="1">
                         <Button
+                            Margin="0,20,0,0"
                             Width="390"
                             HorizontalAlignment="Left"
                             VerticalAlignment="Top"
