@@ -52,17 +52,17 @@ namespace ClothesShopManagement.ViewModel
                 if(temp.MAIL==parameter.mail.Text)
                 {
                     temp.PASS = LoginViewModel.MD5Hash(LoginViewModel.Base64Encode(newpass));
-                    return;
+                    break;
                 }    
             }
             DataProvider.Ins.DB.SaveChanges();
             string nd = "Vui lòng nhập mật khẩu " + newpass + " để đăng nhập. Trân trọng !";
-            MailMessage message=new MailMessage("sadboizzz32@gmail.com",parameter.mail.Text,"Lấy lại mật khẩu",nd);
+            MailMessage message=new MailMessage("clothesmanagement1412@gmail.com", parameter.mail.Text,"Lấy lại mật khẩu",nd);
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com",587);
             smtpClient.EnableSsl = true;
-            smtpClient.Credentials = new NetworkCredential("sadboizzz32@gmail.com","sadboi1@");
+            smtpClient.Credentials = new NetworkCredential("clothesmanagement1412@gmail.com","doanlttq");
             smtpClient.Send(message);
-            MessageBox.Show("Thành công", "Thông báo");
+            MessageBox.Show("Đã gửi mật khẩu vào Email đăng ký !", "Thông báo");
         }
     }
 }
