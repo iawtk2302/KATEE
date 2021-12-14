@@ -149,39 +149,27 @@
 
                             <Grid>
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="30"/>
-                                    <RowDefinition Height="50"/>
-                                    <RowDefinition Height="30"/>
+                                    <RowDefinition Height="55"/>
+                                    <RowDefinition Height="55"/>
                                 </Grid.RowDefinitions>
-                                <Grid Grid.Row="0" Height="30">
-                                    <TextBlock Text="Đánh giá shop:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
-                                </Grid>
-                                <Grid Grid.Row="2">
-                                    <materialDesign:RatingBar
-                                        HorizontalAlignment="Center"
-                                        VerticalAlignment="Top"
-                                        Foreground="#FDCF76"                                        
-                                        x:Name="BasicRatingBar"
-                                        Value="4" Margin="10,0,10.667,8">
-                                    </materialDesign:RatingBar>
-
+                                <Grid Grid.Row="0" Width="150">
+                                    <TextBlock Text="Số sản phẩm bán trong ngày:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
                                 </Grid>
                                 <Grid Grid.Row="1" VerticalAlignment="Center">
                                     <Grid.ColumnDefinitions>
                                         <ColumnDefinition Width="100"/>
                                         <ColumnDefinition Width="50"/>
                                     </Grid.ColumnDefinitions>
-                                    <Grid Grid.Column="1" VerticalAlignment="Bottom">
-                                        <materialDesign:PackIcon Kind="ThumbUp" Foreground="White" Height="45" Width="40"/>
-
+                                    <Grid Grid.Column="1">
+                                        <materialDesign:PackIcon Kind="BasketCheck" Foreground="White" Height="50" Width="50"/>
                                     </Grid>
-                                    <TextBlock x:Name="Rate" VerticalAlignment="Bottom" Text="4/5" TextWrapping="Wrap" TextAlignment="Right" Margin="0,0,20,0" FontWeight="Bold" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
-                                        <i:Interaction.Triggers>
-                                            <i:EventTrigger EventName="Loaded">
-                                                <i:InvokeCommandAction Command="{Binding LoadRate}"
+                                    <TextBlock x:Name="SPNgay" VerticalAlignment="Center" Text="0" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="30" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                    <i:Interaction.Triggers>
+                                <i:EventTrigger EventName="Loaded">
+                                    <i:InvokeCommandAction Command="{Binding LoadSP}"
                                                        CommandParameter="{Binding ElementName=Homewd}"></i:InvokeCommandAction>
-                                            </i:EventTrigger>
-                                        </i:Interaction.Triggers>
+                                </i:EventTrigger>
+                            </i:Interaction.Triggers>
                                     </TextBlock>
                                 </Grid>
                             </Grid>

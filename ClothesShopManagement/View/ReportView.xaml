@@ -93,7 +93,7 @@
                                 CornerRadius="25"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom" >
-                    <syncfusion:SfChart Header="Đánh giá của khách hàng" Margin="5">
+                    <syncfusion:SfChart Header="Top 5 sản phẩm bán chạy nhất trong tháng" Margin="5">
                         <syncfusion:SfChart.Legend>
                             <syncfusion:ChartLegend DockPosition="Bottom"/>
                         </syncfusion:SfChart.Legend>
@@ -107,8 +107,11 @@
                                 <syncfusion:DoughnutSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
                                         <syncfusion:ChartColorModel.CustomBrushes>
-                                            <SolidColorBrush Color="LightGreen"/>
-                                            <SolidColorBrush Color="PaleVioletRed"/>
+                                            <SolidColorBrush Color="#E0BBE4"/>
+                                            <SolidColorBrush Color="#957DAD"/>
+                                            <SolidColorBrush Color="#D291BC"/>
+                                            <SolidColorBrush Color="#FEC8D8"/>
+                                            <SolidColorBrush Color="#FFDFD3"/>
                                         </syncfusion:ChartColorModel.CustomBrushes>
                                     </syncfusion:ChartColorModel>
                                 </syncfusion:DoughnutSeries.ColorModel>
@@ -242,27 +245,27 @@
                                 <RowDefinition Height="55"/>
                                 <RowDefinition Height="55"/>
                             </Grid.RowDefinitions>
-                            <Grid Grid.Row="0" Width="150">
-                                <TextBlock Text="Sản phẩm bán chạy nhất:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
+                            <Grid Grid.Row="0">
+                                <TextBlock HorizontalAlignment="Center" Margin="10,0,10,0" Text="Khách hàng doanh số cao nhất tháng:" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto"/>
                             </Grid>
                             <Grid Grid.Row="1" VerticalAlignment="Center">
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="100"/>
+                                    <ColumnDefinition Width="130"/>
                                     <ColumnDefinition Width="50"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="1">
-                                   <materialDesign:PackIcon Kind="Basket" Foreground="White" Height="50" Width="50"/>
+                                   <materialDesign:PackIcon Kind="Crown" HorizontalAlignment="Right" Foreground="White" Height="50" Width="50"/>
                                 </Grid>
-                                <TextBlock x:Name="MaxSP"
+                                <TextBlock x:Name="MaxKH" Margin="15,0,0,0"
                                            VerticalAlignment="Top" Text="Mã" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
                                     <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Loaded">
-                                    <i:InvokeCommandAction Command="{Binding LoadSP}"
+                                    <i:InvokeCommandAction Command="{Binding LoadKH}"
                                                        CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                                 </TextBlock>
-                                <TextBlock x:Name="SPName" TextTrimming="CharacterEllipsis" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="NoWrap" Width="Auto" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                <TextBlock x:Name="KHName" Margin="15,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="NoWrap" Width="Auto" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
 
                                 </TextBlock>
                             </Grid>
@@ -346,7 +349,29 @@
                             <syncfusion:SfChart.Legend>
                                 <syncfusion:ChartLegend/>
                             </syncfusion:SfChart.Legend>
-                            <syncfusion:ColumnSeries x:Name="ColChart" Palette="Custom" Label="Doanh thu" XBindingPath="Time" YBindingPath="DT">
+                            <syncfusion:SfChart.Resources>
+                                <DataTemplate x:Key="tooltipTemplate">
+                                    <Border Background="Transparent" Margin="0,0,0,-10"
+                                   Padding="4" CornerRadius="3">
+                                        <StackPanel Orientation="Horizontal" >
+                                            <TextBlock Text="{Binding Item.Time}" Foreground="Black"/>
+                                            <TextBlock Text=": " Foreground="Black" />
+                                            <TextBlock Text="{Binding Item.DT}" Foreground="Black"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+
+                                <Style TargetType="Path" x:Key="tooltipStyle">
+                                    <Setter Property="Stroke" Value="White"/>
+                                    <Setter Property="Fill" Value="LightPink"/>
+                                </Style>
+                            </syncfusion:SfChart.Resources>
+                            <syncfusion:SfChart.Behaviors>
+                                <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
+                                 Position="Pointer"/>
+                            </syncfusion:SfChart.Behaviors>
+                            <syncfusion:ColumnSeries x:Name="ColChart" ShowTooltip="True" 
+                                                     EnableDragTooltip="True" Palette="Custom" Label="Doanh thu" XBindingPath="Time" YBindingPath="DT">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
                                         <syncfusion:ChartColorModel.CustomBrushes>

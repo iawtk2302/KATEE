@@ -36,9 +36,9 @@ namespace ClothesShopManagement.ViewModel
         public int SL { get; set; }
         public DateTime Ngay { get; set; }
         public ICommand LoadDoanhThu { get; set; }
-        public ICommand LoadRate { get; set; }
         public ICommand LoadDon { get; set; }
         public ICommand LoadChart { get; set; }
+        public ICommand LoadSP { get; set; }
         private ObservableCollection<CTHD> _CT;
         public ObservableCollection<CTHD> CT { get => _CT; set { _CT = value; OnPropertyChanged(); } }
         private SeriesCollection _SeriesCollection { get; set; }
@@ -58,11 +58,18 @@ namespace ClothesShopManagement.ViewModel
         public HomeViewModel()
         {
             LoadDoanhThu = new RelayCommand<HomeView>((p) => true, (p) => LoadDT(p));
-            LoadRate = new RelayCommand<HomeView>((p) => true, (p) => Rating(p));
             LoadDon = new RelayCommand<HomeView>((p) => true, (p) => SoDon(p));
             //CT = new ObservableCollection<CTHD>(DataProvider.Ins.DB.CTHDs);
             LoadChart = new RelayCommand<HomeView>((p) => true, (p) => LineChart(p));
+            LoadSP = new RelayCommand<HomeView>((p) => true, (p) => _LoadSP(p));
             //LineChart();
+        }
+        void _LoadSP(HomeView p)
+        {
+            int count = 0;
+            if (DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day && x.NGHD.Month == DateTime.Now.Month && x.NGHD.Year == DateTime.Now.Year).Count() > 0)
+                count = DataProvider.Ins.DB.CTHDs.Where(x => x.HOADON.NGHD.Day == DateTime.Now.Day && x.HOADON.NGHD.Month == DateTime.Now.Month && x.HOADON.NGHD.Year == DateTime.Now.Year).Sum(x => x.SL);
+            p.SPNgay.Text = count.ToString();
         }
         public void LineChart(HomeView p)
         {
@@ -97,13 +104,6 @@ namespace ClothesShopManagement.ViewModel
         {
             int count = DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Day == DateTime.Now.Day && x.NGHD.Month == DateTime.Now.Month && x.NGHD.Year == DateTime.Now.Year).Count();
             p.DonNgay.Text = count.ToString();
-        }
-        public void Rating(HomeView p)
-        {
-            //double rate = 0;
-            //rate = (double)DataProvider.Ins.DB.HOADONs.Select(x => x.DANHGIA).Average();
-            //p.Rate.Text = rate.ToString("#.#/5");
-            //p.BasicRatingBar.Value = (int)rate;
         }
         public void LoadDT(HomeView p)
         {

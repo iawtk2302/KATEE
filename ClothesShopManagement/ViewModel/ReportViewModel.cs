@@ -57,8 +57,6 @@ namespace ClothesShopManagement.ViewModel
         public Visibility Down { get => _Down; set { _Down = value; OnPropertyChanged(); } }
         private Visibility _SetBills;
         public Visibility SetBills { get => _SetBills; set { _SetBills = value; OnPropertyChanged(); } }
-        private Visibility _SetImport;
-        public Visibility SetImport { get => _SetImport; set { _SetImport = value; OnPropertyChanged(); } }
         public string Name;
         public List<Review> Reviews { get; set; }
         public List<YData> YDatas { get; set; }
@@ -68,8 +66,8 @@ namespace ClothesShopManagement.ViewModel
         public string MaSP { get; set; }
         public int SL { get; set; }
         public int MaxSell { get; set; }
-        public string BestSeller { get; set; }
-        public string SPName { get; set; }
+        public string BestKH { get; set; }
+        public string KHName { get; set; }
         public int MaxNV { get; set; }
         public string NVName { get; set; }
         public string NVBest { get; set; }
@@ -80,12 +78,10 @@ namespace ClothesShopManagement.ViewModel
         public ObservableCollection<string> Select { get => _Select; set { _Select = value; OnPropertyChanged(); } }
         private ObservableCollection<HOADON> _listHD;
         public ObservableCollection<HOADON> listHD { get => _listHD; set { _listHD = value; OnPropertyChanged(); } }
-        private ObservableCollection<PHIEUNHAP> _listPN;
-        public ObservableCollection<PHIEUNHAP> listPN { get => _listPN; set { _listPN = value; OnPropertyChanged(); } }
         public ICommand LoadDonut { get; set; }
         public ICommand LoadCol { get; set; }
         public ICommand LoadCbbx { get; set; }
-        public ICommand LoadSP { get; set; }
+        public ICommand LoadKH { get; set; }
         public ICommand LoadNV { get; set; }
         public ICommand LoadDT { get; set; }
         public ICommand LoadTotal { get; set; }
@@ -102,11 +98,10 @@ namespace ClothesShopManagement.ViewModel
             SwitchTab = new RelayCommand<ReportView>((p) => true, (p) => switchtab(p));
             LoadDonut = new RelayCommand<ReportView>((p) => true, (p) => DonutChart(p));
             LoadPie = new RelayCommand<ReportView>((p) => true, (p) => PieChart(p));
-            LoadSP = new RelayCommand<ReportView>((p) => true, (p) => SPCount(p));
+            LoadKH = new RelayCommand<ReportView>((p) => true, (p) => KHCount(p));
             LoadNV = new RelayCommand<ReportView>((p) => true, (p) => NVCount(p));
             LoadDT = new RelayCommand<ReportView>((p) => true, (p) => DTTrend(p));
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
-            listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
         }
         public void _loadwd(ReportView p)
         {
@@ -163,31 +158,26 @@ namespace ClothesShopManagement.ViewModel
             p.NVBest.Text = NVBest;
             p.NVName.Text = string.Join(" ", NVName.Split().Reverse().Take(2).Reverse());
         }
-        public void SPCount(ReportView p)
+        public void KHCount(ReportView p)
         {
-            MaxSell = int.MinValue;
-            var query = from a in DataProvider.Ins.DB.CTHDs
-                        join b in DataProvider.Ins.DB.SANPHAMs on a.MASP equals b.MASP
-                        where a.MASP == b.MASP&&a.HOADON.NGHD.Month== DateTime.Now.Month&& a.HOADON.NGHD.Year== DateTime.Now.Year
-                        select new ReportViewModel()
-                        {
-                            SL = a.SL,
-                            MaSP = a.MASP,
-                            TenSP = b.TENSP,
-                            Ngay=a.HOADON.NGHD
-                        };
-            foreach (ReportViewModel obj in query)
+            MaxSell = 0;
+            foreach (HOADON hd in DataProvider.Ins.DB.HOADONs.Where(x => x.NGHD.Month == DateTime.Now.Month))
             {
-                int temp = query.Where(x => x.MaSP == obj.MaSP&& x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Sum(x => x.SL);
+                int temp = DataProvider.Ins.DB.HOADONs.Where(x => x.MAKH == hd.MAKH).Count();
                 if (MaxSell < temp)
                 {
                     MaxSell = temp;
-                    BestSeller = obj.MaSP;
-                    SPName = obj.TenSP;
+                    BestKH = hd.MAKH;
+                    KHName = hd.KHACHHANG.HOTEN;
                 }
             }
-            p.MaxSP.Text = BestSeller;
-            p.SPName.Text = SPName;
+            if (MaxSell == 0)
+            {
+                BestKH = "";
+                KHName = "(chưa có)";
+            }
+            p.MaxKH.Text = BestKH;
+            p.KHName.Text = KHName;
         }
         public void ColChart(ReportView p)
         {
@@ -301,26 +291,109 @@ namespace ClothesShopManagement.ViewModel
         }
         void DonutChart(ReportView p)
         {
-            //Reviews = new List<Review>();
-            //Review r1 = new Review()
-            //{
-            //    Type = "Tích cực",
-            //    Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA >= 3).Count()
-            //};
-            //Review r2 = new Review()
-            //{
-            //    Type = "Tiêu cực",
-            //    Num = DataProvider.Ins.DB.HOADONs.Where(x => x.DANHGIA <= 2).Count()
-            //};
-            //Reviews.Add(r1);
-            //Reviews.Add(r2);
-            //p.Donut.ItemsSource = Reviews;
-            //p.Donut.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
-            //{
-            //    ShowLabel = true,
-            //    ShowConnectorLine = true,
-            //    Margin = new Thickness(2)
-            //};
+            var query = from a in DataProvider.Ins.DB.CTHDs
+                        join b in DataProvider.Ins.DB.SANPHAMs on a.MASP equals b.MASP
+                        where a.MASP == b.MASP && a.HOADON.NGHD.Month == DateTime.Now.Month && a.HOADON.NGHD.Year == DateTime.Now.Year
+                        select new ReportViewModel()
+                        {
+                            SL = a.SL,
+                            MaSP = a.MASP,
+                            TenSP = b.TENSP,
+                            Ngay = a.HOADON.NGHD
+                        };
+            string sp1 = "", sp2 = "", sp3 = "", sp4 = "", sp5 = "";
+            int max1 = 0;
+            foreach (ReportViewModel obj in query)
+            {
+                int temp = query.Where(x => x.TenSP == obj.TenSP && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Sum(x => x.SL);
+                if (max1 < temp)
+                {
+                    max1 = temp;
+                    sp1 = obj.TenSP;
+                }
+            }
+            int max2 = 0;
+            foreach (ReportViewModel obj in query)
+            {
+                if (obj.TenSP == sp1) continue;
+                int temp = query.Where(x => x.TenSP == obj.TenSP && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Sum(x => x.SL);
+                if (max2 < temp)
+                {
+                    max2 = temp;
+                    sp2 = obj.TenSP;
+                }
+            }
+            int max3 = 0;
+            foreach (ReportViewModel obj in query)
+            {
+                if (obj.TenSP == sp1 || obj.TenSP == sp2) continue;
+                int temp = query.Where(x => x.TenSP == obj.TenSP && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Sum(x => x.SL);
+                if (max3 < temp)
+                {
+                    max3 = temp;
+                    sp3 = obj.TenSP;
+                }
+            }
+            int max4 = 0;
+            foreach (ReportViewModel obj in query)
+            {
+                if (obj.TenSP == sp1 || obj.TenSP == sp2 || obj.TenSP == sp3) continue;
+                int temp = query.Where(x => x.TenSP == obj.TenSP && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Sum(x => x.SL);
+                if (max4 < temp)
+                {
+                    max4 = temp;
+                    sp4 = obj.TenSP;
+                }
+            }
+            int max5 = 0;
+            foreach (ReportViewModel obj in query)
+            {
+                if (obj.TenSP == sp1 || obj.TenSP == sp2 || obj.TenSP == sp3 || obj.TenSP == sp4) continue;
+                int temp = query.Where(x => x.TenSP == obj.TenSP && x.Ngay.Month == DateTime.Now.Month && x.Ngay.Year == DateTime.Now.Year).Sum(x => x.SL);
+                if (max5 < temp)
+                {
+                    max5 = temp;
+                    sp5 = obj.TenSP;
+                }
+            }
+            Reviews = new List<Review>();
+            Review r1 = new Review()
+            {
+                Type = sp1,
+                Num = max1
+            };
+            Review r2 = new Review()
+            {
+                Type = sp2,
+                Num = max2
+            };
+            Review r3 = new Review()
+            {
+                Type = sp3,
+                Num = max3
+            };
+            Review r4 = new Review()
+            {
+                Type = sp4,
+                Num = max4
+            };
+            Review r5 = new Review()
+            {
+                Type = sp5,
+                Num = max5
+            };
+            Reviews.Add(r1);
+            Reviews.Add(r2);
+            Reviews.Add(r3);
+            Reviews.Add(r4);
+            Reviews.Add(r5);
+            p.Donut.ItemsSource = Reviews;
+            p.Donut.AdornmentsInfo = new Syncfusion.UI.Xaml.Charts.ChartAdornmentInfo()
+            {
+                ShowLabel = true,
+                ShowConnectorLine = true,
+                Margin = new Thickness(2)
+            };
         }
         void switchtab(ReportView p)
         {
@@ -332,7 +405,6 @@ namespace ClothesShopManagement.ViewModel
                     {
                         SetMain = Visibility.Visible;
                         SetBills = Visibility.Hidden;
-                        SetImport = Visibility.Hidden;
                         break;
                     }
                 case 1:
@@ -340,15 +412,12 @@ namespace ClothesShopManagement.ViewModel
                         listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);
                         SetMain = Visibility.Hidden;
                         SetBills = Visibility.Visible;
-                        SetImport = Visibility.Hidden;
                         break;
                     }
                 case 2:
                     {
-                        listPN = new ObservableCollection<PHIEUNHAP>(DataProvider.Ins.DB.PHIEUNHAPs);
                         SetMain = Visibility.Hidden;
                         SetBills = Visibility.Hidden;
-                        SetImport = Visibility.Visible;
                         break;
                     }
                 default:
