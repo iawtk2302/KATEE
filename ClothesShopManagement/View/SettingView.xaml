@@ -23,7 +23,7 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="65"/>
                 <RowDefinition Height="Auto"/>
-                <RowDefinition Height="280"/>
+                <RowDefinition Height="325"/>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
@@ -70,7 +70,7 @@
                                 </Ellipse.Fill>
                             </Ellipse>                         
                         </Border>
-                        <Button HorizontalAlignment="Left" Margin="30,0,0,0" VerticalAlignment="Top"
+                        <Button HorizontalAlignment="Left" Margin="30,-15,0,0" VerticalAlignment="Top"
                                 Style="{StaticResource MaterialDesignFlatMidBgButton}"
                                 Content="Thay đổi ảnh" FontFamily="{StaticResource Custom}"
                                 Width="150" Height="40" Background="Transparent" Foreground="Black"
@@ -106,6 +106,15 @@
                                     MaxWidth="400" x:Name="AddressBox"
                                     FontFamily="{StaticResource Custom}"
                                     materialDesign:HintAssist.Hint="Địa chỉ" Text="{Binding DiaChi}" Width="390"/>
+                                <TextBox        
+                                    Margin="0,20,-200,0"
+                                    Foreground="Black" 
+                                    Style="{StaticResource MaterialDesignFilledTextBox}"
+                                    AcceptsReturn="True"
+                                    TextWrapping="Wrap"
+                                    MaxWidth="400" x:Name="Mail"
+                                    FontFamily="{StaticResource Custom}"
+                                    materialDesign:HintAssist.Hint="Email" Text="{Binding Mail}" Width="390"/>
                             </StackPanel>
                         </Grid>
                         <Grid Grid.Column="2">
@@ -129,13 +138,14 @@
                             HorizontalAlignment="Left" x:Name="SDTBox"
                             FontFamily="{StaticResource Custom}"
                             materialDesign:HintAssist.Hint="Số điện thoại" Text="{Binding SDT}" />
+                                
                             </StackPanel>
                         </Grid>
                     </Grid>
                 </Border>
                 <Button
                         Style="{StaticResource MaterialDesignRaisedButton}"
-                        Width="390" Margin="220,200,34.667,28"
+                        Width="390" Margin="220,270,34.667,23"
                         Content="CẬP NHẬT THÔNG TIN" FontFamily="{StaticResource Custom}"
                         IsEnabled="{Binding DataContext.ControlsEnabled, RelativeSource={RelativeSource FindAncestor, AncestorType=Window}}" >
                     <i:Interaction.Triggers>
@@ -187,15 +197,7 @@
                         </i:Interaction.Triggers>
                     </Button>
                 </StackPanel>
-                    <TextBox        
-                                    Margin="-195,-20,0,0"
-                                    Foreground="Black" 
-                                    Style="{StaticResource MaterialDesignFilledTextBox}"
-                                    AcceptsReturn="True"
-                                    TextWrapping="Wrap"
-                                    MaxWidth="400" x:Name="Mail"
-                                    FontFamily="{StaticResource Custom}"
-                                    materialDesign:HintAssist.Hint="Email" Text="{Binding Mail}" Width="390"/>
+                    
                 </StackPanel>
             </Grid>
         </Grid>

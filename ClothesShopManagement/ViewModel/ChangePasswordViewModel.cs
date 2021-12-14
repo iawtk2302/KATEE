@@ -45,7 +45,11 @@ namespace ClothesShopManagement.ViewModel
             User = DataProvider.Ins.DB.NGUOIDUNGs.Where(x => x.USERNAME == a).FirstOrDefault();
             try
             {
-                if (User.PASS != MD5Hash(Base64Encode(OldPass)))
+                if (Password == "" || OldPass == "" || NewPass == "")
+                {
+                    MessageBox.Show("Vui lòng nhập thông tin!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                }
+                else if (User.PASS != MD5Hash(Base64Encode(OldPass)))
                 {
                     MessageBox.Show("Mật khẩu cũ không đúng!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 }

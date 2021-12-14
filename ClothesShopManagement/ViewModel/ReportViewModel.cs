@@ -130,7 +130,7 @@ namespace ClothesShopManagement.ViewModel
             if (temp >= 0)
             {
                 p.DTTrend.Text = "+" + temp.ToString("#,### VNĐ");
-                p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(34, 139, 34));
+                p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(124, 252, 0));
                 Up = Visibility.Visible;
                 Down = Visibility.Collapsed;
             }

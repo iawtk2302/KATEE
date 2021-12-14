@@ -94,8 +94,17 @@
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom" >
                     <syncfusion:SfChart Header="Top 5 sản phẩm bán chạy nhất trong tháng" Margin="5">
+                        <syncfusion:SfChart.Resources>
+
+                            <ItemsPanelTemplate x:Key="itemPanelTemplate">
+
+                                <WrapPanel/>
+
+                            </ItemsPanelTemplate>
+
+                        </syncfusion:SfChart.Resources>
                         <syncfusion:SfChart.Legend>
-                            <syncfusion:ChartLegend DockPosition="Bottom"/>
+                            <syncfusion:ChartLegend DockPosition="Bottom" ItemsPanel="{StaticResource itemPanelTemplate}"/>
                         </syncfusion:SfChart.Legend>
                         <syncfusion:SfChart.Series>
                             <syncfusion:DoughnutSeries x:Name="Donut" LegendIcon="Diamond" EnableAnimation="True" 
@@ -186,8 +195,8 @@
                                 VerticalAlignment="Top" >
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFF5B94" Offset="0"/>
-                            <GradientStop Color="#FF8441A4" Offset="1"/>
+                            <GradientStop Color="#FFFFCDA5" Offset="0"/>
+                            <GradientStop Color="#FFEE4D5F" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel HorizontalAlignment="Center"
@@ -281,8 +290,8 @@
                                 VerticalAlignment="Top" >
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFFCDA5" Offset="0"/>
-                            <GradientStop Color="#FFEE4D5F" Offset="1"/>
+                            <GradientStop Color="#FFFF5B94" Offset="0"/>
+                            <GradientStop Color="#FF8441A4" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel HorizontalAlignment="Center"
@@ -302,7 +311,7 @@
                                     <ColumnDefinition Width="120"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
-                                    <materialDesign:PackIcon x:Name="IconUp" VerticalAlignment="Bottom" Visibility="{Binding Up}" Kind="ArrowUpBold" Foreground="ForestGreen" Height="50" Width="50"/>
+                                    <materialDesign:PackIcon x:Name="IconUp" VerticalAlignment="Bottom" Visibility="{Binding Up}" Kind="ArrowUpBold" Foreground="#7CFC00" Height="50" Width="50"/>
                                     <materialDesign:PackIcon x:Name="IconDown" VerticalAlignment="Bottom" Visibility="{Binding Down}" Kind="ArrowDownBold" Foreground="DarkRed" Height="50" Width="50"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
@@ -351,26 +360,25 @@
                             </syncfusion:SfChart.Legend>
                             <syncfusion:SfChart.Resources>
                                 <DataTemplate x:Key="tooltipTemplate">
-                                    <Border Background="Transparent" Margin="0,0,0,-10"
+                                    <Border Background="Transparent" Margin="-5"
                                    Padding="4" CornerRadius="3">
                                         <StackPanel Orientation="Horizontal" >
-                                            <TextBlock Text="{Binding Item.Time}" Foreground="Black"/>
-                                            <TextBlock Text=": " Foreground="Black" />
-                                            <TextBlock Text="{Binding Item.DT}" Foreground="Black"/>
+                                            <TextBlock Text="{Binding Item.DT, StringFormat={}{0:N0}}" Foreground="Black" TextAlignment="Center" FontFamily="{StaticResource Custom1}"/>
+                                            <TextBlock Text=" VNĐ" Foreground="Black" TextAlignment="Center" FontFamily="{StaticResource Custom1}"/>
                                         </StackPanel>
                                     </Border>
                                 </DataTemplate>
 
                                 <Style TargetType="Path" x:Key="tooltipStyle">
                                     <Setter Property="Stroke" Value="White"/>
-                                    <Setter Property="Fill" Value="LightPink"/>
+                                    <Setter Property="Fill" Value="#FFE5D8"/>
                                 </Style>
                             </syncfusion:SfChart.Resources>
                             <syncfusion:SfChart.Behaviors>
                                 <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
                                  Position="Pointer"/>
                             </syncfusion:SfChart.Behaviors>
-                            <syncfusion:ColumnSeries x:Name="ColChart" ShowTooltip="True" 
+                            <syncfusion:ColumnSeries x:Name="ColChart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}"
                                                      EnableDragTooltip="True" Palette="Custom" Label="Doanh thu" XBindingPath="Time" YBindingPath="DT">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>

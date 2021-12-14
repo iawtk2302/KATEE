@@ -88,11 +88,11 @@
                             </Ellipse.Fill>
                         </Ellipse>
                     </Border>
-                    <Button HorizontalAlignment="Left" Margin="30,20,0,0" VerticalAlignment="Top"
+                    <Button HorizontalAlignment="Left" Margin="30,-80,0,0" VerticalAlignment="Top"
                         Style="{StaticResource MaterialDesignFlatMidBgButton}"
-                        Content="Thêm Avatar" FontFamily="{StaticResource Custom}"
+                        Content="Thêm ảnh đại diện" FontFamily="{StaticResource Custom}"
                         BorderThickness="0"
-                        Width="150" Height="40" Background="White" Foreground="#6C63FF"
+                        Width="160" Height="40" Background="White" Foreground="#6C63FF"
                         Grid.Row="1">
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">

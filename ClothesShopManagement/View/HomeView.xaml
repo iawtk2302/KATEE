@@ -202,7 +202,26 @@
                             <syncfusion:SfChart.Legend>
                                 <syncfusion:ChartLegend/>
                             </syncfusion:SfChart.Legend>
-                            <syncfusion:ColumnSeries x:Name="Chart" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP">
+                            <syncfusion:SfChart.Resources>
+                                <DataTemplate x:Key="tooltipTemplate">
+                                    <Border Background="Transparent" Margin="-5"
+                                   Padding="4" CornerRadius="3">
+                                        <StackPanel Orientation="Horizontal" >
+                                            <TextBlock Text="{Binding Item.SP}" Foreground="Black" TextAlignment="Center" FontFamily="{StaticResource Custom1}"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+
+                                <Style TargetType="Path" x:Key="tooltipStyle">
+                                    <Setter Property="Stroke" Value="White"/>
+                                    <Setter Property="Fill" Value="#FFE5D8"/>
+                                </Style>
+                            </syncfusion:SfChart.Resources>
+                            <syncfusion:SfChart.Behaviors>
+                                <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
+                                 Position="Pointer"/>
+                            </syncfusion:SfChart.Behaviors>
+                            <syncfusion:ColumnSeries x:Name="Chart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
                                         <syncfusion:ChartColorModel.CustomBrushes>
