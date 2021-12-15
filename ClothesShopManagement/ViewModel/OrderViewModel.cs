@@ -141,7 +141,9 @@ namespace ClothesShopManagement.ViewModel
                 list.Add(new HienThi(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, a.SL,a.SANPHAM.GIA, a.SL * a.SANPHAM.GIA));    
             }    
             detailOrder.ListViewSP.ItemsSource = list;
+            detailOrder.GG.Text= "- "+String.Format("{0:0,0}", (temp.TRIGIA*100/(100-temp.KHUYENMAI)) * temp.KHUYENMAI/100) + " VND";
             detailOrder.TT.Text= String.Format("{0:0,0}", temp.TRIGIA) + " VND";
+            detailOrder.TT1.Text = String.Format("{0:0,0}", temp.TRIGIA) + " VND";
             detailOrder.ShowDialog();
             parameter.ListViewHD.SelectedItem=null;
             listHD = new ObservableCollection<HOADON>(DataProvider.Ins.DB.HOADONs);

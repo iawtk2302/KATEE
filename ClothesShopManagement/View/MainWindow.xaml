@@ -13,7 +13,6 @@
         Background="Transparent"
         AllowsTransparency="True"
         x:Name="Mainwd"
-        Icon="/Resource/Image/icon1.png"
         Height="600" Width="1024" WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">

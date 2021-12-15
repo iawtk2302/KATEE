@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ClothesShopManagement.View"
         mc:Ignorable="d"
-        Title="PrintOrderView" Height="260" Width="800">
+        Title="PrintOrderView" Height="300" Width="800">
     <Grid x:Name="PrintView">
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>
@@ -60,7 +60,7 @@
                                          Header="Mã SP" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Margin="40,0,0,0" Text="{Binding MaSp}"/>
+                                    <TextBlock Margin="20,0,0,0" Text="{Binding MaSp}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -68,7 +68,7 @@
                                             Header="Tên Sản Phẩm" >
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Margin="17,0,0,0" Text="{Binding TenSP}"/>
+                                    <TextBlock Margin="18,0,0,0" Text="{Binding TenSP}"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -76,7 +76,7 @@
                                             Header="Số lượng">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding SL}"/>
+                                    <TextBlock Text="{Binding SL}" Margin="40,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -84,7 +84,7 @@
                                             Header="Đơn giá">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Dongia}"/>
+                                    <TextBlock Text="{Binding Dongia}" Margin="20,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -92,7 +92,7 @@
                                             Header="Thành tiền">
                             <GridViewColumn.CellTemplate>
                                 <DataTemplate>
-                                    <TextBlock Text="{Binding Tong}"/>
+                                    <TextBlock Text="{Binding Tong}" Margin="20,0,0,0"/>
                                 </DataTemplate>
                             </GridViewColumn.CellTemplate>
                         </GridViewColumn>
@@ -101,10 +101,26 @@
             </ListView>
         </Grid>
         <Grid Grid.Row="3">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,20,0">
-                <TextBlock Text="Tổng tiền:" FontWeight="Bold" FontSize="16"/>
-                <TextBlock x:Name="tt" FontSize="16"/>
-            </StackPanel>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="200"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="2">
+                    <StackPanel Margin="0,10,0,0">
+                    <TextBlock Text="Giảm giá:" FontWeight="Bold" FontSize="16"/>
+                    <TextBlock Text="Giá đã trừ khuyến mãi:" FontWeight="Bold" FontSize="16"/>
+                    <TextBlock Text="Thành tiền:" FontWeight="Bold" FontSize="16"/>
+                    </StackPanel>
+                </Grid>
+            <Grid Grid.Column="3" Grid.Row="3">
+                <StackPanel Margin="0,10,0,0">
+                    <TextBlock x:Name="gg" FontSize="16" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                    <TextBlock x:Name="tt1" FontSize="16" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                    <TextBlock x:Name="tt" FontSize="16" HorizontalAlignment="Right" Margin="0,0,20,0"/>
+                </StackPanel>
+            </Grid>
         </Grid>
     </Grid>
 </Window>

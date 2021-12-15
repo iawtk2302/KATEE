@@ -13,7 +13,7 @@
         xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource DetailOrderVM}"
-        Height="600" 
+        Height="650" 
         Width="700" WindowStartupLocation="CenterScreen">
     <Border
         x:Name="xx"
@@ -37,7 +37,7 @@
                 <RowDefinition Height="50"/>
                 <RowDefinition Height="280"/>
                 <RowDefinition/>
-                <RowDefinition Height="50"/>
+                <RowDefinition Height="100"/>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
                 <StackPanel 
@@ -432,22 +432,57 @@
                 <Grid Grid.Column="2"
                       HorizontalAlignment="Right"
                       >
-                    <TextBlock
-                        Margin="0,6,0,0"
-                        Foreground="White"
-                        Text="TỔNG TIỀN: "
-                        FontFamily="{StaticResource Custom}"
-                        FontSize="16"
+                    <StackPanel>
+                        <TextBlock
+                            Margin="0,6,0,0"
+                            Foreground="White"
+                            Text="GIẢM GIÁ: "
+                            FontFamily="{StaticResource Custom}"
+                            FontSize="16"
                         />
+                        <TextBlock
+                            Margin="0,6,0,0"
+                            Foreground="White"
+                            Text="GIÁ ĐÃ TRỪ KHUYẾN MÃI: "
+                            FontFamily="{StaticResource Custom}"
+                            FontSize="16"
+                        />
+                        <TextBlock
+                            Margin="0,6,0,0"
+                            Foreground="White"
+                            Text="TỔNG TIỀN: "
+                            FontFamily="{StaticResource Custom}"
+                            FontSize="16"
+                        />
+                    </StackPanel>
                 </Grid>
                 <Grid Grid.Column="3">
-                    <TextBlock
-                        Margin="0,6,0,0"
-                        Foreground="White"
-                        x:Name="TT"
-                        FontFamily="{StaticResource Custom}"
-                        FontSize="16"
+                    <StackPanel>
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            Margin="0,6,10,0"
+                            Foreground="White"
+                            x:Name="GG"
+                            FontFamily="{StaticResource Custom}"
+                            FontSize="16"
                         />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            Margin="0,6,10,0"
+                            Foreground="White"
+                            x:Name="TT1"
+                            FontFamily="{StaticResource Custom}"
+                            FontSize="16"
+                        />
+                        <TextBlock
+                            HorizontalAlignment="Right"
+                            Margin="0,6,10,0"
+                            Foreground="White"
+                            x:Name="TT"
+                            FontFamily="{StaticResource Custom}"
+                            FontSize="16"
+                        />
+                    </StackPanel>
                 </Grid>
             </Grid>
         </Grid>

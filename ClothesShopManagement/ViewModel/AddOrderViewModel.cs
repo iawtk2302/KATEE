@@ -56,9 +56,11 @@ namespace ClothesShopManagement.ViewModel
         public ICommand SaveHD { get; set; }
         public ICommand chooseKH { get; set; }
         public int tongtien { get; set; }
+        public int tienkm { get; set; }
         public AddOrderViewModel()
         {
             tongtien = 0;
+            tienkm = 0;
             LSPSelected = new ObservableCollection<SANPHAM>();
             LDG = new ObservableCollection<string>() { "1", "2", "3", "4", "5" };
             LHT = new ObservableCollection<HienThi>();
@@ -97,6 +99,8 @@ namespace ClothesShopManagement.ViewModel
             paramater.TenND.Text = Const.ND.TENND;
             paramater.Ngay.Text = DateTime.Now.ToString("dd/MM/yyyy hh:mm tt");
             paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+            paramater.TT1.Text = String.Format("{0:0,0}", tongtien) + " VND";
+            paramater.GG.Text = "- " + String.Format("{0:0,0}", tienkm) + " VND";
             km = 0;
             paramater.khuyenmai.Text = km.ToString()+"%";
         }
@@ -167,6 +171,11 @@ namespace ClothesShopManagement.ViewModel
                 MessageBox.Show("Số lượng sản phẩm không hợp lệ !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (paramater.KH.SelectedItem == null)
+            {
+                System.Windows.MessageBox.Show("Bạn chưa chọn khách hàng !", "THÔNG BÁO", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             SANPHAM a = (SANPHAM)paramater.SP.SelectedItem;
             if (a.SL >= int.Parse(paramater.SL.Text))
             {
@@ -184,7 +193,10 @@ namespace ClothesShopManagement.ViewModel
                             }
                         }
                         tongtien += int.Parse(paramater.SL.Text) * a.GIA*(100-km)/100;
+                        tienkm+= int.Parse(paramater.SL.Text) * a.GIA * km / 100;
                         paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                        paramater.TT1.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                        paramater.GG.Text="- "+ String.Format("{0:0,0}", tienkm) + " VND";
                         paramater.ListViewSP.ItemsSource = LHT;
                         paramater.ListViewSP.Items.Refresh();
                         paramater.SP.SelectedItem = null;
@@ -201,7 +213,10 @@ namespace ClothesShopManagement.ViewModel
                     SOHD = int.Parse(paramater.SoHD.Text),
                 };
                 tongtien += int.Parse(paramater.SL.Text) * a.GIA*(100-km)/100;
+                tienkm += int.Parse(paramater.SL.Text) * a.GIA * km / 100;
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                paramater.TT1.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                paramater.GG.Text = "- " + String.Format("{0:0,0}", tienkm) + " VND";
                 LCTHD.Add(cthd);
                 LHT.Add(b);
                 paramater.ListViewSP.ItemsSource = LHT;
@@ -224,7 +239,10 @@ namespace ClothesShopManagement.ViewModel
             {
                 HienThi a = (HienThi)paramater.ListViewSP.SelectedItem;
                 tongtien -= a.Tong*(100-km)/100;
+                tienkm-= a.Tong *  km / 100;
                 paramater.TT.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                paramater.TT1.Text = String.Format("{0:0,0}", tongtien) + " VND";
+                paramater.GG.Text = "- " + String.Format("{0:0,0}", tienkm) + " VND";
                 LHT.Remove(a);            
                 foreach (CTHD b in LCTHD)
                 {
@@ -309,12 +327,15 @@ namespace ClothesShopManagement.ViewModel
                 }    
                 tongtien = 0;
                 km = 0;
+                tienkm = 0;
                 LSPSelected.Clear();
                 paramater.KH.SelectedItem = null;
                 LHT.Clear();
                 LCTHD.Clear();
                 paramater.ListViewSP.ItemsSource = LHT;
                 paramater.TT.Text = tongtien.ToString();
+                paramater.GG.Text = "- " + tienkm.ToString();
+                paramater.TT1.Text = tongtien.ToString();
                 paramater.SoHD.Text=rdma().ToString();
                 MessageBox.Show("Thanh toán hóa đơn thành công !", "THÔNG BÁO");
             }
@@ -325,7 +346,7 @@ namespace ClothesShopManagement.ViewModel
         {  
                 KHACHHANG temp = (KHACHHANG)parameter.KH.SelectedItem;
                 PrintOrderView printOrderView = new PrintOrderView();
-                printOrderView.Height = 270 + 35 * LHT.Count;
+                printOrderView.Height = 300 + 35 * LHT.Count;
                 printOrderView.TenKH.Text = temp.HOTEN;
                 printOrderView.dc.Text = temp.DCHI;
                 printOrderView.sdt.Text = temp.SDT;
@@ -333,6 +354,8 @@ namespace ClothesShopManagement.ViewModel
                 printOrderView.sohd.Text = parameter.SoHD.Text;
                 printOrderView.ListSP.ItemsSource = LHT;
                 printOrderView.tt.Text = parameter.TT.Text;
+                printOrderView.gg.Text = parameter.GG.Text;
+                printOrderView.tt1.Text = parameter.TT1.Text;
                 try
                 {
                     PrintDialog printDialog = new PrintDialog();
