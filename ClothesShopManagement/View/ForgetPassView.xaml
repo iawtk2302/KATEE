@@ -15,7 +15,14 @@
         DataContext="{StaticResource ForgetPassVM}"
         Height="250" Width="300" WindowStartupLocation="CenterScreen">
     <Border Background="#17181F"
+            BorderThickness="2"
             CornerRadius="15">
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFE5D8" Offset="0"/>
+                <GradientStop Color="#FFCAD4" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding movewd}"
@@ -70,6 +77,8 @@
                     <Button Content="LẤY LẠI MẬT KHẨU"
                             Background="LightPink"
                             Foreground="White"
+                            BorderBrush="Transparent"
+                            FontFamily="{StaticResource Custom}"
                             >
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
