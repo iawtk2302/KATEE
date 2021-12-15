@@ -221,7 +221,7 @@
                                 <syncfusion:ChartTooltipBehavior Style="{StaticResource tooltipStyle}" 
                                  Position="Pointer"/>
                             </syncfusion:SfChart.Behaviors>
-                            <syncfusion:ColumnSeries x:Name="Chart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP">
+                            <syncfusion:ColumnSeries x:Name="Chart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}" Palette="Custom" Label="Sản phẩm" ItemsSource="{Binding Data}" XBindingPath="Hour" YBindingPath="SP" EnableAnimation="True" AnimationDuration="00:00:01">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
                                         <syncfusion:ChartColorModel.CustomBrushes>

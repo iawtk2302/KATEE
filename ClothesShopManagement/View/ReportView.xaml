@@ -379,6 +379,7 @@
                                  Position="Pointer"/>
                             </syncfusion:SfChart.Behaviors>
                             <syncfusion:ColumnSeries x:Name="ColChart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}"
+                                                     EnableAnimation="True" AnimationDuration="00:00:01"
                                                      EnableDragTooltip="True" Palette="Custom" Label="Doanh thu" XBindingPath="Time" YBindingPath="DT">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
