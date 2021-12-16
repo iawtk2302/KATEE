@@ -124,21 +124,28 @@ namespace ClothesShopManagement.ViewModel
             MessageBoxResult d = System.Windows.MessageBox.Show("In báo cáo ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
             if (d == MessageBoxResult.Yes)
             {
-                p.SampleChart.Save(Const._localLink + @"Resource/Chart/doanh_thu.jpg");
-                p.PChart.Save(Const._localLink + @"Resource/Chart/loai_san_pham.jpg");
-                p.DChart.Save(Const._localLink + @"Resource/Chart/top5_san_pham.jpg");
-                MailMessage message = new MailMessage("clothesmanagement1412@gmail.com", Const.ND.MAIL, "Báo cáo thống kê","Đây là biểu đồ thống kê bạn vừa xuất. Trân trọng !");
-                Attachment attachment = new Attachment(Const._localLink + @"Resource/Chart/doanh_thu.jpg");
-                Attachment attachment1 = new Attachment(Const._localLink + @"Resource/Chart/loai_san_pham.jpg");
-                Attachment attachment2 = new Attachment(Const._localLink + @"Resource/Chart/top5_san_pham.jpg");
-                message.Attachments.Add(attachment);
-                message.Attachments.Add(attachment1);
-                message.Attachments.Add(attachment2);
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-                smtpClient.EnableSsl = true;
-                smtpClient.Credentials = new NetworkCredential("clothesmanagement1412@gmail.com", "doanlttq");
-                smtpClient.Send(message);
-                MessageBox.Show("Đã gửi báo cáo, vui lòng kiểm tra mail !", "Thông báo");
+                try
+                {
+                    p.SampleChart.Save(Const._localLink + @"Resource/Chart/doanh_thu.jpg");
+                    p.PChart.Save(Const._localLink + @"Resource/Chart/loai_san_pham.jpg");
+                    p.DChart.Save(Const._localLink + @"Resource/Chart/top5_san_pham.jpg");
+                    MailMessage message = new MailMessage("clothesmanagement1412@gmail.com", Const.ND.MAIL, "Báo cáo thống kê", "Đây là biểu đồ thống kê bạn vừa xuất. Trân trọng !");
+                    Attachment attachment = new Attachment(Const._localLink + @"Resource/Chart/doanh_thu.jpg");
+                    Attachment attachment1 = new Attachment(Const._localLink + @"Resource/Chart/loai_san_pham.jpg");
+                    Attachment attachment2 = new Attachment(Const._localLink + @"Resource/Chart/top5_san_pham.jpg");
+                    message.Attachments.Add(attachment);
+                    message.Attachments.Add(attachment1);
+                    message.Attachments.Add(attachment2);
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                    smtpClient.EnableSsl = true;
+                    smtpClient.Credentials = new NetworkCredential("clothesmanagement1412@gmail.com", "doanlttq");
+                    smtpClient.Send(message);
+                    MessageBox.Show("Đã gửi báo cáo, vui lòng kiểm tra mail !", "Thông báo");
+                }
+                catch
+                {
+                    MessageBox.Show("Không thể xử lý vì tệp đang được mở trong cửa sổ khác !", "Thông báo");
+                }
             }
         }
         public void DTTrend(ReportView p)
