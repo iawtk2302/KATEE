@@ -80,10 +80,13 @@
                                 Margin="15,20,0,0"
                                 >
                         <TextBox 
+                                    HorizontalAlignment="Left"
                                    FontSize="30"
                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                    BorderThickness="0"
                                    FontFamily="{StaticResource Custom}"
+                                   TextWrapping="Wrap"
+                                   Width="235"
                                    x:Name="TenSP"
                                    />
                         <TextBlock 

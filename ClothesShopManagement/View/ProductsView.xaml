@@ -59,14 +59,14 @@
                         FontSize="14"
                         SelectedIndex="0"
                         Width="110">
-                            <ComboBoxItem Content="All"/>
-                            <ComboBoxItem Content="Shirt"/>
-                            <ComboBoxItem Content="T-Shirt"/>
-                            <ComboBoxItem Content="Hoodies"/>
-                            <ComboBoxItem Content="Jacket"/>
-                            <ComboBoxItem Content="Sweater"/>
-                            <ComboBoxItem Content="Short vs Pants"/>
-                            <ComboBoxItem Content="Accessories"/>
+                            <ComboBoxItem Content="Tất cả"/>
+                            <ComboBoxItem Content="Áo sơ mi"/>
+                            <ComboBoxItem Content="Áo thun"/>
+                            <ComboBoxItem Content="Áo trùm đầu"/>
+                            <ComboBoxItem Content="Áo Khoác"/>
+                            <ComboBoxItem Content="Áo tay dài"/>
+                            <ComboBoxItem Content="Quần"/>
+                            <ComboBoxItem Content="Phụ kiện"/>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="SelectionChanged">
                                     <i:InvokeCommandAction Command="{Binding Filter}"
