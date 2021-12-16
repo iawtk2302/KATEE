@@ -1,15 +1,20 @@
 ﻿using ClothesShopManagement.Model;
 using ClothesShopManagement.View;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace ClothesShopManagement.ViewModel
 {
@@ -88,12 +93,14 @@ namespace ClothesShopManagement.ViewModel
         public ICommand LoadView { get; set; }
         public ICommand LoadPie { get; set; }
         public ICommand Loadwd { get; set; }
+        public ICommand Save { get; set; }
 
         public ReportViewModel()
         {
             Select = new ObservableCollection<string> { "Theo năm", "Theo tháng" };
             LoadCbbx = new RelayCommand<ReportView>((p) => true, (p) => ColChart(p));
             Loadwd = new RelayCommand<ReportView>((p) => true, (p) => _loadwd(p));
+            Save = new RelayCommand<ReportView>((p) => true, (p) => SaveImageEncoder_Click(p));
             GetIdTab = new RelayCommand<RadioButton>((p) => true, (p) => Name = p.Uid);
             SwitchTab = new RelayCommand<ReportView>((p) => true, (p) => switchtab(p));
             LoadDonut = new RelayCommand<ReportView>((p) => true, (p) => DonutChart(p));
@@ -105,8 +112,34 @@ namespace ClothesShopManagement.ViewModel
         }
         public void _loadwd(ReportView p)
         {
+            p.Combobox.SelectedIndex = 1;
+            ColChart(p);
             SetMain = Visibility.Visible;
             SetBills = Visibility.Hidden;
+        }
+        private void SaveImageEncoder_Click(ReportView p)
+        {
+            p.Combobox.SelectedIndex = 0;
+            ColChart(p);
+            MessageBoxResult d = System.Windows.MessageBox.Show("In báo cáo ?", "THÔNG BÁO", MessageBoxButton.YesNoCancel, MessageBoxImage.Question);
+            if (d == MessageBoxResult.Yes)
+            {
+                p.SampleChart.Save(Const._localLink + @"Resource/Chart/doanh_thu.jpg");
+                p.PChart.Save(Const._localLink + @"Resource/Chart/loai_san_pham.jpg");
+                p.DChart.Save(Const._localLink + @"Resource/Chart/top5_san_pham.jpg");
+                MailMessage message = new MailMessage("clothesmanagement1412@gmail.com", Const.ND.MAIL, "Báo cáo thống kê","Đây là biểu đồ thống kê bạn vừa xuất. Trân trọng !");
+                Attachment attachment = new Attachment(Const._localLink + @"Resource/Chart/doanh_thu.jpg");
+                Attachment attachment1 = new Attachment(Const._localLink + @"Resource/Chart/loai_san_pham.jpg");
+                Attachment attachment2 = new Attachment(Const._localLink + @"Resource/Chart/top5_san_pham.jpg");
+                message.Attachments.Add(attachment);
+                message.Attachments.Add(attachment1);
+                message.Attachments.Add(attachment2);
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                smtpClient.EnableSsl = true;
+                smtpClient.Credentials = new NetworkCredential("clothesmanagement1412@gmail.com", "doanlttq");
+                smtpClient.Send(message);
+                MessageBox.Show("Đã gửi báo cáo, vui lòng kiểm tra mail !", "Thông báo");
+            }
         }
         public void DTTrend(ReportView p)
         {
@@ -129,7 +162,7 @@ namespace ClothesShopManagement.ViewModel
             long temp = ThisMonth - LastMonth;
             if (temp >= 0)
             {
-                p.DTTrend.Text = "+" + temp.ToString("#,### VNĐ");
+                p.DTTrend.Text = " + " + temp.ToString("#,### VNĐ");
                 p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(124, 252, 0));
                 Up = Visibility.Visible;
                 Down = Visibility.Collapsed;
@@ -183,6 +216,7 @@ namespace ClothesShopManagement.ViewModel
         {
             if (p.Combobox.SelectedIndex == 0)
             {
+                p.SampleChart.Header = "Đồ thị doanh thu năm " + DateTime.Now.Year.ToString();
                 var query = DataProvider.Ins.DB.HOADONs.Select(x => new ReportViewModel()
                 {
                     Tien = x.TRIGIA,
@@ -202,6 +236,7 @@ namespace ClothesShopManagement.ViewModel
             }
             else
             {
+                p.SampleChart.Header = "Đồ thị doanh thu tháng " + DateTime.Now.Month.ToString() + "/" + DateTime.Now.Year.ToString();
                 var query = DataProvider.Ins.DB.HOADONs.Select(x => new ReportViewModel()
                 {
                     Tien = x.TRIGIA,
@@ -220,6 +255,7 @@ namespace ClothesShopManagement.ViewModel
                 }
             }
             p.ColChart.ItemsSource = YDatas;
+
         }
         void PieChart(ReportView p)
         {

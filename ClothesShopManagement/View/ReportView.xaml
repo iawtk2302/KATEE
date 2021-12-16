@@ -93,7 +93,7 @@
                                 CornerRadius="25"
                                 HorizontalAlignment="Right"
                                 VerticalAlignment="Bottom" >
-                    <syncfusion:SfChart Header="Top 5 sản phẩm bán chạy nhất trong tháng" Margin="5">
+                    <syncfusion:SfChart x:Name="DChart" Background="AliceBlue" Header="Top 5 sản phẩm bán chạy nhất trong tháng" Margin="5">
                         <syncfusion:SfChart.Resources>
 
                             <ItemsPanelTemplate x:Key="itemPanelTemplate">
@@ -143,7 +143,7 @@
                                 CornerRadius="25"
                                 HorizontalAlignment="Left"
                                 VerticalAlignment="Bottom" >
-                    <syncfusion:SfChart Header="Số lượng loại sản phẩm bán ra" Margin="5">
+                    <syncfusion:SfChart x:Name="PChart" Background="AliceBlue" Header="Số lượng loại sản phẩm bán ra" Margin="5">
                         <syncfusion:SfChart.Resources>
 
                             <ItemsPanelTemplate x:Key="itemPanelTemplate">
@@ -328,6 +328,7 @@
                         </Grid>
                     </StackPanel>
                 </Border>
+                
                 <Border x:Name="DTChart" Height="420"
                                 Width="620"
                         Visibility="{Binding SetBills}"
@@ -335,18 +336,39 @@
                                 Background="AliceBlue"
                                 CornerRadius="30">
                     <StackPanel>
-                        <ComboBox x:Name="Combobox" ItemsSource="{Binding Select, Mode=TwoWay}" Margin="25,10,10,10" Width="100" HorizontalAlignment="Left"
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <ComboBox x:Name="Combobox" ItemsSource="{Binding Select, Mode=TwoWay}" Margin="25,10,10,10" Width="100" HorizontalAlignment="Left"
                                   materialDesign:HintAssist.Hint="Chọn chu kì"
                                   Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                            <i:Interaction.Triggers>
-                                <i:EventTrigger EventName="SelectionChanged">
-                                    <i:InvokeCommandAction Command="{Binding LoadCbbx}"
+                                <i:Interaction.Triggers>
+                                    <i:EventTrigger EventName="SelectionChanged">
+                                        <i:InvokeCommandAction Command="{Binding LoadCbbx}"
                                                        CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
-                                </i:EventTrigger>
-                            </i:Interaction.Triggers>
-                        </ComboBox>
-                        <syncfusion:SfChart 
-                            Height="350"
+                                    </i:EventTrigger>
+                                </i:Interaction.Triggers>
+                            </ComboBox>
+                            <Grid Grid.Column="1">
+                                <Button x:Name="Save" Content="Xuất biểu đồ" Width="Auto"
+                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,30,10"
+                                        Background="Transparent" Foreground="LightPink" BorderBrush="LightPink">
+                                    <i:Interaction.Triggers>
+                                        <i:EventTrigger EventName="Click">
+                                            <i:InvokeCommandAction Command="{Binding Save}"
+                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                        </i:EventTrigger>
+                                    </i:Interaction.Triggers>
+                                </Button>
+                            </Grid>
+                            
+                        </Grid>
+                        
+                        
+                        <syncfusion:SfChart x:Name="SampleChart" Background="AliceBlue"
+                            Height="350" Header="Đồ thị doanh thu" 
                                 Width="600" VerticalAlignment="Bottom"
                         >
                             <syncfusion:SfChart.PrimaryAxis>
@@ -356,7 +378,7 @@
                                 <syncfusion:NumericalAxis/>
                             </syncfusion:SfChart.SecondaryAxis>
                             <syncfusion:SfChart.Legend>
-                                <syncfusion:ChartLegend/>
+                                <syncfusion:ChartLegend DockPosition="Top"/>
                             </syncfusion:SfChart.Legend>
                             <syncfusion:SfChart.Resources>
                                 <DataTemplate x:Key="tooltipTemplate">
@@ -379,7 +401,7 @@
                                  Position="Pointer"/>
                             </syncfusion:SfChart.Behaviors>
                             <syncfusion:ColumnSeries x:Name="ColChart" ShowTooltip="True" TooltipTemplate="{StaticResource tooltipTemplate}"
-                                                     EnableAnimation="True" AnimationDuration="00:00:01"
+                                                     EnableAnimation="True" AnimationDuration="00:00:01" 
                                                      EnableDragTooltip="True" Palette="Custom" Label="Doanh thu" XBindingPath="Time" YBindingPath="DT">
                                 <syncfusion:ColumnSeries.ColorModel>
                                     <syncfusion:ChartColorModel>
@@ -388,6 +410,7 @@
                                         </syncfusion:ChartColorModel.CustomBrushes>
                                     </syncfusion:ChartColorModel>
                                 </syncfusion:ColumnSeries.ColorModel>
+                                
                             </syncfusion:ColumnSeries>
                             <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Loaded">
