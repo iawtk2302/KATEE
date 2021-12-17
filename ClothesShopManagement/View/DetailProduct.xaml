@@ -14,7 +14,7 @@
         x:Name="DetailProductwd"
         DataContext="{StaticResource DetailProductVM}"
         Height="450" 
-        Width="600">
+        Width="690">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loadwd}"
@@ -81,12 +81,11 @@
                                 >
                         <TextBox 
                                     HorizontalAlignment="Left"
-                                   FontSize="30"
+                                   FontSize="28"
                                    materialDesign:TextFieldAssist.DecorationVisibility="Hidden"
                                    BorderThickness="0"
                                    FontFamily="{StaticResource Custom}"
-                                   TextWrapping="Wrap"
-                                   Width="235"
+                                   
                                    x:Name="TenSP"
                                    />
                         <TextBlock 
