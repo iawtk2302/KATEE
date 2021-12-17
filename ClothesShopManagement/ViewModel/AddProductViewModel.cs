@@ -43,8 +43,16 @@ namespace ClothesShopManagement.ViewModel
             {
                 linkimage = open.FileName;
             };
-            Uri fileUri = new Uri(linkimage);
-            img.Source = new BitmapImage(fileUri);
+            if(linkimage== "/Resource/Image/add.png")
+            {
+                Uri fileUri = new Uri(linkimage, UriKind.Relative);
+                img.Source = new BitmapImage(fileUri);
+            }
+            else
+            {
+                Uri fileUri = new Uri(linkimage);
+                img.Source = new BitmapImage(fileUri);
+            }
         }
         bool check(string m)
         {

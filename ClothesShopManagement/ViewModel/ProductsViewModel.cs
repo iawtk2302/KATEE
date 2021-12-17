@@ -60,44 +60,44 @@ namespace ClothesShopManagement.ViewModel
                     }
                 case "1":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p=>p.LOAISP== "Shirt"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p=>p.LOAISP== "Áo sơ mi"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "2":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "T-Shirt"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Áo thun"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "3":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Hoodies"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Áo trùm đầu"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "4":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Jacket"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Áo khoác"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "5":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Sweater"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Áo tay dài"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "6":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Short & Pants"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Quần"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }
                 case "7":
                     {
-                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Accessories"));
+                        listSP = new ObservableCollection<SANPHAM>(listSP1.GroupBy(p => p.TENSP).Select(grp => grp.FirstOrDefault()).Where(p => p.LOAISP == "Phụ kiện"));
                         parameter.ListViewProduct.ItemsSource = listSP;
                         break;
                     }

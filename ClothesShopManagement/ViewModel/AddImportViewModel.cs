@@ -122,7 +122,7 @@ namespace ClothesShopManagement.ViewModel
                     goto There;
                 }
             }
-            Display b = new Display(a.MASP, a.TENSP, a.SIZE, (int)((float)a.GIA * 0.8), int.Parse(paramater.SL.Text), (int)((float)(int.Parse(paramater.SL.Text) * a.GIA) * 5/6));
+            Display b = new Display(a.MASP, a.TENSP, a.SIZE, (int)((float)a.GIA * 5/6), int.Parse(paramater.SL.Text), (int)((float)(int.Parse(paramater.SL.Text) * a.GIA) * 5/6));
             CTPN ctpn = new CTPN()
             {
                 MASP = a.MASP,

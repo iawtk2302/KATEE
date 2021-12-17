@@ -24,7 +24,14 @@
     <Border
         Background="White"
         CornerRadius="15"
+        BorderThickness="3"
         >
+        <Border.BorderBrush>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
+                <GradientStop Color="#FFE5D8" Offset="0"/>
+                <GradientStop Color="#FFCAD4" Offset="1"/>
+            </LinearGradientBrush>
+        </Border.BorderBrush>
         <i:Interaction.Triggers>
             <i:EventTrigger EventName="MouseLeftButtonDown">
                 <i:InvokeCommandAction Command="{Binding MoveWindow}"

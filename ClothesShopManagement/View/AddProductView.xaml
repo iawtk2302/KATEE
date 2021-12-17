@@ -155,13 +155,13 @@
                                     Height="30"
                                     FontSize="12"
                                     Width="130">
-                                    <ComboBoxItem Content="Shirt"/>
-                                    <ComboBoxItem Content="T-Shirt"/>
-                                    <ComboBoxItem Content="Hoodies"/>
-                                    <ComboBoxItem Content="Jacket"/>
-                                    <ComboBoxItem Content="Sweater"/>
-                                    <ComboBoxItem Content="Short vs Pants"/>
-                                    <ComboBoxItem Content="Accessories"/>
+                                    <ComboBoxItem Content="Áo sơ mi"/>
+                                    <ComboBoxItem Content="Áo thun"/>
+                                    <ComboBoxItem Content="Áo trùm đầu"/>
+                                    <ComboBoxItem Content="Áo khoác"/>
+                                    <ComboBoxItem Content="Áo tay dài"/>
+                                    <ComboBoxItem Content="Quần"/>
+                                    <ComboBoxItem Content="Phụ kiện"/>
                                 </ComboBox>
                             </Border>
                         </StackPanel>

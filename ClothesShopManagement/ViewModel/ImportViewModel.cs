@@ -80,8 +80,8 @@ namespace ClothesShopManagement.ViewModel
             int tong = 0;
             foreach (CTPN a in temp.CTPNs)
             {
-                list.Add(new Display(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, (int)((float)a.SANPHAM.GIA* 0.8), a.SL,(int)((float)(a.SL*a.SANPHAM.GIA)*0.8)));
-                tong += (int)((float)(a.SL * a.SANPHAM.GIA) * 0.8);
+                list.Add(new Display(a.MASP, a.SANPHAM.TENSP, a.SANPHAM.SIZE, (int)((float)a.SANPHAM.GIA* 5/6), a.SL,(int)((float)(a.SL*a.SANPHAM.GIA)*5/6)));
+                tong += (int)((float)(a.SL * a.SANPHAM.GIA) * 5/6);
             }
             detailImport.ttn.Text = String.Format("{0:#,###}"+" VND",tong);
             detailImport.ListViewSP.ItemsSource = list;

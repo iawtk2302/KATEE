@@ -63,7 +63,7 @@
                             <ComboBoxItem Content="Áo sơ mi"/>
                             <ComboBoxItem Content="Áo thun"/>
                             <ComboBoxItem Content="Áo trùm đầu"/>
-                            <ComboBoxItem Content="Áo Khoác"/>
+                            <ComboBoxItem Content="Áo khoác"/>
                             <ComboBoxItem Content="Áo tay dài"/>
                             <ComboBoxItem Content="Quần"/>
                             <ComboBoxItem Content="Phụ kiện"/>
