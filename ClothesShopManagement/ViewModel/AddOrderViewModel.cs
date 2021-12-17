@@ -82,6 +82,8 @@ namespace ClothesShopManagement.ViewModel
         }
         void Close(AddOrderView p)
         {
+            tongtien = 0;
+            tienkm = 0;
             LHT.Clear();
             p.Close();
         }

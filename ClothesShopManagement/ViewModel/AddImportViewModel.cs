@@ -51,6 +51,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void Close(AddImportView p)
         {
+            tongtien = 0;
             LHT.Clear();
             p.Close();
         }
