@@ -97,7 +97,7 @@
                         Width="90"
                         Height="40"
                         FontFamily="{StaticResource Custom}"
-                        BorderBrush="LightPink"
+                        BorderBrush="Transparent"
                         Foreground="White"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         >
@@ -120,6 +120,7 @@
                 <ListView x:Name="ListViewND" ItemsSource="{Binding listND}"
                             SelectionMode="Single"
                             ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                            ScrollViewer.VerticalScrollBarVisibility="Hidden"
                             Width="635"
                             >
                     <ListView.ItemTemplate>

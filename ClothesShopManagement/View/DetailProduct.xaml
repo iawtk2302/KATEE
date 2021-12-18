@@ -14,7 +14,7 @@
         x:Name="DetailProductwd"
         DataContext="{StaticResource DetailProductVM}"
         Height="450" 
-        Width="690">
+        Width="690" WindowStartupLocation="CenterScreen">
     <i:Interaction.Triggers>
         <i:EventTrigger EventName="Loaded">
             <i:InvokeCommandAction Command="{Binding Loadwd}"

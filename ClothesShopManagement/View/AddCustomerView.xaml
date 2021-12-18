@@ -14,7 +14,7 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         DataContext="{StaticResource AddCsVM}"
         Height="550" 
-        Width="350">
+        Width="350" WindowStartupLocation="CenterScreen">
     <Border
         CornerRadius="15"
         >

@@ -97,7 +97,7 @@
                         Width="90"
                         Height="40"
                         FontFamily="{StaticResource Custom}"
-                        BorderBrush="LightPink"
+                        BorderBrush="Transparent"
                         Foreground="White"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         >
@@ -173,7 +173,7 @@
                           Height="350"
                           Width="650"
                           SelectionMode="Single"
-                          ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
                         >
                     <ListView.ItemTemplate>
                         <DataTemplate>

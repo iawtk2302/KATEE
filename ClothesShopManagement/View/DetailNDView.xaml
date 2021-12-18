@@ -13,7 +13,7 @@
         ResizeMode="NoResize"
         Background="Transparent"
         AllowsTransparency="True" 
-        Height="480" Width="650">
+        Height="480" Width="650" WindowStartupLocation="CenterScreen">
     <Border CornerRadius="15" >
         <Border.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">

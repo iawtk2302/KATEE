@@ -135,6 +135,7 @@
                         Margin="40,0,0,0"
                         Width="90"
                         Height="40"
+                        FontFamily="{StaticResource Custom}"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         BorderThickness="0"
                         >
@@ -157,6 +158,7 @@
                 <ListView x:Name="ListViewProduct" ItemsSource="{Binding listSP}"
                           SelectionMode="Single"
                           ScrollViewer.HorizontalScrollBarVisibility="Disabled"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
                         >
                         <ListView.ItemTemplate>
                             <DataTemplate>

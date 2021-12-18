@@ -251,7 +251,7 @@
                     </Border>
                     <ListView x:Name="ListViewSP" 
                           SelectionMode="Single"
-                          ScrollViewer.VerticalScrollBarVisibility="Visible"
+                          ScrollViewer.VerticalScrollBarVisibility="Hidden"
                             Height="220"
                         >
                         <ListView.ItemTemplate>

@@ -353,12 +353,12 @@
                             </ComboBox>
                             <Grid Grid.Column="1">
                                 <Button x:Name="Save" Content="Xuất biểu đồ" Width="Auto"
-                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,30,10"
+                                        HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,30,10" FontFamily="{StaticResource Custom}"
                                         Background="Transparent" Foreground="LightPink" BorderBrush="LightPink">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding Save}"
-                                                       CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
+                                                                   CommandParameter="{Binding ElementName=Reportwd}"></i:InvokeCommandAction>
                                         </i:EventTrigger>
                                     </i:Interaction.Triggers>
                                 </Button>
