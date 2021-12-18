@@ -149,6 +149,7 @@ namespace ClothesShopManagement.ViewModel
                 addNDView.NS.SelectedDate = null;
                 addNDView.SDT.Clear();
                 addNDView.DC.Clear();
+                addNDView.Mail.Clear();
                 linkaddimage = Const._localLink + "/Resource/Image/addava.png";
                 Uri fileUri = new Uri(linkaddimage);
                 addNDView.HinhAnh1.ImageSource = new BitmapImage(fileUri);

@@ -151,6 +151,7 @@ namespace ClothesShopManagement.ViewModel
                 parameter.NS.SelectedDate = null;
                 parameter.SDT.Clear();
                 parameter.DC.Clear();
+                parameter.Mail.Clear();
                 linkaddimage = "/Resource/Image/addava.png";
                 parameter.HinhAnh1.ImageSource = new BitmapImage(new Uri(Const._localLink + linkaddimage));
             }
