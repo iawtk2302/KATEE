@@ -36,7 +36,7 @@
                                 x:Name="txbSearch"
                                 Width="250"
                                 Height="40"
-                                Margin="18,0,0,0"
+                                Margin="10,0,0,0"
                                 BorderBrush="White"
                                 Foreground="White"
                                 FontSize="16"
@@ -58,20 +58,15 @@
                     </TextBox>
                     <Button
                         Content="NHẬP"
-                        Margin="250,0,0,0"
+                        Margin="254,0,0,0"
                         Width="90"
                         Height="40"
                         FontFamily="{StaticResource Custom}"
                         BorderBrush="Transparent"
                         Foreground="White"
                         materialDesign:ButtonAssist.CornerRadius="6"
+                        Background="LightPink"
                         >
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFE5D8" Offset="1"/>
-                                <GradientStop Color="#FFCAD4" Offset="0"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding OpenAddImport}"

@@ -37,7 +37,7 @@
             <Grid Grid.Row="1">
                 <StackPanel Orientation="Horizontal">
                     <Border
-                        Margin="20,0,0,0"
+                        Margin="17,0,0,0"
                         Height="40"
                         Width="120"
                         CornerRadius="10"
@@ -100,13 +100,8 @@
                         BorderBrush="Transparent"
                         Foreground="White"
                         materialDesign:ButtonAssist.CornerRadius="6"
+                        Background="LightPink"
                         >
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FFE5D8" Offset="1"/>
-                                <GradientStop Color="#FFCAD4" Offset="0"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddCsCommand}"

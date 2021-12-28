@@ -138,13 +138,8 @@
                         FontFamily="{StaticResource Custom}"
                         materialDesign:ButtonAssist.CornerRadius="6"
                         BorderThickness="0"
+                        Background="LightPink"
                         >
-                        <Button.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0,0.5">
-                                <GradientStop Color="#FFE5D8" Offset="0"/>
-                                <GradientStop Color="#FFCAD4" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Button.Background>
                         <i:Interaction.Triggers>
                             <i:EventTrigger EventName="Click">
                                 <i:InvokeCommandAction Command="{Binding AddPdPdCommand}"
