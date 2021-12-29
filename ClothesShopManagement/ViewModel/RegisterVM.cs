@@ -40,6 +40,7 @@ namespace ClothesShopManagement.ViewModel
         }
         void Close(RegisterView p)
         {
+            linkaddimage = Const._localLink + "/Resource/Image/addava.png";
             p.Close();
         }
         void _Minimize(RegisterView p)
