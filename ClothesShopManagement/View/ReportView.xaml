@@ -195,8 +195,8 @@
                                 VerticalAlignment="Top" >
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFFCDA5" Offset="0"/>
-                            <GradientStop Color="#FFEE4D5F" Offset="1"/>
+                            <GradientStop Color="#85FFBD" Offset="0"/>
+                            <GradientStop Color="#97D9E1" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel HorizontalAlignment="Center"
@@ -242,8 +242,8 @@
                                 VerticalAlignment="Top" >
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFF9897" Offset="0"/>
-                            <GradientStop Color="#FFF650A0" Offset="1"/>
+                            <GradientStop Color="#FBAB7E" Offset="0"/>
+                            <GradientStop Color="#F7CE68" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel HorizontalAlignment="Center"
@@ -265,7 +265,7 @@
                                 <Grid Grid.Column="1">
                                    <materialDesign:PackIcon Kind="Crown" HorizontalAlignment="Right" Foreground="White" Height="50" Width="50"/>
                                 </Grid>
-                                <TextBlock x:Name="MaxKH" Margin="15,0,0,0"
+                                <TextBlock x:Name="MaxKH" Margin="10,0,0,0"
                                            VerticalAlignment="Top" Text="Mã" TextAlignment="Left" FontWeight="Bold" TextWrapping="Wrap" FontSize="25" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
                                     <i:Interaction.Triggers>
                                 <i:EventTrigger EventName="Loaded">
@@ -274,7 +274,7 @@
                                 </i:EventTrigger>
                             </i:Interaction.Triggers>
                                 </TextBlock>
-                                <TextBlock x:Name="KHName" Margin="15,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="NoWrap" Width="Auto" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
+                                <TextBlock x:Name="KHName" Margin="10,0,0,0" TextTrimming="CharacterEllipsis" VerticalAlignment="Bottom" Text="Tên" TextAlignment="Left"  TextWrapping="NoWrap" Width="Auto" FontSize="13" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
 
                                 </TextBlock>
                             </Grid>
@@ -290,8 +290,8 @@
                                 VerticalAlignment="Top" >
                     <Border.Background>
                         <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                            <GradientStop Color="#FFFF5B94" Offset="0"/>
-                            <GradientStop Color="#FF8441A4" Offset="1"/>
+                            <GradientStop Color="#8EC5FC" Offset="0"/>
+                            <GradientStop Color="#E0C3FC" Offset="1"/>
                         </LinearGradientBrush>
                     </Border.Background>
                     <StackPanel HorizontalAlignment="Center"
@@ -311,8 +311,8 @@
                                     <ColumnDefinition Width="120"/>
                                 </Grid.ColumnDefinitions>
                                 <Grid Grid.Column="0">
-                                    <materialDesign:PackIcon x:Name="IconUp" VerticalAlignment="Bottom" Visibility="{Binding Up}" Kind="ArrowUpBold" Foreground="#7CFC00" Height="50" Width="50"/>
-                                    <materialDesign:PackIcon x:Name="IconDown" VerticalAlignment="Bottom" Visibility="{Binding Down}" Kind="ArrowDownBold" Foreground="DarkRed" Height="50" Width="50"/>
+                                    <materialDesign:PackIcon x:Name="IconUp" VerticalAlignment="Bottom" Visibility="{Binding Up}" Kind="ArrowUpBold" Foreground="White" Height="50" Width="50"/>
+                                    <materialDesign:PackIcon x:Name="IconDown" VerticalAlignment="Bottom" Visibility="{Binding Down}" Kind="ArrowDownBold" Foreground="White" Height="50" Width="50"/>
                                 </Grid>
                                 <Grid Grid.Column="1">
                                     <TextBlock x:Name="DTTrend" VerticalAlignment="Center" Text="0" TextAlignment="Center" FontWeight="Bold" TextWrapping="Wrap" FontSize="20" Foreground="White" FontFamily="{StaticResource Custom}" Height="Auto">
@@ -353,8 +353,9 @@
                             </ComboBox>
                             <Grid Grid.Column="1">
                                 <Button x:Name="Save" Content="Xuất biểu đồ" Width="Auto"
+                                        BorderThickness="2"
                                         HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="10,10,30,10" FontFamily="{StaticResource Custom}"
-                                        Background="Transparent" Foreground="LightPink" BorderBrush="LightPink">
+                                        Background="Transparent" Foreground="LightPink" BorderBrush="LightPink" materialDesign:ShadowAssist.ShadowDepth="Depth0">
                                     <i:Interaction.Triggers>
                                         <i:EventTrigger EventName="Click">
                                             <i:InvokeCommandAction Command="{Binding Save}"
@@ -363,7 +364,6 @@
                                     </i:Interaction.Triggers>
                                 </Button>
                             </Grid>
-                            
                         </Grid>
                         
                         

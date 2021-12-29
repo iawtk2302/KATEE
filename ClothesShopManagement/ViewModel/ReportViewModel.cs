@@ -169,15 +169,15 @@ namespace ClothesShopManagement.ViewModel
             long temp = ThisMonth - LastMonth;
             if (temp >= 0)
             {
-                p.DTTrend.Text = " + " + temp.ToString("#,### VNĐ");
-                p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(124, 252, 0));
+                p.DTTrend.Text = temp.ToString("#,###");
+                p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                 Up = Visibility.Visible;
                 Down = Visibility.Collapsed;
             }
             else
             {
-                p.DTTrend.Text = temp.ToString("#,### VNĐ");
-                p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(139, 0, 0));
+                p.DTTrend.Text = temp.ToString("#,###");
+                p.DTTrend.Foreground = new SolidColorBrush(Color.FromRgb(255, 255, 255));
                 Up = Visibility.Collapsed;
                 Down = Visibility.Visible;
             }
