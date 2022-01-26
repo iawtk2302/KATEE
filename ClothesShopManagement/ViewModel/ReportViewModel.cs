@@ -138,7 +138,7 @@ namespace ClothesShopManagement.ViewModel
                     message.Attachments.Add(attachment2);
                     SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
                     smtpClient.EnableSsl = true;
-                    smtpClient.Credentials = new NetworkCredential("clothesmanagement1412@gmail.com", "doanlttq");
+                    smtpClient.Credentials = new NetworkCredential("tài khoản mail của bạn", "mật khẩu mail của bạn");
                     smtpClient.Send(message);
                     MessageBox.Show("Đã gửi báo cáo, vui lòng kiểm tra mail !", "Thông báo");
                 }
