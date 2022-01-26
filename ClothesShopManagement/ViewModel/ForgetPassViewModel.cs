@@ -60,7 +60,7 @@ namespace ClothesShopManagement.ViewModel
             MailMessage message=new MailMessage("clothesmanagement1412@gmail.com", parameter.mail.Text,"Lấy lại mật khẩu",nd);
             SmtpClient smtpClient = new SmtpClient("smtp.gmail.com",587);
             smtpClient.EnableSsl = true;
-            smtpClient.Credentials = new NetworkCredential("clothesmanagement1412@gmail.com","doanlttq");
+            smtpClient.Credentials = new NetworkCredential("tài khoản mail của bạn","mật khẩu mail của bạn");
             smtpClient.Send(message);
             MessageBox.Show("Đã gửi mật khẩu vào Email đăng ký !", "Thông báo");
         }
